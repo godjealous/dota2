@@ -10,8 +10,9 @@ import json
 import re
 from pathlib import Path
 
-RAW = Path("data/raw")
-OUT = Path("data/output")
+_ROOT = Path(__file__).parent.parent
+RAW = _ROOT / "data/raw"
+OUT = _ROOT / "data/output"
 
 
 # ---------------------------------------------------------------------------

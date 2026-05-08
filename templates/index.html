@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOTA2 刀塔百科</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: #1c1c1c;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/* ── 顶部导航 ── */
+header {
+  background: #111;
+  border-bottom: 1px solid #2a2a2a;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+header nav { display: flex; gap: 2px; }
+
+header nav a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 18px;
+  height: 52px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  cursor: pointer;
+}
+
+header nav a.active, header nav a:hover {
+  color: #fff;
+  border-bottom-color: #4fc3f7;
+}
+
+.version-badge {
+  margin-left: auto;
+  font-size: 12px;
+  color: #666;
+}
+.version-badge span { color: #4fc3f7; }
+
+.search-wrap {
+  position: relative;
+}
+.search-wrap input {
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 4px;
+  color: #ddd;
+  font-size: 13px;
+  padding: 5px 10px 5px 28px;
+  width: 180px;
+  outline: none;
+  transition: border-color .15s;
+}
+.search-wrap input:focus { border-color: #4fc3f7; }
+.search-wrap .icon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* ── 主内容 ── */
+main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
+
+/* ── 属性分组 ── */
+.attr-section { margin-bottom: 36px; }
+
+.attr-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+}
+
+.attr-header .attr-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.attr-header .attr-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.attr-divider {
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.4;
+}
+
+/* 属性颜色 */
+.attr-str .attr-header { color: #e05555; }
+.attr-agi .attr-header { color: #6ec86e; }
+.attr-int .attr-header { color: #6aacee; }
+.attr-all .attr-header { color: #4fd6cc; }
+
+/* ── 两栏布局（力量+敏捷 / 智力+全才）── */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+/* ── 英雄网格 ── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+
+.hero-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: pointer;
+  background: #111;
+}
+
+.hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform .2s ease;
+}
+
+.hero-card:hover img { transform: scale(1.06); }
+
+.hero-card .hero-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 6px 5px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  line-height: 1.3;
+  pointer-events: none;
+}
+
+.hero-card:hover .hero-name { color: #ffe082; }
+
+/* ── 详情页 ── */
+#detailView { display: none; }
+
+.detail-hero-banner {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.detail-hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: brightness(0.6);
+}
+
+.detail-hero-banner .banner-info {
+  position: absolute;
+  bottom: 24px;
+  left: 32px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.detail-hero-banner .hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.3);
+  object-fit: cover;
+}
+
+.detail-hero-banner .hero-title h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.detail-hero-banner .hero-title .en { font-size: 15px; color: #aaa; margin-top: 2px; }
+
+.detail-back {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.detail-back:hover { background: rgba(0,0,0,0.8); color: #fff; }
+
+.detail-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 32px 48px;
+}
+
+.detail-tags { display: flex; gap: 8px; margin-bottom: 24px; }
+
+.tag {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.tag-str { background: rgba(224,85,85,.2); color: #e05555; border: 1px solid rgba(224,85,85,.4); }
+.tag-agi { background: rgba(110,200,110,.2); color: #6ec86e; border: 1px solid rgba(110,200,110,.4); }
+.tag-int { background: rgba(106,172,238,.2); color: #6aacee; border: 1px solid rgba(106,172,238,.4); }
+.tag-all { background: rgba(79,214,204,.2); color: #4fd6cc; border: 1px solid rgba(79,214,204,.4); }
+.tag-melee { background: rgba(180,100,50,.2); color: #e0934e; border: 1px solid rgba(180,100,50,.4); }
+.tag-ranged { background: rgba(50,150,200,.2); color: #5bb8e8; border: 1px solid rgba(50,150,200,.4); }
+.tag-role { background: rgba(255,255,255,.06); color: #aaa; border: 1px solid rgba(255,255,255,.1); }
+
+.section-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4fc3f7;
+  border-bottom: 1px solid #2a2a3a;
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+
+/* 技能列表 */
+.ability-list { display: flex; flex-direction: column; gap: 12px; }
+
+.ability-card {
+  background: #242424;
+  border: 1px solid #2e2e2e;
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.ability-card img {
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #111;
+}
+
+.ability-card .ab-content { flex: 1; min-width: 0; }
+
+.ability-card .ab-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.ability-card .ab-desc {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.ability-card .ab-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #666;
+}
+
+.ability-card .ab-stats b { color: #c89b3c; }
+
+/* 物品列表 */
+#itemsView .item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.item-card {
+  background: #242424;
+  border: 1px solid #2e2e2e;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+
+.item-card:hover { border-color: #4fc3f7; background: #2a2a2a; }
+
+.item-card img {
+  width: 52px;
+  height: 38px;
+  border-radius: 4px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #111;
+}
+
+.item-card .item-info { flex: 1; min-width: 0; }
+.item-card .item-name { font-size: 13px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item-card .item-en { font-size: 11px; color: #666; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item-card .item-cost { font-size: 12px; color: #c89b3c; font-weight: 600; margin-top: 3px; }
+
+/* 物品详情面板 */
+.item-detail-panel {
+  position: fixed;
+  right: 0; top: 0;
+  width: 380px;
+  height: 100vh;
+  background: #161616;
+  border-left: 1px solid #2a2a2a;
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform .2s ease;
+  overflow-y: auto;
+}
+.item-detail-panel.open { transform: translateX(0); }
+
+.item-panel-header {
+  padding: 20px;
+  border-bottom: 1px solid #2a2a2a;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  background: #161616;
+  z-index: 10;
+}
+
+.item-panel-header img {
+  width: 64px;
+  height: 46px;
+  border-radius: 4px;
+  object-fit: cover;
+  background: #111;
+}
+
+.item-panel-header .item-panel-title { flex: 1; }
+.item-panel-header h2 { font-size: 18px; color: #fff; }
+.item-panel-header .item-panel-en { font-size: 12px; color: #666; margin-top: 2px; }
+.item-panel-header .item-panel-cost { font-size: 14px; color: #c89b3c; font-weight: 600; margin-top: 4px; }
+
+.item-panel-close {
+  background: none; border: none; color: #555; font-size: 20px; cursor: pointer; padding: 0; line-height: 1; transition: color .15s;
+}
+.item-panel-close:hover { color: #fff; }
+
+.item-panel-body { padding: 20px; }
+
+.item-panel-desc {
+  font-size: 13px;
+  color: #999;
+  line-height: 1.7;
+}
+.item-panel-desc h1 { font-size: 13px; color: #4fc3f7; margin-bottom: 6px; }
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 150;
+}
+.overlay.open { display: block; }
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* 无搜索结果 */
+.search-empty { display: none; text-align: center; padding: 48px; color: #555; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">DOTA2 刀塔百科</div>
+  <nav>
+    <a class="active" onclick="showTab('heroes')">英雄</a>
+    <a onclick="showTab('items')">物品</a>
+  </nav>
+  <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
+  <div class="search-wrap">
+    <span class="icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="搜索英雄 / 物品..." oninput="onSearch()">
+  </div>
+</header>
+
+<!-- 英雄页 -->
+<div id="heroesView">
+  <main id="heroesMain"></main>
+</div>
+
+<!-- 英雄详情页 -->
+<div id="detailView">
+  <div class="detail-hero-banner">
+    <img id="detailBanner" src="" alt="">
+    <button class="detail-back" onclick="backToList()">← 返回英雄列表</button>
+    <div class="banner-info">
+      <img class="hero-icon" id="detailIcon" src="" alt="">
+      <div class="hero-title">
+        <h1 id="detailName"></h1>
+        <div class="en" id="detailEn"></div>
+      </div>
+    </div>
+  </div>
+  <div class="detail-body">
+    <div class="detail-tags" id="detailTags"></div>
+    <div class="section-title">技能</div>
+    <div class="ability-list" id="abilityList"></div>
+  </div>
+</div>
+
+<!-- 物品页 -->
+<div id="itemsView" style="display:none">
+  <main style="max-width:1400px;margin:0 auto;padding:24px 32px 48px">
+    <div class="item-grid" id="itemGrid"></div>
+    <div class="search-empty" id="itemEmpty">没有找到匹配的物品</div>
+  </main>
+</div>
+
+<!-- 物品详情面板 -->
+<div class="overlay" id="overlay" onclick="closeItemPanel()"></div>
+<div class="item-detail-panel" id="itemPanel">
+  <div class="item-panel-header">
+    <img id="panelImg" src="" alt="">
+    <div class="item-panel-title">
+      <h2 id="panelName"></h2>
+      <div class="item-panel-en" id="panelEn"></div>
+      <div class="item-panel-cost" id="panelCost"></div>
+    </div>
+    <button class="item-panel-close" onclick="closeItemPanel()">×</button>
+  </div>
+  <div class="item-panel-body">
+    <div class="item-panel-desc" id="panelDesc"></div>
+  </div>
+</div>
+
+<script>
+const CDN = 'https://cdn.cloudflare.steamstatic.com';
+let heroesData = {}, itemsData = {}, currentTab = 'heroes', searchQuery = '';
+
+const ATTR = {
+  str: { label: '力量', color: '#e05555', icon: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_strength.png' },
+  agi: { label: '敏捷', color: '#6ec86e', icon: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_agility.png' },
+  int: { label: '智力', color: '#6aacee', icon: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_intelligence.png' },
+  all: { label: '全才', color: '#4fd6cc', icon: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/hero_universal.png' },
+};
+
+const ATTR_TAG = { str: 'tag-str', agi: 'tag-agi', int: 'tag-int', all: 'tag-all' };
+
+async function loadData() {
+  try {
+    const [hr, ir, mr] = await Promise.all([
+      fetch('/api/heroes'), fetch('/api/items'), fetch('/api/meta')
+    ]);
+    heroesData = await hr.json();
+    itemsData = await ir.json();
+    const meta = await mr.json();
+    if (meta.patch) {
+      const d = meta.patch_date ? new Date(meta.patch_date).toLocaleDateString('zh-CN') : '';
+      document.getElementById('versionBadge').innerHTML = `版本 <span>${meta.patch}</span>${d ? ' · ' + d : ''}`;
+    }
+    renderHeroes();
+  } catch(e) {
+    document.getElementById('heroesMain').innerHTML = '<div class="empty-state">数据加载失败，请确认 Flask 已启动</div>';
+  }
+}
+
+function showTab(tab) {
+  currentTab = tab;
+  searchQuery = '';
+  document.getElementById('searchInput').value = '';
+  document.querySelectorAll('header nav a').forEach((a, i) =>
+    a.classList.toggle('active', (i === 0 && tab === 'heroes') || (i === 1 && tab === 'items')));
+  document.getElementById('heroesView').style.display = tab === 'heroes' ? '' : 'none';
+  document.getElementById('detailView').style.display = 'none';
+  document.getElementById('itemsView').style.display = tab === 'items' ? '' : 'none';
+  if (tab === 'heroes') renderHeroes();
+  else renderItems();
+}
+
+function onSearch() {
+  searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
+  if (currentTab === 'heroes') renderHeroes();
+  else renderItems();
+}
+
+// ── 英雄列表 ──
+function renderHeroes() {
+  const order = ['str', 'agi', 'int', 'all'];
+  const grouped = { str: [], agi: [], int: [], all: [] };
+
+  for (const [key, h] of Object.entries(heroesData)) {
+    const attr = h.primary_attr;
+    if (!grouped[attr]) continue;
+    if (searchQuery && !h.name.includes(searchQuery) && !h.name_en.toLowerCase().includes(searchQuery)) continue;
+    grouped[attr].push([key, h]);
+  }
+
+  // 两栏：左(力量+智力) 右(敏捷+全才) — 按截图布局
+  const leftAttrs = ['str', 'int'];
+  const rightAttrs = ['agi', 'all'];
+
+  let html = '<div class="columns">';
+
+  for (let col = 0; col < 2; col++) {
+    html += '<div>';
+    const attrs = col === 0 ? leftAttrs : rightAttrs;
+    for (const attr of attrs) {
+      const heroes = grouped[attr];
+      if (!heroes.length) continue;
+      const info = ATTR[attr];
+      html += `
+        <div class="attr-section attr-${attr}">
+          <div class="attr-header">
+            <img class="attr-icon" src="${info.icon}" onerror="this.style.display='none'">
+            <span class="attr-label">${info.label}</span>
+            <div class="attr-divider" style="color:${info.color}"></div>
+          </div>
+          <div class="hero-grid">
+            ${heroes.map(([key, h]) => `
+              <div class="hero-card" onclick="showHeroDetail('${key}')">
+                ${h.img ? `<img src="${h.img}" alt="${h.name}" loading="lazy" onerror="this.style.opacity='.3'">` : ''}
+                <div class="hero-name">${h.name}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>`;
+    }
+    html += '</div>';
+  }
+  html += '</div>';
+
+  const anyResult = Object.values(grouped).some(g => g.length > 0);
+  document.getElementById('heroesMain').innerHTML = anyResult ? html : '<div class="empty-state">没有找到匹配的英雄</div>';
+}
+
+// ── 英雄详情 ──
+function showHeroDetail(key) {
+  const h = heroesData[key];
+  if (!h) return;
+
+  document.getElementById('heroesView').style.display = 'none';
+  document.getElementById('detailView').style.display = 'block';
+
+  document.getElementById('detailBanner').src = h.img || '';
+  document.getElementById('detailIcon').src = h.icon || '';
+  document.getElementById('detailName').textContent = h.name;
+  document.getElementById('detailEn').textContent = h.name_en;
+
+  const attrInfo = ATTR[h.primary_attr] || {};
+  const tags = [
+    `<span class="tag ${ATTR_TAG[h.primary_attr] || ''}">${attrInfo.label || h.primary_attr}</span>`,
+    `<span class="tag ${h.attack_type === 'Melee' ? 'tag-melee' : 'tag-ranged'}">${h.attack_type === 'Melee' ? '近战' : '远程'}</span>`,
+    ...(h.roles || []).map(r => `<span class="tag tag-role">${r}</span>`),
+  ].join('');
+  document.getElementById('detailTags').innerHTML = tags;
+
+  const validAbilities = (h.abilities || []).filter(ab =>
+    ab.name && ab.name !== ab.key && !ab.key.includes('generic_hidden')
+  );
+
+  document.getElementById('abilityList').innerHTML = validAbilities.map(ab => {
+    const imgUrl = `${CDN}/apps/dota2/images/dota_react/abilities/${ab.key}.png`;
+    const cd = ab.cooldown && ab.cooldown !== '0' ? `<b>${ab.cooldown}</b>s` : '';
+    const mc = ab.manacost && ab.manacost !== '0' ? `<b>${ab.manacost}</b>` : '';
+    const stats = [cd ? `冷却 ${cd}` : '', mc ? `耗蓝 ${mc}` : ''].filter(Boolean).join(' &emsp; ');
+    return `
+      <div class="ability-card">
+        <img src="${imgUrl}" alt="${ab.name}" onerror="this.style.visibility='hidden'">
+        <div class="ab-content">
+          <div class="ab-name">${ab.name}</div>
+          ${ab.description ? `<div class="ab-desc">${formatDesc(ab.description, ab.attrib)}</div>` : ''}
+          ${stats ? `<div class="ab-stats">${stats}</div>` : ''}
+        </div>
+      </div>`;
+  }).join('') || '<div style="color:#555;font-size:13px;padding:8px 0">暂无技能数据</div>';
+
+  window.scrollTo(0, 0);
+}
+
+function backToList() {
+  document.getElementById('detailView').style.display = 'none';
+  document.getElementById('heroesView').style.display = '';
+}
+
+// ── 物品列表 ──
+function renderItems() {
+  const entries = Object.entries(itemsData).filter(([, item]) => {
+    if (!item.name_en) return false;
+    if (searchQuery && !item.name.toLowerCase().includes(searchQuery) && !item.name_en.toLowerCase().includes(searchQuery)) return false;
+    return true;
+  });
+
+  document.getElementById('itemEmpty').style.display = entries.length ? 'none' : 'block';
+  document.getElementById('itemGrid').innerHTML = entries.map(([key, item]) => `
+    <div class="item-card" onclick="showItemPanel('${key}')">
+      ${item.img ? `<img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
+      <div class="item-info">
+        <div class="item-name">${item.name}</div>
+        <div class="item-en">${item.name_en}</div>
+        ${item.cost != null ? `<div class="item-cost">💰 ${item.cost}</div>` : ''}
+      </div>
+    </div>`).join('');
+}
+
+function showItemPanel(key) {
+  const item = itemsData[key];
+  if (!item) return;
+  document.getElementById('panelImg').src = item.img || '';
+  document.getElementById('panelName').textContent = item.name;
+  document.getElementById('panelEn').textContent = item.name_en;
+  document.getElementById('panelCost').textContent = item.cost != null ? `💰 ${item.cost} 金币` : '';
+  document.getElementById('panelDesc').innerHTML = item.description ? formatDesc(item.description, {}) : '暂无描述';
+  document.getElementById('itemPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeItemPanel() {
+  document.getElementById('itemPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+}
+
+function formatDesc(text, attrib) {
+  return text
+    .replace(/\\n/g, '<br>').replace(/\n/g, '<br>')
+    .replace(/%([^%\s]+)%%%/g, (_, k) => {
+      const v = attrib && attrib[k];
+      return v != null ? `<b style="color:#c89b3c">${v}%</b>` : `<span style="color:#555">${k}%</span>`;
+    })
+    .replace(/%([^%\s]+)%/g, (_, k) => {
+      const v = attrib && attrib[k];
+      return v != null ? `<b style="color:#c89b3c">${v}</b>` : `<span style="color:#555">${k}</span>`;
+    });
+}
+
+loadData();
+</script>
+</body>
+</html>

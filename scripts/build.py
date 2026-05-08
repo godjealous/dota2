@@ -101,13 +101,28 @@ def merge_heroes() -> dict:
                 else "0"
             )
 
+            # Build attrib lookup: {key: value_string}
+            attrib = {}
+            for a in ab_data.get("attrib", []):
+                ak = a.get("key", "")
+                av = a.get("value")
+                if ak and av is not None:
+                    attrib[ak] = "/".join(str(x) for x in av) if isinstance(av, list) else str(av)
+
             abilities.append({
                 "key": ab_key,
                 "name": ab_cn_name,
                 "description": ab_desc,
                 "cooldown": cooldown,
                 "manacost": manacost,
+                "attrib": attrib,
             })
+
+        img_path = hero.get("img", "")
+        icon_path = hero.get("icon", "")
+        cdn = "https://cdn.cloudflare.steamstatic.com"
+        img = (cdn + img_path.split("?")[0]) if img_path else ""
+        icon = (cdn + icon_path.split("?")[0]) if icon_path else ""
 
         result[npc_name] = {
             "id": hero.get("id"),
@@ -116,6 +131,8 @@ def merge_heroes() -> dict:
             "primary_attr": hero.get("primary_attr", ""),
             "attack_type": hero.get("attack_type", ""),
             "roles": hero.get("roles", []),
+            "img": img,
+            "icon": icon,
             "abilities": abilities,
         }
 
@@ -156,12 +173,17 @@ def merge_items() -> dict:
             or item.get("lore", "")
         )
 
+        img_path = item.get("img", "")
+        cdn = "https://cdn.cloudflare.steamstatic.com"
+        img = (cdn + img_path.split("?")[0]) if img_path else ""
+
         result[item_key] = {
             "id": item.get("id"),
             "name": cn_name,
             "name_en": en_name,
             "cost": item.get("cost"),
             "description": description,
+            "img": img,
         }
 
     return result
@@ -170,6 +192,15 @@ def merge_items() -> dict:
 # ---------------------------------------------------------------------------
 # CLI entry point
 # ---------------------------------------------------------------------------
+
+def build_meta() -> dict:
+    patch_file = RAW / "patch.json"
+    if patch_file.exists():
+        patches = json.loads(patch_file.read_text())
+        latest = patches[-1]
+        return {"patch": latest["name"], "patch_date": latest["date"]}
+    return {}
+
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
@@ -185,6 +216,12 @@ def main() -> None:
         json.dumps(items, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print(f"Written {len(items)} items → {OUT / 'items.json'}")
+
+    meta = build_meta()
+    (OUT / "meta.json").write_text(
+        json.dumps(meta, ensure_ascii=False), encoding="utf-8"
+    )
+    print(f"Written meta → patch {meta.get('patch', 'unknown')}")
 
 
 if __name__ == "__main__":

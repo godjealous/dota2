@@ -1,6 +1,19 @@
 import re
 
 
+def _strip_comment(line: str) -> str:
+    in_quote = False
+    i = 0
+    while i < len(line):
+        c = line[i]
+        if c == '"':
+            in_quote = not in_quote
+        elif c == '/' and not in_quote and i + 1 < len(line) and line[i + 1] == '/':
+            return line[:i]
+        i += 1
+    return line
+
+
 def parse_kv(text: str) -> dict:
     tokens = _tokenize(text)
     result, _ = _parse_block(tokens, 0)
@@ -10,7 +23,7 @@ def parse_kv(text: str) -> dict:
 def _tokenize(text: str) -> list:
     tokens = []
     for line in text.splitlines():
-        line = line.split("//")[0].strip()
+        line = _strip_comment(line).strip()
         for token in re.findall(r'"[^"]*"|\{|\}', line):
             tokens.append(token.strip('"') if token not in ("{", "}") else token)
     return tokens

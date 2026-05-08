@@ -51,3 +51,9 @@ def test_comment_ignored():
 '''
     result = parse_kv(text)
     assert result == {"key": "value"}
+
+
+def test_url_in_value_not_truncated():
+    text = '"url" "http://valve.com"'
+    result = parse_kv(text)
+    assert result == {"url": "http://valve.com"}

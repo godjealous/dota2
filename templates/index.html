@@ -316,6 +316,39 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 
 .ability-card .ab-stats b { color: #c89b3c; }
 
+/* 技能类型徽章 */
+.ab-badges { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+
+.ab-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+}
+
+.ab-badge-innate {
+  background: rgba(220, 180, 60, 0.15);
+  color: #e8c840;
+  border: 1px solid rgba(220, 180, 60, 0.4);
+}
+
+.ab-badge-scepter {
+  background: rgba(100, 200, 100, 0.12);
+  color: #6dc86e;
+  border: 1px solid rgba(100, 200, 100, 0.35);
+}
+
+.ab-badge-shard {
+  background: rgba(120, 160, 240, 0.15);
+  color: #7db4f0;
+  border: 1px solid rgba(120, 160, 240, 0.4);
+}
+
+.ability-card.is-innate { border-color: rgba(220, 180, 60, 0.3); }
+.ability-card.has-scepter { border-color: rgba(100, 200, 100, 0.3); }
+.ability-card.has-shard { border-color: rgba(120, 160, 240, 0.3); }
+
 /* 物品列表 */
 #itemsView .item-grid {
   display: grid;
@@ -620,10 +653,25 @@ function showHeroDetail(key) {
     const cd = ab.cooldown && ab.cooldown !== '0' ? `<b>${ab.cooldown}</b>s` : '';
     const mc = ab.manacost && ab.manacost !== '0' ? `<b>${ab.manacost}</b>` : '';
     const stats = [cd ? `冷却 ${cd}` : '', mc ? `耗蓝 ${mc}` : ''].filter(Boolean).join(' &emsp; ');
+
+    const badges = [
+      ab.is_innate  ? '<span class="ab-badge ab-badge-innate">先天技能</span>' : '',
+      ab.has_scepter ? '<span class="ab-badge ab-badge-scepter">阿哈利姆神杖</span>' : '',
+      ab.has_shard   ? '<span class="ab-badge ab-badge-shard">阿哈利姆魔晶</span>' : '',
+    ].filter(Boolean).join('');
+
+    const cardClass = [
+      'ability-card',
+      ab.is_innate   ? 'is-innate'    : '',
+      ab.has_scepter ? 'has-scepter'  : '',
+      ab.has_shard   ? 'has-shard'    : '',
+    ].filter(Boolean).join(' ');
+
     return `
-      <div class="ability-card">
+      <div class="${cardClass}">
         <img src="${imgUrl}" alt="${ab.name}" onerror="this.style.visibility='hidden'">
         <div class="ab-content">
+          ${badges ? `<div class="ab-badges">${badges}</div>` : ''}
           <div class="ab-name">${ab.name}</div>
           ${ab.description ? `<div class="ab-desc">${formatDesc(ab.description, ab.attrib)}</div>` : ''}
           ${stats ? `<div class="ab-stats">${stats}</div>` : ''}

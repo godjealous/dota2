@@ -74,8 +74,22 @@ def merge_heroes() -> dict:
 
         # Abilities
         ability_keys = hero_abilities_raw.get(npc_name, {}).get("abilities", [])
+
+        # Collect innate abilities for this hero not already in the abilities list.
+        # Only include those with a display name (dname or localization entry) to
+        # exclude internal trigger/facet entries that have no tooltip.
+        hero_prefix = npc_name.replace("npc_dota_hero_", "")
+        existing_keys = {k for k in ability_keys if isinstance(k, str)}
+        innate_keys = sorted(
+            k for k, v in abilities_raw.items()
+            if v.get("is_innate")
+            and k.startswith(hero_prefix + "_")
+            and k not in existing_keys
+            and (v.get("dname") or loc.get(f"DOTA_Tooltip_ability_{k}"))
+        )
+
         abilities = []
-        for ab_key in ability_keys:
+        for ab_key in list(ability_keys) + innate_keys:
             # Some ability entries are nested lists (alternate forms); skip them
             if not isinstance(ab_key, str):
                 continue
@@ -109,6 +123,17 @@ def merge_heroes() -> dict:
                 if ak and av is not None:
                     attrib[ak] = "/".join(str(x) for x in av) if isinstance(av, list) else str(av)
 
+            # Special flags
+            is_innate = bool(ab_data.get("is_innate"))
+            has_scepter = bool(
+                loc.get(f"DOTA_Tooltip_ability_{ab_key}_scepter_Description")
+                or loc.get(f"DOTA_Tooltip_ability_{ab_key}_scepter_description")
+            )
+            has_shard = bool(
+                loc.get(f"DOTA_Tooltip_ability_{ab_key}_shard_Description")
+                or loc.get(f"DOTA_Tooltip_ability_{ab_key}_shard_description")
+            )
+
             abilities.append({
                 "key": ab_key,
                 "name": ab_cn_name,
@@ -116,6 +141,9 @@ def merge_heroes() -> dict:
                 "cooldown": cooldown,
                 "manacost": manacost,
                 "attrib": attrib,
+                "is_innate": is_innate,
+                "has_scepter": has_scepter,
+                "has_shard": has_shard,
             })
 
         img_path = hero.get("img", "")

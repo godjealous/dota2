@@ -16,6 +16,8 @@ RAW = _ROOT / "data/raw"
 OUT = _ROOT / "data/output"
 
 NPC_HEROES_URL = "https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/scripts/npc/npc_heroes.txt"
+NPC_HERO_FILE_URL = "https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/scripts/npc/heroes/{hero}.txt"
+NPC_ABILITIES_URL = "https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/npc_abilities.txt"
 
 _SUB_ABILITY_SUFFIXES = (
     "_end", "_release", "_cancel", "_stop", "_throw", "_channel",
@@ -162,6 +164,106 @@ def _build_grant_sets(abilities_raw: dict, ha_raw: dict, loc: dict):
 
 
 # ---------------------------------------------------------------------------
+# Talent value extraction
+# ---------------------------------------------------------------------------
+
+def _fetch_generic_talent_values() -> dict:
+    """
+    Parse npc_abilities.txt and return {talent_key: {'value': 'N'}} for all
+    generic special_bonus_* abilities (those not hero-specific).
+    """
+    try:
+        req = urllib.request.Request(NPC_ABILITIES_URL, headers={"User-Agent": "Mozilla/5.0"})
+        content = urllib.request.urlopen(req, timeout=15).read().decode("utf-8")
+    except Exception as e:
+        print(f"  [warn] Could not fetch npc_abilities.txt: {e}")
+        return {}
+
+    result: dict = {}
+    bonus_pat = re.compile(r'"(special_bonus[^"]+)"\s*\n\s*\{', re.MULTILINE)
+    for m in bonus_pat.finditer(content):
+        key = m.group(1)
+        start = m.end()
+        depth = 1
+        pos = start
+        while pos < len(content) and depth > 0:
+            c = content[pos]
+            if c == "{":
+                depth += 1
+            elif c == "}":
+                depth -= 1
+            pos += 1
+        block = content[start:pos]
+        v_match = re.search(r'"value"\s*\{\s*"value"\s*"([^"]+)"', block)
+        if not v_match:
+            v_match = re.search(r'"value"\s+"([^"]+)"', block)
+        if v_match:
+            result[key] = {"value": v_match.group(1).split()[0]}
+    return result
+
+
+def _fetch_hero_talent_values(hero_npc_name: str) -> dict:
+    """
+    Fetch the hero's per-ability file and extract talent bonus values.
+    Returns {talent_key: {field_name: value_str}}.
+    E.g. {'special_bonus_unique_antimage': {'AbilityCooldown': '-1'}, ...}
+    """
+    url = NPC_HERO_FILE_URL.format(hero=hero_npc_name)
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        content = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
+    except Exception:
+        return {}
+
+    lines = content.splitlines()
+    talent_fields: dict = {}
+
+    for i, line in enumerate(lines):
+        m = re.search(r'"(special_bonus_unique_[^"]+)"\s+"([^"]+)"', line)
+        if not m:
+            continue
+        talent_key = m.group(1)
+        bonus_val = m.group(2)
+
+        # Walk up to find the enclosing field name (the key before the '{' block)
+        field_name = None
+        for j in range(i - 1, max(0, i - 10), -1):
+            prev = lines[j].strip()
+            if prev in ("{", "}", ""):
+                continue
+            fm = re.match(r'^"([A-Za-z_0-9]+)"\s*(?:\{)?\s*$', prev)
+            if fm:
+                name = fm.group(1)
+                if name not in ("AbilityValues", "AbilitySpecial", "Version", "DOTAAbilities"):
+                    field_name = name
+                    break
+
+        entry = talent_fields.setdefault(talent_key, {})
+        entry[field_name or "value"] = bonus_val
+
+    return talent_fields
+
+
+def _resolve_talent_name(text: str, fields: dict) -> str:
+    """Replace {s:bonus_XXX} placeholders with actual values from fields dict."""
+    def replace(m: re.Match) -> str:
+        placeholder = m.group(1)  # e.g. "bonus_AbilityCooldown"
+        field = placeholder[6:] if placeholder.startswith("bonus_") else placeholder
+        for k, v in fields.items():
+            if k.lower() == field.lower():
+                return v
+        return m.group(0)
+
+    result = re.sub(r"\{s:([^}]+)\}", replace, text)
+    # Clean up doubled signs produced by combining text prefix + value sign
+    result = re.sub(r"\+\+", "+", result)
+    result = re.sub(r"--", "-", result)
+    result = re.sub(r"\+-", "-", result)
+    result = re.sub(r"-\+", "-", result)
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Public merge functions
 # ---------------------------------------------------------------------------
 
@@ -176,6 +278,13 @@ def merge_heroes() -> dict:
 
     # abilities_schinese.txt carries BOTH hero names and ability names
     loc = _load_kv_tokens(RAW / "abilities_schinese.txt")
+    # dota_schinese.txt carries hype/bio texts
+    dota_loc = _load_kv_tokens(RAW / "dota_schinese.txt")
+
+    # Generic talent values (fallback for non-hero-specific talents like special_bonus_hp_regen_3)
+    print("Fetching generic talent values...")
+    _generic_talent_vals = _fetch_generic_talent_values()
+    print(f"  Generic talent values: {len(_generic_talent_vals)}")
 
     # Detect abilities granted as new skills by scepter/shard; also get
     # the authoritative in-game ability order from npc_heroes.txt.
@@ -193,6 +302,14 @@ def merge_heroes() -> dict:
         # Token keys: "npc_dota_hero_antimage:n" and "npc_dota_hero_antimage__en:n"
         cn_name = loc.get(f"{npc_name}:n") or hero.get("localized_name", npc_name)
         en_name = loc.get(f"{npc_name}__en:n") or hero.get("localized_name", npc_name)
+
+        # Hero hype / bio (short description shown in hero selection)
+        short_name = npc_name.replace("npc_dota_hero_", "")
+        hype = dota_loc.get(f"{npc_name}_hype", "")
+
+        # Alternate persona name (e.g. Anti-Mage (Wei))
+        persona_cn = loc.get(f"{npc_name}_persona1:n", "")
+        persona_en = loc.get(f"{npc_name}_persona1__en:n", "")
 
         # Use the ordered ability list from npc_heroes.txt when available (it
         # includes innates in their correct in-game position).  Fall back to
@@ -297,16 +414,52 @@ def merge_heroes() -> dict:
         img = (cdn + img_path.split("?")[0]) if img_path else ""
         icon = (cdn + icon_path.split("?")[0]) if icon_path else ""
 
+        # Build talents: 8 entries grouped into 4 levels (1-4), each level has left+right
+        # level 1 = game level 10, level 2 = 15, level 3 = 20, level 4 = 25
+        TALENT_LEVELS = {1: 10, 2: 15, 3: 20, 4: 25}
+        raw_talents = hero_abilities_raw.get(npc_name, {}).get("talents", [])
+
+        # Fetch per-hero talent bonus values to substitute {s:...} placeholders
+        hero_talent_vals = _fetch_hero_talent_values(npc_name)
+
+        talent_by_level: dict = {}
+        for t in raw_talents:
+            lv = t.get("level")
+            t_key = t.get("name", "")
+            if not lv or not t_key:
+                continue
+            t_data = abilities_raw.get(t_key, {})
+            t_cn_raw = loc.get(f"DOTA_Tooltip_ability_{t_key}") or t_data.get("dname", t_key)
+            fields = {**_generic_talent_vals.get(t_key, {}), **hero_talent_vals.get(t_key, {})}
+            t_cn = _resolve_talent_name(t_cn_raw, fields)
+            talent_by_level.setdefault(lv, []).append({"key": t_key, "name": t_cn})
+
+        talents = []
+        for lv in sorted(talent_by_level.keys()):
+            pair = talent_by_level[lv]
+            talents.append({
+                "level": lv,
+                "game_level": TALENT_LEVELS.get(lv, lv * 5 + 5),
+                "left": pair[0] if len(pair) > 0 else None,
+                "right": pair[1] if len(pair) > 1 else None,
+            })
+
         result[npc_name] = {
             "id": hero.get("id"),
             "name": cn_name,
             "name_en": en_name,
+            "persona_cn": persona_cn,
+            "persona_en": persona_en,
+            "hype": hype,
             "primary_attr": hero.get("primary_attr", ""),
             "attack_type": hero.get("attack_type", ""),
             "roles": hero.get("roles", []),
+            "move_speed": hero.get("move_speed"),
+            "attack_range": hero.get("attack_range"),
             "img": img,
             "icon": icon,
             "abilities": abilities,
+            "talents": talents,
         }
 
     return result

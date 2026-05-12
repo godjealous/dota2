@@ -242,6 +242,73 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   padding: 28px 32px 48px;
 }
 
+/* ── 英雄介绍卡片 ── */
+.hero-intro-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.hero-intro-avatar {
+  width: 128px;
+  height: 72px;
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: top center;
+  flex-shrink: 0;
+  background: #111;
+  border: 1px solid #333;
+}
+
+.hero-intro-rows {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero-intro-row {
+  display: flex;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid #272727;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.hero-intro-row:last-child { border-bottom: none; }
+
+.hero-intro-label {
+  width: 80px;
+  flex-shrink: 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.hero-intro-value {
+  color: #ccc;
+  flex: 1;
+}
+
+.hero-intro-value.name-cn {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.hero-intro-value.hype {
+  color: #999;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.hero-intro-value.hype b { color: #c8b464; font-weight: 600; }
+
 .detail-tags { display: flex; gap: 8px; margin-bottom: 24px; }
 
 .tag {
@@ -531,6 +598,67 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 
 /* 无搜索结果 */
 .search-empty { display: none; text-align: center; padding: 48px; color: #555; font-size: 14px; }
+
+/* ── 天赋树 ── */
+.talent-tree-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.talent-tree {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 680px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #3a3528;
+}
+
+.talent-row {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  background: #2a2820;
+  border-bottom: 1px solid #1a1812;
+  position: relative;
+}
+
+.talent-row:last-child { border-bottom: none; }
+
+.talent-row:hover { background: #322f24; }
+
+.talent-cell {
+  flex: 1;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #d4c89a;
+  line-height: 1.35;
+  cursor: default;
+}
+
+.talent-cell.left  { text-align: right; padding-right: 24px; }
+.talent-cell.right { text-align: left;  padding-left: 24px; }
+
+.talent-level-badge {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  background: radial-gradient(circle at 40% 35%, #e8a040, #c06010 60%, #7a3a08);
+  box-shadow: 0 0 10px rgba(220,140,40,.6), 0 0 22px rgba(200,100,20,.35), inset 0 1px 2px rgba(255,220,120,.4);
+  border: 2px solid rgba(255,200,80,.35);
+  z-index: 1;
+  letter-spacing: -0.5px;
+}
 </style>
 </head>
 <body>
@@ -567,7 +695,11 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
     </div>
   </div>
   <div class="detail-body">
-    <div class="detail-tags" id="detailTags"></div>
+    <div id="heroIntroCard"></div>
+    <div class="section-title" id="talentTitle" style="display:none">天赋树</div>
+    <div class="talent-tree-wrap" id="talentTreeWrap" style="display:none">
+      <div class="talent-tree" id="talentTree"></div>
+    </div>
     <div class="section-title">技能</div>
     <div class="ability-list" id="abilityList"></div>
   </div>
@@ -712,12 +844,37 @@ function showHeroDetail(key) {
   document.getElementById('detailEn').textContent = h.name_en;
 
   const attrInfo = ATTR[h.primary_attr] || {};
-  const tags = [
-    `<span class="tag ${ATTR_TAG[h.primary_attr] || ''}">${attrInfo.label || h.primary_attr}</span>`,
-    `<span class="tag ${h.attack_type === 'Melee' ? 'tag-melee' : 'tag-ranged'}">${h.attack_type === 'Melee' ? '近战' : '远程'}</span>`,
-    ...(h.roles || []).map(r => `<span class="tag tag-role">${r}</span>`),
-  ].join('');
-  document.getElementById('detailTags').innerHTML = tags;
+  const attrLabel = attrInfo.label || h.primary_attr;
+  const attackLabel = h.attack_type === 'Melee' ? '近战' : '远程';
+  const ROLE_CN = {
+    'Carry': '核心', 'Support': '辅助', 'Nuker': '爆发', 'Disabler': '控制',
+    'Jungler': '打野', 'Durable': '耐久', 'Escape': '逃脱', 'Pusher': '推线',
+    'Initiator': '发起', 'Lane Support': '线辅'
+  };
+  const rolesLabel = (h.roles || []).map(r => ROLE_CN[r] || r).join('、');
+  const rows = [
+    { label: '名称',     value: h.name,     cls: 'name-cn' },
+    { label: '英文名',   value: h.name_en },
+    h.persona_cn ? { label: '绰号', value: `${h.persona_cn}${h.persona_en ? ' / ' + h.persona_en : ''}` } : null,
+    { label: '主属性',   value: attrLabel },
+    { label: '攻击方式', value: attackLabel },
+    rolesLabel ? { label: '定位',  value: rolesLabel } : null,
+    h.move_speed  != null ? { label: '移动速度', value: h.move_speed }  : null,
+    h.attack_range != null ? { label: '攻击距离', value: h.attack_range } : null,
+    h.hype ? { label: '故事背景', value: h.hype, cls: 'hype' } : null,
+  ].filter(Boolean);
+
+  document.getElementById('heroIntroCard').innerHTML = `
+    <div class="hero-intro-card">
+      <img class="hero-intro-avatar" src="${h.img || ''}" alt="${h.name}" onerror="this.style.opacity='.3'">
+      <div class="hero-intro-rows">
+        ${rows.map(r => `
+          <div class="hero-intro-row">
+            <span class="hero-intro-label">${r.label}</span>
+            <span class="hero-intro-value${r.cls ? ' ' + r.cls : ''}">${r.value}</span>
+          </div>`).join('')}
+      </div>
+    </div>`;
 
   const validAbilities = (h.abilities || []).filter(ab =>
     ab.name && ab.name !== ab.key && !ab.key.includes('generic_hidden')
@@ -804,6 +961,31 @@ function showHeroDetail(key) {
 
     return `<div class="ability-group">${mainCard}${scepterCard}${shardCard}</div>`;
   }).join('') || '<div style="color:#555;font-size:13px;padding:8px 0">暂无技能数据</div>';
+
+  // ── 天赋树 ──
+  const talents = h.talents || [];
+  const talentTitle = document.getElementById('talentTitle');
+  const talentTreeWrap = document.getElementById('talentTreeWrap');
+  const talentTree = document.getElementById('talentTree');
+  if (talents.length) {
+    talentTitle.style.display = '';
+    talentTreeWrap.style.display = '';
+    const sorted = [...talents].sort((a, b) => b.game_level - a.game_level);
+    talentTree.innerHTML = sorted.map(t => {
+      const leftName = t.left ? t.left.name : '';
+      const rightName = t.right ? t.right.name : '';
+      return `
+        <div class="talent-row">
+          <div class="talent-cell left">${leftName}</div>
+          <div class="talent-level-badge">${t.game_level}</div>
+          <div class="talent-cell right">${rightName}</div>
+        </div>`;
+    }).join('');
+  } else {
+    talentTitle.style.display = 'none';
+    talentTreeWrap.style.display = 'none';
+    talentTree.innerHTML = '';
+  }
 
   window.scrollTo(0, 0);
 }

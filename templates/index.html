@@ -600,6 +600,50 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 /* 无搜索结果 */
 .search-empty { display: none; text-align: center; padding: 48px; color: #555; font-size: 14px; }
 
+/* ── 英雄页搜索栏 ── */
+.hero-search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 16px 32px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.hero-search-bar input {
+  width: 320px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #ddd;
+  font-size: 14px;
+  padding: 8px 36px 8px 32px;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.hero-search-bar input:focus {
+  border-color: #4fc3f7;
+  box-shadow: 0 0 0 2px rgba(79,195,247,.15);
+}
+.hero-search-icon {
+  position: absolute;
+  left: 42px;
+  font-size: 14px;
+  color: #555;
+  pointer-events: none;
+}
+.hero-search-clear {
+  position: absolute;
+  left: 344px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 4px;
+  line-height: 1;
+}
+.hero-search-clear:hover { color: #aaa; }
+
 /* ── 天赋树 ── */
 .talent-tree-wrap {
   display: flex;
@@ -793,6 +837,139 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   display: none;
   box-shadow: 0 4px 20px rgba(0,0,0,.6);
 }
+
+/* ── 配合关系 ── */
+.synergy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.synergy-card {
+  background: #141e16;
+  border: 1px solid #253528;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background .15s;
+}
+
+.synergy-card:hover { background: #1a2a1c; }
+
+.synergy-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.synergy-hero-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #253528;
+  flex-shrink: 0;
+}
+
+.synergy-hero-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #9ad4a8;
+  flex: 1;
+}
+
+.synergy-strength-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .5px;
+}
+
+.synergy-strength-badge.strong {
+  background: rgba(50, 200, 80, 0.15);
+  color: #60d870;
+  border: 1px solid rgba(50, 200, 80, 0.3);
+}
+
+.synergy-strength-badge.good {
+  background: rgba(60, 160, 80, 0.12);
+  color: #70b880;
+  border: 1px solid rgba(60, 160, 80, 0.25);
+}
+
+.synergy-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.synergy-reason {
+  font-size: 13px;
+  color: #708070;
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+}
+
+.synergy-reason::before {
+  content: '·';
+  position: absolute;
+  left: 2px;
+  color: #3a5040;
+}
+
+.synergy-loading {
+  color: #555;
+  font-size: 13px;
+  padding: 16px 0;
+  text-align: center;
+}
+
+/* ── 配合关系图 ── */
+.synergy-graph-wrap {
+  width: 100%;
+  background: #101610;
+  border: 1px solid #1e2e20;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.synergy-graph-wrap svg {
+  display: block;
+  width: 100%;
+}
+
+.synergy-graph-wrap .graph-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: 11px;
+  color: #253528;
+  pointer-events: none;
+}
+
+/* synergy tooltip */
+.synergy-tooltip {
+  position: fixed;
+  background: rgba(10,18,12,.95);
+  border: 1px solid #253528;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #88c898;
+  pointer-events: none;
+  max-width: 260px;
+  line-height: 1.5;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,.6);
+}
 </style>
 </head>
 <body>
@@ -812,6 +989,11 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 
 <!-- 英雄页 -->
 <div id="heroesView">
+  <div class="hero-search-bar">
+    <span class="hero-search-icon">🔍</span>
+    <input type="text" id="heroSearchInput" placeholder="搜索英雄中文名或绰号..." oninput="onHeroSearch()" autocomplete="off">
+    <button class="hero-search-clear" id="heroSearchClear" onclick="clearHeroSearch()" style="display:none">✕</button>
+  </div>
   <main id="heroesMain"></main>
 </div>
 
@@ -842,6 +1024,12 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
       <div class="graph-hint">可拖动节点</div>
     </div>
     <div id="counterSection"></div>
+    <div class="section-title" id="synergyTitle" style="display:none">与该英雄配合的阵容</div>
+    <div class="synergy-graph-wrap" id="synergyGraphWrap" style="display:none">
+      <svg id="synergyGraphSvg"></svg>
+      <div class="graph-hint">可拖动节点</div>
+    </div>
+    <div id="synergySection"></div>
   </div>
 </div>
 
@@ -920,15 +1108,36 @@ function onSearch() {
   else renderItems();
 }
 
+let heroSearchQuery = '';
+function onHeroSearch() {
+  heroSearchQuery = document.getElementById('heroSearchInput').value.trim().toLowerCase();
+  document.getElementById('heroSearchClear').style.display = heroSearchQuery ? '' : 'none';
+  renderHeroes();
+}
+function clearHeroSearch() {
+  document.getElementById('heroSearchInput').value = '';
+  document.getElementById('heroSearchClear').style.display = 'none';
+  heroSearchQuery = '';
+  renderHeroes();
+}
+function heroMatchesSearch(h, q) {
+  if (!q) return true;
+  if (h.name && h.name.toLowerCase().includes(q)) return true;
+  if (h.name_en && h.name_en.toLowerCase().includes(q)) return true;
+  if (h.nickname && h.nickname.some(n => n.toLowerCase().includes(q))) return true;
+  return false;
+}
+
 // ── 英雄列表 ──
 function renderHeroes() {
   const order = ['str', 'agi', 'int', 'all'];
   const grouped = { str: [], agi: [], int: [], all: [] };
 
+  const effectiveQuery = heroSearchQuery || searchQuery;
   for (const [key, h] of Object.entries(heroesData)) {
     const attr = h.primary_attr;
     if (!grouped[attr]) continue;
-    if (searchQuery && !h.name.includes(searchQuery) && !h.name_en.toLowerCase().includes(searchQuery)) continue;
+    if (!heroMatchesSearch(h, effectiveQuery)) continue;
     grouped[attr].push([key, h]);
   }
 
@@ -1170,6 +1379,46 @@ function showHeroDetail(key) {
     })
     .catch(() => { counterSection.innerHTML = ''; });
 
+  // ── 配合关系 ──
+  const synergyTitle = document.getElementById('synergyTitle');
+  const synergyGraphWrap = document.getElementById('synergyGraphWrap');
+  const synergySection = document.getElementById('synergySection');
+  synergyTitle.style.display = 'none';
+  synergyGraphWrap.style.display = 'none';
+  synergySection.innerHTML = '<div class="synergy-loading">加载配合数据中...</div>';
+
+  fetch(`/api/synergies/${shortKey}`)
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (!data || !data.synergies || !data.synergies.length) {
+        synergySection.innerHTML = '';
+        return;
+      }
+      synergyTitle.style.display = '';
+
+      renderSynergyGraph(data, h);
+
+      synergySection.innerHTML = `<div class="synergy-grid">${
+        data.synergies.map(c => {
+          const iconUrl = `${CDN}/apps/dota2/images/dota_react/heroes/icons/${c.key}.png`;
+          const strengthLabel = c.strength === 'strong' ? '强力配合' : '良好配合';
+          const reasons = (c.reasons || []).map(r =>
+            `<div class="synergy-reason">${r}</div>`
+          ).join('');
+          return `
+            <div class="synergy-card">
+              <div class="synergy-card-header">
+                <img class="synergy-hero-icon" src="${iconUrl}" alt="${c.name}" onerror="this.style.opacity='.3'">
+                <span class="synergy-hero-name">${c.name}</span>
+                <span class="synergy-strength-badge ${c.strength}">${strengthLabel}</span>
+              </div>
+              <div class="synergy-reasons">${reasons}</div>
+            </div>`;
+        }).join('')
+      }</div>`;
+    })
+    .catch(() => { synergySection.innerHTML = ''; });
+
   window.scrollTo(0, 0);
 }
 
@@ -1338,6 +1587,159 @@ function renderCounterGraph(data, centerHero) {
 
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
+function renderSynergyGraph(data, centerHero) {
+  const wrap = document.getElementById('synergyGraphWrap');
+  const svgEl = document.getElementById('synergyGraphSvg');
+  const tooltip = document.getElementById('synergyTooltip');
+
+  d3.select(svgEl).selectAll('*').remove();
+
+  const W = wrap.clientWidth || 700;
+  const H = Math.max(420, Math.min(560, W * 0.65));
+  svgEl.setAttribute('height', H);
+
+  const synergies = data.synergies;
+  const nodes = [
+    { id: 'center', name: centerHero.name, iconUrl: centerHero.icon, isCenter: true }
+  ].concat(synergies.map(c => ({
+    id: c.key,
+    name: c.name,
+    key: c.key,
+    strength: c.strength,
+    reasons: c.reasons,
+    isCenter: false
+  })));
+
+  const links = synergies.map(c => ({
+    source: c.key,
+    target: 'center',
+    strength: c.strength
+  }));
+
+  const svg = d3.select(svgEl)
+    .attr('width', W)
+    .attr('height', H);
+
+  const defs = svg.append('defs');
+  ['strong','good'].forEach(s => {
+    defs.append('marker')
+      .attr('id', `syn-arrow-${s}`)
+      .attr('viewBox', '0 -4 8 8')
+      .attr('refX', 28)
+      .attr('refY', 0)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-4L8,0L0,4')
+      .attr('fill', s === 'strong' ? '#40c860' : '#40a050');
+  });
+
+  nodes.forEach(n => {
+    defs.append('clipPath')
+      .attr('id', `syn-clip-${n.id}`)
+      .append('circle')
+      .attr('r', n.isCenter ? 38 : 26);
+  });
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(d => d.strength === 'strong' ? 155 : 185).strength(0.6))
+    .force('charge', d3.forceManyBody().strength(-320))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide(50));
+
+  const link = svg.append('g').selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('stroke', d => d.strength === 'strong' ? '#40c860' : '#40a050')
+    .attr('stroke-width', d => d.strength === 'strong' ? 2 : 1.2)
+    .attr('stroke-opacity', d => d.strength === 'strong' ? 0.7 : 0.45)
+    .attr('marker-end', d => `url(#syn-arrow-${d.strength})`);
+
+  const node = svg.append('g').selectAll('g')
+    .data(nodes)
+    .join('g')
+    .attr('cursor', 'grab')
+    .call(d3.drag()
+      .on('start', (event, d) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      })
+      .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
+      .on('end', (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null; d.fy = null;
+      })
+    );
+
+  node.append('circle')
+    .attr('r', d => d.isCenter ? 40 : 28)
+    .attr('fill', d => d.isCenter ? '#102018' : (d.strength === 'strong' ? '#102010' : '#0e1a10'))
+    .attr('stroke', d => d.isCenter ? '#3cb870' : (d.strength === 'strong' ? '#40c860' : '#40a050'))
+    .attr('stroke-width', d => d.isCenter ? 2.5 : 1.5);
+
+  node.append('image')
+    .attr('href', d => d.isCenter
+      ? d.iconUrl
+      : `${CDN}/apps/dota2/images/dota_react/heroes/icons/${d.key}.png`
+    )
+    .attr('x', d => d.isCenter ? -38 : -26)
+    .attr('y', d => d.isCenter ? -38 : -26)
+    .attr('width',  d => d.isCenter ? 76 : 52)
+    .attr('height', d => d.isCenter ? 76 : 52)
+    .attr('clip-path', d => `url(#syn-clip-${d.id})`)
+    .attr('preserveAspectRatio', 'xMidYMid slice');
+
+  node.filter(d => d.isCenter)
+    .append('circle')
+    .attr('r', 44)
+    .attr('fill', 'none')
+    .attr('stroke', '#3cb870')
+    .attr('stroke-width', 1)
+    .attr('stroke-opacity', 0.3)
+    .attr('stroke-dasharray', '4 3');
+
+  node.append('text')
+    .attr('y', d => d.isCenter ? 56 : 40)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', d => d.isCenter ? 13 : 11)
+    .attr('font-weight', d => d.isCenter ? 700 : 500)
+    .attr('fill', d => d.isCenter ? '#3cb870' : '#70a070')
+    .attr('pointer-events', 'none')
+    .text(d => d.name);
+
+  node.filter(d => !d.isCenter)
+    .on('mouseenter', (event, d) => {
+      const strengthLabel = d.strength === 'strong' ? '<span style="color:#60d870">强力配合</span>' : '<span style="color:#70b880">良好配合</span>';
+      const reasonsHtml = (d.reasons || []).map(r => `<div style="margin-top:4px;color:#608060">· ${r}</div>`).join('');
+      tooltip.innerHTML = `<div style="font-weight:700;margin-bottom:4px">${d.name} ${strengthLabel}</div>${reasonsHtml}`;
+      tooltip.style.display = 'block';
+    })
+    .on('mousemove', event => {
+      const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+      let x = event.clientX + 14, y = event.clientY - 10;
+      if (x + tw > window.innerWidth - 8) x = event.clientX - tw - 14;
+      if (y + th > window.innerHeight - 8) y = event.clientY - th - 10;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+  simulation.on('tick', () => {
+    const r = d => d.isCenter ? 42 : 30;
+    link
+      .attr('x1', d => clamp(d.source.x, r(d.source), W - r(d.source)))
+      .attr('y1', d => clamp(d.source.y, r(d.source), H - r(d.source)))
+      .attr('x2', d => clamp(d.target.x, r(d.target), W - r(d.target)))
+      .attr('y2', d => clamp(d.target.y, r(d.target), H - r(d.target)));
+    node.attr('transform', d =>
+      `translate(${clamp(d.x, r(d), W - r(d))},${clamp(d.y, r(d), H - r(d))})`
+    );
+  });
+
+  wrap.style.display = '';
+}
+
 function backToList() {
   document.getElementById('detailView').style.display = 'none';
   document.getElementById('heroesView').style.display = '';
@@ -1396,5 +1798,6 @@ function formatDesc(text, attrib) {
 loadData();
 </script>
 <div class="counter-tooltip" id="counterTooltip"></div>
+<div class="synergy-tooltip" id="synergyTooltip"></div>
 </body>
 </html>

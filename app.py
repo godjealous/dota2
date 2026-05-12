@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 DATA_DIR = Path(__file__).parent / "data" / "output"
 NICKNAMES_FILE = Path(__file__).parent / "data" / "nicknames.json"
+COUNTERS_FILE = Path(__file__).parent / "data" / "counters.json"
 
 
 def _load(filename: str) -> dict:
@@ -74,6 +75,18 @@ def api_hero(key: str):
     if hero is None:
         abort(404)
     return jsonify(hero)
+
+
+@app.route("/api/counters/<key>")
+def api_counters(key: str):
+    if not COUNTERS_FILE.exists():
+        abort(404)
+    counters = json.loads(COUNTERS_FILE.read_text(encoding="utf-8"))
+    short_key = key.replace("npc_dota_hero_", "")
+    data = counters.get(short_key)
+    if data is None:
+        abort(404)
+    return jsonify(data)
 
 
 @app.route("/api/items")

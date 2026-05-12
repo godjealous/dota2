@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DOTA2 刀塔百科</title>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -659,6 +660,139 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   z-index: 1;
   letter-spacing: -0.5px;
 }
+
+/* ── 克制关系 ── */
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.counter-card {
+  background: #1e1c16;
+  border: 1px solid #3a3528;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background .15s;
+}
+
+.counter-card:hover { background: #252318; }
+
+.counter-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter-hero-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3a3528;
+  flex-shrink: 0;
+}
+
+.counter-hero-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #d4c89a;
+  flex: 1;
+}
+
+.counter-strength-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  letter-spacing: .5px;
+}
+
+.counter-strength-badge.strong {
+  background: rgba(220, 60, 60, 0.18);
+  color: #f07070;
+  border: 1px solid rgba(220, 60, 60, 0.35);
+}
+
+.counter-strength-badge.moderate {
+  background: rgba(200, 150, 40, 0.15);
+  color: #c8a040;
+  border: 1px solid rgba(200, 150, 40, 0.3);
+}
+
+.counter-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.counter-reason {
+  font-size: 13px;
+  color: #8a8070;
+  line-height: 1.5;
+  padding-left: 12px;
+  position: relative;
+}
+
+.counter-reason::before {
+  content: '·';
+  position: absolute;
+  left: 2px;
+  color: #5a5040;
+}
+
+.counter-loading {
+  color: #555;
+  font-size: 13px;
+  padding: 16px 0;
+  text-align: center;
+}
+
+/* ── 克制关系图 ── */
+.counter-graph-wrap {
+  width: 100%;
+  background: #161410;
+  border: 1px solid #2e2b20;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.counter-graph-wrap svg {
+  display: block;
+  width: 100%;
+}
+
+.counter-graph-wrap .graph-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: 11px;
+  color: #3a3528;
+  pointer-events: none;
+}
+
+/* tooltip */
+.counter-tooltip {
+  position: fixed;
+  background: rgba(20,18,12,.95);
+  border: 1px solid #3a3528;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #c8b88a;
+  pointer-events: none;
+  max-width: 260px;
+  line-height: 1.5;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,.6);
+}
 </style>
 </head>
 <body>
@@ -702,6 +836,12 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
     </div>
     <div class="section-title">技能</div>
     <div class="ability-list" id="abilityList"></div>
+    <div class="section-title" id="counterTitle" style="display:none">克制该英雄的阵容</div>
+    <div class="counter-graph-wrap" id="counterGraphWrap" style="display:none">
+      <svg id="counterGraphSvg"></svg>
+      <div class="graph-hint">可拖动节点</div>
+    </div>
+    <div id="counterSection"></div>
   </div>
 </div>
 
@@ -987,8 +1127,216 @@ function showHeroDetail(key) {
     talentTree.innerHTML = '';
   }
 
+  // ── 克制关系 ──
+  const counterTitle = document.getElementById('counterTitle');
+  const counterGraphWrap = document.getElementById('counterGraphWrap');
+  const counterSection = document.getElementById('counterSection');
+  counterTitle.style.display = 'none';
+  counterGraphWrap.style.display = 'none';
+  counterSection.innerHTML = '<div class="counter-loading">加载克制数据中...</div>';
+
+  const shortKey = key.replace('npc_dota_hero_', '');
+  fetch(`/api/counters/${shortKey}`)
+    .then(r => r.ok ? r.json() : null)
+    .then(data => {
+      if (!data || !data.countered_by || !data.countered_by.length) {
+        counterSection.innerHTML = '';
+        return;
+      }
+      counterTitle.style.display = '';
+
+      // 渲染力导向图
+      renderCounterGraph(data, h);
+
+      // 渲染卡片列表
+      counterSection.innerHTML = `<div class="counter-grid">${
+        data.countered_by.map(c => {
+          const iconUrl = `${CDN}/apps/dota2/images/dota_react/heroes/icons/${c.key}.png`;
+          const strengthLabel = c.strength === 'strong' ? '强力克制' : '一定克制';
+          const reasons = (c.reasons || []).map(r =>
+            `<div class="counter-reason">${r}</div>`
+          ).join('');
+          return `
+            <div class="counter-card">
+              <div class="counter-card-header">
+                <img class="counter-hero-icon" src="${iconUrl}" alt="${c.name}" onerror="this.style.opacity='.3'">
+                <span class="counter-hero-name">${c.name}</span>
+                <span class="counter-strength-badge ${c.strength}">${strengthLabel}</span>
+              </div>
+              <div class="counter-reasons">${reasons}</div>
+            </div>`;
+        }).join('')
+      }</div>`;
+    })
+    .catch(() => { counterSection.innerHTML = ''; });
+
   window.scrollTo(0, 0);
 }
+
+function renderCounterGraph(data, centerHero) {
+  const wrap = document.getElementById('counterGraphWrap');
+  const svgEl = document.getElementById('counterGraphSvg');
+  const tooltip = document.getElementById('counterTooltip');
+
+  // 清除上次渲染
+  d3.select(svgEl).selectAll('*').remove();
+
+  const W = wrap.clientWidth || 700;
+  const H = Math.max(420, Math.min(560, W * 0.65));
+  svgEl.setAttribute('height', H);
+
+  const counters = data.countered_by;
+  const nodes = [
+    { id: 'center', name: centerHero.name, iconUrl: centerHero.icon, isCenter: true }
+  ].concat(counters.map(c => ({
+    id: c.key,
+    name: c.name,
+    key: c.key,
+    strength: c.strength,
+    reasons: c.reasons,
+    isCenter: false
+  })));
+
+  const links = counters.map(c => ({
+    source: c.key,
+    target: 'center',
+    strength: c.strength
+  }));
+
+  const svg = d3.select(svgEl)
+    .attr('width', W)
+    .attr('height', H);
+
+  // 箭头标记
+  const defs = svg.append('defs');
+  ['strong','moderate'].forEach(s => {
+    defs.append('marker')
+      .attr('id', `arrow-${s}`)
+      .attr('viewBox', '0 -4 8 8')
+      .attr('refX', 28)
+      .attr('refY', 0)
+      .attr('markerWidth', 6)
+      .attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-4L8,0L0,4')
+      .attr('fill', s === 'strong' ? '#c84040' : '#b08020');
+  });
+
+  // 背景图片 clip-path (圆形头像)
+  nodes.forEach(n => {
+    defs.append('clipPath')
+      .attr('id', `clip-${n.id}`)
+      .append('circle')
+      .attr('r', n.isCenter ? 38 : 26);
+  });
+
+  const simulation = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id(d => d.id).distance(d => d.strength === 'strong' ? 155 : 185).strength(0.6))
+    .force('charge', d3.forceManyBody().strength(-320))
+    .force('center', d3.forceCenter(W / 2, H / 2))
+    .force('collision', d3.forceCollide(50));
+
+  // 连线
+  const link = svg.append('g').selectAll('line')
+    .data(links)
+    .join('line')
+    .attr('stroke', d => d.strength === 'strong' ? '#c84040' : '#b08020')
+    .attr('stroke-width', d => d.strength === 'strong' ? 2 : 1.2)
+    .attr('stroke-opacity', d => d.strength === 'strong' ? 0.7 : 0.45)
+    .attr('marker-end', d => `url(#arrow-${d.strength})`);
+
+  // 节点组
+  const node = svg.append('g').selectAll('g')
+    .data(nodes)
+    .join('g')
+    .attr('cursor', 'grab')
+    .call(d3.drag()
+      .on('start', (event, d) => {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      })
+      .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
+      .on('end', (event, d) => {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null; d.fy = null;
+      })
+    );
+
+  // 节点背景圆
+  node.append('circle')
+    .attr('r', d => d.isCenter ? 40 : 28)
+    .attr('fill', d => d.isCenter ? '#2a2010' : (d.strength === 'strong' ? '#2a1010' : '#1e1a08'))
+    .attr('stroke', d => d.isCenter ? '#c89b3c' : (d.strength === 'strong' ? '#c84040' : '#b08020'))
+    .attr('stroke-width', d => d.isCenter ? 2.5 : 1.5);
+
+  // 英雄头像
+  node.append('image')
+    .attr('href', d => d.isCenter
+      ? d.iconUrl
+      : `${CDN}/apps/dota2/images/dota_react/heroes/icons/${d.key}.png`
+    )
+    .attr('x', d => d.isCenter ? -38 : -26)
+    .attr('y', d => d.isCenter ? -38 : -26)
+    .attr('width',  d => d.isCenter ? 76 : 52)
+    .attr('height', d => d.isCenter ? 76 : 52)
+    .attr('clip-path', d => `url(#clip-${d.id})`)
+    .attr('preserveAspectRatio', 'xMidYMid slice');
+
+  // 中心节点光环
+  node.filter(d => d.isCenter)
+    .append('circle')
+    .attr('r', 44)
+    .attr('fill', 'none')
+    .attr('stroke', '#c89b3c')
+    .attr('stroke-width', 1)
+    .attr('stroke-opacity', 0.3)
+    .attr('stroke-dasharray', '4 3');
+
+  // 节点名称标签
+  node.append('text')
+    .attr('y', d => d.isCenter ? 56 : 40)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', d => d.isCenter ? 13 : 11)
+    .attr('font-weight', d => d.isCenter ? 700 : 500)
+    .attr('fill', d => d.isCenter ? '#c89b3c' : '#a09070')
+    .attr('pointer-events', 'none')
+    .text(d => d.name);
+
+  // tooltip 交互（只有非中心节点显示）
+  node.filter(d => !d.isCenter)
+    .on('mouseenter', (event, d) => {
+      const strengthLabel = d.strength === 'strong' ? '<span style="color:#f07070">强力克制</span>' : '<span style="color:#c8a040">一定克制</span>';
+      const reasonsHtml = (d.reasons || []).map(r => `<div style="margin-top:4px;color:#8a8070">· ${r}</div>`).join('');
+      tooltip.innerHTML = `<div style="font-weight:700;margin-bottom:4px">${d.name} ${strengthLabel}</div>${reasonsHtml}`;
+      tooltip.style.display = 'block';
+    })
+    .on('mousemove', event => {
+      const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+      let x = event.clientX + 14, y = event.clientY - 10;
+      if (x + tw > window.innerWidth - 8) x = event.clientX - tw - 14;
+      if (y + th > window.innerHeight - 8) y = event.clientY - th - 10;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    })
+    .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+  simulation.on('tick', () => {
+    const r = d => d.isCenter ? 42 : 30;
+    link
+      .attr('x1', d => clamp(d.source.x, r(d.source), W - r(d.source)))
+      .attr('y1', d => clamp(d.source.y, r(d.source), H - r(d.source)))
+      .attr('x2', d => clamp(d.target.x, r(d.target), W - r(d.target)))
+      .attr('y2', d => clamp(d.target.y, r(d.target), H - r(d.target)));
+    node.attr('transform', d =>
+      `translate(${clamp(d.x, r(d), W - r(d))},${clamp(d.y, r(d), H - r(d))})`
+    );
+  });
+
+  wrap.style.display = '';
+}
+
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
 function backToList() {
   document.getElementById('detailView').style.display = 'none';
@@ -1047,5 +1395,6 @@ function formatDesc(text, attrib) {
 
 loadData();
 </script>
+<div class="counter-tooltip" id="counterTooltip"></div>
 </body>
 </html>

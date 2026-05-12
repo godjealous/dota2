@@ -492,94 +492,241 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
 }
 
-/* 物品列表 */
-#itemsView .item-grid {
+/* 物品页顶部标签 */
+.items-tab-bar {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 0;
+  padding: 0 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.items-tab {
+  padding: 10px 28px;
+  font-size: 14px;
+  color: #888;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+}
+
+.items-tab.active {
+  color: #fff;
+  border-bottom-color: #4fc3f7;
+}
+
+.items-tab:hover:not(.active) { color: #ccc; }
+
+/* 物品页搜索栏 */
+.items-search-bar {
+  padding: 12px 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.items-search-bar input {
+  width: 280px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #ddd;
+  font-size: 13px;
+  padding: 7px 32px 7px 30px;
+  outline: none;
+  transition: border-color .15s;
+}
+.items-search-bar input:focus { border-color: #4fc3f7; }
+.items-search-icon {
+  position: absolute;
+  left: 42px;
+  font-size: 13px;
+  color: #555;
+  pointer-events: none;
+}
+.items-search-clear {
+  position: absolute;
+  left: 306px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 4px;
+  line-height: 1;
+}
+.items-search-clear:hover { color: #aaa; }
+
+/* 物品分类区域 */
+.items-body {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 32px 48px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+  align-items: start;
+}
+
+.items-body.search-mode {
+  display: block;
+}
+
+/* 神秘商店独占一整行 */
+.item-category.full-width {
+  grid-column: 1 / -1;
+}
+
+/* 分类区块 */
+.item-category {
+  min-width: 0;
+}
+
+.item-category-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #a0a0a0;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* 物品图标网格 */
+.item-icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.item-icon-btn {
+  width: 50px;
+  height: 37px;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #2a2a2a;
+  background: #111;
+  position: relative;
+  transition: border-color .12s, transform .1s;
+  flex-shrink: 0;
+}
+
+.item-icon-btn:hover {
+  border-color: #c89b3c;
+  transform: scale(1.08);
+  z-index: 2;
+}
+
+.item-icon-btn.active {
+  border-color: #4fc3f7;
+  box-shadow: 0 0 0 1px #4fc3f7;
+}
+
+.item-icon-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 搜索模式下的列表卡片 */
+.item-search-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
 }
 
 .item-card {
-  background: #242424;
-  border: 1px solid #2e2e2e;
-  border-radius: 6px;
-  padding: 10px 12px;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  border-radius: 5px;
+  padding: 8px 10px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
   transition: border-color .15s, background .15s;
 }
 
-.item-card:hover { border-color: #4fc3f7; background: #2a2a2a; }
+.item-card:hover { border-color: #4fc3f7; background: #252525; }
 
 .item-card img {
-  width: 52px;
-  height: 38px;
-  border-radius: 4px;
+  width: 46px;
+  height: 34px;
+  border-radius: 3px;
   object-fit: cover;
   flex-shrink: 0;
   background: #111;
 }
 
 .item-card .item-info { flex: 1; min-width: 0; }
-.item-card .item-name { font-size: 13px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.item-card .item-en { font-size: 11px; color: #666; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.item-card .item-cost { font-size: 12px; color: #c89b3c; font-weight: 600; margin-top: 3px; }
+.item-card .item-name { font-size: 12px; font-weight: 600; color: #ddd; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.item-card .item-cost { font-size: 11px; color: #c89b3c; margin-top: 2px; }
 
 /* 物品详情面板 */
 .item-detail-panel {
   position: fixed;
   right: 0; top: 0;
-  width: 380px;
+  width: 340px;
   height: 100vh;
-  background: #161616;
+  background: #141414;
   border-left: 1px solid #2a2a2a;
   z-index: 200;
   transform: translateX(100%);
   transition: transform .2s ease;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 .item-detail-panel.open { transform: translateX(0); }
 
 .item-panel-header {
-  padding: 20px;
-  border-bottom: 1px solid #2a2a2a;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid #222;
   display: flex;
   align-items: flex-start;
   gap: 14px;
   position: sticky;
   top: 0;
-  background: #161616;
+  background: #141414;
   z-index: 10;
 }
 
 .item-panel-header img {
-  width: 64px;
-  height: 46px;
+  width: 76px;
+  height: 55px;
   border-radius: 4px;
   object-fit: cover;
   background: #111;
+  border: 1px solid #333;
+  flex-shrink: 0;
 }
 
-.item-panel-header .item-panel-title { flex: 1; }
-.item-panel-header h2 { font-size: 18px; color: #fff; }
-.item-panel-header .item-panel-en { font-size: 12px; color: #666; margin-top: 2px; }
-.item-panel-header .item-panel-cost { font-size: 14px; color: #c89b3c; font-weight: 600; margin-top: 4px; }
+.item-panel-header .item-panel-title { flex: 1; min-width: 0; }
+.item-panel-header h2 { font-size: 16px; color: #fff; font-weight: 700; line-height: 1.3; }
+.item-panel-header .item-panel-en { font-size: 11px; color: #555; margin-top: 3px; }
+.item-panel-header .item-panel-cost {
+  font-size: 13px; color: #c89b3c; font-weight: 700; margin-top: 6px;
+  display: flex; align-items: center; gap: 4px;
+}
 
 .item-panel-close {
-  background: none; border: none; color: #555; font-size: 20px; cursor: pointer; padding: 0; line-height: 1; transition: color .15s;
+  background: none; border: none; color: #444; font-size: 18px; cursor: pointer; padding: 0 0 0 4px; line-height: 1; transition: color .15s; flex-shrink: 0;
 }
 .item-panel-close:hover { color: #fff; }
 
-.item-panel-body { padding: 20px; }
+.item-panel-body { padding: 16px 18px; flex: 1; }
 
 .item-panel-desc {
   font-size: 13px;
   color: #999;
-  line-height: 1.7;
+  line-height: 1.75;
 }
-.item-panel-desc h1 { font-size: 13px; color: #4fc3f7; margin-bottom: 6px; }
+.item-panel-desc h1 { font-size: 12px; color: #4fc3f7; margin-bottom: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.item-panel-desc h1:not(:first-child) { margin-top: 14px; }
 
 .overlay {
   display: none;
@@ -1035,10 +1182,20 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 
 <!-- 物品页 -->
 <div id="itemsView" style="display:none">
-  <main style="max-width:1400px;margin:0 auto;padding:24px 32px 48px">
-    <div class="item-grid" id="itemGrid"></div>
-    <div class="search-empty" id="itemEmpty">没有找到匹配的物品</div>
-  </main>
+  <!-- 标签栏 -->
+  <div class="items-tab-bar">
+    <div class="items-tab active" onclick="switchItemTab('basic')" id="tabBasic">基础物品</div>
+    <div class="items-tab" onclick="switchItemTab('upgrade')" id="tabUpgrade">升级物品</div>
+  </div>
+  <!-- 搜索栏 -->
+  <div class="items-search-bar">
+    <span class="items-search-icon">🔍</span>
+    <input type="text" id="itemSearchInput" placeholder="搜索物品名称..." oninput="onItemSearch()" autocomplete="off">
+    <button class="items-search-clear" id="itemSearchClear" onclick="clearItemSearch()" style="display:none">✕</button>
+  </div>
+  <!-- 分类内容 -->
+  <div class="items-body" id="itemsBody"></div>
+  <div class="search-empty" id="itemEmpty" style="display:none">没有找到匹配的物品</div>
 </div>
 
 <!-- 物品详情面板 -->
@@ -1745,34 +1902,262 @@ function backToList() {
   document.getElementById('heroesView').style.display = '';
 }
 
+// ── 物品分类定义 ──
+const ITEM_CATEGORIES = {
+  basic: [
+    {
+      id: 'consumables', label: '消耗品',
+      keys: [
+        'item_tango','item_clarity','item_faerie_fire','item_enchanted_mango',
+        'item_famango','item_great_famango','item_greater_famango',
+        'item_flask','item_blood_grenade','item_bottle',
+        'item_tome_of_knowledge','item_dust','item_smoke_of_deceit',
+        'item_ward_observer','item_ward_sentry','item_ward_dispenser',
+        'item_courier','item_flying_courier','item_tpscroll',
+        'item_aghanims_shard','item_moon_shard','item_cheese',
+        'item_pocket_roshan','item_infused_raindrop','item_refresher_shard',
+      ]
+    },
+    {
+      id: 'attributes', label: '属性',
+      keys: [
+        'item_branches','item_gauntlets','item_slippers','item_mantle',
+        'item_circlet','item_crown','item_diadem',
+        'item_belt_of_strength','item_boots_of_elves','item_robe',
+        'item_ogre_axe','item_blade_of_alacrity','item_staff_of_wizardry',
+        'item_ultimate_orb','item_point_booster',
+        'item_vitality_booster','item_energy_booster',
+      ]
+    },
+    {
+      id: 'equipment', label: '装备',
+      keys: [
+        'item_boots','item_blades_of_attack','item_broadsword','item_claymore',
+        'item_chainmail','item_splintmail','item_platemail',
+        'item_quarterstaff','item_javelin','item_mithril_hammer',
+        'item_helm_of_iron_will','item_quelling_blade',
+        'item_gloves','item_blitz_knuckles','item_lifesteal','item_voodoo_mask',
+        'item_ring_of_protection','item_ring_of_regen','item_sobi_mask',
+        'item_demon_edge','item_eagle','item_reaver','item_relic','item_hyperstone',
+        'item_ring_of_health','item_void_stone',
+      ]
+    },
+    {
+      id: 'misc', label: '其他',
+      keys: [
+        'item_magic_stick','item_magic_wand',
+        'item_stout_shield','item_wind_lace','item_fluffy_hat','item_wizard_hat',
+        'item_ghost','item_talisman_of_evasion','item_gem',
+        'item_cloak','item_shadow_amulet','item_blight_stone',
+        'item_orb_of_frost','item_orb_of_venom',
+        'item_buckler','item_ring_of_basilius','item_headdress',
+        'item_bracer','item_wraith_band','item_null_talisman',
+        'item_shawl','item_cornucopia','item_pavise',
+        'item_ring_of_tarrasque','item_tiara_of_selemene',
+      ]
+    },
+    {
+      id: 'secret', label: '神秘商店',
+      keys: [
+        'item_mystic_staff','item_ultimate_orb','item_eagle',
+        'item_reaver','item_relic','item_demon_edge','item_hyperstone',
+        'item_platemail','item_void_stone','item_ring_of_health',
+        'item_energy_booster','item_vitality_booster','item_point_booster',
+        'item_ring_of_tarrasque','item_tiara_of_selemene',
+      ]
+    },
+  ],
+  upgrade: [
+    {
+      id: 'accessories', label: '配件',
+      keys: [
+        'item_power_treads','item_phase_boots','item_arcane_boots',
+        'item_tranquil_boots','item_travel_boots','item_travel_boots_2',
+        'item_boots_of_bearing','item_guardian_greaves',
+        'item_bracer','item_wraith_band','item_null_talisman',
+        'item_magic_wand','item_soul_ring','item_urn_of_shadows',
+        'item_spirit_vessel','item_falcon_blade',
+        'item_oblivion_staff','item_cornucopia',
+        'item_ancient_janggo','item_drum_of_endurance',
+      ]
+    },
+    {
+      id: 'arcane', label: '法器',
+      keys: [
+        'item_dagon','item_dagon_2','item_dagon_3','item_dagon_4','item_dagon_5',
+        'item_necronomicon','item_necronomicon_2','item_necronomicon_3',
+        'item_rod_of_atos','item_force_staff','item_cyclone',
+        'item_aether_lens','item_phylactery','item_witch_blade',
+        'item_kaya','item_kaya_and_sange','item_yasha_and_kaya',
+        'item_sheepstick','item_refresher','item_octarine_core',
+        'item_wind_waker','item_arcane_blink','item_bloodthorn',
+        'item_orchid','item_bloodstone','item_ultimate_scepter',
+        'item_ultimate_scepter_2','item_crellas_crozier',
+      ]
+    },
+    {
+      id: 'support', label: '辅助',
+      keys: [
+        'item_mekansm','item_guardian_greaves','item_holy_locket',
+        'item_glimmer_cape','item_aeon_disk','item_solar_crest',
+        'item_pipe','item_crimson_guard','item_veil_of_discord',
+        'item_lotus_orb','item_wraith_pact','item_boots_of_bearing',
+        'item_spirit_vessel','item_tranquil_boots','item_ancient_janggo',
+        'item_ghost','item_meteor_hammer','item_aghanims_shard',
+        'item_essence_distiller',
+      ]
+    },
+    {
+      id: 'armor', label: '防具',
+      keys: [
+        'item_vanguard','item_crimson_guard','item_heart',
+        'item_assault','item_shivas_guard','item_blade_mail',
+        'item_black_king_bar','item_eternal_shroud',
+        'item_armlet','item_heavens_halberd','item_sphere',
+        'item_helm_of_the_dominator','item_helm_of_the_overlord',
+        'item_aeon_disk','item_pipe','item_lotus_orb',
+        'item_consecrated_wraps','item_pavise',
+      ]
+    },
+    {
+      id: 'weapons', label: '兵刃',
+      keys: [
+        'item_maelstrom','item_mjollnir','item_desolator',
+        'item_bfury','item_lesser_crit','item_greater_crit',
+        'item_monkey_king_bar','item_butterfly','item_rapier',
+        'item_abyssal_blade','item_basher','item_diffusal_blade',
+        'item_echo_sabre','item_harpoon','item_manta',
+        'item_silver_edge','item_invis_sword',
+        'item_overwhelming_blink','item_swift_blink',
+        'item_sange','item_yasha','item_sange_and_yasha',
+        'item_radiance','item_nullifier','item_disperser',
+        'item_angels_demise','item_devastator','item_hydras_breath',
+      ]
+    },
+    {
+      id: 'artifacts', label: '军备',
+      keys: [
+        'item_blink','item_soul_booster','item_bloodstone',
+        'item_hand_of_midas','item_mask_of_madness','item_dragon_lance',
+        'item_hurricane_pike','item_skadi','item_satanic',
+        'item_vladmir','item_diffusal_blade','item_manta',
+        'item_specialists_array','item_revenants_brooch',
+        'item_mage_slayer','item_gungir','item_trident',
+        'item_octarine_core','item_ethereal_blade',
+        'item_caster_rapier','item_rapier',
+        'item_dagon_5','item_necronomicon_3',
+      ]
+    },
+  ]
+};
+
+let currentItemTab = 'basic';
+let itemSearchQuery = '';
+let activeItemKey = null;
+
+function switchItemTab(tab) {
+  currentItemTab = tab;
+  document.getElementById('tabBasic').classList.toggle('active', tab === 'basic');
+  document.getElementById('tabUpgrade').classList.toggle('active', tab === 'upgrade');
+  renderItems();
+}
+
+function onItemSearch() {
+  itemSearchQuery = document.getElementById('itemSearchInput').value.trim().toLowerCase();
+  document.getElementById('itemSearchClear').style.display = itemSearchQuery ? '' : 'none';
+  renderItems();
+}
+
+function clearItemSearch() {
+  document.getElementById('itemSearchInput').value = '';
+  document.getElementById('itemSearchClear').style.display = 'none';
+  itemSearchQuery = '';
+  renderItems();
+}
+
 // ── 物品列表 ──
 function renderItems() {
-  const entries = Object.entries(itemsData).filter(([, item]) => {
-    if (!item.name_en) return false;
-    if (searchQuery && !item.name.toLowerCase().includes(searchQuery) && !item.name_en.toLowerCase().includes(searchQuery)) return false;
-    return true;
-  });
+  const body = document.getElementById('itemsBody');
+  const empty = document.getElementById('itemEmpty');
 
-  document.getElementById('itemEmpty').style.display = entries.length ? 'none' : 'block';
-  document.getElementById('itemGrid').innerHTML = entries.map(([key, item]) => `
-    <div class="item-card" onclick="showItemPanel('${key}')">
-      ${item.img ? `<img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
-      <div class="item-info">
-        <div class="item-name">${item.name}</div>
-        <div class="item-en">${item.name_en}</div>
-        ${item.cost != null ? `<div class="item-cost">💰 ${item.cost}</div>` : ''}
-      </div>
-    </div>`).join('');
+  if (itemSearchQuery) {
+    // 搜索模式：扁平列表
+    body.className = 'items-body search-mode';
+    const entries = Object.entries(itemsData).filter(([, item]) => {
+      if (!item.name_en) return false;
+      if (item.name && item.name.toLowerCase().includes(itemSearchQuery)) return true;
+      if (item.name_en.toLowerCase().includes(itemSearchQuery)) return true;
+      return false;
+    });
+    empty.style.display = entries.length ? 'none' : 'block';
+    body.innerHTML = `<div class="item-search-list">${entries.map(([key, item]) => `
+      <div class="item-card${activeItemKey === key ? ' active' : ''}" onclick="showItemPanel('${key}')">
+        ${item.img ? `<img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.style.opacity='.3'">` : ''}
+        <div class="item-info">
+          <div class="item-name">${item.name || item.name_en}</div>
+          ${item.cost ? `<div class="item-cost">💰 ${item.cost}</div>` : ''}
+        </div>
+      </div>`).join('')}</div>`;
+    return;
+  }
+
+  empty.style.display = 'none';
+  body.className = 'items-body';
+  const categories = ITEM_CATEGORIES[currentItemTab] || [];
+
+  body.innerHTML = categories.map(cat => {
+    const items = cat.keys
+      .map(k => [k, itemsData[k]])
+      .filter(([, v]) => v && v.img);
+
+    if (!items.length) return '';
+
+    const isFullWidth = cat.id === 'secret';
+    return `
+      <div class="item-category${isFullWidth ? ' full-width' : ''}">
+        <div class="item-category-title">${cat.label}</div>
+        <div class="item-icon-grid">
+          ${items.map(([key, item]) => `
+            <div class="item-icon-btn${activeItemKey === key ? ' active' : ''}" onclick="showItemPanel('${key}')" title="${item.name || item.name_en}">
+              <img src="${item.img}" alt="${item.name || ''}" loading="lazy" onerror="this.style.opacity='.3'">
+            </div>`).join('')}
+        </div>
+      </div>`;
+  }).join('');
 }
 
 function showItemPanel(key) {
   const item = itemsData[key];
   if (!item) return;
+
+  // 更新激活状态
+  activeItemKey = key;
+  // 重新高亮（只更新 active class，不完整重渲）
+  document.querySelectorAll('.item-icon-btn, .item-card').forEach(el => {
+    const onclick = el.getAttribute('onclick') || '';
+    el.classList.toggle('active', onclick.includes(`'${key}'`));
+  });
+
   document.getElementById('panelImg').src = item.img || '';
-  document.getElementById('panelName').textContent = item.name;
-  document.getElementById('panelEn').textContent = item.name_en;
-  document.getElementById('panelCost').textContent = item.cost != null ? `💰 ${item.cost} 金币` : '';
-  document.getElementById('panelDesc').innerHTML = item.description ? formatDesc(item.description, {}) : '暂无描述';
+  document.getElementById('panelName').textContent = item.name || item.name_en;
+  document.getElementById('panelEn').textContent = item.name_en || '';
+  document.getElementById('panelCost').innerHTML = item.cost != null ? `💰 <span>${item.cost} 金币</span>` : '';
+
+  const attrib = item.attrib || {};
+  let descHtml = item.description ? formatDesc(item.description, attrib) : '';
+
+  // Cooldown / manacost row
+  const cdVal = item.cooldown != null && item.cooldown !== '0' && item.cooldown !== 'null' ? item.cooldown : '';
+  const mcVal = item.manacost != null && item.manacost !== '0' && item.manacost !== 'null' ? item.manacost : '';
+  const stats = [
+    cdVal ? `<span style="color:#aaa">冷却</span> <b style="color:#fff">${cdVal}s</b>` : '',
+    mcVal ? `<span style="color:#aaa">耗蓝</span> <b style="color:#6aacee">${mcVal}</b>` : '',
+  ].filter(Boolean).join('&emsp;');
+  if (stats) {
+    descHtml += `<div style="margin-top:12px;font-size:12px">${stats}</div>`;
+  }
+
+  document.getElementById('panelDesc').innerHTML = descHtml || '<span style="color:#444">暂无描述数据</span>';
   document.getElementById('itemPanel').classList.add('open');
   document.getElementById('overlay').classList.add('open');
 }
@@ -1780,6 +2165,8 @@ function showItemPanel(key) {
 function closeItemPanel() {
   document.getElementById('itemPanel').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
+  activeItemKey = null;
+  document.querySelectorAll('.item-icon-btn, .item-card').forEach(el => el.classList.remove('active'));
 }
 
 function formatDesc(text, attrib) {

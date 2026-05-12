@@ -509,12 +509,35 @@ def merge_items() -> dict:
         cdn = "https://cdn.cloudflare.steamstatic.com"
         img = (cdn + img_path.split("?")[0]) if img_path else ""
 
+        # Build attrib lookup: {key: value_string}
+        attrib = {}
+        for a in item.get("attrib", []):
+            ak = a.get("key", "")
+            av = a.get("value")
+            if ak and av is not None:
+                attrib[ak] = "/".join(str(x) for x in av) if isinstance(av, list) else str(av)
+
+        # Cooldown and mana cost
+        cd_raw = item.get("cd")
+        mc_raw = item.get("mc")
+        cooldown = (
+            "/".join(str(x) for x in cd_raw) if isinstance(cd_raw, list)
+            else str(cd_raw) if cd_raw is not None else None
+        )
+        manacost = (
+            "/".join(str(x) for x in mc_raw) if isinstance(mc_raw, list)
+            else str(mc_raw) if mc_raw is not None else None
+        )
+
         result[item_key] = {
             "id": item.get("id"),
             "name": cn_name,
             "name_en": en_name,
             "cost": item.get("cost"),
             "description": description,
+            "attrib": attrib,
+            "cooldown": cooldown,
+            "manacost": manacost,
             "img": img,
         }
 

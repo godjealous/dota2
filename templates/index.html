@@ -855,7 +855,7 @@ function showHeroDetail(key) {
   const rows = [
     { label: '名称',     value: h.name,     cls: 'name-cn' },
     { label: '英文名',   value: h.name_en },
-    h.persona_cn ? { label: '绰号', value: `${h.persona_cn}${h.persona_en ? ' / ' + h.persona_en : ''}` } : null,
+    (h.nickname && h.nickname.length) ? { label: '绰号', value: h.nickname.join('、') } : null,
     { label: '主属性',   value: attrLabel },
     { label: '攻击方式', value: attackLabel },
     rolesLabel ? { label: '定位',  value: rolesLabel } : null,

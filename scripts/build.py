@@ -19,6 +19,10 @@ NPC_HEROES_URL = "https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/
 NPC_HERO_FILE_URL = "https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/scripts/npc/heroes/{hero}.txt"
 NPC_ABILITIES_URL = "https://raw.githubusercontent.com/spirit-bear-productions/dota_vpk_updates/main/scripts/npc/npc_abilities.txt"
 
+# Hero nicknames (manually maintained, keyed by short hero name without npc_dota_hero_ prefix)
+# Hero nicknames are loaded from data/nicknames.json (manually maintained, not auto-generated)
+HERO_NICKNAMES: dict = json.loads((_ROOT / "data/nicknames.json").read_text(encoding="utf-8"))
+
 _SUB_ABILITY_SUFFIXES = (
     "_end", "_release", "_cancel", "_stop", "_throw", "_channel",
     "_toggle", "_return", "_raze1", "_raze2", "_raze3",
@@ -306,6 +310,7 @@ def merge_heroes() -> dict:
         # Hero hype / bio (short description shown in hero selection)
         short_name = npc_name.replace("npc_dota_hero_", "")
         hype = dota_loc.get(f"{npc_name}_hype", "")
+        nickname = HERO_NICKNAMES.get(short_name, {}).get("nicknames", [])
 
         # Alternate persona name (e.g. Anti-Mage (Wei))
         persona_cn = loc.get(f"{npc_name}_persona1:n", "")
@@ -448,6 +453,7 @@ def merge_heroes() -> dict:
             "id": hero.get("id"),
             "name": cn_name,
             "name_en": en_name,
+            "nickname": nickname,
             "persona_cn": persona_cn,
             "persona_en": persona_en,
             "hype": hype,

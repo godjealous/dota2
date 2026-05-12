@@ -1,5 +1,4 @@
 import json
-from functools import lru_cache
 from pathlib import Path
 
 from flask import Flask, abort, jsonify, render_template, request
@@ -7,14 +6,31 @@ from flask import Flask, abort, jsonify, render_template, request
 app = Flask(__name__)
 
 DATA_DIR = Path(__file__).parent / "data" / "output"
+NICKNAMES_FILE = Path(__file__).parent / "data" / "nicknames.json"
 
 
-@lru_cache(maxsize=None)
 def _load(filename: str) -> dict:
     path = DATA_DIR / filename
     if not path.exists():
         return {}
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _load_nicknames() -> dict:
+    if not NICKNAMES_FILE.exists():
+        return {}
+    return json.loads(NICKNAMES_FILE.read_text(encoding="utf-8"))
+
+
+def _apply_nicknames(heroes: dict) -> dict:
+    nicknames = _load_nicknames()
+    for key, hero in heroes.items():
+        short_key = key.replace("npc_dota_hero_", "")
+        entry = nicknames.get(short_key, {})
+        nicks = entry.get("nicknames")
+        if nicks is not None:
+            hero["nickname"] = nicks
+    return heroes
 
 
 # ---------------------------------------------------------------------------
@@ -37,7 +53,7 @@ def api_meta():
 
 @app.route("/api/heroes")
 def api_heroes():
-    heroes = _load("heroes.json")
+    heroes = _apply_nicknames(_load("heroes.json"))
     q = request.args.get("q", "").lower()
     attr = request.args.get("attr", "")
 
@@ -53,7 +69,8 @@ def api_heroes():
 
 @app.route("/api/heroes/<key>")
 def api_hero(key: str):
-    hero = _load("heroes.json").get(key)
+    heroes = _apply_nicknames(_load("heroes.json"))
+    hero = heroes.get(key)
     if hero is None:
         abort(404)
     return jsonify(hero)

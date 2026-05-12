@@ -1,0 +1,736 @@
+{
+  "abaddon": {
+    "name": "亚巴顿",
+    "nicknames": [
+      "死骑"
+    ]
+  },
+  "abyssal_underlord": {
+    "name": "孽主",
+    "nicknames": ["大屁股"]
+  },
+  "alchemist": {
+    "name": "炼金术士",
+    "nicknames": [
+      "罗格尔德"
+    ]
+  },
+  "ancient_apparition": {
+    "name": "远古冰魄",
+    "nicknames": [
+      "卡林"
+    ]
+  },
+  "antimage": {
+    "name": "敌法师",
+    "nicknames": [
+      "灭法者"
+    ]
+  },
+  "arc_warden": {
+    "name": "天穹守望者",
+    "nicknames": []
+  },
+  "axe": {
+    "name": "斧王",
+    "nicknames": [
+      "红月"
+    ]
+  },
+  "bane": {
+    "name": "祸乱之源",
+    "nicknames": [
+      "噩梦使者"
+    ]
+  },
+  "batrider": {
+    "name": "蝙蝠骑士",
+    "nicknames": [
+      "布兰杰"
+    ]
+  },
+  "beastmaster": {
+    "name": "兽王",
+    "nicknames": [
+      "卡拉姆"
+    ]
+  },
+  "bloodseeker": {
+    "name": "血魔",
+    "nicknames": [
+      "血腥屠夫"
+    ]
+  },
+  "bounty_hunter": {
+    "name": "赏金猎人",
+    "nicknames": []
+  },
+  "brewmaster": {
+    "name": "酒仙",
+    "nicknames": [
+      "仙人酒师"
+    ]
+  },
+  "bristleback": {
+    "name": "钢背兽",
+    "nicknames": [
+      "戈耳博"
+    ]
+  },
+  "broodmother": {
+    "name": "育母蜘蛛",
+    "nicknames": []
+  },
+  "centaur": {
+    "name": "半人马战行者",
+    "nicknames": [
+      "百夫长"
+    ]
+  },
+  "chaos_knight": {
+    "name": "混沌骑士",
+    "nicknames": [
+      "卡里罗特"
+    ]
+  },
+  "chen": {
+    "name": "陈",
+    "nicknames": [
+      "圣战斗士"
+    ]
+  },
+  "clinkz": {
+    "name": "克林克兹",
+    "nicknames": [
+      "枯骨弓手"
+    ]
+  },
+  "crystal_maiden": {
+    "name": "水晶室女",
+    "nicknames": [
+      "莱拉"
+    ]
+  },
+  "dark_seer": {
+    "name": "黑暗贤者",
+    "nicknames": [
+      "洞悉者"
+    ]
+  },
+  "dark_willow": {
+    "name": "邪影芳灵",
+    "nicknames": [
+      "梅雷迪丝"
+    ]
+  },
+  "dawnbreaker": {
+    "name": "破晓辰星",
+    "nicknames": [
+      "瓦尔娜"
+    ]
+  },
+  "dazzle": {
+    "name": "戴泽",
+    "nicknames": [
+      "耀光"
+    ]
+  },
+  "death_prophet": {
+    "name": "死亡先知",
+    "nicknames": [
+      "克洛克斯里斯"
+    ]
+  },
+  "disruptor": {
+    "name": "干扰者",
+    "nicknames": [
+      "苦难之源"
+    ]
+  },
+  "doom_bringer": {
+    "name": "末日使者",
+    "nicknames": [
+      "末日怒魂"
+    ]
+  },
+  "dragon_knight": {
+    "name": "龙骑士",
+    "nicknames": [
+      "达维安"
+    ]
+  },
+  "drow_ranger": {
+    "name": "卓尔游侠",
+    "nicknames": [
+      "特里克西娅"
+    ]
+  },
+  "earth_spirit": {
+    "name": "大地之灵",
+    "nicknames": [
+      "土灵"
+    ]
+  },
+  "earthshaker": {
+    "name": "撼地者",
+    "nicknames": [
+      "拉托"
+    ]
+  },
+  "elder_titan": {
+    "name": "上古巨神",
+    "nicknames": [
+      "远古巨神"
+    ]
+  },
+  "ember_spirit": {
+    "name": "灰烬之灵",
+    "nicknames": [
+      "火灵"
+    ]
+  },
+  "enchantress": {
+    "name": "魅惑魔女",
+    "nicknames": []
+  },
+  "enigma": {
+    "name": "谜团",
+    "nicknames": [
+      "混乱"
+    ]
+  },
+  "faceless_void": {
+    "name": "虚空假面",
+    "nicknames": [
+      "乔热尔"
+    ]
+  },
+  "furion": {
+    "name": "自然先知",
+    "nicknames": [
+      "梦羽凤蝶"
+    ]
+  },
+  "grimstroke": {
+    "name": "天涯墨客",
+    "nicknames": [
+      "xyztlyx"
+    ]
+  },
+  "gyrocopter": {
+    "name": "矮人直升机",
+    "nicknames": [
+      "俾尔格"
+    ]
+  },
+  "hoodwink": {
+    "name": "森海飞霞",
+    "nicknames": [
+      "达尔达里"
+    ]
+  },
+  "huskar": {
+    "name": "哈斯卡",
+    "nicknames": [
+      "哈斯卡"
+    ]
+  },
+  "invoker": {
+    "name": "祈求者",
+    "nicknames": [
+      "术法大师"
+    ]
+  },
+  "jakiro": {
+    "name": "杰奇洛",
+    "nicknames": [
+      "双头龙"
+    ]
+  },
+  "juggernaut": {
+    "name": "主宰",
+    "nicknames": [
+      "优霸"
+    ]
+  },
+  "keeper_of_the_light": {
+    "name": "光之守卫",
+    "nicknames": [
+      "埃扎里塔尔"
+    ]
+  },
+  "kez": {
+    "name": "凯",
+    "nicknames": [
+      "武士"
+    ]
+  },
+  "kunkka": {
+    "name": "昆卡",
+    "nicknames": [
+      "提达什"
+    ]
+  },
+  "largo": {
+    "name": "朗戈",
+    "nicknames": []
+  },
+  "legion_commander": {
+    "name": "军团指挥官",
+    "nicknames": [
+      "崔薇"
+    ]
+  },
+  "leshrac": {
+    "name": "拉席克",
+    "nicknames": []
+  },
+  "lich": {
+    "name": "巫妖",
+    "nicknames": [
+      "冰霜领主"
+    ]
+  },
+  "life_stealer": {
+    "name": "噬魂鬼",
+    "nicknames": [
+      "N`aix"
+    ]
+  },
+  "lina": {
+    "name": "莉娜",
+    "nicknames": [
+      "火焰女王"
+    ]
+  },
+  "lion": {
+    "name": "莱恩",
+    "nicknames": [
+      "魔王"
+    ]
+  },
+  "lone_druid": {
+    "name": "独行德鲁伊",
+    "nicknames": [
+      "魔法德鲁伊"
+    ]
+  },
+  "luna": {
+    "name": "露娜",
+    "nicknames": [
+      "苍月骑士"
+    ]
+  },
+  "lycan": {
+    "name": "狼人",
+    "nicknames": [
+      "班萨罗斯"
+    ]
+  },
+  "magnataur": {
+    "name": "马格纳斯",
+    "nicknames": [
+      "磁力骑士"
+    ]
+  },
+  "marci": {
+    "name": "玛西",
+    "nicknames": [
+      "马西"
+    ]
+  },
+  "mars": {
+    "name": "玛尔斯",
+    "nicknames": [
+      "战神"
+    ]
+  },
+  "medusa": {
+    "name": "美杜莎",
+    "nicknames": [
+      "戈耳工"
+    ]
+  },
+  "meepo": {
+    "name": "米波",
+    "nicknames": [
+      "矮地精"
+    ]
+  },
+  "mirana": {
+    "name": "米拉娜",
+    "nicknames": [
+      "萨克雷"
+    ]
+  },
+  "monkey_king": {
+    "name": "齐天大圣",
+    "nicknames": [
+      "孙悟空"
+    ]
+  },
+  "morphling": {
+    "name": "变体精灵",
+    "nicknames": [
+      "形态之灵"
+    ]
+  },
+  "muerta": {
+    "name": "琼英碧灵",
+    "nicknames": [
+      "拉穆尔塔"
+    ]
+  },
+  "naga_siren": {
+    "name": "娜迦海妖",
+    "nicknames": [
+      "美人鱼将军"
+    ]
+  },
+  "necrolyte": {
+    "name": "瘟疫法师",
+    "nicknames": [
+      "罗坦"
+    ]
+  },
+  "nevermore": {
+    "name": "影魔",
+    "nicknames": [
+      "里奥瑞克"
+    ]
+  },
+  "night_stalker": {
+    "name": "暗夜魔王",
+    "nicknames": []
+  },
+  "nyx_assassin": {
+    "name": "司夜刺客",
+    "nicknames": [
+      "纳萨尔"
+    ]
+  },
+  "obsidian_destroyer": {
+    "name": "殁境神蚀者",
+    "nicknames": [
+      "阿修罗"
+    ]
+  },
+  "ogre_magi": {
+    "name": "食人魔魔法师",
+    "nicknames": []
+  },
+  "omniknight": {
+    "name": "全能骑士",
+    "nicknames": [
+      "普洛西姆"
+    ]
+  },
+  "oracle": {
+    "name": "神谕者",
+    "nicknames": [
+      "法特尔"
+    ]
+  },
+  "pangolier": {
+    "name": "石鳞剑士",
+    "nicknames": [
+      "多纳特"
+    ]
+  },
+  "phantom_assassin": {
+    "name": "幻影刺客",
+    "nicknames": [
+      "玛蒂姆布尔"
+    ]
+  },
+  "phantom_lancer": {
+    "name": "幻影长矛手",
+    "nicknames": [
+      "流光枪手"
+    ]
+  },
+  "phoenix": {
+    "name": "凤凰",
+    "nicknames": [
+      "太阳神鸟"
+    ]
+  },
+  "primal_beast": {
+    "name": "獸",
+    "nicknames": [
+      "原始之力"
+    ]
+  },
+  "puck": {
+    "name": "帕克",
+    "nicknames": [
+      "精灵游侠"
+    ]
+  },
+  "pudge": {
+    "name": "帕吉",
+    "nicknames": [
+      "屠夫"
+    ]
+  },
+  "pugna": {
+    "name": "帕格纳",
+    "nicknames": [
+      "帕格纳"
+    ]
+  },
+  "queenofpain": {
+    "name": "痛苦女王",
+    "nicknames": [
+      "阿凯莎"
+    ]
+  },
+  "rattletrap": {
+    "name": "发条技师",
+    "nicknames": []
+  },
+  "razor": {
+    "name": "雷泽",
+    "nicknames": [
+      "风怒"
+    ]
+  },
+  "riki": {
+    "name": "力丸",
+    "nicknames": [
+      "隐形刺客"
+    ]
+  },
+  "ringmaster": {
+    "name": "百戏大王",
+    "nicknames": [
+      "喀里奥斯特罗"
+    ]
+  },
+  "rubick": {
+    "name": "拉比克",
+    "nicknames": [
+      "弧光法师"
+    ]
+  },
+  "sand_king": {
+    "name": "沙王",
+    "nicknames": [
+      "沙漠蝎王"
+    ]
+  },
+  "shadow_demon": {
+    "name": "暗影恶魔",
+    "nicknames": [
+      "恶魔附身"
+    ]
+  },
+  "shadow_shaman": {
+    "name": "暗影萨满",
+    "nicknames": [
+      "萨满祭司"
+    ]
+  },
+  "shredder": {
+    "name": "伐木机",
+    "nicknames": [
+      "骨锯"
+    ]
+  },
+  "silencer": {
+    "name": "沉默术士",
+    "nicknames": [
+      "努普斯"
+    ]
+  },
+  "skeleton_king": {
+    "name": "冥魂大帝",
+    "nicknames": [
+      "欧洛克"
+    ]
+  },
+  "skywrath_mage": {
+    "name": "天怒法师",
+    "nicknames": [
+      "遇雷之子"
+    ]
+  },
+  "slardar": {
+    "name": "斯拉达",
+    "nicknames": [
+      "深渊卫士"
+    ]
+  },
+  "slark": {
+    "name": "斯拉克",
+    "nicknames": [
+      "黑暗珊瑚礁"
+    ]
+  },
+  "snapfire": {
+    "name": "电炎绝手",
+    "nicknames": [
+      "炮手"
+    ]
+  },
+  "sniper": {
+    "name": "狙击手",
+    "nicknames": [
+      "卡迪甘"
+    ]
+  },
+  "spectre": {
+    "name": "幽鬼",
+    "nicknames": [
+      "莫德"
+    ]
+  },
+  "spirit_breaker": {
+    "name": "裂魂人",
+    "nicknames": [
+      "巴拉萨"
+    ]
+  },
+  "storm_spirit": {
+    "name": "风暴之灵",
+    "nicknames": [
+      "勇的化身"
+    ]
+  },
+  "sven": {
+    "name": "斯温",
+    "nicknames": [
+      "神力骑士"
+    ]
+  },
+  "techies": {
+    "name": "工程师",
+    "nicknames": [
+      "炸弹人"
+    ]
+  },
+  "templar_assassin": {
+    "name": "圣堂刺客",
+    "nicknames": [
+      "兰尼科塔"
+    ]
+  },
+  "terrorblade": {
+    "name": "恐怖利刃",
+    "nicknames": [
+      "金克斯"
+    ]
+  },
+  "tidehunter": {
+    "name": "潮汐猎人",
+    "nicknames": [
+      "黑潮守护者"
+    ]
+  },
+  "tinker": {
+    "name": "修补匠",
+    "nicknames": [
+      "博巴"
+    ]
+  },
+  "tiny": {
+    "name": "小小",
+    "nicknames": [
+      "石精灵"
+    ]
+  },
+  "treant": {
+    "name": "树精卫士",
+    "nicknames": []
+  },
+  "troll_warlord": {
+    "name": "巨魔战将",
+    "nicknames": [
+      "简古"
+    ]
+  },
+  "tusk": {
+    "name": "巨牙海民",
+    "nicknames": [
+      "优里克"
+    ]
+  },
+  "undying": {
+    "name": "不朽尸王",
+    "nicknames": []
+  },
+  "ursa": {
+    "name": "熊战士",
+    "nicknames": [
+      "乌尔萨"
+    ]
+  },
+  "vengefulspirit": {
+    "name": "复仇之魂",
+    "nicknames": [
+      "绮冬"
+    ]
+  },
+  "venomancer": {
+    "name": "剧毒术士",
+    "nicknames": [
+      "莱萨尔"
+    ]
+  },
+  "viper": {
+    "name": "冥界亚龙",
+    "nicknames": [
+      "纳希克斯"
+    ]
+  },
+  "visage": {
+    "name": "维萨吉",
+    "nicknames": [
+      "羁灵守卫"
+    ]
+  },
+  "void_spirit": {
+    "name": "虚无之灵",
+    "nicknames": [
+      "间谍大师"
+    ]
+  },
+  "warlock": {
+    "name": "术士",
+    "nicknames": [
+      "道尔"
+    ]
+  },
+  "weaver": {
+    "name": "编织者",
+    "nicknames": []
+  },
+  "windrunner": {
+    "name": "风行者",
+    "nicknames": [
+      "里拉"
+    ]
+  },
+  "winter_wyvern": {
+    "name": "寒冬飞龙",
+    "nicknames": []
+  },
+  "wisp": {
+    "name": "艾欧",
+    "nicknames": [
+      "神灵"
+    ]
+  },
+  "witch_doctor": {
+    "name": "巫医",
+    "nicknames": [
+      "礁石"
+    ]
+  },
+  "zuus": {
+    "name": "宙斯",
+    "nicknames": [
+      "天神宙斯"
+    ]
+  }
+}

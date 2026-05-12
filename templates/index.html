@@ -272,6 +272,9 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 /* 技能列表 */
 .ability-list { display: flex; flex-direction: column; gap: 12px; }
 
+/* 技能组：主条目 + 可选的神杖/魔晶升级条目 */
+.ability-group { display: flex; flex-direction: column; gap: 0; }
+
 .ability-card {
   background: #242424;
   border: 1px solid #2e2e2e;
@@ -282,13 +285,28 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   align-items: flex-start;
 }
 
-.ability-card img {
-  width: 52px;
-  height: 52px;
-  border-radius: 5px;
-  object-fit: cover;
-  flex-shrink: 0;
-  background: #111;
+.ability-group .ability-card:first-child:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-color: transparent;
+}
+
+.ability-group .ability-card + .ability-card {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+/* 神杖升级条目 */
+.ability-card.upgrade-scepter {
+  background: #1e2620;
+  border-color: rgba(100, 200, 100, 0.35);
+}
+
+/* 魔晶升级条目 */
+.ability-card.upgrade-shard {
+  background: #1a1e26;
+  border-color: rgba(120, 160, 240, 0.35);
 }
 
 .ability-card .ab-content { flex: 1; min-width: 0; }
@@ -316,38 +334,95 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 
 .ability-card .ab-stats b { color: #c89b3c; }
 
-/* 技能类型徽章 */
-.ab-badges { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+/* 升级条目的描述颜色更亮 */
+.upgrade-scepter .ab-desc { color: #8ecf8e; }
+.upgrade-shard .ab-desc   { color: #8ab4ef; }
 
-.ab-badge {
+/* 神杖/魔晶新增技能（独立技能，非升级） */
+.ability-card.grant-scepter {
+  background: #1e2620;
+  border-color: rgba(100, 200, 100, 0.4);
+}
+.ability-card.grant-shard {
+  background: #1a1e26;
+  border-color: rgba(120, 160, 240, 0.4);
+}
+.ab-grant-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 11px;
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 3px;
   letter-spacing: 0.5px;
+  margin-bottom: 6px;
 }
-
-.ab-badge-innate {
-  background: rgba(220, 180, 60, 0.15);
-  color: #e8c840;
-  border: 1px solid rgba(220, 180, 60, 0.4);
-}
-
-.ab-badge-scepter {
+.ab-grant-label.scepter {
   background: rgba(100, 200, 100, 0.12);
   color: #6dc86e;
   border: 1px solid rgba(100, 200, 100, 0.35);
 }
-
-.ab-badge-shard {
+.ab-grant-label.shard {
   background: rgba(120, 160, 240, 0.15);
   color: #7db4f0;
   border: 1px solid rgba(120, 160, 240, 0.4);
 }
 
+/* 先天技能徽章 */
+.ab-badge-innate {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  background: rgba(220, 180, 60, 0.15);
+  color: #e8c840;
+  border: 1px solid rgba(220, 180, 60, 0.4);
+  margin-bottom: 6px;
+}
+
 .ability-card.is-innate { border-color: rgba(220, 180, 60, 0.3); }
-.ability-card.has-scepter { border-color: rgba(100, 200, 100, 0.3); }
-.ability-card.has-shard { border-color: rgba(120, 160, 240, 0.3); }
+.ability-card.is-innate .ab-img-wrap { background: rgba(220, 180, 60, 0.08); border-radius: 5px; }
+
+/* 技能图标容器（叠加小图标） */
+.ab-img-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.ab-img-wrap img.ab-main-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+  object-fit: cover;
+  background: #111;
+  display: block;
+}
+
+.ab-overlay-icons {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.ab-overlay-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  object-fit: contain;
+  background: rgba(10,10,10,0.75);
+  padding: 1px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+}
 
 /* 物品列表 */
 #itemsView .item-grid {
@@ -646,7 +721,25 @@ function showHeroDetail(key) {
 
   const validAbilities = (h.abilities || []).filter(ab =>
     ab.name && ab.name !== ab.key && !ab.key.includes('generic_hidden')
-  );
+  ).sort((a, b) => {
+    const rank = x => x.is_innate ? 0 : (x.grant_scepter || x.grant_shard) ? 2 : 1;
+    return rank(a) - rank(b);
+  });
+
+  const INNATE_ICON  = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/innate_icon.png';
+  const SCEPTER_ICON = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/ultimate_scepter.png';
+  const SHARD_ICON   = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/aghanims_shard.png';
+
+  function renderAbilityImg(imgUrl, abName, overlayIconSrc) {
+    const overlay = overlayIconSrc
+      ? `<div class="ab-overlay-icons"><img class="ab-overlay-icon" src="${overlayIconSrc}" onerror="this.style.display='none'"></div>`
+      : '';
+    return `
+      <div class="ab-img-wrap">
+        <img class="ab-main-img" src="${imgUrl}" alt="${abName}" onerror="this.onerror=null;this.src='';this.style.opacity='0'">
+        ${overlay}
+      </div>`;
+  }
 
   document.getElementById('abilityList').innerHTML = validAbilities.map(ab => {
     const imgUrl = `${CDN}/apps/dota2/images/dota_react/abilities/${ab.key}.png`;
@@ -654,29 +747,62 @@ function showHeroDetail(key) {
     const mc = ab.manacost && ab.manacost !== '0' ? `<b>${ab.manacost}</b>` : '';
     const stats = [cd ? `冷却 ${cd}` : '', mc ? `耗蓝 ${mc}` : ''].filter(Boolean).join(' &emsp; ');
 
-    const badges = [
-      ab.is_innate  ? '<span class="ab-badge ab-badge-innate">先天技能</span>' : '',
-      ab.has_scepter ? '<span class="ab-badge ab-badge-scepter">阿哈利姆神杖</span>' : '',
-      ab.has_shard   ? '<span class="ab-badge ab-badge-shard">阿哈利姆魔晶</span>' : '',
-    ].filter(Boolean).join('');
+    // 神杖/魔晶新增技能：技能本身就是由神杖/魔晶解锁的独立新技能
+    if (ab.grant_scepter || ab.grant_shard) {
+      const grantIcon = ab.grant_scepter ? SCEPTER_ICON : SHARD_ICON;
+      const grantClass = ab.grant_scepter ? 'grant-scepter' : 'grant-shard';
+      const grantLabelClass = ab.grant_scepter ? 'scepter' : 'shard';
+      const grantLabelText = ab.grant_scepter ? '阿哈利姆神杖' : '阿哈利姆魔晶';
+      return `<div class="ability-group">
+        <div class="ability-card ${grantClass}">
+          ${renderAbilityImg(imgUrl, ab.name, grantIcon)}
+          <div class="ab-content">
+            <div class="ab-grant-label ${grantLabelClass}">
+              <img src="${grantIcon}" style="width:14px;height:14px;object-fit:contain;vertical-align:middle" onerror="this.style.display='none'">
+              ${grantLabelText} 新增技能
+            </div>
+            <div class="ab-name">${ab.name}</div>
+            ${ab.description ? `<div class="ab-desc">${formatDesc(ab.description, ab.attrib)}</div>` : ''}
+            ${stats ? `<div class="ab-stats">${stats}</div>` : ''}
+          </div>
+        </div>
+      </div>`;
+    }
 
-    const cardClass = [
-      'ability-card',
-      ab.is_innate   ? 'is-innate'    : '',
-      ab.has_scepter ? 'has-scepter'  : '',
-      ab.has_shard   ? 'has-shard'    : '',
-    ].filter(Boolean).join(' ');
-
-    return `
-      <div class="${cardClass}">
-        <img src="${imgUrl}" alt="${ab.name}" onerror="this.style.visibility='hidden'">
+    // 主条目：先天技能直接显示先天图标充满格子，普通技能正常显示
+    const mainImgUrl = ab.is_innate ? INNATE_ICON : imgUrl;
+    const mainCard = `
+      <div class="ability-card${ab.is_innate ? ' is-innate' : ''}">
+        ${renderAbilityImg(mainImgUrl, ab.name, null)}
         <div class="ab-content">
-          ${badges ? `<div class="ab-badges">${badges}</div>` : ''}
+          ${ab.is_innate ? '<span class="ab-badge-innate">先天技能</span>' : ''}
           <div class="ab-name">${ab.name}</div>
           ${ab.description ? `<div class="ab-desc">${formatDesc(ab.description, ab.attrib)}</div>` : ''}
           ${stats ? `<div class="ab-stats">${stats}</div>` : ''}
         </div>
       </div>`;
+
+    // 神杖升级条目（强化已有技能）
+    const scepterCard = ab.scepter_desc ? `
+      <div class="ability-card upgrade-scepter">
+        ${renderAbilityImg(imgUrl, ab.name, SCEPTER_ICON)}
+        <div class="ab-content">
+          <div class="ab-name">${ab.name} <span style="font-size:12px;font-weight:400;color:#6dc86e">· 阿哈利姆神杖</span></div>
+          <div class="ab-desc">${formatDesc(ab.scepter_desc, ab.attrib)}</div>
+        </div>
+      </div>` : '';
+
+    // 魔晶升级条目（强化已有技能）
+    const shardCard = ab.shard_desc ? `
+      <div class="ability-card upgrade-shard">
+        ${renderAbilityImg(imgUrl, ab.name, SHARD_ICON)}
+        <div class="ab-content">
+          <div class="ab-name">${ab.name} <span style="font-size:12px;font-weight:400;color:#7db4f0">· 阿哈利姆魔晶</span></div>
+          <div class="ab-desc">${formatDesc(ab.shard_desc, ab.attrib)}</div>
+        </div>
+      </div>` : '';
+
+    return `<div class="ability-group">${mainCard}${scepterCard}${shardCard}</div>`;
   }).join('') || '<div style="color:#555;font-size:13px;padding:8px 0">暂无技能数据</div>';
 
   window.scrollTo(0, 0);

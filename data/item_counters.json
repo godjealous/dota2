@@ -1,0 +1,3944 @@
+{
+  "item_blink": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "受攻击后禁用闪现"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默无法使用主动"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊无法使用主动"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "闪烁逃脱缠绕控制"
+      },
+      {
+        "counter": "item_gungir",
+        "reason": "闪烁逃脱锁链范围"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "闪烁比加速追击更快"
+      }
+    ]
+  },
+  "item_overwhelming_blink": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "受攻击后禁用闪现"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默无法使用主动"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊无法使用主动"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "闪烁逃脱缠绕控制"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "传送后减速压制移速"
+      },
+      {
+        "counter": "item_wind_lace",
+        "reason": "传送后减速压制移速"
+      }
+    ]
+  },
+  "item_swift_blink": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "受攻击后禁用闪现"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默无法使用主动"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊无法使用主动"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "高速移动压制慢速鞋"
+      },
+      {
+        "counter": "item_wind_lace",
+        "reason": "闪烁后高移速超越"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "闪烁后移速优于相位"
+      }
+    ]
+  },
+  "item_arcane_blink": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "受攻击后禁用闪现"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默无法使用主动"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊无法使用主动"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_clarity",
+        "reason": "闪烁后自动回复魔法"
+      },
+      {
+        "counter": "item_sobi_mask",
+        "reason": "回魔效果更强覆盖"
+      },
+      {
+        "counter": "item_bottle",
+        "reason": "闪烁回魔优于魔瓶"
+      }
+    ]
+  },
+  "item_chainmail": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_blight_stone",
+        "reason": "护甲被腐蚀削减"
+      },
+      {
+        "counter": "item_orb_of_corrosion",
+        "reason": "护甲被腐蚀削减"
+      }
+    ]
+  },
+  "item_splintmail": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_blight_stone",
+        "reason": "护甲被腐蚀削减"
+      },
+      {
+        "counter": "item_orb_of_corrosion",
+        "reason": "护甲被腐蚀削减"
+      }
+    ]
+  },
+  "item_helm_of_iron_will": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "灵瓮降低生命回复"
+      }
+    ],
+    "counters": []
+  },
+  "item_javelin": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_talisman_of_evasion",
+        "reason": "穿刺无视闪避"
+      },
+      {
+        "counter": "item_butterfly",
+        "reason": "穿刺无视高闪避"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "穿刺无视辉耀闪避"
+      }
+    ]
+  },
+  "item_platemail": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_blight_stone",
+        "reason": "护甲被腐蚀削减"
+      },
+      {
+        "counter": "item_orb_of_corrosion",
+        "reason": "护甲被腐蚀削减"
+      }
+    ]
+  },
+  "item_infused_raindrop": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "抵挡魔法爆发伤害"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "抵挡部分魔法伤害"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "抵挡燃烧结算伤害"
+      }
+    ]
+  },
+  "item_ring_of_protection": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_blight_stone",
+        "reason": "护甲被腐蚀削减"
+      },
+      {
+        "counter": "item_orb_of_corrosion",
+        "reason": "护甲被腐蚀削减"
+      }
+    ]
+  },
+  "item_stout_shield": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_javelin",
+        "reason": "穿刺绕过伤害格挡"
+      },
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "穿刺绕过伤害格挡"
+      }
+    ]
+  },
+  "item_moon_shard": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_gem",
+        "reason": "夜视使隐身无效"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "夜视看穿隐身效果"
+      },
+      {
+        "counter": "item_glimmer_cape",
+        "reason": "夜视增强看穿隐身"
+      }
+    ]
+  },
+  "item_lifesteal": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命回复削弱吸血"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "降低生命回复削弱吸血"
+      }
+    ],
+    "counters": []
+  },
+  "item_voodoo_mask": {
+    "counters_of": [
+      {
+        "counter": "item_mage_slayer",
+        "reason": "降低技能伤害减少偷生"
+      }
+    ],
+    "counters": []
+  },
+  "item_ring_of_regen": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "减少生命回复克制回复"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "降低生命回复克制回复"
+      }
+    ],
+    "counters": []
+  },
+  "item_boots": {
+    "counters_of": [
+      {
+        "counter": "item_skadi",
+        "reason": "减速压制移动速度优势"
+      },
+      {
+        "counter": "item_wind_lace",
+        "reason": "多鞋不叠加削弱价值"
+      }
+    ],
+    "counters": []
+  },
+  "item_gem": {
+    "counters_of": [
+      {
+        "counter": "item_dust",
+        "reason": "死亡掉落敌方可拾取"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视克制隐身"
+      },
+      {
+        "counter": "item_silver_edge",
+        "reason": "真视克制隐身"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视永久反制隐身"
+      },
+      {
+        "counter": "item_silver_edge",
+        "reason": "真视永久反制隐身"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "真视克制隐身效果"
+      }
+    ]
+  },
+  "item_shawl": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "魔法抗性减少爆发伤害"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "魔法抗性抵御技能伤害"
+      }
+    ]
+  },
+  "item_cloak": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "魔法抗性减少爆发伤害"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "魔法抗性降低法术效果"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "魔法抗性抵御技能伤害"
+      }
+    ]
+  },
+  "item_talisman_of_evasion": {
+    "counters_of": [
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "穿刺无视闪避"
+      },
+      {
+        "counter": "item_javelin",
+        "reason": "穿刺无视闪避"
+      },
+      {
+        "counter": "item_bloodthorn",
+        "reason": "攻击带克敌机先"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "闪避降低暴击命中率"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "闪避降低击晕触发率"
+      },
+      {
+        "counter": "item_desolator",
+        "reason": "闪避使腐蚀难以叠加"
+      }
+    ]
+  },
+  "item_magic_stick": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "沉默阻止技能施放充能"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊阻止施法无法充能"
+      }
+    ],
+    "counters": []
+  },
+  "item_magic_wand": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "沉默阻止技能施放充能"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊阻止施法无法充能"
+      }
+    ],
+    "counters": []
+  },
+  "item_ghost": {
+    "counters_of": [
+      {
+        "counter": "item_dagon",
+        "reason": "虚无态魔法伤害加重"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化叠加受魔法伤害增幅"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊后无法使用主动"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "免疫物理伤害无效暴击"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "物理免疫抵挡锤击"
+      },
+      {
+        "counter": "item_desolator",
+        "reason": "物理免疫使腐蚀无效"
+      }
+    ]
+  },
+  "item_clarity": {
+    "counters_of": [
+      {
+        "counter": "item_flask",
+        "reason": "攻击即驱散效果相同"
+      },
+      {
+        "counter": "item_magic_stick",
+        "reason": "魔棒可快速补充魔法"
+      }
+    ],
+    "counters": []
+  },
+  "item_enchanted_mango": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_clarity",
+        "reason": "即时补魔无需等待"
+      }
+    ]
+  },
+  "item_blood_grenade": {
+    "counters_of": [
+      {
+        "counter": "item_flask",
+        "reason": "伤害驱散治疗效果"
+      },
+      {
+        "counter": "item_clarity",
+        "reason": "伤害驱散回魔效果"
+      }
+    ],
+    "counters": []
+  },
+  "item_flask": {
+    "counters_of": [
+      {
+        "counter": "item_clarity",
+        "reason": "攻击即驱散效果相同"
+      }
+    ],
+    "counters": []
+  },
+  "item_dust": {
+    "counters_of": [
+      {
+        "counter": "item_ward_sentry",
+        "reason": "功能重叠侦测隐身"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_invis_sword",
+        "reason": "揭露隐身状态"
+      },
+      {
+        "counter": "item_silver_edge",
+        "reason": "揭露隐身状态"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "揭露隐身状态"
+      }
+    ]
+  },
+  "item_bottle": {
+    "counters_of": [
+      {
+        "counter": "item_clarity",
+        "reason": "可存神符功能更强"
+      },
+      {
+        "counter": "item_flask",
+        "reason": "可重复使用更高效"
+      }
+    ],
+    "counters": []
+  },
+  "item_ward_sentry": {
+    "counters_of": [
+      {
+        "counter": "item_dust",
+        "reason": "功能重叠均侦隐身"
+      },
+      {
+        "counter": "item_gem",
+        "reason": "功能重叠均侦隐身"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视揭露隐身"
+      },
+      {
+        "counter": "item_silver_edge",
+        "reason": "真视揭露隐身"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "真视揭露隐身"
+      }
+    ]
+  },
+  "item_ward_dispenser": {
+    "counters_of": [
+      {
+        "counter": "item_ward_sentry",
+        "reason": "包含岗哨功能更强"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视揭露隐身"
+      },
+      {
+        "counter": "item_silver_edge",
+        "reason": "真视揭露隐身"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "真视揭露隐身"
+      }
+    ]
+  },
+  "item_tango": {
+    "counters_of": [
+      {
+        "counter": "item_flask",
+        "reason": "使用次数多更高效"
+      }
+    ],
+    "counters": []
+  },
+  "item_tpscroll": {
+    "counters_of": [
+      {
+        "counter": "item_travel_boots",
+        "reason": "低价实现传送功能"
+      }
+    ],
+    "counters": []
+  },
+  "item_travel_boots": {
+    "counters_of": [
+      {
+        "counter": "item_tpscroll",
+        "reason": "无限传送取代卷轴"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "移速更高全面压制"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tpscroll",
+        "reason": "升级取代卷轴功能"
+      }
+    ]
+  },
+  "item_travel_boots_2": {
+    "counters_of": [
+      {
+        "counter": "item_travel_boots",
+        "reason": "移速更高功能更强"
+      },
+      {
+        "counter": "item_tpscroll",
+        "reason": "无限传送取代卷轴"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tpscroll",
+        "reason": "升级取代卷轴功能"
+      }
+    ]
+  },
+  "item_phase_boots": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "物理免疫时无法攻击"
+      }
+    ]
+  },
+  "item_ring_of_health": {
+    "counters_of": [
+      {
+        "counter": "item_ring_of_tarrasque",
+        "reason": "低价提供生命回复"
+      }
+    ],
+    "counters": []
+  },
+  "item_ring_of_tarrasque": {
+    "counters_of": [
+      {
+        "counter": "item_ring_of_health",
+        "reason": "回复量更高完全压制"
+      }
+    ],
+    "counters": []
+  },
+  "item_tiara_of_selemene": {
+    "counters_of": [
+      {
+        "counter": "item_void_stone",
+        "reason": "魔法回复量更高"
+      }
+    ],
+    "counters": []
+  },
+  "item_energy_booster": {
+    "counters_of": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "净魂燃烧魔法值"
+      },
+      {
+        "counter": "item_bloodthorn",
+        "reason": "灵魂撕裂消耗魔法"
+      },
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命魔法回复"
+      }
+    ],
+    "counters": []
+  },
+  "item_point_booster": {
+    "counters_of": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "净魂燃烧魔法值"
+      },
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低回复效果"
+      }
+    ],
+    "counters": []
+  },
+  "item_vitality_booster": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "百分比扣血克生命"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "法术虚弱提升伤害"
+      }
+    ],
+    "counters": []
+  },
+  "item_fluffy_hat": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "百分比扣血克生命"
+      }
+    ],
+    "counters": []
+  },
+  "item_wizard_hat": {
+    "counters_of": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "净魂燃烧魔法值"
+      }
+    ],
+    "counters": []
+  },
+  "item_power_treads": {
+    "counters_of": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "切智力抵抗魔法燃烧"
+      }
+    ],
+    "counters": []
+  },
+  "item_phylactery": {
+    "counters_of": [
+      {
+        "counter": "item_sphere",
+        "reason": "林肯挡单体技能"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹单体技能"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫技能效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_mekansm",
+        "reason": "强化单体技能伤害"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "穿透魔法护盾伤害"
+      }
+    ]
+  },
+  "item_angels_demise": {
+    "counters_of": [
+      {
+        "counter": "item_sphere",
+        "reason": "林肯挡单体技能"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹单体技能"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫技能效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_mekansm",
+        "reason": "强化技能并禁被动"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "穿透魔法护盾"
+      }
+    ]
+  },
+  "item_witch_blade": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫减速毒素"
+      },
+      {
+        "counter": "item_manta",
+        "reason": "幻影斧驱散毒素减速"
+      },
+      {
+        "counter": "item_guardian_greaves",
+        "reason": "胫甲驱散毒素效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "毒素穿透魔法护盾"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "毒素降低生命回复"
+      }
+    ]
+  },
+  "item_pers": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命魔法回复"
+      }
+    ],
+    "counters": []
+  },
+  "item_cornucopia": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命魔法回复"
+      }
+    ],
+    "counters": []
+  },
+  "item_bracer": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "百分比扣血克生命"
+      }
+    ],
+    "counters": []
+  },
+  "item_null_talisman": {
+    "counters_of": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "净魂燃烧魔法值"
+      }
+    ],
+    "counters": []
+  },
+  "item_mekansm": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低治疗效果"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "否决驱散回复效果"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "法术虚弱光环克制"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "团队回血补充魔护"
+      },
+      {
+        "counter": "item_vanguard",
+        "reason": "提供团队生命回复"
+      }
+    ]
+  },
+  "item_vladmir": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低吸血回复效果"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "否决驱散吸血光环"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "吸血光环补充回复"
+      },
+      {
+        "counter": "item_headdress",
+        "reason": "提供更强回复光环"
+      }
+    ]
+  },
+  "item_buckler": {
+    "counters_of": [
+      {
+        "counter": "item_desolator",
+        "reason": "黯灭降甲削弱护甲"
+      },
+      {
+        "counter": "item_assault",
+        "reason": "强袭降甲削弱护甲"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "护甲光环减暴击伤害"
+      },
+      {
+        "counter": "item_rapier",
+        "reason": "护甲光环减物理伤害"
+      }
+    ]
+  },
+  "item_ring_of_basilius": {
+    "counters_of": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "净魂燃烧魔法值"
+      }
+    ],
+    "counters": []
+  },
+  "item_holy_locket": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低治疗回复效果"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "否决驱散治疗增强"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "增强治疗配合魔护"
+      },
+      {
+        "counter": "item_mekansm",
+        "reason": "增强团队治疗效果"
+      }
+    ]
+  },
+  "item_pipe": {
+    "counters_of": [
+      {
+        "counter": "item_nullifier",
+        "reason": "否决驱散魔法护盾"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "法术虚弱穿透魔护"
+      },
+      {
+        "counter": "item_veil_of_discord",
+        "reason": "法术虚弱穿透魔护"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "魔法护盾抵挡爆发"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "魔法抗性减少受损"
+      }
+    ]
+  },
+  "item_urn_of_shadows": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "升级版覆盖灵龛效果"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "否决驱散回复效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "持续施加伤害中断"
+      },
+      {
+        "counter": "item_flask",
+        "reason": "灵龛回复覆盖药膏"
+      }
+    ]
+  },
+  "item_headdress": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命回复效果"
+      }
+    ],
+    "counters": []
+  },
+  "item_sheepstick": {
+    "counters_of": [
+      {
+        "counter": "item_sphere",
+        "reason": "林肯挡单体妖术"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹妖术"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫妖术效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_manta",
+        "reason": "幻影驱散变羊效果"
+      },
+      {
+        "counter": "item_guardian_greaves",
+        "reason": "胫甲驱散变羊效果"
+      }
+    ]
+  },
+  "item_specialists_array": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "分裂弹道无视闪避"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械使分裂无效"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "多弹道覆盖虚无状态"
+      },
+      {
+        "counter": "item_butterfly",
+        "reason": "分裂弹道绕过闪避"
+      }
+    ]
+  },
+  "item_hydras_breath": {
+    "counters_of": [
+      {
+        "counter": "item_heart",
+        "reason": "毒伤压制生命回复"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "毒伤抑制吸血回复"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械使攻击无效"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_heart",
+        "reason": "百分比毒伤克高血量"
+      },
+      {
+        "counter": "item_ring_of_tarrasque",
+        "reason": "毒压制生命回复"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "毒伤抑制回复效果"
+      }
+    ]
+  },
+  "item_diffusal_blade_2": {
+    "counters_of": [
+      {
+        "counter": "item_sphere",
+        "reason": "林肯被动格挡主动技"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹主动技"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "破法燃魔使蓝量耗尽"
+      },
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "升级版覆盖原版效果"
+      },
+      {
+        "counter": "item_octarine_core",
+        "reason": "破法消耗大量魔法值"
+      }
+    ]
+  },
+  "item_quelling_blade": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_branches",
+        "reason": "可砍伐种下的树木"
+      }
+    ]
+  },
+  "item_wind_lace": {
+    "counters_of": [
+      {
+        "counter": "item_wind_lace",
+        "reason": "多个不叠加浪费"
+      }
+    ],
+    "counters": []
+  },
+  "item_branches": {
+    "counters_of": [
+      {
+        "counter": "item_quelling_blade",
+        "reason": "种树可被砍伐消除"
+      }
+    ],
+    "counters": []
+  },
+  "item_cheese": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命回复效果"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "法术虚弱光环削弱"
+      }
+    ],
+    "counters": []
+  },
+  "item_tango_single": {
+    "counters_of": [
+      {
+        "counter": "item_quelling_blade",
+        "reason": "砍树破坏回复来源"
+      }
+    ],
+    "counters": []
+  },
+  "item_reaver": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "减少生命回复压制高血量"
+      },
+      {
+        "counter": "item_shivas_guard",
+        "reason": "降低攻速削弱物理输出"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "高血量使格挡效率降低"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "高血量承受反伤更强"
+      }
+    ]
+  },
+  "item_relic": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "高攻击力使闪避价值降低"
+      },
+      {
+        "counter": "item_vanguard",
+        "reason": "高攻力穿透格挡效率"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "穿刺无视闪避克制高攻"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "高攻触发反伤伤自身"
+      }
+    ]
+  },
+  "item_hyperstone": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "高攻速使闪避概率价值低"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械时高攻速浪费"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械限制攻速发挥"
+      },
+      {
+        "counter": "item_shivas_guard",
+        "reason": "降攻速光环压制"
+      }
+    ]
+  },
+  "item_mystic_staff": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "提供智力增强法力"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "提供智力增强法力"
+      }
+    ]
+  },
+  "item_hand_of_midas": {
+    "counters_of": [
+      {
+        "counter": "item_necronomicon",
+        "reason": "炼化召唤单位获金币"
+      },
+      {
+        "counter": "item_helm_of_the_dominator",
+        "reason": "炼化被支配单位"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "被沉默时主动无法使用"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "被羊化时主动无法使用"
+      }
+    ]
+  },
+  "item_oblivion_staff": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "提供组件增强法力"
+      },
+      {
+        "counter": "item_bloodthorn",
+        "reason": "提供组件增强法力"
+      }
+    ]
+  },
+  "item_orchid": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫沉默效果"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹沉默"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡沉默指向技能"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "沉默阻止主动使用"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "沉默阻止主动使用"
+      },
+      {
+        "counter": "item_refresher",
+        "reason": "沉默阻止主动使用"
+      }
+    ]
+  },
+  "item_bloodthorn": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫沉默效果"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹沉默"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_butterfly",
+        "reason": "克敌机先无视闪避"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "沉默阻止主动使用"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "沉默阻止主动使用"
+      }
+    ]
+  },
+  "item_echo_sabre": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "双击触发双倍反伤"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "双击触发双倍格挡"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械使双击失效"
+      },
+      {
+        "counter": "item_ghost",
+        "reason": "幽灵形态免疫物理攻击"
+      }
+    ]
+  },
+  "item_cyclone": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫龙卷风效果"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹龙卷风"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "卷起使沉默暂时无效"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "驱散受伤禁闪状态"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "驱散羊化等负面效果"
+      }
+    ]
+  },
+  "item_wind_waker": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫龙卷风效果"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹龙卷风"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "驱散沉默并卷走"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "驱散受伤禁闪状态"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "驱散羊化等负面效果"
+      }
+    ]
+  },
+  "item_aether_lens": {
+    "counters_of": [
+      {
+        "counter": "item_force_staff",
+        "reason": "施法距离优势使推杆难接近"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "远程技能无需近身闪烁"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sphere",
+        "reason": "增距使法球射程意义减弱"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "增距更安全施放技能"
+      }
+    ]
+  },
+  "item_force_staff": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "推杆可强制改变BKB位置"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "推杆可打断闪烁冷却"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "推走躲避沉默技能"
+      },
+      {
+        "counter": "item_abyssal_blade",
+        "reason": "推走逃离击晕控制"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "推走躲避羊化技能"
+      }
+    ]
+  },
+  "item_hurricane_pike": {
+    "counters_of": [
+      {
+        "counter": "item_sphere",
+        "reason": "指向技能被法球抵挡"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫推力效果"
+      },
+      {
+        "counter": "item_lotus_orb",
+        "reason": "回音壳反弹推力"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_dragon_lance",
+        "reason": "升级自魔龙枪"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "拉开距离脱离闪烁"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "强制拉近隐身单位"
+      }
+    ]
+  },
+  "item_dagon": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法爆发"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾抵挡伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "虚无状态提升魔法伤害"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化后接爆发高伤"
+      }
+    ]
+  },
+  "item_dagon_2": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法爆发"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾抵挡伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "虚无状态提升魔法伤害"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化后接爆发高伤"
+      }
+    ]
+  },
+  "item_dagon_3": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法爆发"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾抵挡伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "虚无状态提升魔法伤害"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化后接爆发高伤"
+      }
+    ]
+  },
+  "item_dagon_4": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法爆发"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾抵挡伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "虚无状态提升魔法伤害"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化后接爆发高伤"
+      }
+    ]
+  },
+  "item_dagon_5": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法爆发"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾抵挡伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_ghost",
+        "reason": "虚无状态提升魔法伤害"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化后接爆发高伤"
+      }
+    ]
+  },
+  "item_necronomicon": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "战士提供真实视域"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视探测隐身单位"
+      },
+      {
+        "counter": "item_smoke_of_deceit",
+        "reason": "真视破除隐身烟雾"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "召唤物被妖术消灭"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫死灵控制"
+      }
+    ]
+  },
+  "item_necronomicon_2": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "战士提供真实视域"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视探测隐身单位"
+      },
+      {
+        "counter": "item_smoke_of_deceit",
+        "reason": "真视破除隐身烟雾"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "召唤物被妖术消灭"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫死灵控制"
+      }
+    ]
+  },
+  "item_necronomicon_3": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "战士提供真实视域"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视探测隐身单位"
+      },
+      {
+        "counter": "item_smoke_of_deceit",
+        "reason": "真视破除隐身烟雾"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "召唤物被妖术消灭"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫死灵控制"
+      }
+    ]
+  },
+  "item_refresher": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "二次BKB延长免疫时间"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "重置后再次妖术控制"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "重置后再次龙卷风"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_octarine_core",
+        "reason": "缩减刷新球冷却"
+      }
+    ]
+  },
+  "item_assault": {
+    "counters_of": [
+      {
+        "counter": "item_desolator",
+        "reason": "护甲加成抵消黯灭减甲"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "护甲提升减少反弹伤害"
+      },
+      {
+        "counter": "item_shivas_guard",
+        "reason": "攻速光环与减攻速冲突"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "高攻速放大反伤风险"
+      },
+      {
+        "counter": "item_vanguard",
+        "reason": "减甲绕过格挡保护"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "减甲削弱格挡收益"
+      }
+    ]
+  },
+  "item_heart": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "灵瓮降低生命回复"
+      },
+      {
+        "counter": "item_shivas_guard",
+        "reason": "极寒冲击减缓回复"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "大量生命抗住爆发"
+      },
+      {
+        "counter": "item_meteor_hammer",
+        "reason": "高血量扛住持续伤害"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "生命优势压制吸血收益"
+      }
+    ]
+  },
+  "item_black_king_bar": {
+    "counters_of": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "免疫妖术控制"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "免疫沉默效果"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "免疫龙卷风控制"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "免疫沉默无效化"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "免疫妖术无效化"
+      },
+      {
+        "counter": "item_meteor_hammer",
+        "reason": "免疫眩晕效果"
+      }
+    ]
+  },
+  "item_shivas_guard": {
+    "counters_of": [
+      {
+        "counter": "item_assault",
+        "reason": "减攻速抵消攻速光环"
+      },
+      {
+        "counter": "item_heart",
+        "reason": "减生命回复削弱回血"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "减回复削弱吸血效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_mask_of_madness",
+        "reason": "减攻速克制狂热"
+      },
+      {
+        "counter": "item_mjollnir",
+        "reason": "减攻速降低闪电触发"
+      },
+      {
+        "counter": "item_heart",
+        "reason": "降低回血削弱续战"
+      }
+    ]
+  },
+  "item_bloodstone": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "法术偷生抵消伤害"
+      },
+      {
+        "counter": "item_veil_of_discord",
+        "reason": "偷生吸收技能伤害"
+      },
+      {
+        "counter": "item_dagon",
+        "reason": "偷生减少爆发损耗"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "虚弱光环增伤叠加"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "减免效果被增伤削弱"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "增伤压制魔法抗性"
+      }
+    ]
+  },
+  "item_sphere": {
+    "counters_of": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "抵挡妖术指向技能"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "抵挡沉默指向技能"
+      },
+      {
+        "counter": "item_dagon",
+        "reason": "抵挡能量冲击"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "免疫妖术无效化"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "免疫沉默无效化"
+      },
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "抵挡缠绕控制"
+      }
+    ]
+  },
+  "item_lotus_orb": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "反弹沉默回施法者"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "反弹妖术回施法者"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "护甲提升减少伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "反弹沉默克制施法者"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "反弹妖术克制对方"
+      },
+      {
+        "counter": "item_abyssal_blade",
+        "reason": "反弹主动控制效果"
+      }
+    ]
+  },
+  "item_meteor_hammer": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫眩晕效果"
+      },
+      {
+        "counter": "item_aeon_disk",
+        "reason": "永恒之盘中断持续施法"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "持续施法易被打断"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "眩晕持续造成大量伤害"
+      },
+      {
+        "counter": "item_heart",
+        "reason": "持续伤害削弱高血量"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "眩晕打断回复效果"
+      }
+    ]
+  },
+  "item_nullifier": {
+    "counters_of": [
+      {
+        "counter": "item_sphere",
+        "reason": "主动驱散林肯抵挡"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "驱散BKB无敌状态"
+      },
+      {
+        "counter": "item_glimmer_cape",
+        "reason": "驱散隐身效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sphere",
+        "reason": "主动驱散法球效果"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "驱散无敌状态"
+      },
+      {
+        "counter": "item_glimmer_cape",
+        "reason": "驱散隐身护盾"
+      }
+    ]
+  },
+  "item_aeon_disk": {
+    "counters_of": [
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散清除永恒之盘buff"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "触发后沉默伤害无效"
+      },
+      {
+        "counter": "item_dagon",
+        "reason": "爆发触发后伤害归零"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "爆发触发后伤害归零"
+      },
+      {
+        "counter": "item_meteor_hammer",
+        "reason": "触发中断持续施法"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默期间伤害归零"
+      }
+    ]
+  },
+  "item_kaya": {
+    "counters_of": [
+      {
+        "counter": "item_pipe",
+        "reason": "法术强度穿透魔法抗性"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "增伤削弱魔法护盾"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "技能强化BKB无效"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "法术强度压制魔法抗性"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "增伤削弱魔法护盾"
+      },
+      {
+        "counter": "item_vanguard",
+        "reason": "技能强化绕过格挡"
+      }
+    ]
+  },
+  "item_trident": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "状态抗性缩短沉默时间"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "状态抗性缩短妖术"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "减速抗性削弱霜冻减速"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "状态抗性缩短沉默"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "状态抗性缩短控制"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "减速抗性克制减速"
+      }
+    ]
+  },
+  "item_refresher_shard": {
+    "counters_of": [
+      {
+        "counter": "item_aeon_disk",
+        "reason": "重置后再次触发永恒"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "重置BKB再次开启"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "重置BKB延长无敌"
+      },
+      {
+        "counter": "item_aeon_disk",
+        "reason": "重置技能再次爆发"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "重置妖术再次控制"
+      }
+    ]
+  },
+  "item_spirit_vessel": {
+    "counters_of": [
+      {
+        "counter": "item_heart",
+        "reason": "降低回复克制高回血"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "降低回复克制吸血"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "降低回复克制静谧鞋"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_heart",
+        "reason": "降回复削弱高回血"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "降回复克制吸血流"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "降回复削弱生命恢复"
+      }
+    ]
+  },
+  "item_essence_distiller": {
+    "counters_of": [
+      {
+        "counter": "item_glimmer_cape",
+        "reason": "真实视域看穿隐身"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "真实视域看穿隐身"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "真实视域看穿隐身"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_glimmer_cape",
+        "reason": "真视揭露隐身状态"
+      },
+      {
+        "counter": "item_shadow_amulet",
+        "reason": "真视揭露隐身状态"
+      },
+      {
+        "counter": "item_invis_sword",
+        "reason": "真视揭露隐身状态"
+      }
+    ]
+  },
+  "item_lesser_crit": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "闪避可规避暴击触发"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械使暴击无法发动"
+      },
+      {
+        "counter": "item_ghost",
+        "reason": "虚无状态免疫物理攻击"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "暴击穿透格挡收益高"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "暴击削弱格挡效果"
+      }
+    ]
+  },
+  "item_dragon_lance": {
+    "counters_of": [
+      {
+        "counter": "item_force_staff",
+        "reason": "增加距离抵消推力"
+      },
+      {
+        "counter": "item_ghost",
+        "reason": "远程英雄可远距攻击"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_blink",
+        "reason": "攻击距离无法弥补闪现"
+      }
+    ]
+  },
+  "item_armlet": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "百分比扣血克制高血量"
+      },
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "燃魔克制低蓝依赖"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默导致无法关闭臂章"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "高攻击力穿透格挡"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "高攻力反伤极大"
+      }
+    ]
+  },
+  "item_invis_sword": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "真视宝石显形隐身"
+      },
+      {
+        "counter": "item_dust",
+        "reason": "显影之尘破除隐身"
+      },
+      {
+        "counter": "item_ward_sentry",
+        "reason": "岗哨守卫反制隐身"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_blink",
+        "reason": "隐身接近后突袭"
+      },
+      {
+        "counter": "item_force_staff",
+        "reason": "隐身规避推杆逃脱"
+      }
+    ]
+  },
+  "item_silver_edge": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "真视宝石显形隐身"
+      },
+      {
+        "counter": "item_dust",
+        "reason": "显影之尘破除隐身"
+      },
+      {
+        "counter": "item_ward_sentry",
+        "reason": "岗哨守卫反制隐身"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_armlet",
+        "reason": "破隐禁被动封臂章"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "禁被动使吸血失效"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "禁被动封闪避光环"
+      }
+    ]
+  },
+  "item_sange_and_yasha": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "高状态抗性减沉默时长"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "状态抗性减少变羊时间"
+      },
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "减速抗性弱化缠绕"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "攻击破坏静谧之鞋"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "减速叠加压制目标"
+      }
+    ]
+  },
+  "item_kaya_and_sange": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "状态抗性减少沉默时长"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "状态抗性减少变羊时间"
+      },
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "减速抗性弱化缠绕"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "法术强度提升克烟斗"
+      },
+      {
+        "counter": "item_cloak",
+        "reason": "法术强度削弱魔抗价值"
+      }
+    ]
+  },
+  "item_yasha_and_kaya": {
+    "counters_of": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "高移速可躲避变羊"
+      },
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "移速优势规避缠绕"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "高移速碾压静谧加成"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "法术强度提升克烟斗"
+      }
+    ]
+  },
+  "item_satanic": {
+    "counters_of": [
+      {
+        "counter": "item_silver_edge",
+        "reason": "破隐禁被动封吸血"
+      },
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "灵瓮大幅降低生命回复"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默期间无法主动吸血"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "高吸血超越格挡续航"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "吸血抵消反伤伤害"
+      }
+    ]
+  },
+  "item_mjollnir": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "闪电触发无视闪避"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "闪电反弹对自身危险"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械导致闪电无法触发"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "闪电伤害绕过格挡"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "魔法伤害无视物理格挡"
+      }
+    ]
+  },
+  "item_skadi": {
+    "counters_of": [
+      {
+        "counter": "item_sange_and_yasha",
+        "reason": "状态抗性减弱减速效果"
+      },
+      {
+        "counter": "item_manta",
+        "reason": "幻象消耗减速叠加"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_satanic",
+        "reason": "降低生命回复克吸血"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "减速使静谧鞋失效"
+      },
+      {
+        "counter": "item_heart",
+        "reason": "降低生命回复克恐鳌"
+      }
+    ]
+  },
+  "item_sange": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "状态抗性减少沉默时长"
+      },
+      {
+        "counter": "item_rod_of_atos",
+        "reason": "减速抗性弱化缠绕"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "减速使静谧鞋失效"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "减速抗性削弱寒霜"
+      }
+    ]
+  },
+  "item_helm_of_the_dominator": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "真视无法克制被控单位"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊只针对单一目标"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_necronomicon",
+        "reason": "控制单位对抗召唤物"
+      },
+      {
+        "counter": "item_ancient_janggo",
+        "reason": "被控单位补充团队强度"
+      }
+    ]
+  },
+  "item_helm_of_the_overlord": {
+    "counters_of": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊只针对单一目标"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默无法影响被控单位"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_necronomicon",
+        "reason": "强力单位压制召唤物"
+      },
+      {
+        "counter": "item_ancient_janggo",
+        "reason": "被控单位加强团队输出"
+      }
+    ]
+  },
+  "item_maelstrom": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "闪电触发无视闪避"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械导致闪电无法触发"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_vanguard",
+        "reason": "闪电魔法伤害绕过格挡"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "魔法伤害无视物理格挡"
+      }
+    ]
+  },
+  "item_gungir": {
+    "counters_of": [
+      {
+        "counter": "item_blink",
+        "reason": "锁链控制阻止闪烁"
+      },
+      {
+        "counter": "item_manta",
+        "reason": "群体缠绕命中幻象"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫链控"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_blink",
+        "reason": "缠绕阻止闪烁逃脱"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "锁链限制移动"
+      },
+      {
+        "counter": "item_yasha",
+        "reason": "控制抵消移速优势"
+      }
+    ]
+  },
+  "item_desolator": {
+    "counters_of": [
+      {
+        "counter": "item_assault",
+        "reason": "破甲抵消护甲加成"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "降甲削弱格挡价值"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "破甲强化物理输出"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_platemail",
+        "reason": "破甲使护甲失效"
+      },
+      {
+        "counter": "item_chainmail",
+        "reason": "破甲使护甲失效"
+      },
+      {
+        "counter": "item_assault",
+        "reason": "毁蚀叠加降甲"
+      }
+    ]
+  },
+  "item_yasha": {
+    "counters_of": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "移速优势削弱鞋价值"
+      },
+      {
+        "counter": "item_orb_of_frost",
+        "reason": "高移速抵消减速"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orb_of_frost",
+        "reason": "移速加成抵消减速"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "移速加成抵消冻减速"
+      },
+      {
+        "counter": "item_gungir",
+        "reason": "移速优势辅助逃脱"
+      }
+    ]
+  },
+  "item_mask_of_madness": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "主动降甲受到反伤"
+      },
+      {
+        "counter": "item_ethereal_blade",
+        "reason": "虚化期间无法攻击"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "移速吸血追击收割"
+      },
+      {
+        "counter": "item_ring_of_regen",
+        "reason": "高吸血压制回复"
+      },
+      {
+        "counter": "item_vanguard",
+        "reason": "吸血抵消格挡消耗"
+      }
+    ]
+  },
+  "item_diffusal_blade": {
+    "counters_of": [
+      {
+        "counter": "item_arcane_boots",
+        "reason": "燃魔使魔法枯竭"
+      },
+      {
+        "counter": "item_soul_ring",
+        "reason": "燃魔压制魔法来源"
+      },
+      {
+        "counter": "item_octarine_core",
+        "reason": "燃魔使魔法耗尽"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_arcane_boots",
+        "reason": "燃魔令魔法消耗加速"
+      },
+      {
+        "counter": "item_soul_ring",
+        "reason": "燃魔抵消魔法回复"
+      },
+      {
+        "counter": "item_manta",
+        "reason": "驱散净魂减速效果"
+      }
+    ]
+  },
+  "item_disperser": {
+    "counters_of": [
+      {
+        "counter": "item_arcane_boots",
+        "reason": "燃魔使魔法枯竭"
+      },
+      {
+        "counter": "item_soul_ring",
+        "reason": "燃魔压制魔法来源"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "驱散叠加限制位移"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_arcane_boots",
+        "reason": "燃魔令魔法快速耗尽"
+      },
+      {
+        "counter": "item_soul_ring",
+        "reason": "燃魔抵消魔法增益"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "减速限制相位追击"
+      }
+    ]
+  },
+  "item_ethereal_blade": {
+    "counters_of": [
+      {
+        "counter": "item_mask_of_madness",
+        "reason": "虚化使攻击失效"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "虚化阻止攻击吸血"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "虚化使物理攻击无效"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫虚化魔法"
+      },
+      {
+        "counter": "item_sphere",
+        "reason": "林肯抵挡虚化技能"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾减虚化伤害"
+      }
+    ]
+  },
+  "item_soul_ring": {
+    "counters_of": [
+      {
+        "counter": "item_arcane_boots",
+        "reason": "自给魔法减少依赖"
+      },
+      {
+        "counter": "item_clarity",
+        "reason": "主动回蓝替代药水"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "燃魔消耗生命换魔法"
+      },
+      {
+        "counter": "item_disperser",
+        "reason": "燃魔加速魔法耗尽"
+      },
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "持续掉血加速死亡"
+      }
+    ]
+  },
+  "item_arcane_boots": {
+    "counters_of": [
+      {
+        "counter": "item_soul_ring",
+        "reason": "补充魔法减少献身"
+      },
+      {
+        "counter": "item_clarity",
+        "reason": "回魔替代净化药水"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "燃魔使魔法蒸发"
+      },
+      {
+        "counter": "item_disperser",
+        "reason": "燃魔消耗所有魔法"
+      },
+      {
+        "counter": "item_soul_ring",
+        "reason": "充裕魔法无需献身"
+      }
+    ]
+  },
+  "item_octarine_core": {
+    "counters_of": [
+      {
+        "counter": "item_refresher",
+        "reason": "缩减冷却降低刷新价值"
+      },
+      {
+        "counter": "item_soul_ring",
+        "reason": "魔法充裕减少献身需求"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "燃魔使大量魔法耗尽"
+      },
+      {
+        "counter": "item_disperser",
+        "reason": "燃魔令魔法快速蒸发"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默打断技能冷却节奏"
+      }
+    ]
+  },
+  "item_orb_of_venom": {
+    "counters_of": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "持续毒伤压制回复"
+      },
+      {
+        "counter": "item_ring_of_regen",
+        "reason": "毒伤抵消生命回复"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "攻击触发毒使鞋损坏"
+      },
+      {
+        "counter": "item_ring_of_regen",
+        "reason": "毒伤抵消回复效果"
+      },
+      {
+        "counter": "item_flask",
+        "reason": "攻击驱散药膏效果"
+      }
+    ]
+  },
+  "item_blight_stone": {
+    "counters_of": [
+      {
+        "counter": "item_assault",
+        "reason": "破甲叠加削弱护甲光环"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "降甲降低格挡价值"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_platemail",
+        "reason": "破甲使护甲失效"
+      },
+      {
+        "counter": "item_chainmail",
+        "reason": "降甲使护甲削弱"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "破甲削弱护甲格挡"
+      }
+    ]
+  },
+  "item_orb_of_corrosion": {
+    "counters_of": [
+      {
+        "counter": "item_assault",
+        "reason": "降甲叠加克制护甲"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "攻击减速压制移速"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_platemail",
+        "reason": "腐蚀使护甲大幅降低"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "降甲削弱护甲格挡"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "减速令静谧鞋失效"
+      }
+    ]
+  },
+  "item_orb_of_frost": {
+    "counters_of": [
+      {
+        "counter": "item_yasha",
+        "reason": "减速抵消移速加成"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "减速限制相位效果"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "减速压制移速价值"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_yasha",
+        "reason": "减速克制移速加成"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "冰霜减速限制追击"
+      },
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "减速令移速失效"
+      }
+    ]
+  },
+  "item_falcon_blade": {
+    "counters_of": [],
+    "counters": [
+      {
+        "counter": "item_soul_ring",
+        "reason": "提供生命减少献身代价"
+      },
+      {
+        "counter": "item_clarity",
+        "reason": "魔法回复替代药水"
+      }
+    ]
+  },
+  "item_mage_slayer": {
+    "counters_of": [
+      {
+        "counter": "item_kaya",
+        "reason": "降低法术强度收益"
+      },
+      {
+        "counter": "item_veil_of_discord",
+        "reason": "减少技能伤害输出"
+      },
+      {
+        "counter": "item_dagon",
+        "reason": "削弱爆发魔法伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫负面效果"
+      },
+      {
+        "counter": "item_pipe",
+        "reason": "魔法抗性叠加抵消"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "高魔抗削弱效果"
+      }
+    ]
+  },
+  "item_ancient_janggo": {
+    "counters_of": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "移速加成不叠加"
+      },
+      {
+        "counter": "item_wind_lace",
+        "reason": "移速光环覆盖"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_shivas_guard",
+        "reason": "攻速降低抵消加成"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "减速压制移速效果"
+      }
+    ]
+  },
+  "item_boots_of_bearing": {
+    "counters_of": [
+      {
+        "counter": "item_tranquil_boots",
+        "reason": "移速加成更强"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "短暂免疫减速"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_shivas_guard",
+        "reason": "攻速降低压制加成"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散移速加速效果"
+      }
+    ]
+  },
+  "item_solar_crest": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "降甲突破闪避价值"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "降甲比闪避更直接"
+      },
+      {
+        "counter": "item_assault",
+        "reason": "护甲加成互相竞争"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散护甲护盾效果"
+      },
+      {
+        "counter": "item_desolator",
+        "reason": "降甲叠加削弱防御"
+      },
+      {
+        "counter": "item_orb_of_corrosion",
+        "reason": "腐蚀叠加减甲"
+      }
+    ]
+  },
+  "item_pavise": {
+    "counters_of": [
+      {
+        "counter": "item_lesser_crit",
+        "reason": "护盾吸收暴击伤害"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "吸收重击物理伤害"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散物理护盾"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "同类护盾不叠加"
+      },
+      {
+        "counter": "item_bfury",
+        "reason": "分裂快速击破护盾"
+      }
+    ]
+  },
+  "item_smoke_of_deceit": {
+    "counters_of": [
+      {
+        "counter": "item_ward_sentry",
+        "reason": "隐身绕过真视范围"
+      },
+      {
+        "counter": "item_necronomicon",
+        "reason": "隐身规避死灵视野"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_gem",
+        "reason": "真视宝石直接破隐"
+      },
+      {
+        "counter": "item_dust",
+        "reason": "显影之尘揭露隐身"
+      },
+      {
+        "counter": "item_ward_sentry",
+        "reason": "岗哨守卫真实视域"
+      }
+    ]
+  },
+  "item_veil_of_discord": {
+    "counters_of": [
+      {
+        "counter": "item_pipe",
+        "reason": "法术虚弱穿透魔盾"
+      },
+      {
+        "counter": "item_cloak",
+        "reason": "提升穿透魔法抗性"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "增伤穿透高魔抗"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "魔法抗性抵消增伤"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫法术虚弱"
+      },
+      {
+        "counter": "item_mage_slayer",
+        "reason": "降技能伤害抵消增伤"
+      }
+    ]
+  },
+  "item_revenants_brooch": {
+    "counters_of": [
+      {
+        "counter": "item_ghost",
+        "reason": "魔法伤害穿透虚无"
+      },
+      {
+        "counter": "item_butterfly",
+        "reason": "魔法附加无视闪避"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "魔法抗性减少附加伤"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法伤害"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "高魔抗削弱附加伤"
+      }
+    ]
+  },
+  "item_devastator": {
+    "counters_of": [
+      {
+        "counter": "item_pipe",
+        "reason": "降魔抗削弱魔法护盾"
+      },
+      {
+        "counter": "item_cloak",
+        "reason": "降低魔法抗性效果"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "降魔抗压制高魔抗"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫毒素减速"
+      },
+      {
+        "counter": "item_manta",
+        "reason": "驱散毒素减速效果"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "同类持续施压竞争"
+      }
+    ]
+  },
+  "item_guardian_greaves": {
+    "counters_of": [
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "治疗恢复抵消减回复"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "驱散沉默负面效果"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "驱散缴械负面效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散回复护甲加成"
+      },
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "降低生命回复效果"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "减少生命回复效果"
+      }
+    ]
+  },
+  "item_rod_of_atos": {
+    "counters_of": [
+      {
+        "counter": "item_blink",
+        "reason": "缠绕打断闪烁使用"
+      },
+      {
+        "counter": "item_phase_boots",
+        "reason": "限制相位移动逃脱"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫缠绕效果"
+      },
+      {
+        "counter": "item_wind_waker",
+        "reason": "龙卷风无敌躲避"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "旋风无敌躲避缠绕"
+      }
+    ]
+  },
+  "item_abyssal_blade": {
+    "counters_of": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "强击穿透减益免疫"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "击晕打断闪烁逃脱"
+      },
+      {
+        "counter": "item_ghost",
+        "reason": "物理击晕强控制"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_aeon_disk",
+        "reason": "低血量触发免控"
+      },
+      {
+        "counter": "item_wind_waker",
+        "reason": "龙卷风无敌躲避"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "旋风状态躲避击晕"
+      }
+    ]
+  },
+  "item_heavens_halberd": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "缴械压制高攻速"
+      },
+      {
+        "counter": "item_mask_of_madness",
+        "reason": "缴械打断狂热状态"
+      },
+      {
+        "counter": "item_satanic",
+        "reason": "缴械中断吸血收益"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫缴械效果"
+      },
+      {
+        "counter": "item_manta",
+        "reason": "驱散缴械负面效果"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散缴械效果"
+      }
+    ]
+  },
+  "item_tranquil_boots": {
+    "counters_of": [
+      {
+        "counter": "item_wind_lace",
+        "reason": "移速更高覆盖效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orb_of_corrosion",
+        "reason": "腐蚀降低生命回复"
+      },
+      {
+        "counter": "item_skadi",
+        "reason": "攻击削减生命回复"
+      },
+      {
+        "counter": "item_spirit_vessel",
+        "reason": "大幅降低生命回复"
+      }
+    ]
+  },
+  "item_shadow_amulet": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "真视宝石直接破隐"
+      },
+      {
+        "counter": "item_dust",
+        "reason": "显影之尘现出隐身"
+      },
+      {
+        "counter": "item_ward_sentry",
+        "reason": "岗哨守卫真实视域"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_orchid",
+        "reason": "隐身规避沉默"
+      },
+      {
+        "counter": "item_bloodthorn",
+        "reason": "隐身躲避控制"
+      }
+    ]
+  },
+  "item_glimmer_cape": {
+    "counters_of": [
+      {
+        "counter": "item_gem",
+        "reason": "真视宝石破隐身"
+      },
+      {
+        "counter": "item_dust",
+        "reason": "显影之尘现形"
+      },
+      {
+        "counter": "item_ward_sentry",
+        "reason": "岗哨守卫真视"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "魔法护盾减免爆发"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "隐身躲避沉默"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "隐身规避变羊"
+      }
+    ]
+  },
+  "item_harpoon": {
+    "counters_of": [
+      {
+        "counter": "item_blink",
+        "reason": "回音击晕打断闪现"
+      },
+      {
+        "counter": "item_force_staff",
+        "reason": "牵引抵消位移"
+      },
+      {
+        "counter": "item_ghost",
+        "reason": "双击破虚无抗性"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_sphere",
+        "reason": "法球抵挡指向技能"
+      },
+      {
+        "counter": "item_aeon_disk",
+        "reason": "强断打断连招"
+      }
+    ]
+  },
+  "item_blades_of_attack": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_broadsword": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_claymore": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_mithril_hammer": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_quarterstaff": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_faerie_fire": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_gauntlets": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_slippers": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_mantle": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_belt_of_strength": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_boots_of_elves": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_robe": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_circlet": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_crown": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_diadem": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_ogre_axe": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_blade_of_alacrity": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_staff_of_wizardry": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_ultimate_orb": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_gloves": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_blitz_knuckles": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_sobi_mask": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_royale_with_cheese": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_demon_edge": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_eagle": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_void_stone": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_wraith_band": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_ultimate_scepter": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_ultimate_scepter_2": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_ultimate_scepter_roshan": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_aghanims_shard": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_aghanims_shard_roshan": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_vanguard": {
+    "counters_of": [
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "穿刺无视格挡"
+      },
+      {
+        "counter": "item_desolator",
+        "reason": "破甲削弱格挡价值"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "魔法伤害绕过格挡"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "格挡减少暴击物伤"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "格挡减少重击物伤"
+      },
+      {
+        "counter": "item_rapier",
+        "reason": "格挡削弱高物伤输出"
+      }
+    ]
+  },
+  "item_crimson_guard": {
+    "counters_of": [
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "穿刺无视格挡"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "魔法伤害绕过格挡"
+      },
+      {
+        "counter": "item_desolator",
+        "reason": "破甲削弱护甲价值"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "格挡减少暴击物伤"
+      },
+      {
+        "counter": "item_rapier",
+        "reason": "格挡削弱高物伤"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "格挡降低重击伤害"
+      }
+    ]
+  },
+  "item_blade_mail": {
+    "counters_of": [
+      {
+        "counter": "item_rapier",
+        "reason": "反弹超高攻击力致死"
+      },
+      {
+        "counter": "item_greater_crit",
+        "reason": "反弹暴击伤害极高"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "反弹物理伤害给攻击者"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫反弹伤害"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "持续驱散移除刃甲效果"
+      },
+      {
+        "counter": "item_butterfly",
+        "reason": "闪避使反弹无法触发"
+      }
+    ]
+  },
+  "item_soul_booster": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_eternal_shroud": {
+    "counters_of": [
+      {
+        "counter": "item_mage_slayer",
+        "reason": "降低技能伤害转化收益"
+      },
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散叠加魔抗效果"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默使无法施法触发"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_dagon",
+        "reason": "高魔抗吸收爆发伤害"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "魔抗减少技能伤害"
+      },
+      {
+        "counter": "item_bloodstone",
+        "reason": "魔抗压制法术强度输出"
+      }
+    ]
+  },
+  "item_consecrated_wraps": {
+    "counters_of": [
+      {
+        "counter": "item_nullifier",
+        "reason": "驱散消耗所有叠加层"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默期间无法积累层数"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊驱散叠加效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "护盾吸收暴击物理伤害"
+      },
+      {
+        "counter": "item_rapier",
+        "reason": "护盾抵挡超高攻击伤害"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "护盾减少重击输出"
+      }
+    ]
+  },
+  "item_crellas_crozier": {
+    "counters_of": [
+      {
+        "counter": "item_orchid",
+        "reason": "免疫物理伤害躲避沉默期"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "幽灵形态免疫物理攻击"
+      },
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "幽灵形态无法被物理攻击"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_radiance",
+        "reason": "魔法伤害克制幽灵形态"
+      },
+      {
+        "counter": "item_dagon",
+        "reason": "魔法爆发克制幽灵形态"
+      },
+      {
+        "counter": "item_sheepstick",
+        "reason": "变羊打断鬼魂形态"
+      }
+    ]
+  },
+  "item_rapier": {
+    "counters_of": [
+      {
+        "counter": "item_vanguard",
+        "reason": "超高攻击力碾压格挡"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "高攻击力碾压格挡护盾"
+      },
+      {
+        "counter": "item_butterfly",
+        "reason": "配合金箍棒穿刺无视闪避"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "反弹超高伤害致使用者死"
+      },
+      {
+        "counter": "item_butterfly",
+        "reason": "闪避使高攻击力落空"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械使圣剑无法攻击"
+      }
+    ]
+  },
+  "item_monkey_king_bar": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "穿刺完全无视闪避"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "穿刺无视辉耀闪避"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "穿刺无视闪避加成"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "攻击触发反弹受到伤害"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB减免穿刺魔法伤害"
+      },
+      {
+        "counter": "item_ghost",
+        "reason": "幽灵形态免疫物理攻击"
+      }
+    ]
+  },
+  "item_radiance": {
+    "counters_of": [
+      {
+        "counter": "item_vanguard",
+        "reason": "魔法燃烧绕过格挡"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "魔法伤害无视物理格挡"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "持续伤害不触发反弹"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_pipe",
+        "reason": "魔法护盾吸收燃烧伤害"
+      },
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫魔法燃烧伤害"
+      },
+      {
+        "counter": "item_eternal_shroud",
+        "reason": "高魔抗大幅减少燃烧"
+      }
+    ]
+  },
+  "item_butterfly": {
+    "counters_of": [
+      {
+        "counter": "item_greater_crit",
+        "reason": "闪避使暴击概率降低"
+      },
+      {
+        "counter": "item_basher",
+        "reason": "闪避降低重击触发率"
+      },
+      {
+        "counter": "item_rapier",
+        "reason": "闪避使高攻击落空"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_monkey_king_bar",
+        "reason": "穿刺完全无视闪避"
+      },
+      {
+        "counter": "item_bloodthorn",
+        "reason": "机先效果无视闪避"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "沉默限制被动无效说法"
+      }
+    ]
+  },
+  "item_greater_crit": {
+    "counters_of": [
+      {
+        "counter": "item_vanguard",
+        "reason": "暴击伤害碾压格挡上限"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "暴击碾压物理格挡效果"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "高暴击威胁迫使缴械"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_butterfly",
+        "reason": "闪避使暴击难以触发"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "暴击反弹大量伤害给自身"
+      },
+      {
+        "counter": "item_heavens_halberd",
+        "reason": "缴械阻止暴击输出"
+      }
+    ]
+  },
+  "item_basher": {
+    "counters_of": [
+      {
+        "counter": "item_butterfly",
+        "reason": "重击触发机先无视闪避"
+      },
+      {
+        "counter": "item_blink",
+        "reason": "眩晕阻止闪现逃跑"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_black_king_bar",
+        "reason": "BKB免疫眩晕效果"
+      },
+      {
+        "counter": "item_aeon_disk",
+        "reason": "触发后强驱散移除眩晕"
+      },
+      {
+        "counter": "item_abyssal_blade",
+        "reason": "深渊强击无视减益免疫"
+      }
+    ]
+  },
+  "item_bfury": {
+    "counters_of": [
+      {
+        "counter": "item_blade_mail",
+        "reason": "分裂伤害触发反弹"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "两者范围伤害重叠"
+      },
+      {
+        "counter": "item_crimson_guard",
+        "reason": "格挡削弱分裂效果"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_quelling_blade",
+        "reason": "提供更强补刀伤害"
+      },
+      {
+        "counter": "item_vanguard",
+        "reason": "分裂穿透格挡消耗"
+      },
+      {
+        "counter": "item_stout_shield",
+        "reason": "分裂伤害绕过格挡"
+      }
+    ]
+  },
+  "item_manta": {
+    "counters_of": [
+      {
+        "counter": "item_sheepstick",
+        "reason": "幻象消除单体控制"
+      },
+      {
+        "counter": "item_orchid",
+        "reason": "幻象分担沉默目标"
+      },
+      {
+        "counter": "item_cyclone",
+        "reason": "弱驱散可消除龙卷"
+      }
+    ],
+    "counters": [
+      {
+        "counter": "item_diffusal_blade",
+        "reason": "幻象无法燃烧魔法"
+      },
+      {
+        "counter": "item_radiance",
+        "reason": "幻象扩大灼烧范围"
+      },
+      {
+        "counter": "item_blade_mail",
+        "reason": "幻象分担反弹伤害"
+      }
+    ]
+  },
+  "item_tome_of_knowledge": {
+    "counters_of": [],
+    "counters": []
+  },
+  "item_chasm_stone": {
+    "counters_of": [],
+    "counters": []
+  }
+}

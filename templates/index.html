@@ -830,6 +830,53 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   line-height: 1.8;
 }
 
+/* 克制物品 */
+.item-counters-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.item-counter-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 7px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  flex: 1;
+  min-width: 200px;
+}
+
+.item-counter-card:hover {
+  border-color: #e05555;
+  background: #251e1e;
+}
+
+#itemCounteredByGrid .item-counter-card:hover {
+  border-color: #4caf50;
+  background: #1e251e;
+}
+
+#itemCounteredByGrid .counter-reason { color: #6ec86e; }
+
+.item-counter-card img {
+  width: 60px;
+  height: 44px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.item-counter-card .counter-info { flex: 1; min-width: 0; }
+.item-counter-card .counter-name { font-size: 14px; font-weight: 600; color: #eee; }
+.item-counter-card .counter-cost { font-size: 12px; color: #c89b3c; margin-top: 3px; }
+.item-counter-card .counter-reason { font-size: 12px; color: #e07070; margin-top: 5px; }
+
 .item-stats-row {
   display: flex;
   gap: 24px;
@@ -1360,6 +1407,10 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
     <div id="itemInfoCard"></div>
     <div class="section-title" id="itemDescTitle" style="display:none">技能描述</div>
     <div class="item-desc-card" id="itemDescCard" style="display:none"></div>
+    <div class="section-title" id="itemCountersTitle" style="display:none">克制该物品</div>
+    <div class="item-counters-grid" id="itemCountersGrid" style="display:none"></div>
+    <div class="section-title" id="itemCounteredByTitle" style="display:none">被该物品克制</div>
+    <div class="item-counters-grid" id="itemCounteredByGrid" style="display:none"></div>
     <div class="section-title" id="itemLoreTitle" style="display:none">背景故事</div>
     <div class="item-lore-card" id="itemLoreCard" style="display:none"></div>
   </div>
@@ -2328,6 +2379,50 @@ function showItemPanel(key) {
   } else {
     document.getElementById('itemDescTitle').style.display = 'none';
     document.getElementById('itemDescCard').style.display = 'none';
+  }
+
+  function renderCounterGrid(elId, entries) {
+    const grid = document.getElementById(elId);
+    grid.innerHTML = entries.map(({ key: cKey, item: c, reason }) => `
+      <div class="item-counter-card" onclick="showItemPanel('${cKey}')">
+        <img src="${c.img || ''}" alt="${c.name || ''}" onerror="this.style.opacity='.3'">
+        <div class="counter-info">
+          <div class="counter-name">${c.name || c.name_en}</div>
+          ${c.cost != null ? `<div class="counter-cost">💰 ${c.cost} 金币</div>` : ''}
+          ${reason ? `<div class="counter-reason">${reason}</div>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
+  function parseCounterEntries(list) {
+    return (list || []).map(e => {
+      const cKey = typeof e === 'string' ? e : e.counter;
+      const reason = typeof e === 'object' ? (e.reason || '') : '';
+      const cItem = itemsData[cKey];
+      return cItem ? { key: cKey, item: cItem, reason } : null;
+    }).filter(Boolean);
+  }
+
+  // 克制该物品（counters_of）
+  const counterEntries = parseCounterEntries(item.counters_of);
+  if (counterEntries.length > 0) {
+    document.getElementById('itemCountersTitle').style.display = '';
+    document.getElementById('itemCountersGrid').style.display = '';
+    renderCounterGrid('itemCountersGrid', counterEntries);
+  } else {
+    document.getElementById('itemCountersTitle').style.display = 'none';
+    document.getElementById('itemCountersGrid').style.display = 'none';
+  }
+
+  // 被该物品克制（counters）
+  const counteredByEntries = parseCounterEntries(item.counters);
+  if (counteredByEntries.length > 0) {
+    document.getElementById('itemCounteredByTitle').style.display = '';
+    document.getElementById('itemCounteredByGrid').style.display = '';
+    renderCounterGrid('itemCounteredByGrid', counteredByEntries);
+  } else {
+    document.getElementById('itemCounteredByTitle').style.display = 'none';
+    document.getElementById('itemCounteredByGrid').style.display = 'none';
   }
 
   // 背景故事 lore

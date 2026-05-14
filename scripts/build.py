@@ -578,6 +578,10 @@ def merge_items() -> dict:
     lore_cn_file = _ROOT / "data/lore_cn.json"
     lore_cn: dict = json.loads(lore_cn_file.read_text(encoding="utf-8")) if lore_cn_file.exists() else {}
 
+    # Item counter relationships (pre-analyzed via analyze_item_counters.py)
+    item_counters_file = _ROOT / "data/item_counters.json"
+    item_counters: dict = json.loads(item_counters_file.read_text(encoding="utf-8")) if item_counters_file.exists() else {}
+
     result: dict = {}
 
     for raw_key, item in items_raw.items():
@@ -649,6 +653,8 @@ def merge_items() -> dict:
             "lore_zh": lore_zh,
             "attrib": attrib,
             "bonuses": bonuses,
+            "counters_of": item_counters.get(item_key, {}).get("counters_of", []),
+            "counters": item_counters.get(item_key, {}).get("counters", []),
             "cooldown": cooldown,
             "manacost": manacost,
             "img": img,

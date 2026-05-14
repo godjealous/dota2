@@ -602,10 +602,11 @@ def merge_items() -> dict:
 
         item_key = f"item_{raw_key}"
 
-        # Chinese name: "DOTA_Tooltip_Ability_item_<raw_key>"  (capital A in Ability)
-        # or lowercase variant: "DOTA_Tooltip_ability_item_<raw_key>"
+        # Chinese name: key may carry a ":n" suffix for neutral items
         cn_name = (
-            loc.get(f"DOTA_Tooltip_Ability_{item_key}")
+            loc.get(f"DOTA_Tooltip_Ability_{item_key}:n")
+            or loc.get(f"DOTA_Tooltip_ability_{item_key}:n")
+            or loc.get(f"DOTA_Tooltip_Ability_{item_key}")
             or loc.get(f"DOTA_Tooltip_ability_{item_key}")
             or item.get("dname", raw_key)
         )

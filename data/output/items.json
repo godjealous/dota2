@@ -5675,7 +5675,7 @@
   },
   "item_poor_mans_shield": {
     "id": 71,
-    "name": "Poor Man's Shield",
+    "name": "穷鬼盾",
     "name_en": "Poor Man's Shield",
     "cost": 0,
     "qual": "common",
@@ -16853,7 +16853,7 @@
   },
   "item_medallion_of_courage": {
     "id": 187,
-    "name": "Medallion of Courage",
+    "name": "勇气勋章",
     "name_en": "Medallion of Courage",
     "cost": 0,
     "qual": null,
@@ -17920,7 +17920,7 @@
   },
   "item_iron_talon": {
     "id": 239,
-    "name": "Iron Talon",
+    "name": "寒铁钢爪",
     "name_en": "Iron Talon",
     "cost": 0,
     "qual": "common",
@@ -19008,7 +19008,7 @@
   },
   "item_desolator_2": {
     "id": 292,
-    "name": "Stygian Desolator",
+    "name": "寂灭",
     "name_en": "Stygian Desolator",
     "cost": 0,
     "qual": null,
@@ -19583,7 +19583,7 @@
   },
   "item_mind_breaker": {
     "id": 309,
-    "name": "Mind Breaker",
+    "name": "智灭",
     "name_en": "Mind Breaker",
     "cost": 0,
     "qual": null,
@@ -19860,7 +19860,7 @@
   },
   "item_spider_legs": {
     "id": 326,
-    "name": "Spider Legs",
+    "name": "网虫腿",
     "name_en": "Spider Legs",
     "cost": 0,
     "qual": null,
@@ -19885,7 +19885,7 @@
   },
   "item_helm_of_the_undying": {
     "id": 327,
-    "name": "Helm of the Undying",
+    "name": "不朽尸王的头盔",
     "name_en": "Helm of the Undying",
     "cost": 0,
     "qual": null,
@@ -20016,7 +20016,7 @@
   },
   "item_spark_of_courage": {
     "id": 1124,
-    "name": "Spark of Courage",
+    "name": "勇气之光",
     "name_en": "Spark of Courage",
     "cost": 0,
     "qual": null,
@@ -20085,7 +20085,7 @@
   },
   "item_trusty_shovel": {
     "id": 356,
-    "name": "Trusty Shovel",
+    "name": "可靠铁铲",
     "name_en": "Trusty Shovel",
     "cost": 0,
     "qual": null,
@@ -20179,7 +20179,7 @@
   },
   "item_essence_ring": {
     "id": 359,
-    "name": "Essence Ring",
+    "name": "精华指环",
     "name_en": "Essence Ring",
     "cost": 0,
     "qual": null,
@@ -20255,7 +20255,7 @@
   },
   "item_ninja_gear": {
     "id": 362,
-    "name": "Ninja Gear",
+    "name": "忍者用具",
     "name_en": "Ninja Gear",
     "cost": 0,
     "qual": null,
@@ -20389,7 +20389,7 @@
   },
   "item_panic_button": {
     "id": 365,
-    "name": "Magic Lamp",
+    "name": "神妙明灯",
     "name_en": "Magic Lamp",
     "cost": 0,
     "qual": null,
@@ -20538,7 +20538,7 @@
   },
   "item_demonicon": {
     "id": 370,
-    "name": "Book of the Dead",
+    "name": "冥灵书",
     "name_en": "Book of the Dead",
     "cost": 0,
     "qual": null,
@@ -20563,7 +20563,7 @@
   },
   "item_fallen_sky": {
     "id": 371,
-    "name": "Fallen Sky",
+    "name": "天崩",
     "name_en": "Fallen Sky",
     "cost": 0,
     "qual": null,
@@ -20600,7 +20600,7 @@
   },
   "item_pirate_hat": {
     "id": 372,
-    "name": "Pirate Hat",
+    "name": "海盗帽",
     "name_en": "Pirate Hat",
     "cost": 0,
     "qual": null,
@@ -20732,7 +20732,7 @@
   },
   "item_minotaur_horn": {
     "id": 377,
-    "name": "Minotaur Horn",
+    "name": "恶牛角",
     "name_en": "Minotaur Horn",
     "cost": 0,
     "qual": null,
@@ -20757,7 +20757,7 @@
   },
   "item_orb_of_destruction": {
     "id": 378,
-    "name": "Orb of Destruction",
+    "name": "毁灭灵球",
     "name_en": "Orb of Destruction",
     "cost": 0,
     "qual": null,
@@ -20897,7 +20897,7 @@
   },
   "item_chipped_vest": {
     "id": 565,
-    "name": "Chipped Vest",
+    "name": "碎裂背心",
     "name_en": "Chipped Vest",
     "cost": 0,
     "qual": null,
@@ -21117,7 +21117,7 @@
   },
   "item_psychic_headband": {
     "id": 675,
-    "name": "Psychic Headband",
+    "name": "通灵头带",
     "name_en": "Psychic Headband",
     "cost": 0,
     "qual": null,
@@ -21143,7 +21143,7 @@
   },
   "item_ceremonial_robe": {
     "id": 676,
-    "name": "Ceremonial Robe",
+    "name": "祭礼长袍",
     "name_en": "Ceremonial Robe",
     "cost": 0,
     "qual": null,
@@ -21378,7 +21378,7 @@
   },
   "item_misericorde": {
     "id": 828,
-    "name": "Brigand's Blade",
+    "name": "飞贼之刃",
     "name_en": "Brigand's Blade",
     "cost": 0,
     "qual": null,
@@ -21429,7 +21429,7 @@
   },
   "item_unstable_wand": {
     "id": 838,
-    "name": "Pig Pole",
+    "name": "豚杆",
     "name_en": "Pig Pole",
     "cost": 0,
     "qual": null,
@@ -21454,7 +21454,7 @@
   },
   "item_pogo_stick": {
     "id": 840,
-    "name": "Tumbler's Toy",
+    "name": "杂技玩具",
     "name_en": "Tumbler's Toy",
     "cost": 0,
     "qual": null,
@@ -21576,7 +21576,7 @@
   },
   "item_occult_bracelet": {
     "id": 947,
-    "name": "Occult Bracelet",
+    "name": "玄奥手镯",
     "name_en": "Occult Bracelet",
     "cost": 0,
     "qual": null,
@@ -21603,7 +21603,7 @@
   },
   "item_ogre_seal_totem": {
     "id": 949,
-    "name": "Ogre Seal Totem",
+    "name": "食人魔海豹图腾",
     "name_en": "Ogre Seal Totem",
     "cost": 0,
     "qual": null,
@@ -21788,7 +21788,7 @@
   },
   "item_defiant_shell": {
     "id": 950,
-    "name": "Defiant Shell",
+    "name": "不羁甲壳",
     "name_en": "Defiant Shell",
     "cost": 0,
     "qual": null,
@@ -21885,7 +21885,7 @@
   },
   "item_dagger_of_ristul": {
     "id": 1077,
-    "name": "Dagger of Ristul",
+    "name": "瑞斯图尔尖匕",
     "name_en": "Dagger of Ristul",
     "cost": 0,
     "qual": null,
@@ -22186,7 +22186,7 @@
   },
   "item_duelist_gloves": {
     "id": 2097,
-    "name": "Duelist Gloves",
+    "name": "决斗家手套",
     "name_en": "Duelist Gloves",
     "cost": 0,
     "qual": null,
@@ -22268,7 +22268,7 @@
   },
   "item_whisper_of_the_dread": {
     "id": 1158,
-    "name": "Whisper of the Dread",
+    "name": "邪道私语",
     "name_en": "Whisper of the Dread",
     "cost": 0,
     "qual": null,
@@ -22293,7 +22293,7 @@
   },
   "item_nemesis_curse": {
     "id": 1159,
-    "name": "Nemesis Curse",
+    "name": "天诛之咒",
     "name_en": "Nemesis Curse",
     "cost": 0,
     "qual": null,
@@ -22454,7 +22454,7 @@
   },
   "item_gossamer_cape": {
     "id": 2193,
-    "name": "Gossamer Cape",
+    "name": "蛛丝斗篷",
     "name_en": "Gossamer Cape",
     "cost": 0,
     "qual": null,
@@ -22507,7 +22507,7 @@
   },
   "item_rattlecage": {
     "id": 1168,
-    "name": "Rattlecage",
+    "name": "回响之笼",
     "name_en": "Rattlecage",
     "cost": 0,
     "qual": null,
@@ -23386,7 +23386,7 @@
   },
   "item_unrelenting_eye": {
     "id": 1598,
-    "name": "Unrelenting Eye",
+    "name": "不屈之眼",
     "name_en": "Unrelenting Eye",
     "cost": 0,
     "qual": null,
@@ -23411,7 +23411,7 @@
   },
   "item_mana_draught": {
     "id": 1599,
-    "name": "Mana Draught",
+    "name": "魔力药水",
     "name_en": "Mana Draught",
     "cost": 0,
     "qual": null,
@@ -23437,7 +23437,7 @@
   },
   "item_rippers_lash": {
     "id": 1600,
-    "name": "Ripper's Lash",
+    "name": "撕裂之鞭",
     "name_en": "Ripper's Lash",
     "cost": 0,
     "qual": null,
@@ -23476,7 +23476,7 @@
   },
   "item_crippling_crossbow": {
     "id": 1601,
-    "name": "Crippling Crossbow",
+    "name": "致残之弩",
     "name_en": "Crippling Crossbow",
     "cost": 0,
     "qual": null,
@@ -23503,7 +23503,7 @@
   },
   "item_gale_guard": {
     "id": 1602,
-    "name": "Gale Guard",
+    "name": "烈风护体",
     "name_en": "Gale Guard",
     "cost": 0,
     "qual": null,
@@ -23529,7 +23529,7 @@
   },
   "item_gunpowder_gauntlets": {
     "id": 1603,
-    "name": "Gunpowder Gauntlet",
+    "name": "火药手套",
     "name_en": "Gunpowder Gauntlet",
     "cost": 0,
     "qual": null,
@@ -23554,7 +23554,7 @@
   },
   "item_searing_signet": {
     "id": 1604,
-    "name": "Searing Signet",
+    "name": "炽热纹章",
     "name_en": "Searing Signet",
     "cost": 0,
     "qual": null,
@@ -23582,7 +23582,7 @@
   },
   "item_serrated_shiv": {
     "id": 1605,
-    "name": "Serrated Shiv",
+    "name": "锯齿短刀",
     "name_en": "Serrated Shiv",
     "cost": 0,
     "qual": null,
@@ -23607,7 +23607,7 @@
   },
   "item_polliwog_charm": {
     "id": 1606,
-    "name": "Pollywog Charm",
+    "name": "蝌蚪护符",
     "name_en": "Pollywog Charm",
     "cost": 0,
     "qual": null,
@@ -23632,7 +23632,7 @@
   },
   "item_magnifying_monocle": {
     "id": 1607,
-    "name": "Magnifying Monocle",
+    "name": "放大单片镜",
     "name_en": "Magnifying Monocle",
     "cost": 0,
     "qual": null,
@@ -23658,7 +23658,7 @@
   },
   "item_pyrrhic_cloak": {
     "id": 1608,
-    "name": "Pyrrhic Cloak",
+    "name": "皮洛士斗篷",
     "name_en": "Pyrrhic Cloak",
     "cost": 0,
     "qual": null,
@@ -23742,7 +23742,7 @@
   },
   "item_kobold_cup": {
     "id": 1637,
-    "name": "Kobold Cup",
+    "name": "狗头人酒杯",
     "name_en": "Kobold Cup",
     "cost": 0,
     "qual": null,
@@ -23767,7 +23767,7 @@
   },
   "item_dormant_curio": {
     "id": 1638,
-    "name": "Dormant Curio",
+    "name": "休眠珍品",
     "name_en": "Dormant Curio",
     "cost": 0,
     "qual": null,
@@ -23790,7 +23790,7 @@
   },
   "item_sisters_shroud": {
     "id": 1639,
-    "name": "Sister's Shroud",
+    "name": "魅影之衣",
     "name_en": "Sister's Shroud",
     "cost": 0,
     "qual": null,
@@ -23816,7 +23816,7 @@
   },
   "item_jidi_pollen_bag": {
     "id": 1640,
-    "name": "Jidi Pollen Bag",
+    "name": "基迪花粉袋",
     "name_en": "Jidi Pollen Bag",
     "cost": 0,
     "qual": null,
@@ -23843,7 +23843,7 @@
   },
   "item_outworld_staff": {
     "id": 1641,
-    "name": "Outworld Staff",
+    "name": "殁境法杖",
     "name_en": "Outworld Staff",
     "cost": 0,
     "qual": null,
@@ -23867,7 +23867,7 @@
   },
   "item_dezun_bloodrite": {
     "id": 1642,
-    "name": "Dezun Bloodrite",
+    "name": "德尊血式",
     "name_en": "Dezun Bloodrite",
     "cost": 0,
     "qual": null,
@@ -23891,7 +23891,7 @@
   },
   "item_giant_maul": {
     "id": 1643,
-    "name": "Giant's Maul",
+    "name": "巨人之槌",
     "name_en": "Giant's Maul",
     "cost": 0,
     "qual": null,
@@ -23918,7 +23918,7 @@
   },
   "item_divine_regalia": {
     "id": 1644,
-    "name": "Divine Regalia",
+    "name": "天赐华冠",
     "name_en": "Divine Regalia",
     "cost": 0,
     "qual": null,
@@ -23941,7 +23941,7 @@
   },
   "item_divine_regalia_broken": {
     "id": 1645,
-    "name": "Disgraced Regalia",
+    "name": "失节华冠",
     "name_en": "Disgraced Regalia",
     "cost": 0,
     "qual": null,
@@ -24474,7 +24474,7 @@
   },
   "item_weighted_dice": {
     "id": 1716,
-    "name": "Weighted Dice",
+    "name": "加重骰子",
     "name_en": "Weighted Dice",
     "cost": 0,
     "qual": null,
@@ -24498,7 +24498,7 @@
   },
   "item_ash_legion_shield": {
     "id": 1717,
-    "name": "Ash Legion Shield",
+    "name": "余烬军团战盾",
     "name_en": "Ash Legion Shield",
     "cost": 0,
     "qual": null,
@@ -24524,7 +24524,7 @@
   },
   "item_riftshadow_prism": {
     "id": 1718,
-    "name": "Riftshadow Prism",
+    "name": "影墟棱晶",
     "name_en": "Riftshadow Prism",
     "cost": 0,
     "qual": null,
@@ -24550,7 +24550,7 @@
   },
   "item_metamorphic_mandible": {
     "id": 1719,
-    "name": "Metamorphic Mandible",
+    "name": "变态上颚",
     "name_en": "Metamorphic Mandible",
     "cost": 0,
     "qual": null,
@@ -24577,7 +24577,7 @@
   },
   "item_idol_of_screeauk": {
     "id": 1720,
-    "name": "Idol of Scree'auk",
+    "name": "丝奎奥克神像",
     "name_en": "Idol of Scree'auk",
     "cost": 0,
     "qual": null,
@@ -24602,7 +24602,7 @@
   },
   "item_flayers_bota": {
     "id": 1721,
-    "name": "Flayer's Bota",
+    "name": "剥皮血囊",
     "name_en": "Flayer's Bota",
     "cost": 0,
     "qual": null,
@@ -24628,7 +24628,7 @@
   },
   "item_spellslinger": {
     "id": 1859,
-    "name": "Spellslinger",
+    "name": "咏咒之坠",
     "name_en": "Spellslinger",
     "cost": 0,
     "qual": null,
@@ -24653,7 +24653,7 @@
   },
   "item_prophets_pendulum": {
     "id": 1860,
-    "name": "Prophet's Pendulum",
+    "name": "先知灵摆",
     "name_en": "Prophet's Pendulum",
     "cost": 0,
     "qual": null,
@@ -24678,7 +24678,7 @@
   },
   "item_stonefeather_satchel": {
     "id": 1861,
-    "name": "Stonefeather Satchel",
+    "name": "石羽小包",
     "name_en": "Stonefeather Satchel",
     "cost": 0,
     "qual": null,
@@ -24703,7 +24703,7 @@
   },
   "item_enchanters_bauble": {
     "id": 1862,
-    "name": "Enchanter's Bauble",
+    "name": "附魔师之椟",
     "name_en": "Enchanter's Bauble",
     "cost": 0,
     "qual": null,
@@ -24735,7 +24735,7 @@
   },
   "item_harmonizer": {
     "id": 1863,
-    "name": "Harmonizer",
+    "name": "协和",
     "name_en": "Harmonizer",
     "cost": 0,
     "qual": null,
@@ -24759,7 +24759,7 @@
   },
   "item_conjurers_catalyst": {
     "id": 1864,
-    "name": "Conjurer's Catalyst",
+    "name": "咒术师触媒",
     "name_en": "Conjurer's Catalyst",
     "cost": 0,
     "qual": null,
@@ -24904,7 +24904,7 @@
   },
   "item_foragers_kit": {
     "id": 1868,
-    "name": "Forager's Kit",
+    "name": "采菌套具",
     "name_en": "Forager's Kit",
     "cost": 0,
     "qual": null,
@@ -25029,7 +25029,7 @@
   },
   "item_chasm_stone": {
     "id": 1872,
-    "name": "Chasm Stone",
+    "name": "裂隙之石",
     "name_en": "Chasm Stone",
     "cost": 800,
     "qual": "component",
@@ -25083,7 +25083,7 @@
   },
   "item_partisans_brand": {
     "id": 1873,
-    "name": "Partisan's Brand",
+    "name": "天游烙印",
     "name_en": "Partisan's Brand",
     "cost": 0,
     "qual": null,

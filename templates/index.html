@@ -4162,7 +4162,7 @@ function renderItems() {
       if (!neutralByTier[t]) neutralByTier[t] = [];
       neutralByTier[t].push([key, item]);
     }
-    const TIER_LABELS = { 0: '游荡物品', 1: '一级', 2: '二级', 3: '三级', 4: '四级' };
+    const TIER_LABELS = { 0: '一级', 1: '二级', 2: '三级', 3: '四级', 4: '五级' };
     if (Object.keys(neutralByTier).length) {
       neutralHtml = `
         <div class="item-category">

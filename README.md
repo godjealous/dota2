@@ -1,4 +1,4 @@
-# Dota2 百科
+# DOTA2 OldStack
 
 基于 Flask 构建的 Dota2 英雄与物品百科，集成 Claude AI 分析克制关系、配合关系与物品推荐，并以 D3.js 力导向图可视化展示。
 

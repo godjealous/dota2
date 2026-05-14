@@ -1,0 +1,3696 @@
+{
+  "item_blink": [
+    {
+      "hero": "axe",
+      "reason": "跳刀切入释放战吼"
+    },
+    {
+      "hero": "sand_king",
+      "reason": "跳刀接地震波开团"
+    },
+    {
+      "hero": "earthshaker",
+      "reason": "跳刀接回音击"
+    },
+    {
+      "hero": "enigma",
+      "reason": "跳刀接黑洞开团"
+    },
+    {
+      "hero": "magnataur",
+      "reason": "跳刀反推聚敌"
+    }
+  ],
+  "item_overwhelming_blink": [
+    {
+      "hero": "axe",
+      "reason": "力量英雄跳入造成范围伤害"
+    },
+    {
+      "hero": "centaur",
+      "reason": "高力量跳入伤害可观"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "力量核心跳入强化开团"
+    },
+    {
+      "hero": "pudge",
+      "reason": "高力量跳入输出可观"
+    },
+    {
+      "hero": "primal_beast",
+      "reason": "高力量近战开团强化"
+    }
+  ],
+  "item_swift_blink": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "敏捷核心跳入快速收割"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "敏捷核心闪现突击"
+    },
+    {
+      "hero": "slark",
+      "reason": "敏捷英雄快速切入目标"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "敏捷核心跳入开大"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "敏捷核心快速接近目标"
+    }
+  ],
+  "item_arcane_blink": [
+    {
+      "hero": "enigma",
+      "reason": "跳后回蓝确保黑洞施放"
+    },
+    {
+      "hero": "sand_king",
+      "reason": "跳后回蓝保证技能连"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "智力法师跳入续航"
+    },
+    {
+      "hero": "lion",
+      "reason": "跳后回蓝接控制连招"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "智力核心跳入回蓝"
+    }
+  ],
+  "item_blades_of_attack": [
+    {
+      "hero": "antimage",
+      "reason": "攻击力补充前期发育"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "合成碎颅锤核心组件"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "攻击力提升前期输出"
+    },
+    {
+      "hero": "sniper",
+      "reason": "远程攻击力补强"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "前期攻击力基础件"
+    }
+  ],
+  "item_broadsword": [
+    {
+      "hero": "sven",
+      "reason": "合成刀锋装备核心组件"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "物理核心攻击力基础"
+    },
+    {
+      "hero": "lycan",
+      "reason": "物理核心前期攻击件"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "合成相关攻击装组件"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "物理核心攻击力补充"
+    }
+  ],
+  "item_chainmail": [
+    {
+      "hero": "dragon_knight",
+      "reason": "合成胸甲类装备组件"
+    },
+    {
+      "hero": "slardar",
+      "reason": "护甲强化近战耐久"
+    },
+    {
+      "hero": "axe",
+      "reason": "合成护甲类装备组件"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "坦克护甲基础组件"
+    },
+    {
+      "hero": "centaur",
+      "reason": "耐久型核心护甲补充"
+    }
+  ],
+  "item_splintmail": [
+    {
+      "hero": "dragon_knight",
+      "reason": "坦克核心护甲基础"
+    },
+    {
+      "hero": "axe",
+      "reason": "前期护甲生存组件"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "耐久核心护甲补充"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量坦克护甲基础"
+    },
+    {
+      "hero": "slardar",
+      "reason": "近战核心护甲强化"
+    }
+  ],
+  "item_claymore": [
+    {
+      "hero": "sven",
+      "reason": "合成大剑攻击力核心"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "高攻击力爆发核心件"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "物理核心攻击基础件"
+    },
+    {
+      "hero": "lycan",
+      "reason": "物理核心攻击力组件"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "物理核心攻击力基础"
+    }
+  ],
+  "item_helm_of_iron_will": [
+    {
+      "hero": "axe",
+      "reason": "合成臂章护甲生命组件"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "前期护甲回血强化"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血量时生命回复关键"
+    },
+    {
+      "hero": "alchemist",
+      "reason": "合成臂章核心组件"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "合成臂章核心组件"
+    }
+  ],
+  "item_javelin": [
+    {
+      "hero": "faceless_void",
+      "reason": "合成金箍棒核心组件"
+    },
+    {
+      "hero": "sven",
+      "reason": "合成金箍棒穿刺输出"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "穿刺无视闪避补强"
+    },
+    {
+      "hero": "monkey_king",
+      "reason": "合成金箍棒核心组件"
+    },
+    {
+      "hero": "gyrocopter",
+      "reason": "攻击穿刺强化输出"
+    }
+  ],
+  "item_mithril_hammer": [
+    {
+      "hero": "sven",
+      "reason": "合成重锤攻击力核心"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "合成金箍棒核心件"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "高攻击力爆发组件"
+    },
+    {
+      "hero": "monkey_king",
+      "reason": "合成金箍棒核心件"
+    },
+    {
+      "hero": "lycan",
+      "reason": "物理核心高攻击力件"
+    }
+  ],
+  "item_platemail": [
+    {
+      "hero": "dragon_knight",
+      "reason": "合成强袭胸甲核心件"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "坦克护甲强化生存"
+    },
+    {
+      "hero": "axe",
+      "reason": "合成护甲装备核心件"
+    },
+    {
+      "hero": "centaur",
+      "reason": "高护甲强化耐久性"
+    },
+    {
+      "hero": "rattletrap",
+      "reason": "合成强袭胸甲组件"
+    }
+  ],
+  "item_quarterstaff": [
+    {
+      "hero": "juggernaut",
+      "reason": "攻速攻击力合成组件"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "攻速核心合成基础"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "攻速攻击力双提升"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "攻速补强物理输出"
+    },
+    {
+      "hero": "razor",
+      "reason": "攻速攻击力合成件"
+    }
+  ],
+  "item_quelling_blade": [
+    {
+      "hero": "axe",
+      "reason": "近战核心补刀效率"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "近战补刀发育加速"
+    },
+    {
+      "hero": "antimage",
+      "reason": "近战补刀积累属性"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "近战核心补刀基础"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "近战核心补刀强化"
+    }
+  ],
+  "item_faerie_fire": [],
+  "item_infused_raindrop": [
+    {
+      "hero": "storm_spirit",
+      "reason": "魔法脆弱需要抗魔保护"
+    },
+    {
+      "hero": "invoker",
+      "reason": "前期魔法伤害威胁大"
+    },
+    {
+      "hero": "lina",
+      "reason": "脆皮抗爆防魔法伤害"
+    },
+    {
+      "hero": "zuus",
+      "reason": "站场被动挨魔法需抗性"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "低生命值怕魔法爆发"
+    }
+  ],
+  "item_wind_lace": [
+    {
+      "hero": "spirit_breaker",
+      "reason": "移速直接提升冲刺效率"
+    },
+    {
+      "hero": "batrider",
+      "reason": "移速加成强化追杀骚扰"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "移速提升游走追杀能力"
+    },
+    {
+      "hero": "night_stalker",
+      "reason": "移速加成强化夜间追人"
+    },
+    {
+      "hero": "bloodseeker",
+      "reason": "移速配合焦渴追杀"
+    }
+  ],
+  "item_ring_of_protection": [],
+  "item_stout_shield": [
+    {
+      "hero": "axe",
+      "reason": "近战前排需要格挡减伤"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "近战抗压减少补刀损耗"
+    },
+    {
+      "hero": "pudge",
+      "reason": "近战核心前期减伤抗压"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "近战强压线减伤需求强"
+    },
+    {
+      "hero": "huskar",
+      "reason": "近战低血量抗压减伤"
+    }
+  ],
+  "item_moon_shard": [
+    {
+      "hero": "medusa",
+      "reason": "分裂箭需要极高攻速收益"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "高攻速提升爆击触发率"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "攻速是核心战斗力来源"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "时间锁定需要高攻速叠加"
+    },
+    {
+      "hero": "luna",
+      "reason": "高攻速大幅提升月刃输出"
+    }
+  ],
+  "item_gauntlets": [
+    {
+      "hero": "pudge",
+      "reason": "力量堆体魂增加腐肉伤害"
+    },
+    {
+      "hero": "axe",
+      "reason": "力量提升生存抗压能力"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量加成强化反伤和生存"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "力量英雄属性成长加成"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "力量提升生存抗压能力"
+    }
+  ],
+  "item_slippers": [
+    {
+      "hero": "drow_ranger",
+      "reason": "敏捷提升攻击力和攻速"
+    },
+    {
+      "hero": "mirana",
+      "reason": "敏捷加成提升前期输出"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "敏捷核心属性直接增益"
+    },
+    {
+      "hero": "weaver",
+      "reason": "敏捷核心属性提升输出"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "敏捷加成强化前期输出"
+    }
+  ],
+  "item_mantle": [
+    {
+      "hero": "invoker",
+      "reason": "智力提升技能伤害和魔法"
+    },
+    {
+      "hero": "zuus",
+      "reason": "智力直接提升法术伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "智力提升技能伤害和攻击"
+    },
+    {
+      "hero": "silencer",
+      "reason": "智力加成强化遗言效果"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "智力转化攻击力核心需求"
+    }
+  ],
+  "item_branches": [
+    {
+      "hero": "invoker",
+      "reason": "属性提升冰雷火技能效果"
+    },
+    {
+      "hero": "antimage",
+      "reason": "全属性高效利用低价值"
+    }
+  ],
+  "item_belt_of_strength": [
+    {
+      "hero": "pudge",
+      "reason": "力量直接提升腐肉堆积伤害"
+    },
+    {
+      "hero": "axe",
+      "reason": "力量提升生存力抗压"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "力量提升复活和生存"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量强化反伤和生命"
+    },
+    {
+      "hero": "undying",
+      "reason": "力量强化噬魂收益"
+    }
+  ],
+  "item_boots_of_elves": [
+    {
+      "hero": "drow_ranger",
+      "reason": "敏捷核心属性强化输出"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "敏捷加成提升灵能刃"
+    },
+    {
+      "hero": "weaver",
+      "reason": "敏捷核心属性直接增益"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "敏捷核心提升攻速攻击"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "敏捷加成提升输出效率"
+    }
+  ],
+  "item_robe": [
+    {
+      "hero": "invoker",
+      "reason": "智力提升所有祈唤技能"
+    },
+    {
+      "hero": "zuus",
+      "reason": "智力直接增强法术爆发"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "智力直接转化攻击力"
+    },
+    {
+      "hero": "silencer",
+      "reason": "智力加成强化遗言伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "智力提升炽魂和技能伤害"
+    }
+  ],
+  "item_circlet": [
+    {
+      "hero": "invoker",
+      "reason": "全属性均提升技能效果"
+    },
+    {
+      "hero": "morphling",
+      "reason": "全属性适配属性变换机制"
+    },
+    {
+      "hero": "antimage",
+      "reason": "全属性高效适配敏捷核心"
+    }
+  ],
+  "item_crown": [
+    {
+      "hero": "invoker",
+      "reason": "全属性提升三元技能效果"
+    },
+    {
+      "hero": "morphling",
+      "reason": "全属性契合属性变换"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "全属性强化法术和攻击"
+    }
+  ],
+  "item_diadem": [
+    {
+      "hero": "invoker",
+      "reason": "全属性强化三元技能"
+    },
+    {
+      "hero": "morphling",
+      "reason": "全属性提升属性转换"
+    },
+    {
+      "hero": "arc_warden",
+      "reason": "全属性均衡强化"
+    },
+    {
+      "hero": "silencer",
+      "reason": "全属性叠加智力收益"
+    },
+    {
+      "hero": "medusa",
+      "reason": "全属性强化生存输出"
+    }
+  ],
+  "item_ogre_axe": [
+    {
+      "hero": "sven",
+      "reason": "力量加成强化神之力"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "力量核心基础成型"
+    },
+    {
+      "hero": "huskar",
+      "reason": "力量提升生存与伤害"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "力量核心出装核心"
+    },
+    {
+      "hero": "pudge",
+      "reason": "力量叠加腐肉堆积"
+    }
+  ],
+  "item_blade_of_alacrity": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "敏捷加成幻象分裂"
+    },
+    {
+      "hero": "morphling",
+      "reason": "敏捷转换核心属性"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "敏捷强化冰川光环"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "敏捷提升物理输出"
+    },
+    {
+      "hero": "weaver",
+      "reason": "敏捷核心输出加成"
+    }
+  ],
+  "item_staff_of_wizardry": [
+    {
+      "hero": "invoker",
+      "reason": "智力核心技能伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "智力强化炽魂爆发"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "智力强化球状闪电"
+    },
+    {
+      "hero": "zuus",
+      "reason": "智力加成闪电伤害"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "智力提升技能爆发"
+    }
+  ],
+  "item_ultimate_orb": [
+    {
+      "hero": "invoker",
+      "reason": "全属性核心合成材料"
+    },
+    {
+      "hero": "morphling",
+      "reason": "全属性属性转换强化"
+    },
+    {
+      "hero": "medusa",
+      "reason": "全属性提升生存输出"
+    },
+    {
+      "hero": "silencer",
+      "reason": "全属性智力叠加增益"
+    },
+    {
+      "hero": "arc_warden",
+      "reason": "全属性均衡强化核心"
+    }
+  ],
+  "item_gloves": [
+    {
+      "hero": "troll_warlord",
+      "reason": "攻速核心热血战魂"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "攻速配合时间锁定"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "攻速提升刀阵收益"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "攻速强化剑舞输出"
+    },
+    {
+      "hero": "ursa",
+      "reason": "攻速叠加怒意狂击"
+    }
+  ],
+  "item_blitz_knuckles": [
+    {
+      "hero": "troll_warlord",
+      "reason": "高攻速配合热血战魂"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "攻速锁定期输出"
+    },
+    {
+      "hero": "ursa",
+      "reason": "攻速叠加怒意狂击"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "攻速提升暴击频率"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "攻速强化剑舞收益"
+    }
+  ],
+  "item_lifesteal": [
+    {
+      "hero": "huskar",
+      "reason": "低血吸血反向续命"
+    },
+    {
+      "hero": "ursa",
+      "reason": "高攻速吸血回复"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "吸血灵魂叠加强化"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "高攻速吸血续航"
+    }
+  ],
+  "item_voodoo_mask": [
+    {
+      "hero": "storm_spirit",
+      "reason": "技能吸血续航球闪"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "持续施法技能吸血"
+    },
+    {
+      "hero": "invoker",
+      "reason": "技能密集吸血回复"
+    },
+    {
+      "hero": "lina",
+      "reason": "高爆发技能吸血"
+    },
+    {
+      "hero": "zuus",
+      "reason": "全图技能大量吸血"
+    }
+  ],
+  "item_ring_of_regen": [
+    {
+      "hero": "huskar",
+      "reason": "低血状态生命回复"
+    },
+    {
+      "hero": "pudge",
+      "reason": "前期肉盾生命回复"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "前期线上生命续航"
+    },
+    {
+      "hero": "axe",
+      "reason": "前期对线生命回复"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "前期肉盾回复续航"
+    }
+  ],
+  "item_sobi_mask": [
+    {
+      "hero": "storm_spirit",
+      "reason": "魔法回复维持球闪"
+    },
+    {
+      "hero": "invoker",
+      "reason": "技能密集魔法消耗"
+    },
+    {
+      "hero": "tinker",
+      "reason": "刷新后持续魔法需求"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "持续施法魔法消耗大"
+    },
+    {
+      "hero": "crystal_maiden",
+      "reason": "前期魔法紧张辅助"
+    }
+  ],
+  "item_boots": [
+    {
+      "hero": "bounty_hunter",
+      "reason": "移速追击暗影步"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "移速提升冲刺效率"
+    },
+    {
+      "hero": "night_stalker",
+      "reason": "移速追击夜间猎杀"
+    },
+    {
+      "hero": "weaver",
+      "reason": "移速加成缩地追击"
+    },
+    {
+      "hero": "slark",
+      "reason": "移速追击突袭收益"
+    }
+  ],
+  "item_gem": [
+    {
+      "hero": "bounty_hunter",
+      "reason": "反隐克制暗影情谊"
+    },
+    {
+      "hero": "axe",
+      "reason": "前排持宝对抗隐身"
+    },
+    {
+      "hero": "pudge",
+      "reason": "肉盾持宝稳定视野"
+    },
+    {
+      "hero": "lion",
+      "reason": "辅助持宝提供视野"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "辅助持宝反隐支援"
+    }
+  ],
+  "item_shawl": [
+    {
+      "hero": "morphling",
+      "reason": "魔抗提升生存能力"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "魔抗强化脆皮生存"
+    },
+    {
+      "hero": "antimage",
+      "reason": "魔抗配合法术反制"
+    },
+    {
+      "hero": "weaver",
+      "reason": "魔抗提升脆皮生存"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "魔抗保护脆皮刺客"
+    }
+  ],
+  "item_cloak": [
+    {
+      "hero": "antimage",
+      "reason": "魔抗法术反制叠加"
+    },
+    {
+      "hero": "morphling",
+      "reason": "魔抗强化生存核心"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "魔抗弥补脆皮弱点"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "魔抗保护团战输出"
+    },
+    {
+      "hero": "spectre",
+      "reason": "魔抗提升折射生存"
+    }
+  ],
+  "item_talisman_of_evasion": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "叠加自身高闪避核心"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血量需要闪避保命"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "近战肉搏需闪避支撑"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "剑刃风暴期间可闪避"
+    }
+  ],
+  "item_cheese": [],
+  "item_magic_stick": [],
+  "item_magic_wand": [],
+  "item_ghost": [
+    {
+      "hero": "zuus",
+      "reason": "虚无状态躲物理保命输出"
+    },
+    {
+      "hero": "lina",
+      "reason": "脆皮法师规避物理追杀"
+    },
+    {
+      "hero": "tinker",
+      "reason": "刷新期间规避物理伤害"
+    },
+    {
+      "hero": "pugna",
+      "reason": "脆皮近战需免疫物理"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "超低血量规避物理攻击"
+    }
+  ],
+  "item_clarity": [],
+  "item_enchanted_mango": [],
+  "item_blood_grenade": [],
+  "item_royale_with_cheese": [],
+  "item_flask": [],
+  "item_dust": [],
+  "item_bottle": [
+    {
+      "hero": "storm_spirit",
+      "reason": "球闪电耗魔极大需补魔"
+    },
+    {
+      "hero": "nevermore",
+      "reason": "中路核心依赖魔瓶续魔"
+    },
+    {
+      "hero": "tinker",
+      "reason": "技能消耗大依赖续魔"
+    },
+    {
+      "hero": "invoker",
+      "reason": "多技能消耗需频繁补魔"
+    },
+    {
+      "hero": "mirana",
+      "reason": "中路游走依赖神符续魔"
+    }
+  ],
+  "item_ward_sentry": [],
+  "item_ward_dispenser": [],
+  "item_tango": [],
+  "item_tango_single": [],
+  "item_tpscroll": [],
+  "item_travel_boots": [
+    {
+      "hero": "furion",
+      "reason": "全图传送骚扰推线"
+    },
+    {
+      "hero": "tinker",
+      "reason": "刷新后反复传送"
+    },
+    {
+      "hero": "lycan",
+      "reason": "推线速度极快"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "分推推线核心"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "全图游走骚扰"
+    }
+  ],
+  "item_travel_boots_2": [
+    {
+      "hero": "tinker",
+      "reason": "刷新反复传送推线"
+    },
+    {
+      "hero": "furion",
+      "reason": "全图传送支援推线"
+    },
+    {
+      "hero": "lycan",
+      "reason": "快速推线支援"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "分推支援两不误"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "游走骚扰机动性强"
+    }
+  ],
+  "item_phase_boots": [
+    {
+      "hero": "axe",
+      "reason": "穿越单位切入战斗"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "追击输出攻击力强"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "追击爆发物理核心"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "近战核心攻击力加成"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "近战核心追击输出"
+    }
+  ],
+  "item_demon_edge": [
+    {
+      "hero": "faceless_void",
+      "reason": "合成代达罗斯爆发"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "合成代达罗斯爆发"
+    },
+    {
+      "hero": "sven",
+      "reason": "合成代达罗斯爆发"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "合成圣剑高攻输出"
+    }
+  ],
+  "item_eagle": [
+    {
+      "hero": "drow_ranger",
+      "reason": "合成蝴蝶敏捷核心"
+    },
+    {
+      "hero": "morphling",
+      "reason": "敏捷核心属性变换"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "合成幻影斧敏捷核心"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "敏捷核心输出提升"
+    }
+  ],
+  "item_reaver": [
+    {
+      "hero": "sven",
+      "reason": "力量核心大量生命"
+    },
+    {
+      "hero": "axe",
+      "reason": "合成恐鳌之心续战"
+    },
+    {
+      "hero": "pudge",
+      "reason": "力量英雄生命暴涨"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "力量核心强化生存"
+    },
+    {
+      "hero": "huskar",
+      "reason": "合成撒旦力量爆发"
+    }
+  ],
+  "item_relic": [
+    {
+      "hero": "sven",
+      "reason": "合成圣者遗物高攻"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "合成代达罗斯爆发"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "合成代达罗斯暴击"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "合成高攻物理核心"
+    },
+    {
+      "hero": "luna",
+      "reason": "合成辉耀高攻推线"
+    }
+  ],
+  "item_hyperstone": [
+    {
+      "hero": "juggernaut",
+      "reason": "合成强袭高攻速"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "攻速核心极限输出"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "时间锁定高攻速"
+    },
+    {
+      "hero": "luna",
+      "reason": "合成雷神之锤"
+    },
+    {
+      "hero": "sven",
+      "reason": "合成强袭胸甲"
+    }
+  ],
+  "item_ring_of_health": [
+    {
+      "hero": "axe",
+      "reason": "合成先锋盾生存"
+    },
+    {
+      "hero": "pudge",
+      "reason": "合成先锋盾肉盾"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "合成先锋盾抗揍"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "合成先锋盾线上"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "合成先锋盾续战"
+    }
+  ],
+  "item_ring_of_tarrasque": [
+    {
+      "hero": "axe",
+      "reason": "合成恐鳌之心高回血"
+    },
+    {
+      "hero": "pudge",
+      "reason": "力量肉盾生命回复"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "合成恐鳌之心抗揍"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "力量核心生存提升"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "合成恐鳌之心肉盾"
+    }
+  ],
+  "item_void_stone": [
+    {
+      "hero": "storm_spirit",
+      "reason": "合成玲珑心减少魔法消耗"
+    },
+    {
+      "hero": "invoker",
+      "reason": "合成玲珑心魔法续航"
+    },
+    {
+      "hero": "tinker",
+      "reason": "合成刷新球魔法续航"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "合成玲珑心频繁施法"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "魔法核心续航提升"
+    }
+  ],
+  "item_tiara_of_selemene": [
+    {
+      "hero": "storm_spirit",
+      "reason": "合成玲珑心魔法续航"
+    },
+    {
+      "hero": "invoker",
+      "reason": "频繁施法魔法回复"
+    },
+    {
+      "hero": "tinker",
+      "reason": "合成刷新高魔法回复"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "高频施法魔法续航"
+    },
+    {
+      "hero": "keeper_of_the_light",
+      "reason": "魔法依赖高频施法"
+    }
+  ],
+  "item_mystic_staff": [
+    {
+      "hero": "invoker",
+      "reason": "合成林肯智力爆发"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "智力转化伤害核心"
+    },
+    {
+      "hero": "silencer",
+      "reason": "合成邪恶镰刀控制"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "合成林肯智力加成"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "智力核心法术爆发"
+    }
+  ],
+  "item_energy_booster": [
+    {
+      "hero": "invoker",
+      "reason": "魔法需求极高"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "球闪耗魔巨大"
+    },
+    {
+      "hero": "tinker",
+      "reason": "持续释放技能耗魔"
+    },
+    {
+      "hero": "keeper_of_the_light",
+      "reason": "魔法池决定输出上限"
+    },
+    {
+      "hero": "pugna",
+      "reason": "技能释放频率高耗魔大"
+    }
+  ],
+  "item_point_booster": [
+    {
+      "hero": "storm_spirit",
+      "reason": "血魔双补强化续航"
+    },
+    {
+      "hero": "invoker",
+      "reason": "血魔均需提升"
+    },
+    {
+      "hero": "tinker",
+      "reason": "高频技能需血魔支撑"
+    },
+    {
+      "hero": "necrolyte",
+      "reason": "生命魔法均强化技能"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "血魔双补增强团战"
+    }
+  ],
+  "item_vitality_booster": [
+    {
+      "hero": "pudge",
+      "reason": "肉盾需要大量生命"
+    },
+    {
+      "hero": "axe",
+      "reason": "冲入敌阵需高血量"
+    },
+    {
+      "hero": "undying",
+      "reason": "挽歌依赖生命值上限"
+    },
+    {
+      "hero": "centaur",
+      "reason": "反伤依赖高生命值"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "前排开团需要厚血"
+    }
+  ],
+  "item_fluffy_hat": [
+    {
+      "hero": "pudge",
+      "reason": "早期需要生命缓冲"
+    },
+    {
+      "hero": "axe",
+      "reason": "前期补充生命上线"
+    },
+    {
+      "hero": "undying",
+      "reason": "前期跑路需要生命"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "补充早期生命缓冲"
+    },
+    {
+      "hero": "centaur",
+      "reason": "前期生命薄需补充"
+    }
+  ],
+  "item_wizard_hat": [
+    {
+      "hero": "invoker",
+      "reason": "早期魔法池拓展"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "球闪魔法储备"
+    },
+    {
+      "hero": "keeper_of_the_light",
+      "reason": "魔法上限强化输出"
+    },
+    {
+      "hero": "pugna",
+      "reason": "高频施法魔法补充"
+    },
+    {
+      "hero": "lina",
+      "reason": "早期魔法支撑输出"
+    }
+  ],
+  "item_power_treads": [
+    {
+      "hero": "juggernaut",
+      "reason": "敏捷核心攻速属性全补"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "敏捷核心高效出装"
+    },
+    {
+      "hero": "antimage",
+      "reason": "敏捷核心属性切换续航"
+    },
+    {
+      "hero": "morphling",
+      "reason": "属性切换契合变体机制"
+    },
+    {
+      "hero": "luna",
+      "reason": "敏捷核心攻速增益"
+    }
+  ],
+  "item_phylactery": [
+    {
+      "hero": "lion",
+      "reason": "单体技能触发法术强化"
+    },
+    {
+      "hero": "lina",
+      "reason": "单体技能附加额外伤害"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "单体技能配合爆发连招"
+    },
+    {
+      "hero": "bane",
+      "reason": "单体控制附加减速伤害"
+    },
+    {
+      "hero": "ogre_magi",
+      "reason": "单体技能触发强化连锁"
+    }
+  ],
+  "item_angels_demise": [
+    {
+      "hero": "lion",
+      "reason": "单体技能触发禁被动爆发"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "单体技能强化秒杀能力"
+    },
+    {
+      "hero": "lina",
+      "reason": "单体技能配合极高爆发"
+    },
+    {
+      "hero": "bane",
+      "reason": "控制技能触发禁被动"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "单体技能强化爆发输出"
+    }
+  ],
+  "item_hand_of_midas": [
+    {
+      "hero": "invoker",
+      "reason": "需要快速升级学全技能"
+    },
+    {
+      "hero": "medusa",
+      "reason": "需要时间发育成型"
+    },
+    {
+      "hero": "tinker",
+      "reason": "攻速配合技能循环"
+    },
+    {
+      "hero": "arc_warden",
+      "reason": "需要快速发育攒装备"
+    },
+    {
+      "hero": "alchemist",
+      "reason": "加速经济滚雪球"
+    }
+  ],
+  "item_oblivion_staff": [
+    {
+      "hero": "invoker",
+      "reason": "智力攻速魔回全适合"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "攻速智力支撑输出"
+    },
+    {
+      "hero": "silencer",
+      "reason": "智力攻速强化奥术诅咒"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "智力攻速核心需求"
+    },
+    {
+      "hero": "razor",
+      "reason": "攻速智力补充强化输出"
+    }
+  ],
+  "item_witch_blade": [
+    {
+      "hero": "silencer",
+      "reason": "智力成攻击伤害高效"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "智力极高毒素伤害爆炸"
+    },
+    {
+      "hero": "invoker",
+      "reason": "智力高毒素DPS显著"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "智力高攻击毒素伤害大"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "远程攻击增加毒素输出"
+    }
+  ],
+  "item_pers": [
+    {
+      "hero": "storm_spirit",
+      "reason": "血魔双回强化续航"
+    },
+    {
+      "hero": "invoker",
+      "reason": "持续施法需要双回"
+    },
+    {
+      "hero": "tinker",
+      "reason": "高频施法血魔回复需求"
+    },
+    {
+      "hero": "necrolyte",
+      "reason": "生命魔法回复增强持续"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "持续团战需血魔回复"
+    }
+  ],
+  "item_cornucopia": [
+    {
+      "hero": "storm_spirit",
+      "reason": "血魔回复攻击力均需要"
+    },
+    {
+      "hero": "invoker",
+      "reason": "前期过渡属性全面"
+    },
+    {
+      "hero": "lina",
+      "reason": "攻击力魔法回复皆适合"
+    },
+    {
+      "hero": "tinker",
+      "reason": "过渡期全面属性补充"
+    },
+    {
+      "hero": "silencer",
+      "reason": "攻击力魔法回复强化输出"
+    }
+  ],
+  "item_bracer": [
+    {
+      "hero": "pudge",
+      "reason": "力量英雄生命廉价增幅"
+    },
+    {
+      "hero": "axe",
+      "reason": "前期生命强度保证"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "力量核心前期补足"
+    },
+    {
+      "hero": "sven",
+      "reason": "力量核心早期生存"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量英雄前期必备"
+    }
+  ],
+  "item_wraith_band": [
+    {
+      "hero": "drow_ranger",
+      "reason": "敏捷核心廉价前期出装"
+    },
+    {
+      "hero": "mirana",
+      "reason": "敏捷攻速护甲全面补充"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "敏捷核心前期强化"
+    },
+    {
+      "hero": "weaver",
+      "reason": "敏捷核心廉价过渡"
+    },
+    {
+      "hero": "riki",
+      "reason": "敏捷攻速护甲前期适合"
+    }
+  ],
+  "item_null_talisman": [
+    {
+      "hero": "invoker",
+      "reason": "智力加成强化祈唤技能"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "智力加成强化球状闪电"
+    },
+    {
+      "hero": "nevermore",
+      "reason": "智力加成强化毁灭阴影"
+    },
+    {
+      "hero": "lina",
+      "reason": "智力加成提升法术伤害"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "智力加成提升奥术天球"
+    }
+  ],
+  "item_mekansm": [
+    {
+      "hero": "omniknight",
+      "reason": "团队治疗配合圣盾"
+    },
+    {
+      "hero": "warlock",
+      "reason": "团战回复配合邪术"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "治疗叠加强化团队续航"
+    },
+    {
+      "hero": "chen",
+      "reason": "团队支援配合神力"
+    },
+    {
+      "hero": "undying",
+      "reason": "前排耐久配合团战"
+    }
+  ],
+  "item_vladmir": [
+    {
+      "hero": "lycan",
+      "reason": "吸血光环强化狼群"
+    },
+    {
+      "hero": "lone_druid",
+      "reason": "吸血加成强化熊灵"
+    },
+    {
+      "hero": "chen",
+      "reason": "光环强化召唤单位"
+    },
+    {
+      "hero": "enigma",
+      "reason": "光环强化憎恶小兵"
+    },
+    {
+      "hero": "beastmaster",
+      "reason": "光环强化召唤单位"
+    }
+  ],
+  "item_buckler": [
+    {
+      "hero": "omniknight",
+      "reason": "护甲光环强化团队防御"
+    },
+    {
+      "hero": "earthshaker",
+      "reason": "前排护甲提升生存"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "坦克光环增强防线"
+    },
+    {
+      "hero": "centaur",
+      "reason": "前排护甲配合反伤"
+    },
+    {
+      "hero": "undying",
+      "reason": "护甲光环前排耐久"
+    }
+  ],
+  "item_ring_of_basilius": [
+    {
+      "hero": "crystal_maiden",
+      "reason": "魔法回复缓解蓝量紧张"
+    },
+    {
+      "hero": "lina",
+      "reason": "魔法回复支撑高费用技能"
+    },
+    {
+      "hero": "lion",
+      "reason": "魔法回复维持控制技能"
+    },
+    {
+      "hero": "zuus",
+      "reason": "魔法回复持续放技能"
+    },
+    {
+      "hero": "invoker",
+      "reason": "魔法回复支撑高魔法消耗"
+    }
+  ],
+  "item_holy_locket": [
+    {
+      "hero": "omniknight",
+      "reason": "治疗增强配合洗礼"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "治疗增强配合薄葬"
+    },
+    {
+      "hero": "oracle",
+      "reason": "治疗增强配合天命之雨"
+    },
+    {
+      "hero": "warlock",
+      "reason": "治疗增强配合支援技能"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "治疗增强配合巫毒疗法"
+    }
+  ],
+  "item_pipe": [
+    {
+      "hero": "omniknight",
+      "reason": "魔法抗性保护团队"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "抗魔盾配合重如铁锚"
+    },
+    {
+      "hero": "earthshaker",
+      "reason": "抗魔保护前排开团"
+    },
+    {
+      "hero": "warlock",
+      "reason": "抗魔护盾配合团战"
+    },
+    {
+      "hero": "centaur",
+      "reason": "抗魔保护前排冲锋"
+    }
+  ],
+  "item_urn_of_shadows": [
+    {
+      "hero": "bounty_hunter",
+      "reason": "游走击杀持续充能"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "游走冲刺击杀充能"
+    },
+    {
+      "hero": "lion",
+      "reason": "游走支援提供治疗"
+    },
+    {
+      "hero": "vengefulspirit",
+      "reason": "游走击杀配合灵龛"
+    },
+    {
+      "hero": "earthshaker",
+      "reason": "开团击杀后提供续航"
+    }
+  ],
+  "item_headdress": [
+    {
+      "hero": "omniknight",
+      "reason": "生命回复光环强化团队"
+    },
+    {
+      "hero": "warlock",
+      "reason": "生命回复支援团队线上"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "回复光环加强治疗辅助"
+    },
+    {
+      "hero": "chen",
+      "reason": "光环强化召唤单位回复"
+    },
+    {
+      "hero": "undying",
+      "reason": "前排生命回复提升续航"
+    }
+  ],
+  "item_sheepstick": [
+    {
+      "hero": "lion",
+      "reason": "控制叠加强化禁锢"
+    },
+    {
+      "hero": "bane",
+      "reason": "变羊叠加全面控制"
+    },
+    {
+      "hero": "lina",
+      "reason": "变羊接技能连消一人"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "控制配合星体禁锢"
+    },
+    {
+      "hero": "invoker",
+      "reason": "变羊接法术连杀"
+    }
+  ],
+  "item_orchid": [
+    {
+      "hero": "skywrath_mage",
+      "reason": "沉默叠加封锁敌人"
+    },
+    {
+      "hero": "silencer",
+      "reason": "双重沉默彻底封技"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "沉默防逃配合暗刺"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "沉默防对手接刀"
+    },
+    {
+      "hero": "invoker",
+      "reason": "沉默锁定配合连招"
+    }
+  ],
+  "item_bloodthorn": [
+    {
+      "hero": "skywrath_mage",
+      "reason": "沉默必暴强化法术连招"
+    },
+    {
+      "hero": "silencer",
+      "reason": "沉默必暴全面封锁"
+    },
+    {
+      "hero": "invoker",
+      "reason": "必暴沉默配合连招爆发"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "必暴加成配合暗刺"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "必暴加成强化刀刃输出"
+    }
+  ],
+  "item_echo_sabre": [
+    {
+      "hero": "sven",
+      "reason": "双击配合神之力量爆发"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "力量加成配合冲刺击晕"
+    },
+    {
+      "hero": "axe",
+      "reason": "力量加成配合淘汰之刃"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "力量加成配合混乱一击"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量加成配合双刃反伤"
+    }
+  ],
+  "item_cyclone": [
+    {
+      "hero": "invoker",
+      "reason": "龙卷风接连招关键位移"
+    },
+    {
+      "hero": "silencer",
+      "reason": "自卷躲避控制保命"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "法杖配合撕裂大地控制"
+    },
+    {
+      "hero": "puck",
+      "reason": "龙卷风配合相位控制链"
+    },
+    {
+      "hero": "bane",
+      "reason": "龙卷风叠加控制链"
+    }
+  ],
+  "item_wind_waker": [
+    {
+      "hero": "invoker",
+      "reason": "可对友军龙卷风保护关键"
+    },
+    {
+      "hero": "oracle",
+      "reason": "保护友军配合净化连招"
+    },
+    {
+      "hero": "rubick",
+      "reason": "龙卷风控制接偷技能"
+    },
+    {
+      "hero": "puck",
+      "reason": "龙卷风配合相位控制"
+    },
+    {
+      "hero": "silencer",
+      "reason": "移动龙卷风配合团战控制"
+    }
+  ],
+  "item_aether_lens": [
+    {
+      "hero": "keeper_of_the_light",
+      "reason": "冲击波射程大幅延伸"
+    },
+    {
+      "hero": "lion",
+      "reason": "指向技能射程延伸"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "封印和鹰隼射程提升"
+    },
+    {
+      "hero": "disruptor",
+      "reason": "动能栅栏射程延伸"
+    },
+    {
+      "hero": "pugna",
+      "reason": "衰老和守卫射程提升"
+    }
+  ],
+  "item_force_staff": [
+    {
+      "hero": "oracle",
+      "reason": "驱散位移保护队友"
+    },
+    {
+      "hero": "rattletrap",
+      "reason": "齿轮内推敌进入"
+    },
+    {
+      "hero": "dark_seer",
+      "reason": "配合真空推入敌方"
+    },
+    {
+      "hero": "disruptor",
+      "reason": "配合栅栏将敌推入"
+    }
+  ],
+  "item_hurricane_pike": [
+    {
+      "hero": "drow_ranger",
+      "reason": "远程攻击距离叠加输出"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "远程攻击距离提升爆发"
+    },
+    {
+      "hero": "medusa",
+      "reason": "推开近战英雄安全输出"
+    },
+    {
+      "hero": "mirana",
+      "reason": "推开威胁保持安全距离"
+    },
+    {
+      "hero": "luna",
+      "reason": "推开近战维持远程输出"
+    }
+  ],
+  "item_dagon": [
+    {
+      "hero": "lion",
+      "reason": "配合法力吸取爆发秒人"
+    },
+    {
+      "hero": "lina",
+      "reason": "炎魔配合爆发秒杀"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "爆发连招无限补刀"
+    },
+    {
+      "hero": "zuus",
+      "reason": "补充爆发消灭残血"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "神智爆裂后叠加爆发"
+    }
+  ],
+  "item_dagon_2": [
+    {
+      "hero": "lion",
+      "reason": "配合法力吸取爆发秒人"
+    },
+    {
+      "hero": "lina",
+      "reason": "炎魔配合爆发秒杀"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "爆发连招无限补刀"
+    },
+    {
+      "hero": "zuus",
+      "reason": "补充爆发消灭残血"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "神智爆裂后叠加爆发"
+    }
+  ],
+  "item_dagon_3": [
+    {
+      "hero": "lion",
+      "reason": "配合法力吸取爆发秒人"
+    },
+    {
+      "hero": "lina",
+      "reason": "炎魔配合爆发秒杀"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "爆发连招无限补刀"
+    },
+    {
+      "hero": "zuus",
+      "reason": "补充爆发消灭残血"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "神智爆裂后叠加爆发"
+    }
+  ],
+  "item_dagon_4": [
+    {
+      "hero": "lion",
+      "reason": "配合法力吸取爆发秒人"
+    },
+    {
+      "hero": "lina",
+      "reason": "炎魔配合爆发秒杀"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "爆发连招无限补刀"
+    },
+    {
+      "hero": "zuus",
+      "reason": "补充爆发消灭残血"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "神智爆裂后叠加爆发"
+    }
+  ],
+  "item_dagon_5": [
+    {
+      "hero": "lion",
+      "reason": "配合法力吸取爆发秒人"
+    },
+    {
+      "hero": "lina",
+      "reason": "炎魔配合爆发秒杀"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "爆发连招无限补刀"
+    },
+    {
+      "hero": "zuus",
+      "reason": "补充爆发消灭残血"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "神智爆裂后叠加爆发"
+    }
+  ],
+  "item_necronomicon": [
+    {
+      "hero": "furion",
+      "reason": "全图推线配合召唤强化"
+    },
+    {
+      "hero": "lycan",
+      "reason": "狼群配合死灵兵强推"
+    },
+    {
+      "hero": "enigma",
+      "reason": "召唤单位配合开团"
+    },
+    {
+      "hero": "chen",
+      "reason": "召唤强化全图推线"
+    },
+    {
+      "hero": "beastmaster",
+      "reason": "召唤物增强推线压制"
+    }
+  ],
+  "item_necronomicon_2": [
+    {
+      "hero": "furion",
+      "reason": "全图推线配合召唤强化"
+    },
+    {
+      "hero": "lycan",
+      "reason": "狼群配合死灵兵强推"
+    },
+    {
+      "hero": "enigma",
+      "reason": "召唤单位配合开团"
+    },
+    {
+      "hero": "chen",
+      "reason": "召唤强化全图推线"
+    },
+    {
+      "hero": "beastmaster",
+      "reason": "召唤物增强推线压制"
+    }
+  ],
+  "item_necronomicon_3": [
+    {
+      "hero": "furion",
+      "reason": "全图推线配合召唤强化"
+    },
+    {
+      "hero": "lycan",
+      "reason": "狼群配合死灵兵强推"
+    },
+    {
+      "hero": "enigma",
+      "reason": "召唤单位配合开团"
+    },
+    {
+      "hero": "chen",
+      "reason": "召唤强化全图推线"
+    },
+    {
+      "hero": "beastmaster",
+      "reason": "召唤物增强推线压制"
+    }
+  ],
+  "item_ultimate_scepter": [
+    {
+      "hero": "invoker",
+      "reason": "大招升级强化技能效果"
+    },
+    {
+      "hero": "lion",
+      "reason": "地狱冲击升级强化"
+    },
+    {
+      "hero": "lina",
+      "reason": "龙破斩升级强化"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "天裔之盾大幅升级"
+    },
+    {
+      "hero": "enigma",
+      "reason": "事件视界升级更强控"
+    }
+  ],
+  "item_ultimate_scepter_2": [
+    {
+      "hero": "invoker",
+      "reason": "大招升级强化技能效果"
+    },
+    {
+      "hero": "lion",
+      "reason": "地狱冲击升级强化"
+    },
+    {
+      "hero": "lina",
+      "reason": "龙破斩升级强化"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "天裔之盾大幅升级"
+    },
+    {
+      "hero": "enigma",
+      "reason": "事件视界升级更强控"
+    }
+  ],
+  "item_ultimate_scepter_roshan": [
+    {
+      "hero": "invoker",
+      "reason": "大招升级强化技能效果"
+    },
+    {
+      "hero": "lion",
+      "reason": "地狱冲击升级强化"
+    },
+    {
+      "hero": "lina",
+      "reason": "龙破斩升级强化"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "天裔之盾大幅升级"
+    },
+    {
+      "hero": "enigma",
+      "reason": "事件视界升级更强控"
+    }
+  ],
+  "item_aghanims_shard": [
+    {
+      "hero": "axe",
+      "reason": "淘汰之刃升级效果显著"
+    },
+    {
+      "hero": "invoker",
+      "reason": "新增或升级技能效果"
+    },
+    {
+      "hero": "enigma",
+      "reason": "升级技能强化开团"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "技能升级增强团战"
+    },
+    {
+      "hero": "lion",
+      "reason": "技能升级强化控制"
+    }
+  ],
+  "item_aghanims_shard_roshan": [],
+  "item_refresher": [
+    {
+      "hero": "enigma",
+      "reason": "二次黑洞锁定团战"
+    },
+    {
+      "hero": "invoker",
+      "reason": "重置冷却二次团控"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "二次毁灭之锚团控"
+    },
+    {
+      "hero": "zuus",
+      "reason": "二次大招全图收人头"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "二次时间结界锁全场"
+    }
+  ],
+  "item_assault": [
+    {
+      "hero": "dragon_knight",
+      "reason": "近战核心提升护甲输出"
+    },
+    {
+      "hero": "sven",
+      "reason": "近战核心叠加护甲攻速"
+    },
+    {
+      "hero": "lycan",
+      "reason": "近战推线攻速护甲双补"
+    },
+    {
+      "hero": "alchemist",
+      "reason": "近战核心攻速输出增强"
+    },
+    {
+      "hero": "lone_druid",
+      "reason": "熊灵近战攻速护甲加成"
+    }
+  ],
+  "item_heart": [
+    {
+      "hero": "axe",
+      "reason": "高力量跳刀切入更耐打"
+    },
+    {
+      "hero": "pudge",
+      "reason": "力量英雄叠加血量极厚"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "力量核心续航能力极强"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血触发被动更需厚血"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量核心反伤更痛"
+    }
+  ],
+  "item_black_king_bar": [
+    {
+      "hero": "sven",
+      "reason": "核心跑入人群稳定输出"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "近战核心免疫控制输出"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "迅风斩期间免疫控制"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "近战刺客跳入免控"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "近战暴力输出免控保障"
+    }
+  ],
+  "item_shivas_guard": [
+    {
+      "hero": "invoker",
+      "reason": "高智力加成强化团战减速"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "智力核心护甲增强辅助"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "虫群加减速光环配合大"
+    },
+    {
+      "hero": "medusa",
+      "reason": "高属性增强团战生存力"
+    },
+    {
+      "hero": "tinker",
+      "reason": "高智力刷新冷却频繁减速"
+    }
+  ],
+  "item_bloodstone": [
+    {
+      "hero": "storm_spirit",
+      "reason": "法术偷生续航球闪电球"
+    },
+    {
+      "hero": "invoker",
+      "reason": "高魔法需求法术吸血续航"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "大量技能伤害法术偷生"
+    },
+    {
+      "hero": "pugna",
+      "reason": "法术偷生配合幽冥持续输出"
+    },
+    {
+      "hero": "tinker",
+      "reason": "高魔耗刷新需大量魔法续航"
+    }
+  ],
+  "item_sphere": [
+    {
+      "hero": "medusa",
+      "reason": "站桩输出防指向技能"
+    },
+    {
+      "hero": "morphling",
+      "reason": "高属性防指向控制保命"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "核心防暗杀指向技能"
+    },
+    {
+      "hero": "weaver",
+      "reason": "脆皮Carry防被单点"
+    },
+    {
+      "hero": "spectre",
+      "reason": "空降核心防指向技能"
+    }
+  ],
+  "item_lotus_orb": [
+    {
+      "hero": "axe",
+      "reason": "反弹指向控制保护自身"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "近战核心反弹控制技能"
+    },
+    {
+      "hero": "centaur",
+      "reason": "耐久近战反弹指向保护"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "前排坦克反弹指向技能"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "面向后站反弹控制保命"
+    }
+  ],
+  "item_meteor_hammer": [
+    {
+      "hero": "rattletrap",
+      "reason": "齿轮锁定后陨星锤补控"
+    },
+    {
+      "hero": "enigma",
+      "reason": "黑洞锁定配合陨星锤"
+    },
+    {
+      "hero": "sand_king",
+      "reason": "沙尘暴隐身后陨星锤偷塔"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "催眠大招配合陨星锤偷塔"
+    },
+    {
+      "hero": "treant",
+      "reason": "隐身偷塔陨星锤高效推线"
+    }
+  ],
+  "item_nullifier": [
+    {
+      "hero": "sven",
+      "reason": "驱散链接减速配合团战"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "驱散保护目标切入输出"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "高攻击力叠加驱散效果"
+    },
+    {
+      "hero": "gyrocopter",
+      "reason": "高攻速持续施加驱散减速"
+    }
+  ],
+  "item_aeon_disk": [
+    {
+      "hero": "enigma",
+      "reason": "保黑洞不被打断续命关键"
+    },
+    {
+      "hero": "warlock",
+      "reason": "大招读条保护不被打断"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "前排开团触发续命反打"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "大招读条防止被击杀"
+    }
+  ],
+  "item_kaya": [
+    {
+      "hero": "storm_spirit",
+      "reason": "法术强化提升电球伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "提升技能爆发伤害上限"
+    },
+    {
+      "hero": "zuus",
+      "reason": "法术强化提升全图伤害"
+    },
+    {
+      "hero": "invoker",
+      "reason": "提升技能伤害回复强化"
+    },
+    {
+      "hero": "pugna",
+      "reason": "法术强化配合幽冥伤害"
+    }
+  ],
+  "item_trident": [
+    {
+      "hero": "invoker",
+      "reason": "三属性全面强化技能输出"
+    },
+    {
+      "hero": "morphling",
+      "reason": "全属性切换大幅提升上限"
+    },
+    {
+      "hero": "medusa",
+      "reason": "全属性叠加生存输出极强"
+    },
+    {
+      "hero": "silencer",
+      "reason": "全属性配合智力偷取"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "全属性放大精华变迁上限"
+    }
+  ],
+  "item_refresher_shard": [
+    {
+      "hero": "enigma",
+      "reason": "二次黑洞团控决定胜负"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "二次大招团灭能力"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "二次时间结界锁全场"
+    },
+    {
+      "hero": "invoker",
+      "reason": "重置技能二次输出爆发"
+    },
+    {
+      "hero": "zuus",
+      "reason": "二次大招清场收人头"
+    }
+  ],
+  "item_spirit_vessel": [],
+  "item_essence_distiller": [],
+  "item_vanguard": [],
+  "item_crimson_guard": [],
+  "item_blade_mail": [],
+  "item_soul_booster": [],
+  "item_eternal_shroud": [],
+  "item_consecrated_wraps": [],
+  "item_crellas_crozier": [],
+  "item_rapier": [],
+  "item_monkey_king_bar": [],
+  "item_radiance": [],
+  "item_butterfly": [],
+  "item_greater_crit": [],
+  "item_basher": [],
+  "item_bfury": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "分裂加速幻象输出"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "分裂加速清兵推线"
+    },
+    {
+      "hero": "luna",
+      "reason": "分裂清兵效率极高"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "分裂加速核心输出"
+    }
+  ],
+  "item_manta": [
+    {
+      "hero": "antimage",
+      "reason": "幻象复制核心属性"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "幻象叠加核心打法"
+    },
+    {
+      "hero": "morphling",
+      "reason": "驱散加幻象强化"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "幻象叠加清线推塔"
+    },
+    {
+      "hero": "luna",
+      "reason": "幻象分担伤害输出"
+    }
+  ],
+  "item_lesser_crit": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "叠加暴击概率极高"
+    },
+    {
+      "hero": "sven",
+      "reason": "神力加成暴击大伤"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "剑舞叠加暴击输出"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "时间锁定配合暴击"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "本命暴击再叠加"
+    }
+  ],
+  "item_dragon_lance": [
+    {
+      "hero": "sniper",
+      "reason": "增加攻击距离安全输出"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "远程属性全面提升"
+    },
+    {
+      "hero": "luna",
+      "reason": "远程力量敏捷均衡"
+    },
+    {
+      "hero": "mirana",
+      "reason": "远程加属性强化弓箭"
+    },
+    {
+      "hero": "viper",
+      "reason": "增距配合减速追杀"
+    }
+  ],
+  "item_armlet": [
+    {
+      "hero": "huskar",
+      "reason": "低血触发狂战配合"
+    },
+    {
+      "hero": "sven",
+      "reason": "神力加持爆发极强"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "龙形态加血加伤"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "盛宴吸血抵消血量流失"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "高力量配合吸血续命"
+    }
+  ],
+  "item_invis_sword": [
+    {
+      "hero": "riki",
+      "reason": "配合背刺隐身爆发"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "隐身突袭忍术叠加"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "隐身接灼热箭爆发"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "隐身触发灵能之刃"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "隐身接幻影突袭"
+    }
+  ],
+  "item_silver_edge": [
+    {
+      "hero": "riki",
+      "reason": "破坏被动隐身爆发"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "破被动忍术叠加"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "隐身破被动强杀"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "破被动接暴击秒杀"
+    },
+    {
+      "hero": "night_stalker",
+      "reason": "破被动夜间突袭"
+    }
+  ],
+  "item_sange_and_yasha": [
+    {
+      "hero": "sven",
+      "reason": "力量敏捷均衡爆发强"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "力量移速全面强化"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "近战敏捷攻速强化"
+    },
+    {
+      "hero": "huskar",
+      "reason": "状态抗性减少被控"
+    }
+  ],
+  "item_kaya_and_sange": [
+    {
+      "hero": "lina",
+      "reason": "法强加成技能爆发强"
+    },
+    {
+      "hero": "queenofpain",
+      "reason": "法强力量双属性强"
+    },
+    {
+      "hero": "invoker",
+      "reason": "法强减费提升祈唤"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "法强力量持续伤害"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "法强减费球状闪电"
+    }
+  ],
+  "item_yasha_and_kaya": [
+    {
+      "hero": "storm_spirit",
+      "reason": "法强减费机动性强"
+    },
+    {
+      "hero": "invoker",
+      "reason": "法强施法速度提升"
+    },
+    {
+      "hero": "queenofpain",
+      "reason": "法强移速闪烁配合"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "法强敏捷持续输出"
+    },
+    {
+      "hero": "lina",
+      "reason": "施法速度法强双提升"
+    }
+  ],
+  "item_satanic": [
+    {
+      "hero": "sven",
+      "reason": "神力爆发大量吸血"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "时间结界内大量吸血"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "暴击吸血瞬间回满"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血吸血逆转局势"
+    }
+  ],
+  "item_mjollnir": [
+    {
+      "hero": "sven",
+      "reason": "神力大范围连环闪电"
+    },
+    {
+      "hero": "luna",
+      "reason": "月刃配合闪电清兵"
+    },
+    {
+      "hero": "gyrocopter",
+      "reason": "高频攻击触发闪电"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "高攻速频繁触发闪电"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "剑刃风暴触发闪电"
+    }
+  ],
+  "item_skadi": [
+    {
+      "hero": "medusa",
+      "reason": "全属性加成核心装"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "全属性加攻击减速"
+    },
+    {
+      "hero": "antimage",
+      "reason": "全属性配合闪烁追杀"
+    },
+    {
+      "hero": "morphling",
+      "reason": "全属性属性变换强化"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "全属性幻象加减速"
+    }
+  ],
+  "item_sange": [
+    {
+      "hero": "huskar",
+      "reason": "力量状态抗性续命"
+    },
+    {
+      "hero": "sven",
+      "reason": "力量减速抗性强化"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量加成反伤提升"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "力量加成吸血增强"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "力量龙形态更耐打"
+    }
+  ],
+  "item_helm_of_the_dominator": [
+    {
+      "hero": "lycan",
+      "reason": "召唤单位强化配合狼"
+    },
+    {
+      "hero": "beastmaster",
+      "reason": "支配野怪强化召唤"
+    },
+    {
+      "hero": "chen",
+      "reason": "支配配合圣化劝化"
+    },
+    {
+      "hero": "lone_druid",
+      "reason": "强化熊灵战斗能力"
+    },
+    {
+      "hero": "furion",
+      "reason": "支配野怪补充树人"
+    }
+  ],
+  "item_helm_of_the_overlord": [
+    {
+      "hero": "lycan",
+      "reason": "强化狼单位统治野区"
+    },
+    {
+      "hero": "beastmaster",
+      "reason": "强化召唤单位猛禽"
+    },
+    {
+      "hero": "chen",
+      "reason": "强化控制中立单位"
+    },
+    {
+      "hero": "lone_druid",
+      "reason": "强化熊灵核心输出"
+    },
+    {
+      "hero": "enigma",
+      "reason": "强化憎恶单位控场"
+    }
+  ],
+  "item_maelstrom": [
+    {
+      "hero": "faceless_void",
+      "reason": "时间结界内AOE跳劈"
+    },
+    {
+      "hero": "sven",
+      "reason": "神之力量期间AOE清场"
+    },
+    {
+      "hero": "luna",
+      "reason": "月刃跳跃触发连锁闪电"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "剑刃风暴期间触发闪电"
+    },
+    {
+      "hero": "gyrocopter",
+      "reason": "多目标攻击频繁触发"
+    }
+  ],
+  "item_gungir": [
+    {
+      "hero": "sven",
+      "reason": "风暴之拳后接范围锁链"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "时间结界内追加控制"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "迅风斩后补充控制"
+    },
+    {
+      "hero": "luna",
+      "reason": "持续攻击中追加减速"
+    },
+    {
+      "hero": "gyrocopter",
+      "reason": "高攻速频繁触发锁链"
+    }
+  ],
+  "item_desolator": [
+    {
+      "hero": "clinkz",
+      "reason": "灼热之箭叠加破甲"
+    },
+    {
+      "hero": "sniper",
+      "reason": "远程安全叠破甲输出"
+    },
+    {
+      "hero": "luna",
+      "reason": "月刃跳跃扩散破甲"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "远程高频攻击叠破甲"
+    },
+    {
+      "hero": "viper",
+      "reason": "腐蚀皮肤加深破甲效果"
+    }
+  ],
+  "item_yasha": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "移速敏捷强化幻象追击"
+    },
+    {
+      "hero": "weaver",
+      "reason": "缩地配合高移速"
+    },
+    {
+      "hero": "luna",
+      "reason": "提升移速敏捷输出"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "敏捷加成提升远程输出"
+    },
+    {
+      "hero": "morphling",
+      "reason": "敏捷加成强化变体核心"
+    }
+  ],
+  "item_mask_of_madness": [
+    {
+      "hero": "huskar",
+      "reason": "狂战士之血低血触发暴力"
+    },
+    {
+      "hero": "ursa",
+      "reason": "高攻速叠加怒意狂击"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "高攻速触发刀阵暴击"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "灼热之箭高攻速叠吸血"
+    }
+  ],
+  "item_diffusal_blade": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "幻象燃魔快速清空魔法"
+    },
+    {
+      "hero": "riki",
+      "reason": "背刺叠加燃魔控制"
+    },
+    {
+      "hero": "slark",
+      "reason": "突袭后燃魔锁定目标"
+    },
+    {
+      "hero": "weaver",
+      "reason": "高频攻击快速燃魔"
+    },
+    {
+      "hero": "morphling",
+      "reason": "变体打击叠加燃魔伤害"
+    }
+  ],
+  "item_disperser": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "幻象大量燃魔加驱散"
+    },
+    {
+      "hero": "slark",
+      "reason": "驱散身上控制安全输出"
+    },
+    {
+      "hero": "riki",
+      "reason": "驱散加速隐身追杀"
+    },
+    {
+      "hero": "weaver",
+      "reason": "驱散控制持续缠斗"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "驱散结界内控制链"
+    }
+  ],
+  "item_ethereal_blade": [
+    {
+      "hero": "morphling",
+      "reason": "属性高虚化额外伤害爆炸"
+    },
+    {
+      "hero": "invoker",
+      "reason": "高属性叠加魔法爆发"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "高智力虚化伤害极高"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "高属性配合电系爆发"
+    },
+    {
+      "hero": "lina",
+      "reason": "高智力虚化接技能爆发"
+    }
+  ],
+  "item_soul_ring": [
+    {
+      "hero": "axe",
+      "reason": "狂战士之吼频繁消耗魔法"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低生命换魔法独特强度"
+    },
+    {
+      "hero": "brewmaster",
+      "reason": "技能消耗大魔法紧张"
+    },
+    {
+      "hero": "sand_king",
+      "reason": "频繁放技能魔法不足"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "持续释放粘液魔法需求"
+    }
+  ],
+  "item_arcane_boots": [
+    {
+      "hero": "crystal_maiden",
+      "reason": "魔法紧张支持全队回蓝"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "技能密集补充魔法"
+    },
+    {
+      "hero": "lion",
+      "reason": "多技能消耗魔法需求大"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "枷锁禽戏消耗大"
+    },
+    {
+      "hero": "warlock",
+      "reason": "团队补魔辅助核心"
+    }
+  ],
+  "item_octarine_core": [
+    {
+      "hero": "tinker",
+      "reason": "折跃冷却缩减核心"
+    },
+    {
+      "hero": "invoker",
+      "reason": "多技能冷却缩减关键"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "持续技能轰炸冷却缩减"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "吸魂巫术冷却缩减"
+    },
+    {
+      "hero": "necrolyte",
+      "reason": "死亡脉冲冷却缩减刷屏"
+    }
+  ],
+  "item_orb_of_venom": [
+    {
+      "hero": "viper",
+      "reason": "叠加毒性攻击减速效果"
+    },
+    {
+      "hero": "venomancer",
+      "reason": "毒素叠加强化消耗"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "早期追杀减速关键"
+    },
+    {
+      "hero": "weaver",
+      "reason": "缩地后追击减速锁敌"
+    },
+    {
+      "hero": "ursa",
+      "reason": "前期减速保证连击"
+    }
+  ],
+  "item_blight_stone": [
+    {
+      "hero": "viper",
+      "reason": "腐蚀皮肤叠加破甲"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "灼热之箭叠加低护甲"
+    },
+    {
+      "hero": "sniper",
+      "reason": "远程安全叠破甲"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "高频远程叠破甲输出"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "灵能之刃叠加破甲爆发"
+    }
+  ],
+  "item_orb_of_corrosion": [
+    {
+      "hero": "ursa",
+      "reason": "震撼大地减速叠加腐蚀"
+    },
+    {
+      "hero": "weaver",
+      "reason": "高频追击腐蚀减速"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "近身追杀腐蚀减速"
+    },
+    {
+      "hero": "viper",
+      "reason": "腐蚀皮肤叠加破甲减速"
+    },
+    {
+      "hero": "slark",
+      "reason": "近战高频攻击叠腐蚀"
+    }
+  ],
+  "item_orb_of_frost": [
+    {
+      "hero": "viper",
+      "reason": "叠加减速强化追杀"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "灼热之箭叠加减速"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "霜冻之箭叠加减速"
+    },
+    {
+      "hero": "huskar",
+      "reason": "沸血之矛叠加减速"
+    },
+    {
+      "hero": "weaver",
+      "reason": "连击叠加减速追杀"
+    }
+  ],
+  "item_falcon_blade": [
+    {
+      "hero": "zuus",
+      "reason": "补充魔法攻击力两用"
+    },
+    {
+      "hero": "lina",
+      "reason": "前期续战输出兼顾"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "魔法紧张需持续骚扰"
+    },
+    {
+      "hero": "nevermore",
+      "reason": "补充生命魔法强波次"
+    },
+    {
+      "hero": "queenofpain",
+      "reason": "前期消耗需魔法续航"
+    }
+  ],
+  "item_mage_slayer": [
+    {
+      "hero": "viper",
+      "reason": "强化法师克星叠加减益"
+    },
+    {
+      "hero": "axe",
+      "reason": "前排抗魔抵消法师伤害"
+    },
+    {
+      "hero": "night_stalker",
+      "reason": "切法师降低其技能威胁"
+    },
+    {
+      "hero": "antimage",
+      "reason": "专克法师核心定位契合"
+    },
+    {
+      "hero": "slardar",
+      "reason": "近身切入降低法伤危胁"
+    }
+  ],
+  "item_ancient_janggo": [
+    {
+      "hero": "earthshaker",
+      "reason": "团战前冲刷新加速友军"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "开团前提速冲入敌阵"
+    },
+    {
+      "hero": "centaur",
+      "reason": "冲锋配合团战加速buff"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "冲刺衔接团战增益"
+    },
+    {
+      "hero": "mars",
+      "reason": "开团配合增速友军跟进"
+    }
+  ],
+  "item_boots_of_bearing": [
+    {
+      "hero": "earthshaker",
+      "reason": "开团后为全队提供冲速"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "海啸开团后持续加速"
+    },
+    {
+      "hero": "omniknight",
+      "reason": "辅助型强化全队机动"
+    },
+    {
+      "hero": "warlock",
+      "reason": "团战辅助提升全队跟进"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "辅助续战提速保护输出"
+    }
+  ],
+  "item_solar_crest": [
+    {
+      "hero": "crystal_maiden",
+      "reason": "辅助保护队友或削敌甲"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "辅助保护强化队友输出"
+    },
+    {
+      "hero": "vengefulspirit",
+      "reason": "辅助光环叠加削甲"
+    },
+    {
+      "hero": "chen",
+      "reason": "辅助增强己方兵团战力"
+    },
+    {
+      "hero": "omniknight",
+      "reason": "辅助为队友提供护甲盾"
+    }
+  ],
+  "item_pavise": [
+    {
+      "hero": "crystal_maiden",
+      "reason": "脆皮辅助保命物理护盾"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "站桩放大需物理护盾"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "脆皮需物理伤害护盾"
+    },
+    {
+      "hero": "keeper_of_the_light",
+      "reason": "脆皮辅助抵御物理爆发"
+    },
+    {
+      "hero": "lich",
+      "reason": "站桩大招需物理保护"
+    }
+  ],
+  "item_smoke_of_deceit": [],
+  "item_tome_of_knowledge": [],
+  "item_veil_of_discord": [
+    {
+      "hero": "leshrac",
+      "reason": "全技能魔法伤害增幅显著"
+    },
+    {
+      "hero": "zuus",
+      "reason": "全图大招配合魔法增幅"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "爆发连招前增幅魔伤"
+    },
+    {
+      "hero": "lion",
+      "reason": "爆发连招配合魔伤增幅"
+    },
+    {
+      "hero": "pugna",
+      "reason": "虚无守卫配合魔伤增幅"
+    }
+  ],
+  "item_revenants_brooch": [
+    {
+      "hero": "clinkz",
+      "reason": "高攻速触发幻影暴击"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "高攻速远程触发频率高"
+    },
+    {
+      "hero": "medusa",
+      "reason": "持久战高频触发额外伤害"
+    },
+    {
+      "hero": "luna",
+      "reason": "高攻速月刃叠加魔法伤"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "极高攻速频繁触发幻击"
+    }
+  ],
+  "item_devastator": [
+    {
+      "hero": "silencer",
+      "reason": "智力叠加毒素伤害极高"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "高智力使毒素伤害暴增"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "高智力强化毒素持续伤"
+    },
+    {
+      "hero": "invoker",
+      "reason": "高智力使毒素输出突出"
+    },
+    {
+      "hero": "lina",
+      "reason": "高智力叠加毒素伤害"
+    }
+  ],
+  "item_guardian_greaves": [
+    {
+      "hero": "omniknight",
+      "reason": "辅助团战群体回复驱散"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "辅助续战回复驱散负面"
+    },
+    {
+      "hero": "chen",
+      "reason": "辅助推进团战群体回复"
+    },
+    {
+      "hero": "abaddon",
+      "reason": "前排辅助群体驱散回复"
+    },
+    {
+      "hero": "warlock",
+      "reason": "辅助团战提供群体续航"
+    }
+  ],
+  "item_rod_of_atos": [
+    {
+      "hero": "zuus",
+      "reason": "锁定目标配合全图大招"
+    },
+    {
+      "hero": "keeper_of_the_light",
+      "reason": "锁定目标配合冲击波"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "禁锢叠加上古封印连招"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "锁定目标配合虫群骚扰"
+    },
+    {
+      "hero": "lina",
+      "reason": "锁定目标确保炎阳命中"
+    }
+  ],
+  "item_abyssal_blade": [
+    {
+      "hero": "faceless_void",
+      "reason": "主动晕配合时间锁定输出"
+    },
+    {
+      "hero": "sven",
+      "reason": "神力爆发配合主动晕"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "极高攻速叠加被动晕概率"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "爆发输出配合主动晕"
+    },
+    {
+      "hero": "legion_commander",
+      "reason": "决斗前晕死对手确保胜利"
+    }
+  ],
+  "item_heavens_halberd": [
+    {
+      "hero": "skeleton_king",
+      "reason": "高暴击配缴械控制"
+    },
+    {
+      "hero": "huskar",
+      "reason": "闪避缴械强化近战"
+    },
+    {
+      "hero": "ursa",
+      "reason": "闪避提升生存输出"
+    },
+    {
+      "hero": "legion_commander",
+      "reason": "决斗前缴械对手"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "缴械克制近战核心"
+    }
+  ],
+  "item_tranquil_boots": [
+    {
+      "hero": "crystal_maiden",
+      "reason": "辅助高移速强势游走"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "辅助游走回血续航"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "辅助游走高机动"
+    },
+    {
+      "hero": "lion",
+      "reason": "辅助游走回血方便"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "辅助移速回血兼顾"
+    }
+  ],
+  "item_shadow_amulet": [
+    {
+      "hero": "clinkz",
+      "reason": "配合隐身刺客打法"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "增强隐身游走控制"
+    },
+    {
+      "hero": "riki",
+      "reason": "辅助隐身持续潜行"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "钻地隐身强势开团"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "强化隐匿埋伏输出"
+    }
+  ],
+  "item_glimmer_cape": [
+    {
+      "hero": "crystal_maiden",
+      "reason": "大招吟唱期间躲避伤害"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "大招释放时自保隐身"
+    },
+    {
+      "hero": "warlock",
+      "reason": "召唤大招时隐身保命"
+    },
+    {
+      "hero": "enigma",
+      "reason": "黑洞期间隐身防打断"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "释放枷锁时自保存活"
+    }
+  ],
+  "item_harpoon": [
+    {
+      "hero": "spirit_breaker",
+      "reason": "冲刺接鱼叉贴脸控制"
+    },
+    {
+      "hero": "mars",
+      "reason": "近战突进拉近击晕"
+    },
+    {
+      "hero": "sven",
+      "reason": "近战突进强化输出"
+    },
+    {
+      "hero": "centaur",
+      "reason": "冲锋配合拉近控制"
+    },
+    {
+      "hero": "magnataur",
+      "reason": "冲撞前拉近强化开团"
+    }
+  ],
+  "item_specialists_array": [
+    {
+      "hero": "sniper",
+      "reason": "远程分裂射击超强清线"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "远程多目标输出增强"
+    },
+    {
+      "hero": "luna",
+      "reason": "远程分裂配合月刃"
+    },
+    {
+      "hero": "medusa",
+      "reason": "远程叠加分裂箭爆发"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "远程多弹道扫射加强"
+    }
+  ],
+  "item_hydras_breath": [
+    {
+      "hero": "sniper",
+      "reason": "远程毒素高额持续伤害"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "远程多弹道毒素叠加"
+    },
+    {
+      "hero": "luna",
+      "reason": "远程攻击扩展加毒素"
+    },
+    {
+      "hero": "medusa",
+      "reason": "分裂箭配合毒素输出"
+    },
+    {
+      "hero": "viper",
+      "reason": "叠加毒素强化持续伤害"
+    }
+  ],
+  "item_chasm_stone": [
+    {
+      "hero": "enigma",
+      "reason": "黑洞范围增大更难逃"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "深海重击范围扩大"
+    },
+    {
+      "hero": "sand_king",
+      "reason": "腐尸毒范围提升伤害"
+    },
+    {
+      "hero": "elder_titan",
+      "reason": "回音重踏影响范围更大"
+    }
+  ],
+  "item_diffusal_blade_2": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "幻象燃魔叠加极高收益"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "镜像燃魔快速清空法力"
+    },
+    {
+      "hero": "riki",
+      "reason": "背刺配合燃魔减速追杀"
+    },
+    {
+      "hero": "slark",
+      "reason": "突袭接燃魔减速控制"
+    }
+  ]
+}

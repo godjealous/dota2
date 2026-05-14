@@ -916,6 +916,45 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 .item-hero-counter-card .hero-counter-name { font-size: 13px; font-weight: 600; color: #eee; }
 .item-hero-counter-card .hero-counter-reason { font-size: 11px; color: #6aacee; margin-top: 3px; }
 
+/* 适合出装的英雄 */
+.item-hero-fits-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.item-hero-fit-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1e281e;
+  border: 1px solid #2e402e;
+  border-radius: 7px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  flex: 1;
+  min-width: 180px;
+}
+
+.item-hero-fit-card:hover {
+  border-color: #6ec86e;
+  background: #1a2e1a;
+}
+
+.item-hero-fit-card img {
+  width: 52px;
+  height: 30px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.item-hero-fit-card .hero-fit-info { flex: 1; min-width: 0; }
+.item-hero-fit-card .hero-fit-name { font-size: 13px; font-weight: 600; color: #eee; }
+.item-hero-fit-card .hero-fit-reason { font-size: 11px; color: #6ec86e; margin-top: 3px; }
+
 .item-stats-row {
   display: flex;
   gap: 24px;
@@ -1721,6 +1760,8 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
     <div id="itemInfoCard"></div>
     <div class="section-title" id="itemDescTitle" style="display:none">技能描述</div>
     <div class="item-desc-card" id="itemDescCard" style="display:none"></div>
+    <div class="section-title" id="itemHeroFitsTitle" style="display:none"></div>
+    <div class="item-hero-fits-grid" id="itemHeroFitsGrid" style="display:none"></div>
     <div class="section-title" id="itemHeroCountersTitle" style="display:none"></div>
     <div class="item-hero-counters-grid" id="itemHeroCountersGrid" style="display:none"></div>
     <div class="section-title" id="itemCounteredByTitle" style="display:none"></div>
@@ -2765,6 +2806,18 @@ function showItemPanel(key) {
       </div>`).join('');
   }
 
+  function renderHeroFitGrid(elId, entries) {
+    const grid = document.getElementById(elId);
+    grid.innerHTML = entries.map(({ heroKey, hero, reason }) => `
+      <div class="item-hero-fit-card" onclick="showHeroDetail('${heroKey}')">
+        <img src="${hero.icon || hero.img || ''}" alt="${hero.name || ''}" onerror="this.style.opacity='.3'">
+        <div class="hero-fit-info">
+          <div class="hero-fit-name">${hero.name || hero.name_en}</div>
+          ${reason ? `<div class="hero-fit-reason">${reason}</div>` : ''}
+        </div>
+      </div>`).join('');
+  }
+
   function parseCounterEntries(list) {
     return (list || []).map(e => {
       const cKey = typeof e === 'string' ? e : e.counter;
@@ -2785,6 +2838,18 @@ function showItemPanel(key) {
   }
 
   const itemDisplayName = item.name || item.name_en;
+
+  // hero_fits = 适合出装该物品的英雄
+  const heroFitEntries = parseHeroCounterEntries(item.hero_fits);
+  if (heroFitEntries.length > 0) {
+    document.getElementById('itemHeroFitsTitle').textContent = `适合「${itemDisplayName}」的英雄`;
+    document.getElementById('itemHeroFitsTitle').style.display = '';
+    document.getElementById('itemHeroFitsGrid').style.display = '';
+    renderHeroFitGrid('itemHeroFitsGrid', heroFitEntries);
+  } else {
+    document.getElementById('itemHeroFitsTitle').style.display = 'none';
+    document.getElementById('itemHeroFitsGrid').style.display = 'none';
+  }
 
   // hero_counters = 被该物品克制的英雄
   const heroCounterEntries = parseHeroCounterEntries(item.hero_counters);

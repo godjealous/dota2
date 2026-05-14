@@ -2556,21 +2556,336 @@
       "reason": "二次大招清场收人头"
     }
   ],
-  "item_spirit_vessel": [],
-  "item_essence_distiller": [],
-  "item_vanguard": [],
-  "item_crimson_guard": [],
-  "item_blade_mail": [],
-  "item_soul_booster": [],
-  "item_eternal_shroud": [],
-  "item_consecrated_wraps": [],
-  "item_crellas_crozier": [],
-  "item_rapier": [],
-  "item_monkey_king_bar": [],
-  "item_radiance": [],
-  "item_butterfly": [],
-  "item_greater_crit": [],
-  "item_basher": [],
+  "item_spirit_vessel": [
+    {
+      "hero": "undying",
+      "reason": "团战减血续航强"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "辅助控场减血"
+    },
+    {
+      "hero": "pugna",
+      "reason": "削减敌方生命回复"
+    },
+    {
+      "hero": "oracle",
+      "reason": "辅助治疗兼减血"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "辅助团战控场"
+    }
+  ],
+  "item_essence_distiller": [
+    {
+      "hero": "witch_doctor",
+      "reason": "辅助持续灼烧输出"
+    },
+    {
+      "hero": "undying",
+      "reason": "团战减血强化"
+    },
+    {
+      "hero": "pugna",
+      "reason": "配合幽冥爆轰"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "辅助灼烧控场"
+    },
+    {
+      "hero": "oracle",
+      "reason": "辅助治疗减血兼顾"
+    }
+  ],
+  "item_vanguard": [
+    {
+      "hero": "axe",
+      "reason": "肉盾格挡增强生存"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "近战肉盾格挡强"
+    },
+    {
+      "hero": "slardar",
+      "reason": "肉盾格挡冲锋先手"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "格挡强化钢毛后背"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血量格挡保命"
+    }
+  ],
+  "item_crimson_guard": [
+    {
+      "hero": "axe",
+      "reason": "肉盾队友护甲格挡"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "团战保护全队"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "推线保护队友"
+    },
+    {
+      "hero": "centaur",
+      "reason": "高血量格挡更强"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "肉盾团战护全队"
+    }
+  ],
+  "item_blade_mail": [
+    {
+      "hero": "axe",
+      "reason": "反伤配合反击螺旋"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "反伤强化钢毛后背"
+    },
+    {
+      "hero": "centaur",
+      "reason": "高血量反伤更痛"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血反伤极具威胁"
+    },
+    {
+      "hero": "legion_commander",
+      "reason": "决斗反伤秒杀敌方"
+    }
+  ],
+  "item_soul_booster": [
+    {
+      "hero": "storm_spirit",
+      "reason": "血法双补续航强"
+    },
+    {
+      "hero": "invoker",
+      "reason": "血法支撑技能释放"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "血法强化团战输出"
+    },
+    {
+      "hero": "queenofpain",
+      "reason": "血法补充爆发稳定"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "法量转攻击提升大"
+    }
+  ],
+  "item_eternal_shroud": [
+    {
+      "hero": "storm_spirit",
+      "reason": "受魔法伤害补充魔法"
+    },
+    {
+      "hero": "antimage",
+      "reason": "魔抗叠加法术免疫"
+    },
+    {
+      "hero": "rattletrap",
+      "reason": "法甲强化齿轮生存"
+    },
+    {
+      "hero": "invoker",
+      "reason": "魔抗强化法师对抗"
+    },
+    {
+      "hero": "ember_spirit",
+      "reason": "受法伤回魔续航强"
+    }
+  ],
+  "item_consecrated_wraps": [
+    {
+      "hero": "slark",
+      "reason": "受伤后加速逃脱追击"
+    },
+    {
+      "hero": "weaver",
+      "reason": "受伤加速灵活躲避"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "受伤加速贴脸输出"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血加速冲锋杀敌"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "受伤加速游走骚扰"
+    }
+  ],
+  "item_crellas_crozier": [
+    {
+      "hero": "axe",
+      "reason": "无敌状态偷速反击"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "大招后无敌偷速"
+    },
+    {
+      "hero": "enigma",
+      "reason": "大招后无敌保命"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "冲刺前偷速加强"
+    },
+    {
+      "hero": "centaur",
+      "reason": "肉盾无敌偷速强"
+    }
+  ],
+  "item_rapier": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "暴击叠加爆发极高"
+    },
+    {
+      "hero": "antimage",
+      "reason": "高攻配合闪烁秒人"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "时间锁定内高攻秒杀"
+    },
+    {
+      "hero": "arc_warden",
+      "reason": "分身携带双倍输出"
+    },
+    {
+      "hero": "sven",
+      "reason": "战吼加成秒杀任何人"
+    }
+  ],
+  "item_monkey_king_bar": [
+    {
+      "hero": "spectre",
+      "reason": "穿刺克制高闪避敌人"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "穿刺破敌闪避"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "穿刺强化远程输出"
+    },
+    {
+      "hero": "sniper",
+      "reason": "穿刺稳定远程攻击"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "穿刺配合灼热之箭"
+    }
+  ],
+  "item_radiance": [
+    {
+      "hero": "spectre",
+      "reason": "分身辉耀团战覆盖"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "幻象辉耀推线灼烧"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "幻象辉耀范围伤害"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "幻象辉耀团战压制"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "幻象辉耀推线强"
+    }
+  ],
+  "item_butterfly": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "闪避暴击生存输出强"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "敏捷闪避远程输出"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "闪避叠加难以击中"
+    },
+    {
+      "hero": "morphling",
+      "reason": "敏捷叠加闪避超强"
+    },
+    {
+      "hero": "luna",
+      "reason": "敏捷闪避推线强化"
+    }
+  ],
+  "item_greater_crit": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "暴击叠加爆发极高"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "混沌一击叠加暴击"
+    },
+    {
+      "hero": "sven",
+      "reason": "战吼暴击瞬间秒人"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "剑舞暴击叠加输出"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "冥火爆击叠加暴击"
+    }
+  ],
+  "item_basher": [
+    {
+      "hero": "faceless_void",
+      "reason": "时间锁定叠加击晕"
+    },
+    {
+      "hero": "sven",
+      "reason": "高攻击晕控场"
+    },
+    {
+      "hero": "spirit_breaker",
+      "reason": "重击叠加眩晕控场"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "高速攻击触发频率高"
+    },
+    {
+      "hero": "monkey_king",
+      "reason": "高攻速频繁触发击晕"
+    }
+  ],
   "item_bfury": [
     {
       "hero": "phantom_lancer",

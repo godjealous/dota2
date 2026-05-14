@@ -590,6 +590,10 @@ def merge_items() -> dict:
     item_hero_fits_file = _ROOT / "data/item_hero_fits.json"
     item_hero_fits: dict = json.loads(item_hero_fits_file.read_text(encoding="utf-8")) if item_hero_fits_file.exists() else {}
 
+    # Neutral item tiers (fetched from Dota2 datafeed via fetch.py)
+    neutral_tiers_file = RAW / "neutral_tiers.json"
+    neutral_tiers: dict = json.loads(neutral_tiers_file.read_text(encoding="utf-8")) if neutral_tiers_file.exists() else {}
+
     result: dict = {}
 
     for raw_key, item in items_raw.items():
@@ -651,11 +655,19 @@ def merge_items() -> dict:
             else str(mc_raw) if mc_raw is not None else None
         )
 
+        qual = item.get("qual")
+        cost = item.get("cost")
+        neutral_tier = neutral_tiers.get(item_key, -1)
+        is_neutral = neutral_tier >= 0
+
         result[item_key] = {
             "id": item.get("id"),
             "name": cn_name,
             "name_en": en_name,
-            "cost": item.get("cost"),
+            "cost": cost,
+            "qual": qual,
+            "is_neutral": is_neutral,
+            "neutral_tier": neutral_tier if is_neutral else None,  # 0=游荡, 1-4=梯队
             "description": description,
             "lore_en": lore_en,
             "lore_zh": lore_zh,

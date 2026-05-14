@@ -471,6 +471,99 @@ def merge_heroes() -> dict:
     return result
 
 
+_ATTRIB_DISPLAY_CN = {
+    # Stats
+    "Strength": "力量",
+    "Agility": "敏捷",
+    "Intelligence": "智力",
+    "All Attributes": "全属性",
+    "Primary Attribute": "主属性",
+    "Selected Attribute": "选择属性",
+    # Offense
+    "Damage": "攻击力",
+    "Damage (MELEE)": "攻击力（近战）",
+    "Damage (RANGED)": "攻击力（远程）",
+    "Attack Speed": "攻击速度",
+    "Attack Range (Melee & Ranged)": "攻击距离",
+    "Attack Range (Melee Only)": "攻击距离（近战）",
+    "Attack Range (Ranged Only)": "攻击距离（远程）",
+    "Magic Attack Damage": "魔法攻击伤害",
+    "Magic Damage Attack": "魔法攻击伤害",
+    # Defense
+    "Armor": "护甲",
+    "Magic Resistance": "魔法抗性",
+    "Evasion": "闪避",
+    "Status Resistance": "状态抗性",
+    "Slow Resistance": "减速抗性",
+    "Knockback Resistance": "击退抗性",
+    # Mobility
+    "Movement Speed": "移动速度",
+    "Move Speed (Melee Heroes)": "移动速度（近战）",
+    "Move Speed (Ranged Heroes)": "移动速度（远程）",
+    # HP / MP
+    "Health": "生命值",
+    "Max Health Increase": "最大生命值",
+    "Health Regeneration": "生命回复",
+    "Mana": "魔法值",
+    "Max Mana": "最大魔法值",
+    "Mana Regeneration": "魔法回复",
+    "Mana Cost/Mana Loss Reduction": "魔法消耗降低",
+    "Mana Cost/Mana Loss Increase": "魔法消耗增加",
+    "Manacost Reduction": "魔法消耗降低",
+    # Spells
+    "Spell Amplification": "法术强度",
+    "Spell Lifesteal": "法术偷生",
+    "Cooldown Reduction": "技能冷却缩减",
+    "Cast Range": "施法距离",
+    "Cast Speed Bonus": "施法速度",
+    # Lifesteal / Regen amp
+    "Lifesteal": "生命偷取",
+    "Heal Amplification": "治疗强化",
+    "Health Regen and Lifesteal Amp": "生命回复及偷取强化",
+    "Mana Regen Amplification": "魔法回复强化",
+    "Health Restoration": "生命恢复",
+    # Vision
+    "Bonus Vision": "视野范围",
+    "Bonus Night Vision": "夜间视野",
+    "Night Vision": "夜间视野",
+    # Misc
+    "GPM BONUS": "金币/分钟",
+    "Base Attack Damage": "基础攻击力",
+    "Base Attack Speed Percentage": "基础攻击速度",
+    "Base Attack Time": "基础攻击时间",
+    "Debuff Duration": "减益持续时间",
+    "Incoming Damage": "受到伤害",
+    "Model Scale": "模型大小",
+    "Projectile Speed": "弹道速度",
+    "Area of Effect": "影响范围",
+    "Artifact Potency": "神器效能",
+    "Attack Projectile Speed": "攻击弹道速度",
+    "Attack Animation Speed": "攻击动画速度",
+    "Max Health Regen": "最大生命值回复",
+    "Max Mana": "最大魔法值",
+}
+
+
+def _translate_display(display: str) -> str:
+    """Convert English attrib display string to Chinese."""
+    # Strip leading/trailing spaces
+    s = display.strip()
+    # Determine prefix (+/-) and whether it's a percentage
+    is_pct = "%" in s and "{value}%" not in s
+    s_clean = s
+    for pref in ("+ ", "- ", "+", "-"):
+        if s_clean.startswith(pref):
+            s_clean = s_clean[len(pref):]
+            break
+    # Remove {value}, {value}%, % markers to get the label
+    for token in ("{value}%", "{value}", "%"):
+        s_clean = s_clean.replace(token, "").strip()
+    # Normalize ALL CAPS labels
+    s_norm = s_clean.title() if s_clean.isupper() else s_clean
+    cn = _ATTRIB_DISPLAY_CN.get(s_norm) or _ATTRIB_DISPLAY_CN.get(s_clean)
+    return cn or s_clean
+
+
 def merge_items() -> dict:
     """
     Return a dict keyed by "item_<name>" (e.g. "item_blink") with the
@@ -480,6 +573,10 @@ def merge_items() -> dict:
 
     # abilities_schinese.txt also carries item name tokens
     loc = _load_kv_tokens(RAW / "abilities_schinese.txt")
+
+    # Chinese lore translations (pre-translated via translate_lore.py)
+    lore_cn_file = _ROOT / "data/lore_cn.json"
+    lore_cn: dict = json.loads(lore_cn_file.read_text(encoding="utf-8")) if lore_cn_file.exists() else {}
 
     result: dict = {}
 
@@ -502,8 +599,12 @@ def merge_items() -> dict:
         description = (
             loc.get(f"DOTA_Tooltip_ability_{item_key}_Description")
             or loc.get(f"DOTA_Tooltip_Ability_{item_key}_Description")
-            or item.get("lore", "")
+            or ""
         )
+
+        # Lore: English original + Chinese translation (for items without ability description)
+        lore_en = item.get("lore", "").strip() if not description else ""
+        lore_zh = lore_cn.get(item_key, "") if lore_en else ""
 
         img_path = item.get("img", "")
         cdn = "https://cdn.cloudflare.steamstatic.com"
@@ -511,11 +612,20 @@ def merge_items() -> dict:
 
         # Build attrib lookup: {key: value_string}
         attrib = {}
+        # Build bonus list: [{label, value, is_pct}] for display in UI
+        bonuses = []
         for a in item.get("attrib", []):
             ak = a.get("key", "")
             av = a.get("value")
             if ak and av is not None:
-                attrib[ak] = "/".join(str(x) for x in av) if isinstance(av, list) else str(av)
+                val_str = "/".join(str(x) for x in av) if isinstance(av, list) else str(av)
+                attrib[ak] = val_str
+                display = a.get("display", "")
+                if display and "{value}" in display:
+                    label = _translate_display(display)
+                    is_pct = "{value}%" in display or ("%" in display and display.index("%") < display.index("{value}") if "%" in display and "{value}" in display else False)
+                    sign = "-" if display.strip().startswith("-") else "+"
+                    bonuses.append({"label": label, "value": val_str, "sign": sign, "pct": is_pct})
 
         # Cooldown and mana cost
         cd_raw = item.get("cd")
@@ -535,7 +645,10 @@ def merge_items() -> dict:
             "name_en": en_name,
             "cost": item.get("cost"),
             "description": description,
+            "lore_en": lore_en,
+            "lore_zh": lore_zh,
             "attrib": attrib,
+            "bonuses": bonuses,
             "cooldown": cooldown,
             "manacost": manacost,
             "img": img,

@@ -493,32 +493,6 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 }
 
 /* 物品页顶部标签 */
-.items-tab-bar {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid #2a2a2a;
-  margin-bottom: 0;
-  padding: 0 32px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.items-tab {
-  padding: 10px 28px;
-  font-size: 14px;
-  color: #888;
-  cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color .15s, border-color .15s;
-  white-space: nowrap;
-}
-
-.items-tab.active {
-  color: #fff;
-  border-bottom-color: #4fc3f7;
-}
-
-.items-tab:hover:not(.active) { color: #ccc; }
 
 /* 物品页搜索栏 */
 .items-search-bar {
@@ -667,75 +641,244 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 .item-card .item-cost { font-size: 11px; color: #c89b3c; margin-top: 2px; }
 
 /* 物品详情面板 */
-.item-detail-panel {
-  position: fixed;
-  right: 0; top: 0;
-  width: 340px;
-  height: 100vh;
-  background: #141414;
-  border-left: 1px solid #2a2a2a;
-  z-index: 200;
-  transform: translateX(100%);
-  transition: transform .2s ease;
-  overflow-y: auto;
+/* ── 物品详情全页面 ── */
+#itemDetailView { display: none; }
+
+.item-detail-banner {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 40%, #1e2433 100%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.item-detail-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(79,195,247,.08) 0%, transparent 70%);
+}
+
+.item-detail-banner .item-detail-banner-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 60px;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.item-detail-banner .item-detail-banner-bg img {
+  width: 260px;
+  height: 188px;
+  object-fit: contain;
+  filter: blur(2px) brightness(1.2);
+}
+
+.item-detail-banner .item-banner-info {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 0 32px 24px;
+}
+
+.item-detail-banner .item-banner-icon {
+  width: 88px;
+  height: 64px;
+  border-radius: 6px;
+  border: 2px solid rgba(255,255,255,0.25);
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #111;
+}
+
+.item-detail-banner .item-banner-title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  line-height: 1.2;
+}
+
+.item-detail-banner .item-banner-title .item-banner-en {
+  font-size: 14px;
+  color: #888;
+  margin-top: 3px;
+}
+
+.item-detail-banner .item-banner-title .item-banner-cost {
+  font-size: 14px;
+  color: #c89b3c;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.item-detail-back {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 13px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  z-index: 10;
+}
+.item-detail-back:hover { background: rgba(0,0,0,0.8); color: #fff; }
+
+.item-detail-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 32px 48px;
+}
+
+.item-info-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+.item-info-img {
+  width: 128px;
+  height: 93px;
+  border-radius: 5px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #111;
+  border: 1px solid #333;
+}
+
+.item-info-rows {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
-.item-detail-panel.open { transform: translateX(0); }
 
-.item-panel-header {
-  padding: 18px 18px 14px;
-  border-bottom: 1px solid #222;
+.item-info-row {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  position: sticky;
-  top: 0;
-  background: #141414;
-  z-index: 10;
+  align-items: baseline;
+  padding: 6px 0;
+  border-bottom: 1px solid #272727;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
-.item-panel-header img {
-  width: 76px;
-  height: 55px;
-  border-radius: 4px;
-  object-fit: cover;
-  background: #111;
-  border: 1px solid #333;
+.item-info-row:last-child { border-bottom: none; }
+
+.item-info-label {
+  width: 80px;
+  flex-shrink: 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.item-info-value { color: #ccc; flex: 1; }
+.item-info-value.cost-val { color: #c89b3c; font-weight: 700; font-size: 15px; }
+
+.item-desc-card {
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 20px 24px;
+  font-size: 13px;
+  color: #999;
+  line-height: 1.85;
+}
+
+.item-desc-card h1 {
+  font-size: 12px;
+  color: #4fc3f7;
+  margin-bottom: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.item-desc-card h1:not(:first-child) { margin-top: 16px; }
+
+.item-lore-card {
+  background: #1e1e1e;
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 18px 24px;
+}
+
+.item-lore-en {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.75;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.item-lore-zh {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.item-stats-row {
+  display: flex;
+  gap: 24px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #2a2a2a;
+  font-size: 13px;
+}
+
+.item-stat {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #aaa;
+}
+
+.item-stat b { color: #fff; }
+
+/* 属性加成网格 */
+.item-bonuses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.item-bonus-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #242424;
+  border: 1px solid #2e2e2e;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 13px;
+}
+
+.item-bonus-val {
+  font-weight: 700;
+  font-size: 15px;
+  min-width: 44px;
+  text-align: right;
   flex-shrink: 0;
 }
 
-.item-panel-header .item-panel-title { flex: 1; min-width: 0; }
-.item-panel-header h2 { font-size: 16px; color: #fff; font-weight: 700; line-height: 1.3; }
-.item-panel-header .item-panel-en { font-size: 11px; color: #555; margin-top: 3px; }
-.item-panel-header .item-panel-cost {
-  font-size: 13px; color: #c89b3c; font-weight: 700; margin-top: 6px;
-  display: flex; align-items: center; gap: 4px;
-}
+.item-bonus-val.pos { color: #6ec86e; }
+.item-bonus-val.neg { color: #e05555; }
 
-.item-panel-close {
-  background: none; border: none; color: #444; font-size: 18px; cursor: pointer; padding: 0 0 0 4px; line-height: 1; transition: color .15s; flex-shrink: 0;
-}
-.item-panel-close:hover { color: #fff; }
-
-.item-panel-body { padding: 16px 18px; flex: 1; }
-
-.item-panel-desc {
-  font-size: 13px;
-  color: #999;
-  line-height: 1.75;
-}
-.item-panel-desc h1 { font-size: 12px; color: #4fc3f7; margin-bottom: 5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-.item-panel-desc h1:not(:first-child) { margin-top: 14px; }
-
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 150;
-}
-.overlay.open { display: block; }
+.item-bonus-label { color: #bbb; flex: 1; }
 
 .empty-state {
   text-align: center;
@@ -1182,11 +1325,6 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 
 <!-- 物品页 -->
 <div id="itemsView" style="display:none">
-  <!-- 标签栏 -->
-  <div class="items-tab-bar">
-    <div class="items-tab active" onclick="switchItemTab('basic')" id="tabBasic">基础物品</div>
-    <div class="items-tab" onclick="switchItemTab('upgrade')" id="tabUpgrade">升级物品</div>
-  </div>
   <!-- 搜索栏 -->
   <div class="items-search-bar">
     <span class="items-search-icon">🔍</span>
@@ -1198,20 +1336,32 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   <div class="search-empty" id="itemEmpty" style="display:none">没有找到匹配的物品</div>
 </div>
 
-<!-- 物品详情面板 -->
-<div class="overlay" id="overlay" onclick="closeItemPanel()"></div>
-<div class="item-detail-panel" id="itemPanel">
-  <div class="item-panel-header">
-    <img id="panelImg" src="" alt="">
-    <div class="item-panel-title">
-      <h2 id="panelName"></h2>
-      <div class="item-panel-en" id="panelEn"></div>
-      <div class="item-panel-cost" id="panelCost"></div>
+<!-- 物品详情全页面 -->
+<div id="itemDetailView">
+  <div class="item-detail-banner">
+    <div class="item-detail-banner-bg">
+      <img id="itemDetailBgImg" src="" alt="">
     </div>
-    <button class="item-panel-close" onclick="closeItemPanel()">×</button>
+    <button class="item-detail-back" onclick="backToItems()">← 返回物品列表</button>
+    <div class="item-banner-info">
+      <img class="item-banner-icon" id="itemDetailIcon" src="" alt="">
+      <div class="item-banner-title">
+        <h1 id="itemDetailName"></h1>
+        <div class="item-banner-en" id="itemDetailEn"></div>
+        <div class="item-banner-cost" id="itemDetailCost"></div>
+      </div>
+    </div>
   </div>
-  <div class="item-panel-body">
-    <div class="item-panel-desc" id="panelDesc"></div>
+  <div class="item-detail-body">
+    <div id="itemBonusesSection" style="display:none">
+      <div class="section-title">属性加成</div>
+      <div class="item-bonuses-grid" id="itemBonusesGrid"></div>
+    </div>
+    <div id="itemInfoCard"></div>
+    <div class="section-title" id="itemDescTitle" style="display:none">技能描述</div>
+    <div class="item-desc-card" id="itemDescCard" style="display:none"></div>
+    <div class="section-title" id="itemLoreTitle" style="display:none">背景故事</div>
+    <div class="item-lore-card" id="itemLoreCard" style="display:none"></div>
   </div>
 </div>
 
@@ -1255,6 +1405,7 @@ function showTab(tab) {
   document.getElementById('heroesView').style.display = tab === 'heroes' ? '' : 'none';
   document.getElementById('detailView').style.display = 'none';
   document.getElementById('itemsView').style.display = tab === 'items' ? '' : 'none';
+  document.getElementById('itemDetailView').style.display = 'none';
   if (tab === 'heroes') renderHeroes();
   else renderItems();
 }
@@ -2051,16 +2202,8 @@ const ITEM_CATEGORIES = {
   ]
 };
 
-let currentItemTab = 'basic';
 let itemSearchQuery = '';
 let activeItemKey = null;
-
-function switchItemTab(tab) {
-  currentItemTab = tab;
-  document.getElementById('tabBasic').classList.toggle('active', tab === 'basic');
-  document.getElementById('tabUpgrade').classList.toggle('active', tab === 'upgrade');
-  renderItems();
-}
 
 function onItemSearch() {
   itemSearchQuery = document.getElementById('itemSearchInput').value.trim().toLowerCase();
@@ -2091,7 +2234,7 @@ function renderItems() {
     });
     empty.style.display = entries.length ? 'none' : 'block';
     body.innerHTML = `<div class="item-search-list">${entries.map(([key, item]) => `
-      <div class="item-card${activeItemKey === key ? ' active' : ''}" onclick="showItemPanel('${key}')">
+      <div class="item-card" onclick="showItemPanel('${key}')">
         ${item.img ? `<img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.style.opacity='.3'">` : ''}
         <div class="item-info">
           <div class="item-name">${item.name || item.name_en}</div>
@@ -2103,7 +2246,7 @@ function renderItems() {
 
   empty.style.display = 'none';
   body.className = 'items-body';
-  const categories = ITEM_CATEGORIES[currentItemTab] || [];
+  const categories = [...(ITEM_CATEGORIES.basic || []), ...(ITEM_CATEGORIES.upgrade || [])];
 
   body.innerHTML = categories.map(cat => {
     const items = cat.keys
@@ -2118,7 +2261,7 @@ function renderItems() {
         <div class="item-category-title">${cat.label}</div>
         <div class="item-icon-grid">
           ${items.map(([key, item]) => `
-            <div class="item-icon-btn${activeItemKey === key ? ' active' : ''}" onclick="showItemPanel('${key}')" title="${item.name || item.name_en}">
+            <div class="item-icon-btn" onclick="showItemPanel('${key}')" title="${item.name || item.name_en}">
               <img src="${item.img}" alt="${item.name || ''}" loading="lazy" onerror="this.style.opacity='.3'">
             </div>`).join('')}
         </div>
@@ -2130,53 +2273,94 @@ function showItemPanel(key) {
   const item = itemsData[key];
   if (!item) return;
 
-  // 更新激活状态
   activeItemKey = key;
-  // 重新高亮（只更新 active class，不完整重渲）
-  document.querySelectorAll('.item-icon-btn, .item-card').forEach(el => {
-    const onclick = el.getAttribute('onclick') || '';
-    el.classList.toggle('active', onclick.includes(`'${key}'`));
-  });
 
-  document.getElementById('panelImg').src = item.img || '';
-  document.getElementById('panelName').textContent = item.name || item.name_en;
-  document.getElementById('panelEn').textContent = item.name_en || '';
-  document.getElementById('panelCost').innerHTML = item.cost != null ? `💰 <span>${item.cost} 金币</span>` : '';
+  document.getElementById('itemDetailIcon').src = item.img || '';
+  document.getElementById('itemDetailBgImg').src = item.img || '';
+  document.getElementById('itemDetailName').textContent = item.name || item.name_en;
+  document.getElementById('itemDetailEn').textContent = item.name_en || '';
+  document.getElementById('itemDetailCost').textContent = item.cost != null ? `💰 ${item.cost} 金币` : '';
 
   const attrib = item.attrib || {};
-  let descHtml = item.description ? formatDesc(item.description, attrib) : '';
+  const bonuses = item.bonuses || [];
 
-  // Cooldown / manacost row
-  const cdVal = item.cooldown != null && item.cooldown !== '0' && item.cooldown !== 'null' ? item.cooldown : '';
-  const mcVal = item.manacost != null && item.manacost !== '0' && item.manacost !== 'null' ? item.manacost : '';
-  const stats = [
-    cdVal ? `<span style="color:#aaa">冷却</span> <b style="color:#fff">${cdVal}s</b>` : '',
-    mcVal ? `<span style="color:#aaa">耗蓝</span> <b style="color:#6aacee">${mcVal}</b>` : '',
-  ].filter(Boolean).join('&emsp;');
-  if (stats) {
-    descHtml += `<div style="margin-top:12px;font-size:12px">${stats}</div>`;
+  // 属性加成区域
+  if (bonuses.length > 0) {
+    document.getElementById('itemBonusesSection').style.display = '';
+    document.getElementById('itemBonusesGrid').innerHTML = bonuses.map(b => {
+      const valDisplay = b.pct ? `${b.sign}${b.value}%` : `${b.sign}${b.value}`;
+      const cls = b.sign === '-' ? 'neg' : 'pos';
+      return `<div class="item-bonus-row">
+        <span class="item-bonus-val ${cls}">${valDisplay}</span>
+        <span class="item-bonus-label">${b.label}</span>
+      </div>`;
+    }).join('');
+  } else {
+    document.getElementById('itemBonusesSection').style.display = 'none';
   }
 
-  document.getElementById('panelDesc').innerHTML = descHtml || '<span style="color:#444">暂无描述数据</span>';
-  document.getElementById('itemPanel').classList.add('open');
-  document.getElementById('overlay').classList.add('open');
+  // 基本信息卡片（仅保留冷却/蓝耗等非bonus信息）
+  const rows = [];
+  const cd = item.cooldown && item.cooldown !== '0' && item.cooldown !== 'null' && item.cooldown !== 'False' ? item.cooldown : '';
+  const mc = item.manacost && item.manacost !== '0' && item.manacost !== 'null' && item.manacost !== 'False' ? item.manacost : '';
+  if (cd) rows.push({ label: '冷却时间', value: `${cd}s` });
+  if (mc) rows.push({ label: '消耗蓝量', value: mc });
+  if (item.cost != null) rows.push({ label: '购买价格', value: `${item.cost} 金币`, cls: 'cost-val' });
+
+  document.getElementById('itemInfoCard').innerHTML = rows.length ? `
+    <div class="item-info-card">
+      <img class="item-info-img" src="${item.img || ''}" alt="${item.name || ''}" onerror="this.style.opacity='.3'">
+      <div class="item-info-rows">
+        ${rows.map(r => `
+          <div class="item-info-row">
+            <span class="item-info-label">${r.label}</span>
+            <span class="item-info-value${r.cls ? ' ' + r.cls : ''}">${r.value}</span>
+          </div>`).join('')}
+      </div>
+    </div>` : '';
+
+  // 技能描述
+  const descHtml = item.description ? formatDesc(item.description, attrib) : '';
+  if (descHtml) {
+    document.getElementById('itemDescTitle').style.display = '';
+    document.getElementById('itemDescCard').style.display = '';
+    document.getElementById('itemDescCard').innerHTML = descHtml;
+  } else {
+    document.getElementById('itemDescTitle').style.display = 'none';
+    document.getElementById('itemDescCard').style.display = 'none';
+  }
+
+  // 背景故事 lore
+  if (item.lore_en || item.lore_zh) {
+    document.getElementById('itemLoreTitle').style.display = '';
+    document.getElementById('itemLoreCard').style.display = '';
+    document.getElementById('itemLoreCard').innerHTML =
+      (item.lore_en ? `<div class="item-lore-en">${item.lore_en}</div>` : '') +
+      (item.lore_zh ? `<div class="item-lore-zh">${item.lore_zh}</div>` : '');
+  } else {
+    document.getElementById('itemLoreTitle').style.display = 'none';
+    document.getElementById('itemLoreCard').style.display = 'none';
+  }
+
+  document.getElementById('itemsView').style.display = 'none';
+  document.getElementById('itemDetailView').style.display = 'block';
+  window.scrollTo(0, 0);
 }
 
-function closeItemPanel() {
-  document.getElementById('itemPanel').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
+function backToItems() {
+  document.getElementById('itemDetailView').style.display = 'none';
+  document.getElementById('itemsView').style.display = '';
   activeItemKey = null;
-  document.querySelectorAll('.item-icon-btn, .item-card').forEach(el => el.classList.remove('active'));
 }
 
 function formatDesc(text, attrib) {
   return text
     .replace(/\\n/g, '<br>').replace(/\n/g, '<br>')
-    .replace(/%([^%\s]+)%%%/g, (_, k) => {
+    .replace(/%([A-Za-z0-9_]+)%%%/g, (_, k) => {
       const v = attrib && attrib[k];
       return v != null ? `<b style="color:#c89b3c">${v}%</b>` : `<span style="color:#555">${k}%</span>`;
     })
-    .replace(/%([^%\s]+)%/g, (_, k) => {
+    .replace(/%([A-Za-z0-9_]+)%/g, (_, k) => {
       const v = attrib && attrib[k];
       return v != null ? `<b style="color:#c89b3c">${v}</b>` : `<span style="color:#555">${k}</span>`;
     });

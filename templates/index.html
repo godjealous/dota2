@@ -3172,11 +3172,9 @@ function redrawGraph(centerNodeId) {
   graphSimulation.force('link').links(deduped);
   graphSimulation.alpha(0.8).restart();
 
-  // Center view
-  const w = graphSvgSel.node().clientWidth;
-  const h = graphSvgSel.node().clientHeight;
-  graphSvgSel.transition().duration(400)
-    .call(graphZoomBehavior.transform, d3.zoomIdentity.translate(w/2, h/2).scale(1));
+  // Reset zoom to identity — forceCenter handles centering nodes
+  graphSvgSel.transition().duration(300)
+    .call(graphZoomBehavior.transform, d3.zoomIdentity);
 }
 
 function linkArc(d) {
@@ -3304,10 +3302,8 @@ function graphZoomOut() {
 }
 function graphReset() {
   if (!graphSvgSel) return;
-  const w = graphSvgSel.node().clientWidth;
-  const h = graphSvgSel.node().clientHeight;
-  graphSvgSel.transition().duration(400)
-    .call(graphZoomBehavior.transform, d3.zoomIdentity.translate(w/2, h/2).scale(1));
+  graphSvgSel.transition().duration(300)
+    .call(graphZoomBehavior.transform, d3.zoomIdentity);
 }
 
 loadData();

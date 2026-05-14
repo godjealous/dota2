@@ -1,0 +1,2027 @@
+{
+  "item_blink": [
+    {
+      "hero": "antimage",
+      "reason": "追击无法依赖闪烁逃脱"
+    },
+    {
+      "hero": "pudge",
+      "reason": "钩中后可瞬移补刀"
+    },
+    {
+      "hero": "enigma",
+      "reason": "开团黑洞无法预判"
+    }
+  ],
+  "item_overwhelming_blink": [
+    {
+      "hero": "axe",
+      "reason": "力量加成强化近战开团"
+    },
+    {
+      "hero": "centaur",
+      "reason": "力量英雄跳入造成高额伤害"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "跳入叠加大招伤害"
+    }
+  ],
+  "item_swift_blink": [
+    {
+      "hero": "drow_ranger",
+      "reason": "高速追击突破冰川光环"
+    },
+    {
+      "hero": "sniper",
+      "reason": "瞬移贴脸压制远程"
+    },
+    {
+      "hero": "windrunner",
+      "reason": "追上风行无法逃脱"
+    }
+  ],
+  "item_arcane_blink": [],
+  "item_blades_of_attack": [],
+  "item_broadsword": [],
+  "item_chainmail": [],
+  "item_splintmail": [],
+  "item_claymore": [],
+  "item_helm_of_iron_will": [],
+  "item_javelin": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "穿刺无视魅影闪避"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "穿刺无视冰川闪避"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "穿刺无视折光闪避"
+    },
+    {
+      "hero": "mirana",
+      "reason": "穿刺无视天界箭袋闪避"
+    }
+  ],
+  "item_mithril_hammer": [],
+  "item_platemail": [],
+  "item_quarterstaff": [],
+  "item_quelling_blade": [
+    {
+      "hero": "furion",
+      "reason": "砍树清除发芽/树人"
+    },
+    {
+      "hero": "broodmother",
+      "reason": "砍树破坏蛛网地形"
+    },
+    {
+      "hero": "treant",
+      "reason": "砍树消除丛林之眼视野"
+    }
+  ],
+  "item_faerie_fire": [],
+  "item_infused_raindrop": [
+    {
+      "hero": "zuus",
+      "reason": "削弱闪电爆发伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "抵挡瞬发魔法伤害"
+    },
+    {
+      "hero": "lion",
+      "reason": "减免指向技能伤害"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "抵挡高爆发魔法"
+    },
+    {
+      "hero": "nevermore",
+      "reason": "削弱灵魂盛宴伤害"
+    }
+  ],
+  "item_wind_lace": [],
+  "item_ring_of_protection": [],
+  "item_stout_shield": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "格挡暴击物理伤害"
+    },
+    {
+      "hero": "sven",
+      "reason": "格挡神之力量输出"
+    },
+    {
+      "hero": "ursa",
+      "reason": "削减怒意狂击伤害"
+    }
+  ],
+  "item_moon_shard": [],
+  "item_gauntlets": [],
+  "item_slippers": [],
+  "item_mantle": [],
+  "item_branches": [],
+  "item_belt_of_strength": [],
+  "item_boots_of_elves": [],
+  "item_robe": [],
+  "item_circlet": [],
+  "item_crown": [],
+  "item_diadem": [],
+  "item_ogre_axe": [],
+  "item_blade_of_alacrity": [],
+  "item_staff_of_wizardry": [],
+  "item_ultimate_orb": [],
+  "item_gloves": [],
+  "item_blitz_knuckles": [],
+  "item_lifesteal": [],
+  "item_voodoo_mask": [],
+  "item_ring_of_regen": [],
+  "item_sobi_mask": [],
+  "item_boots": [
+    {
+      "hero": "drow_ranger",
+      "reason": "消除卓尔狂风减速优势"
+    },
+    {
+      "hero": "windrunner",
+      "reason": "追上风行逃跑"
+    },
+    {
+      "hero": "weaver",
+      "reason": "追上缩地位移"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "追上幻影突袭"
+    }
+  ],
+  "item_gem": [
+    {
+      "hero": "riki",
+      "reason": "破除永久隐身核心"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "破除暗影步隐身"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "破除死亡契约隐身"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "破除隐匿状态"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "破除钻地隐身"
+    }
+  ],
+  "item_shawl": [],
+  "item_cloak": [
+    {
+      "hero": "zuus",
+      "reason": "降低全图雷云魔法伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "降低光击阵魔法伤害"
+    },
+    {
+      "hero": "lion",
+      "reason": "降低下地狱魔法伤害"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "降低天裔爆发魔法伤害"
+    },
+    {
+      "hero": "pugna",
+      "reason": "降低幽冥爆轰魔法伤害"
+    }
+  ],
+  "item_talisman_of_evasion": [],
+  "item_cheese": [],
+  "item_magic_stick": [],
+  "item_magic_wand": [],
+  "item_ghost": [
+    {
+      "hero": "juggernaut",
+      "reason": "免疫物理无视迅风斩"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "免疫物理克制近战刺客"
+    },
+    {
+      "hero": "ursa",
+      "reason": "免疫物理使其无法输出"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "免疫物理废其攻击"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "免疫物理使其无法攻击"
+    }
+  ],
+  "item_clarity": [],
+  "item_enchanted_mango": [],
+  "item_blood_grenade": [],
+  "item_royale_with_cheese": [],
+  "item_flask": [],
+  "item_dust": [
+    {
+      "hero": "riki",
+      "reason": "真视显出隐身核心"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "真视破其隐身核心"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "真视破其隐身输出"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "真视破其隐匿技能"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "真视破其钻地隐身"
+    }
+  ],
+  "item_bottle": [],
+  "item_ward_sentry": [
+    {
+      "hero": "riki",
+      "reason": "真视破背刺隐身核心"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "真视压制暗影步"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "真视破隐身游走"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "真视破隐匿埋伏"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "真视破钻地偷袭"
+    }
+  ],
+  "item_ward_dispenser": [
+    {
+      "hero": "riki",
+      "reason": "真视破背刺隐身核心"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "真视压制暗影步"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "真视破隐身游走"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "真视破隐匿埋伏"
+    },
+    {
+      "hero": "nyx_assassin",
+      "reason": "真视破钻地偷袭"
+    }
+  ],
+  "item_tango": [],
+  "item_tango_single": [],
+  "item_tpscroll": [],
+  "item_travel_boots": [],
+  "item_travel_boots_2": [],
+  "item_phase_boots": [],
+  "item_demon_edge": [],
+  "item_eagle": [],
+  "item_reaver": [],
+  "item_relic": [],
+  "item_hyperstone": [],
+  "item_ring_of_health": [],
+  "item_ring_of_tarrasque": [],
+  "item_void_stone": [],
+  "item_tiara_of_selemene": [],
+  "item_mystic_staff": [],
+  "item_energy_booster": [],
+  "item_point_booster": [],
+  "item_vitality_booster": [],
+  "item_fluffy_hat": [],
+  "item_wizard_hat": [],
+  "item_power_treads": [],
+  "item_phylactery": [
+    {
+      "hero": "antimage",
+      "reason": "单体技能减速压制"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "额外伤害削弱机动"
+    },
+    {
+      "hero": "weaver",
+      "reason": "单体技能强化输出"
+    },
+    {
+      "hero": "puck",
+      "reason": "追加伤害限制位移"
+    },
+    {
+      "hero": "slark",
+      "reason": "单体技能强化克制"
+    }
+  ],
+  "item_angels_demise": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "禁用被动刀阵旋风"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "禁用被动爆击"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "禁用钢毛后背被动"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "禁用狂暴被动"
+    }
+  ],
+  "item_hand_of_midas": [],
+  "item_oblivion_staff": [],
+  "item_witch_blade": [
+    {
+      "hero": "storm_spirit",
+      "reason": "毒素伤害依赖魔法"
+    },
+    {
+      "hero": "antimage",
+      "reason": "降低移速克制闪烁"
+    },
+    {
+      "hero": "weaver",
+      "reason": "持续毒素限制机动"
+    },
+    {
+      "hero": "slark",
+      "reason": "减速克制突进"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "毒素持续削弱"
+    }
+  ],
+  "item_pers": [],
+  "item_cornucopia": [],
+  "item_bracer": [],
+  "item_wraith_band": [],
+  "item_null_talisman": [],
+  "item_mekansm": [],
+  "item_vladmir": [],
+  "item_buckler": [],
+  "item_ring_of_basilius": [],
+  "item_holy_locket": [],
+  "item_pipe": [
+    {
+      "hero": "zuus",
+      "reason": "减免全图雷云伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "减免高爆发魔法伤害"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "减免持续魔法输出"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "减免魔法爆发伤害"
+    },
+    {
+      "hero": "pugna",
+      "reason": "减免幽冥爆轰伤害"
+    }
+  ],
+  "item_urn_of_shadows": [],
+  "item_headdress": [],
+  "item_sheepstick": [
+    {
+      "hero": "faceless_void",
+      "reason": "妖术打断反时间漫游"
+    },
+    {
+      "hero": "enigma",
+      "reason": "妖术打断事件视界"
+    },
+    {
+      "hero": "warlock",
+      "reason": "妖术打断邪术召唤"
+    },
+    {
+      "hero": "medusa",
+      "reason": "妖术打断冷血动物"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "妖术打断重如铁锚"
+    }
+  ],
+  "item_orchid": [
+    {
+      "hero": "storm_spirit",
+      "reason": "沉默封锁球状闪电逃跑"
+    },
+    {
+      "hero": "invoker",
+      "reason": "沉默限制祈唤技能"
+    },
+    {
+      "hero": "puck",
+      "reason": "沉默封锁相位转移"
+    },
+    {
+      "hero": "death_prophet",
+      "reason": "沉默封锁吸魂巫术"
+    }
+  ],
+  "item_bloodthorn": [
+    {
+      "hero": "storm_spirit",
+      "reason": "沉默封锁球状闪电"
+    },
+    {
+      "hero": "invoker",
+      "reason": "沉默封锁全部技能"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "必中穿刺破闪避"
+    },
+    {
+      "hero": "puck",
+      "reason": "沉默封锁相位转移"
+    }
+  ],
+  "item_echo_sabre": [
+    {
+      "hero": "axe",
+      "reason": "减速削弱反击螺旋触发"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "双击快速打穿钢毛抗性"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "双击加速击穿肉盾"
+    }
+  ],
+  "item_cyclone": [
+    {
+      "hero": "bane",
+      "reason": "驱散蚀脑控制效果"
+    },
+    {
+      "hero": "enigma",
+      "reason": "打断事件视界施法"
+    },
+    {
+      "hero": "warlock",
+      "reason": "打断剧变持续施法"
+    },
+    {
+      "hero": "medusa",
+      "reason": "驱散冷血动物"
+    },
+    {
+      "hero": "venomancer",
+      "reason": "驱散毒刺持续减益"
+    }
+  ],
+  "item_wind_waker": [
+    {
+      "hero": "enigma",
+      "reason": "己方进旋风躲避黑洞"
+    },
+    {
+      "hero": "warlock",
+      "reason": "打断剧变持续施法"
+    },
+    {
+      "hero": "bane",
+      "reason": "驱散蚀脑控制"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "友方进旋风躲避时间囚禁"
+    },
+    {
+      "hero": "doom_bringer",
+      "reason": "驱散末日诅咒负面"
+    }
+  ],
+  "item_aether_lens": [],
+  "item_force_staff": [
+    {
+      "hero": "faceless_void",
+      "reason": "推出时间结界范围"
+    },
+    {
+      "hero": "enigma",
+      "reason": "推出黑洞范围"
+    },
+    {
+      "hero": "warlock",
+      "reason": "推出剧变范围"
+    },
+    {
+      "hero": "brewmaster",
+      "reason": "推出醉拳控制范围"
+    }
+  ],
+  "item_hurricane_pike": [
+    {
+      "hero": "faceless_void",
+      "reason": "推出时间结界范围"
+    },
+    {
+      "hero": "enigma",
+      "reason": "推出黑洞范围"
+    },
+    {
+      "hero": "pudge",
+      "reason": "拉开距离规避肉钩"
+    },
+    {
+      "hero": "axe",
+      "reason": "拉开距离规避淘汰之刃"
+    }
+  ],
+  "item_dagon": [
+    {
+      "hero": "morphling",
+      "reason": "秒杀低力量形态"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "秒杀低生命脆皮"
+    },
+    {
+      "hero": "meepo",
+      "reason": "共享死亡秒杀"
+    },
+    {
+      "hero": "antimage",
+      "reason": "低魔法时爆发秒杀"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "爆发消灭脆皮射手"
+    }
+  ],
+  "item_dagon_2": [
+    {
+      "hero": "morphling",
+      "reason": "秒杀低力量形态"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "爆发秒杀脆皮"
+    },
+    {
+      "hero": "meepo",
+      "reason": "共享死亡秒杀"
+    },
+    {
+      "hero": "antimage",
+      "reason": "低魔法时爆发秒杀"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "爆发消灭脆皮射手"
+    }
+  ],
+  "item_dagon_3": [
+    {
+      "hero": "morphling",
+      "reason": "秒杀低力量形态"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "爆发秒杀脆皮"
+    },
+    {
+      "hero": "meepo",
+      "reason": "共享死亡秒杀"
+    },
+    {
+      "hero": "antimage",
+      "reason": "低魔法时爆发秒杀"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "爆发消灭脆皮射手"
+    }
+  ],
+  "item_dagon_4": [
+    {
+      "hero": "morphling",
+      "reason": "秒杀低力量形态"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "爆发秒杀脆皮"
+    },
+    {
+      "hero": "meepo",
+      "reason": "共享死亡秒杀"
+    },
+    {
+      "hero": "antimage",
+      "reason": "低魔法时爆发秒杀"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "爆发消灭脆皮射手"
+    }
+  ],
+  "item_dagon_5": [
+    {
+      "hero": "morphling",
+      "reason": "秒杀低力量形态"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "爆发秒杀脆皮"
+    },
+    {
+      "hero": "meepo",
+      "reason": "共享死亡秒杀"
+    },
+    {
+      "hero": "antimage",
+      "reason": "低魔法时爆发秒杀"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "爆发消灭脆皮射手"
+    }
+  ],
+  "item_necronomicon": [
+    {
+      "hero": "riki",
+      "reason": "3级死灵真视破隐"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "weaver",
+      "reason": "法力损毁克制低蓝"
+    }
+  ],
+  "item_necronomicon_2": [
+    {
+      "hero": "riki",
+      "reason": "3级死灵真视破隐"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "weaver",
+      "reason": "法力损毁克制低蓝"
+    }
+  ],
+  "item_necronomicon_3": [
+    {
+      "hero": "riki",
+      "reason": "真视完全破隐身核心"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "clinkz",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "真视破隐身核心"
+    },
+    {
+      "hero": "broodmother",
+      "reason": "真视破蛛网隐身"
+    }
+  ],
+  "item_ultimate_scepter": [],
+  "item_ultimate_scepter_2": [],
+  "item_ultimate_scepter_roshan": [],
+  "item_aghanims_shard": [],
+  "item_aghanims_shard_roshan": [],
+  "item_refresher": [
+    {
+      "hero": "enigma",
+      "reason": "双重事件视界"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "双重大招"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "双重时间结界"
+    },
+    {
+      "hero": "warlock",
+      "reason": "双重邪术召唤"
+    },
+    {
+      "hero": "invoker",
+      "reason": "双重大招输出"
+    }
+  ],
+  "item_assault": [
+    {
+      "hero": "naga_siren",
+      "reason": "镜像依赖护甲叠加"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "幻象依赖护甲"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "幻象依赖护甲"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "降低高甲收益"
+    },
+    {
+      "hero": "viper",
+      "reason": "降低腐蚀皮肤收益"
+    }
+  ],
+  "item_heart": [
+    {
+      "hero": "necrolyte",
+      "reason": "竭心光环削弱回血"
+    },
+    {
+      "hero": "bloodseeker",
+      "reason": "焦渴依赖低血压制"
+    },
+    {
+      "hero": "ancient_apparition",
+      "reason": "刺骨严寒禁止回血"
+    }
+  ],
+  "item_black_king_bar": [
+    {
+      "hero": "lion",
+      "reason": "免疫全套控制"
+    },
+    {
+      "hero": "bane",
+      "reason": "免疫魔爪蚀脑"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "免疫妖术枷锁"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "免疫麻痹大招"
+    },
+    {
+      "hero": "enigma",
+      "reason": "免疫事件视界"
+    }
+  ],
+  "item_shivas_guard": [
+    {
+      "hero": "ursa",
+      "reason": "大幅降低攻速"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "高攻速被强减"
+    },
+    {
+      "hero": "lycan",
+      "reason": "嗥叫攻速被削弱"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "高攻速依赖被削"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "狂暴攻速被克制"
+    }
+  ],
+  "item_bloodstone": [
+    {
+      "hero": "pugna",
+      "reason": "法术虚弱加重伤害"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "增强持续技能伤害"
+    },
+    {
+      "hero": "zuus",
+      "reason": "技能伤害显著提升"
+    },
+    {
+      "hero": "lina",
+      "reason": "爆发伤害进一步强化"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "法术偷生强化续战"
+    }
+  ],
+  "item_sphere": [
+    {
+      "hero": "bane",
+      "reason": "抵挡魔爪蚀脑"
+    },
+    {
+      "hero": "lion",
+      "reason": "抵挡妖术指向技"
+    },
+    {
+      "hero": "doom_bringer",
+      "reason": "抵挡末日指向诅咒"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "抵挡妖术枷锁"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "抵挡封印指向技"
+    }
+  ],
+  "item_lotus_orb": [
+    {
+      "hero": "lion",
+      "reason": "反弹妖术给对方"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "反弹妖术枷锁"
+    },
+    {
+      "hero": "bane",
+      "reason": "反弹魔爪蚀脑"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "反弹上古封印"
+    },
+    {
+      "hero": "doom_bringer",
+      "reason": "反弹末日诅咒"
+    }
+  ],
+  "item_meteor_hammer": [
+    {
+      "hero": "warlock",
+      "reason": "眩晕打断召唤施法"
+    },
+    {
+      "hero": "enigma",
+      "reason": "打断大招施法"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "打断巨浪施法"
+    },
+    {
+      "hero": "rattletrap",
+      "reason": "打断超速运转"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "打断巫毒大招"
+    }
+  ],
+  "item_nullifier": [
+    {
+      "hero": "omniknight",
+      "reason": "驱散退化光环增益"
+    },
+    {
+      "hero": "abaddon",
+      "reason": "持续驱散凋零迷雾"
+    },
+    {
+      "hero": "oracle",
+      "reason": "驱散天命庇护"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "驱散薄葬编织效果"
+    },
+    {
+      "hero": "winter_wyvern",
+      "reason": "驱散极寒之拥"
+    }
+  ],
+  "item_aeon_disk": [
+    {
+      "hero": "lion",
+      "reason": "全套爆发被强断"
+    },
+    {
+      "hero": "lina",
+      "reason": "爆发连招被打断"
+    },
+    {
+      "hero": "tiny",
+      "reason": "瞬间爆发被强断"
+    },
+    {
+      "hero": "invoker",
+      "reason": "连招爆发被打断"
+    },
+    {
+      "hero": "queenofpain",
+      "reason": "爆发连招被强断"
+    }
+  ],
+  "item_kaya": [
+    {
+      "hero": "storm_spirit",
+      "reason": "提升球状闪电消耗"
+    },
+    {
+      "hero": "zuus",
+      "reason": "法术强度提升输出"
+    },
+    {
+      "hero": "lina",
+      "reason": "强化爆发技能伤害"
+    },
+    {
+      "hero": "invoker",
+      "reason": "全面提升法术输出"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "强化法术连招伤害"
+    }
+  ],
+  "item_trident": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "状态抗性降低暴击闪避"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "全属性压制核心"
+    },
+    {
+      "hero": "antimage",
+      "reason": "全面压制法术反制"
+    },
+    {
+      "hero": "morphling",
+      "reason": "属性全面被压制"
+    },
+    {
+      "hero": "medusa",
+      "reason": "全面属性压制"
+    }
+  ],
+  "item_refresher_shard": [
+    {
+      "hero": "enigma",
+      "reason": "双重事件视界"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "双重巨浪"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "双重时间结界"
+    },
+    {
+      "hero": "warlock",
+      "reason": "双重邪术召唤"
+    },
+    {
+      "hero": "invoker",
+      "reason": "双重大招连招"
+    }
+  ],
+  "item_spirit_vessel": [
+    {
+      "hero": "huskar",
+      "reason": "压制低血量吸血回复"
+    },
+    {
+      "hero": "necrolyte",
+      "reason": "削弱竭心回复光环"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "减少盛宴回复量"
+    },
+    {
+      "hero": "alchemist",
+      "reason": "狂暴药剂回复被压制"
+    },
+    {
+      "hero": "ursa",
+      "reason": "暴烈之爪吸血被削弱"
+    }
+  ],
+  "item_essence_distiller": [
+    {
+      "hero": "huskar",
+      "reason": "压制低血量回复"
+    },
+    {
+      "hero": "necrolyte",
+      "reason": "削弱回复类技能"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "回复被持续压制"
+    },
+    {
+      "hero": "alchemist",
+      "reason": "回复强化被削弱"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "吸血灵魂被压制"
+    }
+  ],
+  "item_vanguard": [],
+  "item_crimson_guard": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "格挡削弱幻象输出"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "格挡削弱镜像输出"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "格挡削弱幻象伤害"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "格挡削弱幻象输出"
+    },
+    {
+      "hero": "luna",
+      "reason": "格挡削弱月光跳劈"
+    }
+  ],
+  "item_blade_mail": [
+    {
+      "hero": "axe",
+      "reason": "反伤叠加反击螺旋"
+    },
+    {
+      "hero": "huskar",
+      "reason": "低血反伤致命自损"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "反伤放大输出还给自身"
+    },
+    {
+      "hero": "ursa",
+      "reason": "高攻反伤大量伤己"
+    },
+    {
+      "hero": "legion_commander",
+      "reason": "迎难决斗期间反伤"
+    }
+  ],
+  "item_soul_booster": [],
+  "item_eternal_shroud": [
+    {
+      "hero": "zuus",
+      "reason": "高魔法抗性抵御闪电"
+    },
+    {
+      "hero": "lina",
+      "reason": "魔抗削弱爆发伤害"
+    },
+    {
+      "hero": "lion",
+      "reason": "魔抗抵御技能爆发"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "魔抗抵御法术轰炸"
+    },
+    {
+      "hero": "obsidian_destroyer",
+      "reason": "魔抗抵御奥术伤害"
+    }
+  ],
+  "item_consecrated_wraps": [
+    {
+      "hero": "zuus",
+      "reason": "魔抗减伤闪电爆发"
+    },
+    {
+      "hero": "lina",
+      "reason": "魔抗削弱连续爆发"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "魔抗抵御持续法伤"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "魔抗减轻持续法伤"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "魔抗削弱超负荷伤害"
+    }
+  ],
+  "item_crellas_crozier": [
+    {
+      "hero": "axe",
+      "reason": "虚化免疫淘汰之刃"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "虚化免疫物理吞噬"
+    },
+    {
+      "hero": "ursa",
+      "reason": "虚化规避高物理爆发"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "虚化免疫刀阵物理"
+    },
+    {
+      "hero": "legion_commander",
+      "reason": "虚化规避决斗伤害"
+    }
+  ],
+  "item_rapier": [],
+  "item_monkey_king_bar": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "穿刺无视魅影闪避"
+    },
+    {
+      "hero": "windrunner",
+      "reason": "穿刺无视风行闪避"
+    },
+    {
+      "hero": "templar_assassin",
+      "reason": "穿刺无视折光闪避"
+    }
+  ],
+  "item_radiance": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "灼烧秒清大量幻象"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "灼烧秒清镜像幻象"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "灼烧削弱幻象群体"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "灼烧持续伤害幻象"
+    },
+    {
+      "hero": "broodmother",
+      "reason": "灼烧清除蜘蛛群体"
+    }
+  ],
+  "item_butterfly": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "闪避大幅削弱暴击"
+    },
+    {
+      "hero": "ursa",
+      "reason": "闪避规避高频物攻"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "闪避削弱高速攻击"
+    },
+    {
+      "hero": "juggernaut",
+      "reason": "闪避削弱剑舞输出"
+    },
+    {
+      "hero": "sven",
+      "reason": "闪避规避神之力输出"
+    }
+  ],
+  "item_greater_crit": [],
+  "item_basher": [
+    {
+      "hero": "weaver",
+      "reason": "击晕打断缩地位移"
+    },
+    {
+      "hero": "puck",
+      "reason": "击晕限制相位转移"
+    },
+    {
+      "hero": "antimage",
+      "reason": "击晕打断闪烁逃跑"
+    },
+    {
+      "hero": "morphling",
+      "reason": "击晕打断波浪逃跑"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "击晕打断球状闪电"
+    }
+  ],
+  "item_bfury": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "分裂清除幻象"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "分裂清除幻象"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "分裂清除幻象"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "分裂清除幻象"
+    },
+    {
+      "hero": "meepo",
+      "reason": "分裂伤害所有分身"
+    }
+  ],
+  "item_manta": [
+    {
+      "hero": "bane",
+      "reason": "驱散噩梦睡眠"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "驱散封印减益"
+    },
+    {
+      "hero": "silencer",
+      "reason": "驱散沉默效果"
+    },
+    {
+      "hero": "legion_commander",
+      "reason": "驱散强制决斗"
+    },
+    {
+      "hero": "disruptor",
+      "reason": "驱散静态场减益"
+    }
+  ],
+  "item_lesser_crit": [],
+  "item_dragon_lance": [
+    {
+      "hero": "windrunner",
+      "reason": "增距攻击绕过风行"
+    },
+    {
+      "hero": "drow_ranger",
+      "reason": "增距强化压制"
+    }
+  ],
+  "item_armlet": [
+    {
+      "hero": "necrolyte",
+      "reason": "开关臂章抵消死亡"
+    }
+  ],
+  "item_invis_sword": [
+    {
+      "hero": "slardar",
+      "reason": "隐身后视野受限"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "隐身抢先破隐输出"
+    },
+    {
+      "hero": "riki",
+      "reason": "隐身对抗无视背刺"
+    }
+  ],
+  "item_silver_edge": [
+    {
+      "hero": "ursa",
+      "reason": "破被动取消怒意狂击"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "破被动取消钢毛减伤"
+    },
+    {
+      "hero": "abaddon",
+      "reason": "破被动凋零失效"
+    },
+    {
+      "hero": "centaur",
+      "reason": "破被动取消反伤"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "破被动取消盛宴"
+    }
+  ],
+  "item_sange_and_yasha": [],
+  "item_kaya_and_sange": [],
+  "item_yasha_and_kaya": [],
+  "item_satanic": [
+    {
+      "hero": "necrolyte",
+      "reason": "吸血抵消竭心光环"
+    },
+    {
+      "hero": "venomancer",
+      "reason": "吸血对抗持续毒伤"
+    },
+    {
+      "hero": "viper",
+      "reason": "吸血抵消毒性减益"
+    }
+  ],
+  "item_mjollnir": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "闪电清除大量幻象"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "闪电清除幻象群"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "闪电清除幻象群"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "闪电清除幻象群"
+    },
+    {
+      "hero": "meepo",
+      "reason": "闪电跳伤所有分身"
+    }
+  ],
+  "item_skadi": [
+    {
+      "hero": "morphling",
+      "reason": "降低生命回复削弱转换"
+    },
+    {
+      "hero": "huskar",
+      "reason": "大幅降低生命回复"
+    },
+    {
+      "hero": "ursa",
+      "reason": "减速限制冲入输出"
+    },
+    {
+      "hero": "weaver",
+      "reason": "减速限制缩地机动"
+    }
+  ],
+  "item_sange": [],
+  "item_helm_of_the_dominator": [
+    {
+      "hero": "chen",
+      "reason": "抢占中立单位资源"
+    },
+    {
+      "hero": "enchantress",
+      "reason": "争夺魅惑单位"
+    }
+  ],
+  "item_helm_of_the_overlord": [],
+  "item_maelstrom": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "闪电清除大量幻象"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "闪电清除镜像幻象"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "闪电清除惑幻幻象"
+    },
+    {
+      "hero": "chaos_knight",
+      "reason": "闪电清除幻象群"
+    },
+    {
+      "hero": "meepo",
+      "reason": "连锁闪电伤害分身"
+    }
+  ],
+  "item_gungir": [
+    {
+      "hero": "phantom_lancer",
+      "reason": "缠绕锁定无法分身逃脱"
+    },
+    {
+      "hero": "weaver",
+      "reason": "缠绕限制缩地位移"
+    },
+    {
+      "hero": "puck",
+      "reason": "缠绕限制相位转移前摇"
+    },
+    {
+      "hero": "antimage",
+      "reason": "缠绕限制闪烁逃脱"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "缠绕限制球状闪电"
+    }
+  ],
+  "item_desolator": [
+    {
+      "hero": "dragon_knight",
+      "reason": "破甲削弱龙形护甲"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "破甲削弱海妖外壳"
+    },
+    {
+      "hero": "axe",
+      "reason": "破甲削弱反击螺旋护甲"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "破甲穿透钢毛后背"
+    },
+    {
+      "hero": "centaur",
+      "reason": "破甲削弱高护甲体质"
+    }
+  ],
+  "item_yasha": [],
+  "item_mask_of_madness": [
+    {
+      "hero": "silencer",
+      "reason": "激活后被沉默限制技能"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "封印沉默打断激活状态"
+    },
+    {
+      "hero": "doom_bringer",
+      "reason": "末日技能令激活被沉默无效"
+    }
+  ],
+  "item_diffusal_blade": [
+    {
+      "hero": "storm_spirit",
+      "reason": "燃烧魔法限制球状闪电"
+    },
+    {
+      "hero": "antimage",
+      "reason": "加速燃烧其低魔法池"
+    },
+    {
+      "hero": "medusa",
+      "reason": "燃烧魔法盾消耗魔法"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "燃烧魔法令复活无魔"
+    }
+  ],
+  "item_disperser": [
+    {
+      "hero": "storm_spirit",
+      "reason": "驱散并燃烧球状闪电魔法"
+    },
+    {
+      "hero": "medusa",
+      "reason": "驱散燃烧魔法盾"
+    },
+    {
+      "hero": "omniknight",
+      "reason": "驱散神圣护盾buff"
+    },
+    {
+      "hero": "dazzle",
+      "reason": "驱散薄葬护盾效果"
+    },
+    {
+      "hero": "abaddon",
+      "reason": "驱散无光之盾buff"
+    }
+  ],
+  "item_ethereal_blade": [
+    {
+      "hero": "morphling",
+      "reason": "虚化使其无法攻击"
+    },
+    {
+      "hero": "ursa",
+      "reason": "虚化令近战核心无法攻击"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "虚化使其无法物理攻击"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "虚化锁死近战物理输出"
+    }
+  ],
+  "item_soul_ring": [],
+  "item_arcane_boots": [],
+  "item_octarine_core": [],
+  "item_orb_of_venom": [
+    {
+      "hero": "weaver",
+      "reason": "持续中毒阻止缩地逃脱"
+    },
+    {
+      "hero": "antimage",
+      "reason": "中毒减速限制闪烁逃脱"
+    }
+  ],
+  "item_blight_stone": [
+    {
+      "hero": "dragon_knight",
+      "reason": "破甲削弱龙形高护甲"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "破甲削弱海妖外壳"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "破甲穿透钢毛后背"
+    }
+  ],
+  "item_orb_of_corrosion": [
+    {
+      "hero": "dragon_knight",
+      "reason": "破甲削弱高护甲"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "破甲削弱钢毛后背"
+    },
+    {
+      "hero": "tidehunter",
+      "reason": "破甲削弱海妖外壳"
+    },
+    {
+      "hero": "axe",
+      "reason": "减速阻止反击螺旋接近"
+    },
+    {
+      "hero": "centaur",
+      "reason": "减速破甲削弱肉盾"
+    }
+  ],
+  "item_orb_of_frost": [
+    {
+      "hero": "juggernaut",
+      "reason": "迅风斩追杀需要靠近"
+    },
+    {
+      "hero": "ursa",
+      "reason": "近战核心减速削弱输出"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "近战刺客减速限制突进"
+    },
+    {
+      "hero": "life_stealer",
+      "reason": "近战carry减速限制追击"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "近战肉盾减速限制靠近"
+    }
+  ],
+  "item_falcon_blade": [],
+  "item_mage_slayer": [
+    {
+      "hero": "lina",
+      "reason": "降低技能伤害削弱爆发"
+    },
+    {
+      "hero": "zuus",
+      "reason": "降低闪电技能伤害"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "削弱球状闪电伤害输出"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "降低奥法技能伤害"
+    },
+    {
+      "hero": "invoker",
+      "reason": "削弱祈唤技能伤害"
+    }
+  ],
+  "item_ancient_janggo": [],
+  "item_boots_of_bearing": [
+    {
+      "hero": "juggernaut",
+      "reason": "免疫减速抵抗迅风斩减速"
+    },
+    {
+      "hero": "viper",
+      "reason": "减速抗性对抗腐蚀减速"
+    },
+    {
+      "hero": "ancient_apparition",
+      "reason": "减速抗性抵抗冰冻减速"
+    }
+  ],
+  "item_solar_crest": [
+    {
+      "hero": "phantom_assassin",
+      "reason": "降低护甲叠加爆发致命"
+    },
+    {
+      "hero": "bristleback",
+      "reason": "降低护甲破防肉盾"
+    },
+    {
+      "hero": "axe",
+      "reason": "降低护甲削弱肉盾能力"
+    },
+    {
+      "hero": "dragon_knight",
+      "reason": "降低护甲克制高甲盾"
+    },
+    {
+      "hero": "centaur",
+      "reason": "降低护甲削弱反伤坦克"
+    }
+  ],
+  "item_pavise": [],
+  "item_smoke_of_deceit": [
+    {
+      "hero": "mirana",
+      "reason": "隐身躲避月神之箭"
+    },
+    {
+      "hero": "sniper",
+      "reason": "隐身接近限制远程输出"
+    },
+    {
+      "hero": "zuus",
+      "reason": "隐身规避雷云全图技能"
+    },
+    {
+      "hero": "tinker",
+      "reason": "隐身规避激光炮塔视野"
+    },
+    {
+      "hero": "gyrocopter",
+      "reason": "隐身规避追踪导弹"
+    }
+  ],
+  "item_tome_of_knowledge": [],
+  "item_veil_of_discord": [
+    {
+      "hero": "zuus",
+      "reason": "增幅闪电伤害加速爆炸"
+    },
+    {
+      "hero": "lina",
+      "reason": "增幅魔法爆发伤害"
+    },
+    {
+      "hero": "leshrac",
+      "reason": "增幅多段技能伤害"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "增幅球闪伤害爆发更强"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "增幅奥法爆发伤害"
+    }
+  ],
+  "item_revenants_brooch": [
+    {
+      "hero": "morphling",
+      "reason": "魔法伤害绕过高敏捷闪避"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "魔法暴击无视高闪避"
+    },
+    {
+      "hero": "medusa",
+      "reason": "魔法伤害穿透高闪避"
+    },
+    {
+      "hero": "luna",
+      "reason": "魔法暴击绕过月刃闪避"
+    }
+  ],
+  "item_devastator": [
+    {
+      "hero": "storm_spirit",
+      "reason": "法力腐蚀降低魔法抗性"
+    },
+    {
+      "hero": "antimage",
+      "reason": "法抗降低削弱法术反制"
+    },
+    {
+      "hero": "lina",
+      "reason": "降低魔抗放大技能伤害"
+    },
+    {
+      "hero": "zuus",
+      "reason": "降低魔抗使闪电更致命"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "降低魔抗爆发更强"
+    }
+  ],
+  "item_guardian_greaves": [
+    {
+      "hero": "doom_bringer",
+      "reason": "弱驱散移除末日诅咒"
+    },
+    {
+      "hero": "lion",
+      "reason": "驱散妖术效果"
+    },
+    {
+      "hero": "bane",
+      "reason": "驱散虚弱等控制效果"
+    },
+    {
+      "hero": "shadow_shaman",
+      "reason": "驱散妖术枷锁效果"
+    },
+    {
+      "hero": "witch_doctor",
+      "reason": "驱散麻痹药剂效果"
+    }
+  ],
+  "item_rod_of_atos": [
+    {
+      "hero": "storm_spirit",
+      "reason": "缠绕限制球状闪电逃跑"
+    },
+    {
+      "hero": "antimage",
+      "reason": "缠绕限制闪烁位移"
+    },
+    {
+      "hero": "puck",
+      "reason": "缠绕限制相位转移逃脱"
+    },
+    {
+      "hero": "weaver",
+      "reason": "缠绕限制缩地逃跑"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "缠绕限制幻影冲锋移动"
+    }
+  ],
+  "item_abyssal_blade": [
+    {
+      "hero": "juggernaut",
+      "reason": "主动晕破BKB打断剑刃"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "穿BKB打断反时间漫游"
+    },
+    {
+      "hero": "skeleton_king",
+      "reason": "击晕无视吸血灵魂复活"
+    },
+    {
+      "hero": "ursa",
+      "reason": "穿刺眩晕打断怒意狂击"
+    }
+  ],
+  "item_heavens_halberd": [
+    {
+      "hero": "ursa",
+      "reason": "缴械废暴力输出"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "缴械克制核心攻击"
+    },
+    {
+      "hero": "troll_warlord",
+      "reason": "缴械废攻击流英雄"
+    },
+    {
+      "hero": "morphling",
+      "reason": "缴械压制物理输出"
+    },
+    {
+      "hero": "faceless_void",
+      "reason": "缴械限制物理核心"
+    }
+  ],
+  "item_tranquil_boots": [],
+  "item_shadow_amulet": [
+    {
+      "hero": "clinkz",
+      "reason": "提供隐身辅助类似能力"
+    },
+    {
+      "hero": "riki",
+      "reason": "隐身增益协同"
+    },
+    {
+      "hero": "bounty_hunter",
+      "reason": "隐身增益协同"
+    }
+  ],
+  "item_glimmer_cape": [
+    {
+      "hero": "zuus",
+      "reason": "隐身躲避全局大招"
+    },
+    {
+      "hero": "nevermore",
+      "reason": "隐身躲避灵魂盛宴"
+    },
+    {
+      "hero": "tinker",
+      "reason": "魔抗减伤法术伤害"
+    },
+    {
+      "hero": "lina",
+      "reason": "魔抗减法术爆发伤"
+    },
+    {
+      "hero": "skywrath_mage",
+      "reason": "魔抗减技能总伤害"
+    }
+  ],
+  "item_harpoon": [
+    {
+      "hero": "antimage",
+      "reason": "钩捕阻止闪烁逃跑"
+    },
+    {
+      "hero": "weaver",
+      "reason": "钩捕限制缩地位移"
+    },
+    {
+      "hero": "puck",
+      "reason": "钩捕限制相位转移"
+    },
+    {
+      "hero": "phantom_assassin",
+      "reason": "钩捕阻止幻影突袭"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "钩捕打断球闪逃跑"
+    }
+  ],
+  "item_specialists_array": [
+    {
+      "hero": "broodmother",
+      "reason": "分裂清除蛛网蜘蛛群"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "分裂清除幻象群"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "分裂快速清除镜像"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "分裂清除幻象群"
+    },
+    {
+      "hero": "enigma",
+      "reason": "分裂清除憎恶小鬼"
+    }
+  ],
+  "item_hydras_breath": [
+    {
+      "hero": "broodmother",
+      "reason": "瘴毒百分比杀伤蛛群"
+    },
+    {
+      "hero": "phantom_lancer",
+      "reason": "瘴毒清除幻象群"
+    },
+    {
+      "hero": "naga_siren",
+      "reason": "百分比伤害清镜像"
+    },
+    {
+      "hero": "undying",
+      "reason": "百分比伤害克高血量"
+    },
+    {
+      "hero": "terrorblade",
+      "reason": "瘴毒清除幻象群"
+    }
+  ],
+  "item_chasm_stone": [],
+  "item_diffusal_blade_2": [
+    {
+      "hero": "antimage",
+      "reason": "燃魔加速其绝路触发"
+    },
+    {
+      "hero": "medusa",
+      "reason": "燃魔削减秘术异蛇"
+    },
+    {
+      "hero": "storm_spirit",
+      "reason": "燃魔限制球闪消耗"
+    },
+    {
+      "hero": "invoker",
+      "reason": "燃魔限制法力密集型"
+    }
+  ]
+}

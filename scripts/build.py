@@ -582,6 +582,10 @@ def merge_items() -> dict:
     item_counters_file = _ROOT / "data/item_counters.json"
     item_counters: dict = json.loads(item_counters_file.read_text(encoding="utf-8")) if item_counters_file.exists() else {}
 
+    # Item vs hero counter relationships (pre-analyzed via analyze_item_hero_counters.py)
+    item_hero_counters_file = _ROOT / "data/item_hero_counters.json"
+    item_hero_counters: dict = json.loads(item_hero_counters_file.read_text(encoding="utf-8")) if item_hero_counters_file.exists() else {}
+
     result: dict = {}
 
     for raw_key, item in items_raw.items():
@@ -655,6 +659,7 @@ def merge_items() -> dict:
             "bonuses": bonuses,
             "counters_of": item_counters.get(item_key, {}).get("counters_of", []),
             "counters": item_counters.get(item_key, {}).get("counters", []),
+            "hero_counters": item_hero_counters.get(item_key, []),
             "cooldown": cooldown,
             "manacost": manacost,
             "img": img,

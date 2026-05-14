@@ -1,6 +1,27 @@
-data/raw/
-data/output/
+# Python
 __pycache__/
 *.pyc
+*.pyo
 .pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# Raw source data (large files, regenerate with scripts/fetch.py + build.py)
+data/raw/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Tool configs (not for public repo)
+.claude/
 .gstack/
+
+# Internal docs
+docs/superpowers/

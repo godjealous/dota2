@@ -30,8 +30,9 @@
 ```
 dota2/
 ├── app.py                          # Flask 应用入口，API 路由
-├── templates/index.html            # 单页前端（HTML + CSS + JS）
+├── vercel.json                     # Vercel 部署配置
 ├── requirements.txt
+├── templates/index.html            # 单页前端（HTML + CSS + JS）
 ├── scripts/
 │   ├── fetch.py                    # 从 dotaconstants / dotabase 拉取原始数据
 │   ├── build.py                    # 合并原始数据，生成 output/heroes.json 和 items.json
@@ -41,7 +42,7 @@ dota2/
 │   ├── analyze_item_hero_counters.py  # AI 分析物品克制哪些英雄
 │   └── analyze_item_hero_fits.py   # AI 分析物品推荐哪些英雄出装
 └── data/
-    ├── raw/                        # fetch.py 拉取的原始 JSON / 本地化文件
+    ├── raw/                        # 原始数据（不提交 git，用 fetch.py 拉取）
     ├── output/
     │   ├── heroes.json             # 构建后的英雄数据（127 位）
     │   └── items.json              # 构建后的物品数据（501 件）
@@ -53,23 +54,20 @@ dota2/
     └── nicknames.json              # 英雄昵称（手动维护）
 ```
 
-## 快速开始
+## 本地开发
 
 ### 环境要求
 
 - Python 3.8+
-- Anthropic API Key（用于 AI 分析脚本）
+- Anthropic API Key（仅运行 AI 分析脚本时需要）
 
 ### 安装依赖
 
 ```bash
 pip install -r requirements.txt
-pip install anthropic
 ```
 
 ### 启动服务
-
-如果已有构建好的数据（`data/output/` 下存在 `heroes.json` / `items.json`）：
 
 ```bash
 python app.py
@@ -77,9 +75,39 @@ python app.py
 
 浏览器访问 [http://localhost:8000](http://localhost:8000)
 
+## 部署到 Vercel
+
+### 前提
+
+- 已将代码推送到 GitHub
+- 已安装 [Vercel CLI](https://vercel.com/docs/cli)（可选，也可以在网页操作）
+
+### 步骤
+
+**方式一：Vercel 网页（推荐）**
+
+1. 登录 [vercel.com](https://vercel.com)，点击 **Add New Project**
+2. 导入你的 GitHub 仓库
+3. Framework Preset 选 **Other**，不需要额外配置（`vercel.json` 已包含所有设置）
+4. 点击 **Deploy**
+
+**方式二：Vercel CLI**
+
+```bash
+npm i -g vercel
+vercel login
+vercel --prod
+```
+
+### 注意事项
+
+- Vercel 为 Serverless 环境，**每次请求都是无状态的**，不支持本地写文件
+- 所有数据文件（`data/output/`、`data/*.json`）需要提交到 git，Vercel 会随代码一起部署
+- `data/raw/` 体积较大且可由脚本重新生成，已在 `.gitignore` 中排除，不需要上传
+
 ## 数据更新
 
-当 Dota2 版本更新、英雄或物品有改动时，按以下步骤刷新数据。
+当 Dota2 版本更新、英雄或物品有改动时，在本地按以下步骤刷新后重新推送到 GitHub，Vercel 会自动重新部署。
 
 ### 第一步：拉取最新原始数据
 
@@ -87,15 +115,11 @@ python app.py
 python scripts/fetch.py
 ```
 
-从 dotaconstants 和 dotabase 下载最新的英雄、技能、物品、中文本地化文件到 `data/raw/`。
-
 ### 第二步：重新构建结构化数据
 
 ```bash
 python scripts/build.py
 ```
-
-将原始数据合并、翻译，输出 `data/output/heroes.json` 和 `data/output/items.json`。
 
 ### 第三步：重新运行 AI 分析（按需）
 
@@ -128,13 +152,23 @@ python scripts/analyze_item_hero_fits.py
 
 ### 重新分析单个英雄或物品
 
-直接编辑对应 JSON 文件，删掉目标 key，再运行对应分析脚本即可：
+直接编辑对应 JSON 文件，删掉目标 key，再运行对应分析脚本：
 
 ```bash
 # 例：重新分析敌法师的克制关系
 # 编辑 data/counters.json，删除 "antimage" 那一项，然后：
 python scripts/analyze_counters.py
 ```
+
+### 更新后发布
+
+```bash
+git add data/
+git commit -m "data: update for patch x.xx"
+git push
+```
+
+推送后 Vercel 自动触发重新部署。
 
 ## API
 

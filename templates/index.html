@@ -1407,10 +1407,10 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
     <div id="itemInfoCard"></div>
     <div class="section-title" id="itemDescTitle" style="display:none">技能描述</div>
     <div class="item-desc-card" id="itemDescCard" style="display:none"></div>
-    <div class="section-title" id="itemCountersTitle" style="display:none">克制该物品</div>
-    <div class="item-counters-grid" id="itemCountersGrid" style="display:none"></div>
-    <div class="section-title" id="itemCounteredByTitle" style="display:none">被该物品克制</div>
+    <div class="section-title" id="itemCounteredByTitle" style="display:none"></div>
     <div class="item-counters-grid" id="itemCounteredByGrid" style="display:none"></div>
+    <div class="section-title" id="itemCountersTitle" style="display:none"></div>
+    <div class="item-counters-grid" id="itemCountersGrid" style="display:none"></div>
     <div class="section-title" id="itemLoreTitle" style="display:none">背景故事</div>
     <div class="item-lore-card" id="itemLoreCard" style="display:none"></div>
   </div>
@@ -2403,26 +2403,30 @@ function showItemPanel(key) {
     }).filter(Boolean);
   }
 
-  // 克制该物品（counters_of）
-  const counterEntries = parseCounterEntries(item.counters_of);
-  if (counterEntries.length > 0) {
-    document.getElementById('itemCountersTitle').style.display = '';
-    document.getElementById('itemCountersGrid').style.display = '';
-    renderCounterGrid('itemCountersGrid', counterEntries);
-  } else {
-    document.getElementById('itemCountersTitle').style.display = 'none';
-    document.getElementById('itemCountersGrid').style.display = 'none';
-  }
+  const itemDisplayName = item.name || item.name_en;
 
-  // 被该物品克制（counters）
-  const counteredByEntries = parseCounterEntries(item.counters);
+  // counters_of = 当前物品克制的对象（被「本物品」克制的物品）
+  const counteredByEntries = parseCounterEntries(item.counters_of);
   if (counteredByEntries.length > 0) {
+    document.getElementById('itemCounteredByTitle').textContent = `被「${itemDisplayName}」克制的物品`;
     document.getElementById('itemCounteredByTitle').style.display = '';
     document.getElementById('itemCounteredByGrid').style.display = '';
     renderCounterGrid('itemCounteredByGrid', counteredByEntries);
   } else {
     document.getElementById('itemCounteredByTitle').style.display = 'none';
     document.getElementById('itemCounteredByGrid').style.display = 'none';
+  }
+
+  // counters = 克制当前物品的对象（克制「本物品」的物品）
+  const counterEntries = parseCounterEntries(item.counters);
+  if (counterEntries.length > 0) {
+    document.getElementById('itemCountersTitle').textContent = `克制「${itemDisplayName}」的物品`;
+    document.getElementById('itemCountersTitle').style.display = '';
+    document.getElementById('itemCountersGrid').style.display = '';
+    renderCounterGrid('itemCountersGrid', counterEntries);
+  } else {
+    document.getElementById('itemCountersTitle').style.display = 'none';
+    document.getElementById('itemCountersGrid').style.display = 'none';
   }
 
   // 背景故事 lore

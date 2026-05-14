@@ -976,6 +976,280 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 /* 无搜索结果 */
 .search-empty { display: none; text-align: center; padding: 48px; color: #555; font-size: 14px; }
 
+/* ── 克制图谱 ── */
+#graphView {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 52px);
+  overflow: hidden;
+}
+
+.graph-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 24px;
+  background: #161616;
+  border-bottom: 1px solid #2a2a2a;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.graph-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 260px;
+  max-width: 420px;
+}
+
+.graph-search-wrap input {
+  width: 100%;
+  background: #242424;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #eee;
+  font-size: 13px;
+  padding: 7px 32px 7px 12px;
+  outline: none;
+  transition: border-color .15s;
+}
+
+.graph-search-wrap input:focus { border-color: #4a9eff; }
+
+.graph-search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.graph-search-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  background: #202020;
+  border: 1px solid #333;
+  border-radius: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  z-index: 200;
+  display: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,.6);
+}
+
+.graph-search-dropdown.open { display: block; }
+
+.graph-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 1px solid #2a2a2a;
+  transition: background .1s;
+}
+
+.graph-dropdown-item:last-child { border-bottom: none; }
+.graph-dropdown-item:hover { background: #2a2a2a; }
+
+.graph-dropdown-item img {
+  width: 36px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.graph-dropdown-item .dd-name { font-weight: 600; color: #eee; }
+.graph-dropdown-item .dd-type { font-size: 11px; color: #888; margin-top: 1px; }
+
+.graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-arrow { font-size: 14px; font-weight: bold; }
+
+.graph-controls {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.graph-controls button {
+  background: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  color: #ccc;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .1s, color .1s;
+}
+
+.graph-controls button:hover { background: #383838; color: #fff; }
+
+.graph-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, #1a1a2e 0%, #111 70%);
+}
+
+#graphSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.graph-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #444;
+  font-size: 15px;
+  text-align: center;
+  pointer-events: none;
+  line-height: 1.8;
+}
+
+/* SVG elements */
+.g-link {
+  stroke-opacity: 0.55;
+  stroke-width: 1.5;
+  fill: none;
+  marker-end: url(#arrow);
+}
+
+.g-link.item-hero { stroke: #e05555; stroke-dasharray: 4 2; }
+.g-link.item-item { stroke: #f5a623; }
+.g-link.hero-hero { stroke: #e05555; }
+
+.g-node { cursor: pointer; }
+.g-node circle { stroke-width: 2; transition: r .15s; }
+.g-node:hover circle { filter: brightness(1.3); }
+.g-node.pinned circle { stroke: #fff !important; stroke-width: 3; }
+
+.g-node-label {
+  font-size: 11px;
+  fill: #ddd;
+  text-anchor: middle;
+  pointer-events: none;
+  text-shadow: 0 1px 3px #000;
+}
+
+/* 节点信息面板 */
+.graph-node-info {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,.7);
+  z-index: 50;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.graph-node-info-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px 10px;
+  background: #242424;
+  border-bottom: 1px solid #2a2a2a;
+  flex-shrink: 0;
+}
+
+.graph-node-info-header img {
+  width: 60px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.graph-node-info-header > div { flex: 1; min-width: 0; }
+.graph-node-info-name { font-size: 15px; font-weight: 700; color: #fff; }
+.graph-node-info-sub { font-size: 12px; color: #888; margin-top: 2px; }
+
+.graph-node-info-header button {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.graph-node-info-header button:hover { color: #ccc; }
+
+.graph-node-info-body {
+  overflow-y: auto;
+  padding: 12px 14px;
+  flex: 1;
+}
+
+.graph-info-section { margin-bottom: 14px; }
+.graph-info-section:last-child { margin-bottom: 0; }
+.graph-info-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+
+.graph-info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 12px;
+}
+
+.graph-info-row:last-child { border-bottom: none; }
+
+.graph-info-row img {
+  width: 28px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.graph-info-row .info-name { color: #eee; font-weight: 600; flex: 1; cursor: pointer; }
+.graph-info-row .info-name:hover { color: #4a9eff; text-decoration: underline; }
+.graph-info-row .info-reason { color: #888; font-size: 11px; }
+
 /* ── 英雄页搜索栏 ── */
 .hero-search-bar {
   position: relative;
@@ -1355,6 +1629,7 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   <nav>
     <a class="active" onclick="showTab('heroes')">英雄</a>
     <a onclick="showTab('items')">物品</a>
+    <a onclick="showTab('graph')">克制图谱</a>
   </nav>
   <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
   <div class="search-wrap">
@@ -1457,6 +1732,44 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   </div>
 </div>
 
+<!-- 克制图谱页 -->
+<div id="graphView" style="display:none">
+  <div class="graph-toolbar">
+    <div class="graph-search-wrap">
+      <input type="text" id="graphSearchInput" placeholder="搜索英雄或物品，点击节点展开关系..." oninput="onGraphSearch()" autocomplete="off">
+      <span class="graph-search-icon">🔍</span>
+      <div class="graph-search-dropdown" id="graphSearchDropdown"></div>
+    </div>
+    <div class="graph-legend">
+      <span class="legend-dot" style="background:#4a9eff"></span><span>英雄</span>
+      <span class="legend-dot" style="background:#f5a623"></span><span>物品</span>
+      <span class="legend-arrow" style="color:#e05555">→</span><span>克制</span>
+    </div>
+    <div class="graph-controls">
+      <button onclick="graphZoomIn()">＋</button>
+      <button onclick="graphZoomOut()">－</button>
+      <button onclick="graphReset()">重置</button>
+    </div>
+  </div>
+  <div class="graph-container" id="graphContainer">
+    <svg id="graphSvg"></svg>
+    <div class="graph-empty" id="graphEmpty">
+      搜索英雄或物品，点击节点展开其克制关系图谱
+    </div>
+  </div>
+  <div class="graph-node-info" id="graphNodeInfo" style="display:none">
+    <div class="graph-node-info-header">
+      <img id="graphNodeImg" src="" alt="">
+      <div>
+        <div class="graph-node-info-name" id="graphNodeName"></div>
+        <div class="graph-node-info-sub" id="graphNodeSub"></div>
+      </div>
+      <button onclick="document.getElementById('graphNodeInfo').style.display='none'">✕</button>
+    </div>
+    <div class="graph-node-info-body" id="graphNodeInfoBody"></div>
+  </div>
+</div>
+
 <script>
 const CDN = 'https://cdn.cloudflare.steamstatic.com';
 let heroesData = {}, itemsData = {}, currentTab = 'heroes', searchQuery = '';
@@ -1493,13 +1806,15 @@ function showTab(tab) {
   searchQuery = '';
   document.getElementById('searchInput').value = '';
   document.querySelectorAll('header nav a').forEach((a, i) =>
-    a.classList.toggle('active', (i === 0 && tab === 'heroes') || (i === 1 && tab === 'items')));
+    a.classList.toggle('active', (i === 0 && tab === 'heroes') || (i === 1 && tab === 'items') || (i === 2 && tab === 'graph')));
   document.getElementById('heroesView').style.display = tab === 'heroes' ? '' : 'none';
   document.getElementById('detailView').style.display = 'none';
   document.getElementById('itemsView').style.display = tab === 'items' ? '' : 'none';
   document.getElementById('itemDetailView').style.display = 'none';
+  document.getElementById('graphView').style.display = tab === 'graph' ? '' : 'none';
   if (tab === 'heroes') renderHeroes();
-  else renderItems();
+  else if (tab === 'items') renderItems();
+  else if (tab === 'graph') initGraph();
 }
 
 function onSearch() {
@@ -2541,6 +2856,458 @@ function formatDesc(text, attrib) {
       const v = attrib && attrib[k];
       return v != null ? `<b style="color:#c89b3c">${v}</b>` : `<span style="color:#555">${k}</span>`;
     });
+}
+
+loadData();
+
+// ════════════════════════════════════════════════
+// 克制图谱 (D3 Force Graph)
+// ════════════════════════════════════════════════
+
+let graphInited = false;
+let graphSimulation = null;
+let graphSvgSel = null;
+let graphG = null;          // main group (zoomed)
+let graphZoomBehavior = null;
+let graphCountersData = {}; // hero counters (countered_by)
+let graphAllNodes = {};     // id -> node object
+let graphAllEdges = [];     // full edge list
+let graphActiveNodeIds = new Set();  // nodes currently shown
+let graphLinkSel, graphNodeSel;
+
+async function initGraph() {
+  if (graphInited) return;
+  graphInited = true;
+
+  // Load hero counters data
+  try {
+    const r = await fetch('/api/graph_data');
+    graphCountersData = await r.json();
+  } catch(e) {
+    console.error('Failed to load graph data', e);
+    return;
+  }
+
+  buildGraphIndex();
+  setupGraphSvg();
+}
+
+function buildGraphIndex() {
+  graphAllNodes = {};
+  graphAllEdges = [];
+
+  // Hero nodes
+  for (const [fullKey, h] of Object.entries(heroesData)) {
+    const id = fullKey;
+    graphAllNodes[id] = {
+      id, type: 'hero',
+      name: h.name || h.name_en,
+      img: h.icon || h.img || '',
+      attr: h.primary_attr,
+      data: h,
+    };
+  }
+
+  // Item nodes (only items that participate in counter relations)
+  for (const [key, item] of Object.entries(itemsData)) {
+    if (!item.name) continue;
+    const hasRelations = (item.counters_of && item.counters_of.length) ||
+                         (item.counters && item.counters.length) ||
+                         (item.hero_counters && item.hero_counters.length);
+    if (!hasRelations) continue;
+    graphAllNodes[key] = {
+      id: key, type: 'item',
+      name: item.name || item.name_en,
+      img: item.img || '',
+      cost: item.cost,
+      data: item,
+    };
+  }
+
+  // Edges: hero -> hero (countered_by means "source counters target")
+  for (const [shortKey, val] of Object.entries(graphCountersData)) {
+    const targetId = `npc_dota_hero_${shortKey}`;
+    for (const c of (val.countered_by || [])) {
+      const sourceId = `npc_dota_hero_${c.key}`;
+      if (graphAllNodes[sourceId] && graphAllNodes[targetId]) {
+        graphAllEdges.push({
+          source: sourceId, target: targetId,
+          type: 'hero-hero',
+          reason: (c.reasons || [])[0] || '',
+          strength: c.strength || 'moderate',
+        });
+      }
+    }
+  }
+
+  // Edges: item -> item (counters_of: items that counter this item)
+  for (const [itemKey, item] of Object.entries(itemsData)) {
+    for (const e of (item.counters_of || [])) {
+      const src = e.counter || e;
+      if (graphAllNodes[src] && graphAllNodes[itemKey]) {
+        graphAllEdges.push({
+          source: src, target: itemKey,
+          type: 'item-item',
+          reason: e.reason || '',
+        });
+      }
+    }
+    // item.counters: items that this item counters
+    for (const e of (item.counters || [])) {
+      const tgt = e.counter || e;
+      if (graphAllNodes[itemKey] && graphAllNodes[tgt]) {
+        graphAllEdges.push({
+          source: itemKey, target: tgt,
+          type: 'item-item',
+          reason: e.reason || '',
+        });
+      }
+    }
+    // item -> hero
+    for (const e of (item.hero_counters || [])) {
+      const tgt = `npc_dota_hero_${e.hero}`;
+      if (graphAllNodes[itemKey] && graphAllNodes[tgt]) {
+        graphAllEdges.push({
+          source: itemKey, target: tgt,
+          type: 'item-hero',
+          reason: e.reason || '',
+        });
+      }
+    }
+  }
+
+  document.getElementById('graphEmpty').style.display = '';
+}
+
+function setupGraphSvg() {
+  const svg = d3.select('#graphSvg');
+  const width = document.getElementById('graphContainer').clientWidth;
+  const height = document.getElementById('graphContainer').clientHeight;
+
+  svg.selectAll('*').remove();
+
+  // Arrow markers
+  const defs = svg.append('defs');
+  const mkArrow = (id, color) => {
+    defs.append('marker')
+      .attr('id', id)
+      .attr('viewBox', '0 -5 10 10')
+      .attr('refX', 22).attr('refY', 0)
+      .attr('markerWidth', 6).attr('markerHeight', 6)
+      .attr('orient', 'auto')
+      .append('path')
+      .attr('d', 'M0,-5L10,0L0,5')
+      .attr('fill', color);
+  };
+  mkArrow('arrow-hero-hero', '#e05555');
+  mkArrow('arrow-item-item', '#f5a623');
+  mkArrow('arrow-item-hero', '#e05555');
+
+  graphZoomBehavior = d3.zoom()
+    .scaleExtent([0.1, 4])
+    .on('zoom', (event) => {
+      graphG.attr('transform', event.transform);
+    });
+
+  svg.call(graphZoomBehavior);
+  graphG = svg.append('g');
+  graphSvgSel = svg;
+
+  // Simulation
+  graphSimulation = d3.forceSimulation()
+    .force('link', d3.forceLink().id(d => d.id).distance(d => {
+      if (d.type === 'hero-hero') return 140;
+      if (d.type === 'item-hero') return 120;
+      return 100;
+    }).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-300))
+    .force('center', d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide(28));
+
+  // Empty containers
+  graphG.append('g').attr('class', 'links-layer');
+  graphG.append('g').attr('class', 'nodes-layer');
+
+  svg.on('click', (event) => {
+    if (event.target === svg.node()) {
+      document.getElementById('graphNodeInfo').style.display = 'none';
+    }
+  });
+}
+
+function edgeId(e, side) {
+  const v = e[side];
+  return typeof v === 'object' && v !== null ? v.id : v;
+}
+
+function getNeighborIds(nodeId, depth = 1) {
+  const visited = new Set([nodeId]);
+  let frontier = [nodeId];
+  for (let d = 0; d < depth; d++) {
+    const next = [];
+    for (const eid of graphAllEdges) {
+      const src = edgeId(eid, 'source');
+      const tgt = edgeId(eid, 'target');
+      if (frontier.includes(src) && !visited.has(tgt)) {
+        visited.add(tgt); next.push(tgt);
+      }
+      if (frontier.includes(tgt) && !visited.has(src)) {
+        visited.add(src); next.push(src);
+      }
+    }
+    frontier = next;
+  }
+  return visited;
+}
+
+function focusNode(nodeId) {
+  document.getElementById('graphEmpty').style.display = 'none';
+  const neighbors = getNeighborIds(nodeId, 1);
+  graphActiveNodeIds = neighbors;
+  redrawGraph(nodeId);
+  showNodeInfo(nodeId);
+}
+
+function redrawGraph(centerNodeId) {
+  const nodeIds = graphActiveNodeIds;
+  const nodes = [...nodeIds].map(id => ({ ...graphAllNodes[id] }));
+
+  const edgeMap = new Map(nodes.map(n => [n.id, true]));
+  const links = graphAllEdges
+    .filter(e => edgeMap.has(edgeId(e, 'source')) && edgeMap.has(edgeId(e, 'target')))
+    .map(e => ({ ...e, source: edgeId(e, 'source'), target: edgeId(e, 'target') }));
+
+  // Deduplicate links (keep only one direction for item-item to avoid loops)
+  const seenLinks = new Set();
+  const deduped = links.filter(e => {
+    const k1 = `${e.source}|${e.target}`;
+    const k2 = `${e.target}|${e.source}`;
+    if (e.type === 'item-item' && (seenLinks.has(k1) || seenLinks.has(k2))) return false;
+    seenLinks.add(k1);
+    return true;
+  });
+
+  graphSimulation.stop();
+
+  const linksLayer = graphG.select('.links-layer');
+  const nodesLayer = graphG.select('.nodes-layer');
+
+  linksLayer.selectAll('*').remove();
+  nodesLayer.selectAll('*').remove();
+
+  // Links
+  const link = linksLayer.selectAll('.g-link')
+    .data(deduped)
+    .enter().append('path')
+    .attr('class', d => `g-link ${d.type}`)
+    .attr('marker-end', d => `url(#arrow-${d.type})`);
+
+  // Nodes
+  const node = nodesLayer.selectAll('.g-node')
+    .data(nodes)
+    .enter().append('g')
+    .attr('class', d => `g-node${d.id === centerNodeId ? ' pinned' : ''}`)
+    .call(d3.drag()
+      .on('start', dragStarted)
+      .on('drag', dragged)
+      .on('end', dragEnded))
+    .on('click', (event, d) => {
+      event.stopPropagation();
+      focusNode(d.id);
+    });
+
+  const ATTR_COLOR = { str: '#e05555', agi: '#6ec86e', int: '#6aacee', all: '#4fd6cc' };
+
+  node.append('circle')
+    .attr('r', d => d.id === centerNodeId ? 18 : 14)
+    .attr('fill', d => {
+      if (d.type === 'hero') return ATTR_COLOR[d.attr] || '#4a9eff';
+      return '#f5a623';
+    })
+    .attr('stroke', d => d.id === centerNodeId ? '#fff' : (d.type === 'hero' ? '#2a5a99' : '#7a5010'));
+
+  // Hero: icon image clipped to circle
+  const heroNodes = node.filter(d => d.type === 'hero' && d.img);
+  const defs = graphSvgSel.select('defs');
+
+  heroNodes.each(function(d) {
+    const r = d.id === centerNodeId ? 18 : 14;
+    const clipId = `clip-${d.id.replace(/[^a-z0-9]/gi, '_')}`;
+    defs.append('clipPath').attr('id', clipId)
+      .append('circle').attr('r', r);
+    d3.select(this).append('image')
+      .attr('href', d.img)
+      .attr('x', -r * 1.5).attr('y', -r)
+      .attr('width', r * 3).attr('height', r * 2)
+      .attr('clip-path', `url(#${clipId})`)
+      .attr('preserveAspectRatio', 'xMidYMid slice');
+  });
+
+  // Item: icon image
+  const itemNodes = node.filter(d => d.type === 'item' && d.img);
+  itemNodes.each(function(d) {
+    const r = d.id === centerNodeId ? 18 : 14;
+    const clipId = `clip-${d.id.replace(/[^a-z0-9]/gi, '_')}`;
+    defs.append('clipPath').attr('id', clipId)
+      .append('circle').attr('r', r);
+    d3.select(this).append('image')
+      .attr('href', d.img)
+      .attr('x', -r * 1.2).attr('y', -r)
+      .attr('width', r * 2.4).attr('height', r * 2)
+      .attr('clip-path', `url(#${clipId})`)
+      .attr('preserveAspectRatio', 'xMidYMid slice');
+  });
+
+  node.append('text')
+    .attr('class', 'g-node-label')
+    .attr('y', d => (d.id === centerNodeId ? 18 : 14) + 13)
+    .text(d => d.name);
+
+  // Simulation
+  graphSimulation.nodes(nodes).on('tick', () => {
+    link.attr('d', linkArc);
+    node.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+
+  graphSimulation.force('link').links(deduped);
+  graphSimulation.alpha(0.8).restart();
+
+  // Center view
+  const w = graphSvgSel.node().clientWidth;
+  const h = graphSvgSel.node().clientHeight;
+  graphSvgSel.transition().duration(400)
+    .call(graphZoomBehavior.transform, d3.zoomIdentity.translate(w/2, h/2).scale(1));
+}
+
+function linkArc(d) {
+  const dx = d.target.x - d.source.x;
+  const dy = d.target.y - d.source.y;
+  const dr = Math.sqrt(dx*dx + dy*dy);
+  return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+}
+
+function dragStarted(event, d) {
+  if (!event.active) graphSimulation.alphaTarget(0.3).restart();
+  d.fx = d.x; d.fy = d.y;
+}
+function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+function dragEnded(event, d) {
+  if (!event.active) graphSimulation.alphaTarget(0);
+  d.fx = null; d.fy = null;
+}
+
+function showNodeInfo(nodeId) {
+  const node = graphAllNodes[nodeId];
+  if (!node) return;
+
+  document.getElementById('graphNodeImg').src = node.img || '';
+  document.getElementById('graphNodeName').textContent = node.name;
+  document.getElementById('graphNodeSub').textContent =
+    node.type === 'hero'
+      ? `英雄 · ${node.attr ? ({str:'力量',agi:'敏捷',int:'智力',all:'全才'}[node.attr]||node.attr) : ''}`
+      : `物品 · ${node.cost ? node.cost + ' 金币' : ''}`;
+
+  // Build edge lists from/to this node
+  const outEdges = graphAllEdges.filter(e => e.source === nodeId || e.source.id === nodeId);
+  const inEdges = graphAllEdges.filter(e => e.target === nodeId || e.target.id === nodeId);
+
+  let html = '';
+
+  if (outEdges.length) {
+    html += `<div class="graph-info-section">
+      <div class="graph-info-section-title">被「${node.name}」克制</div>`;
+    for (const e of outEdges.slice(0, 12)) {
+      const tgtId = typeof e.target === 'object' ? e.target.id : e.target;
+      const tgt = graphAllNodes[tgtId];
+      if (!tgt) continue;
+      html += `<div class="graph-info-row">
+        <img src="${tgt.img}" onerror="this.style.opacity='.3'">
+        <span class="info-name" onclick="focusNode('${tgtId}')">${tgt.name}</span>
+        ${e.reason ? `<span class="info-reason">${e.reason.slice(0,30)}</span>` : ''}
+      </div>`;
+    }
+    html += '</div>';
+  }
+
+  if (inEdges.length) {
+    html += `<div class="graph-info-section">
+      <div class="graph-info-section-title">克制「${node.name}」的</div>`;
+    for (const e of inEdges.slice(0, 12)) {
+      const srcId = typeof e.source === 'object' ? e.source.id : e.source;
+      const src = graphAllNodes[srcId];
+      if (!src) continue;
+      html += `<div class="graph-info-row">
+        <img src="${src.img}" onerror="this.style.opacity='.3'">
+        <span class="info-name" onclick="focusNode('${srcId}')">${src.name}</span>
+        ${e.reason ? `<span class="info-reason">${e.reason.slice(0,30)}</span>` : ''}
+      </div>`;
+    }
+    html += '</div>';
+  }
+
+  if (!html) html = '<div style="color:#555;font-size:13px;padding:8px 0">暂无克制关系数据</div>';
+
+  document.getElementById('graphNodeInfoBody').innerHTML = html;
+  document.getElementById('graphNodeInfo').style.display = '';
+}
+
+// Search
+let graphSearchTimeout = null;
+function onGraphSearch() {
+  clearTimeout(graphSearchTimeout);
+  graphSearchTimeout = setTimeout(() => {
+    const q = document.getElementById('graphSearchInput').value.trim().toLowerCase();
+    const dd = document.getElementById('graphSearchDropdown');
+    if (!q) { dd.classList.remove('open'); return; }
+
+    const results = [];
+    for (const [id, node] of Object.entries(graphAllNodes)) {
+      if (node.name && node.name.toLowerCase().includes(q)) results.push(node);
+      if (results.length >= 12) break;
+    }
+
+    if (!results.length) { dd.classList.remove('open'); return; }
+
+    dd.innerHTML = results.map(n => `
+      <div class="graph-dropdown-item" onclick="selectGraphNode('${n.id}')">
+        <img src="${n.img}" onerror="this.style.opacity='.3'" alt="">
+        <div>
+          <div class="dd-name">${n.name}</div>
+          <div class="dd-type">${n.type === 'hero' ? '英雄' : '物品'}</div>
+        </div>
+      </div>`).join('');
+    dd.classList.add('open');
+  }, 150);
+}
+
+function selectGraphNode(nodeId) {
+  const node = graphAllNodes[nodeId];
+  if (!node) return;
+  document.getElementById('graphSearchInput').value = node.name;
+  document.getElementById('graphSearchDropdown').classList.remove('open');
+  focusNode(nodeId);
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.graph-search-wrap')) {
+    document.getElementById('graphSearchDropdown')?.classList.remove('open');
+  }
+});
+
+function graphZoomIn() {
+  if (!graphSvgSel) return;
+  graphSvgSel.transition().duration(250).call(graphZoomBehavior.scaleBy, 1.4);
+}
+function graphZoomOut() {
+  if (!graphSvgSel) return;
+  graphSvgSel.transition().duration(250).call(graphZoomBehavior.scaleBy, 0.7);
+}
+function graphReset() {
+  if (!graphSvgSel) return;
+  const w = graphSvgSel.node().clientWidth;
+  const h = graphSvgSel.node().clientHeight;
+  graphSvgSel.transition().duration(400)
+    .call(graphZoomBehavior.transform, d3.zoomIdentity.translate(w/2, h/2).scale(1));
 }
 
 loadData();

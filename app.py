@@ -125,5 +125,23 @@ def api_item(key: str):
     return jsonify(item)
 
 
+@app.route("/api/graph_data")
+def api_graph_data():
+    if not COUNTERS_FILE.exists():
+        return jsonify({})
+    data = json.loads(COUNTERS_FILE.read_text(encoding="utf-8"))
+    # Return compact form: {shortKey: {countered_by: [{key, name, strength}]}}
+    result = {}
+    for short_key, val in data.items():
+        result[short_key] = {
+            "countered_by": [
+                {"key": c["key"], "name": c.get("name", ""), "strength": c.get("strength", "moderate"),
+                 "reasons": c.get("reasons", [])}
+                for c in val.get("countered_by", [])
+            ]
+        }
+    return jsonify(result)
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8000)

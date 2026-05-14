@@ -1153,17 +1153,54 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   background: radial-gradient(ellipse at center, #1a1a2e 0%, #111 70%);
 }
 
-#graphSvg {
+#graphSvg, #graphCounterSvg, #graphSynergySvg {
   width: 100%;
   height: 100%;
   display: block;
 }
 
+/* 左右分栏 */
+.graph-split {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.graph-split-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.graph-split-title {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  letter-spacing: .5px;
+  padding: 6px 0 4px;
+  background: #161616;
+  border-bottom: 1px solid #222;
+  flex-shrink: 0;
+}
+
+.graph-split-divider {
+  width: 1px;
+  background: #2a2a2a;
+  flex-shrink: 0;
+}
+
+.graph-split-container {
+  flex: 1;
+}
+
 .graph-empty {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #444;
   font-size: 15px;
   text-align: center;
@@ -1668,7 +1705,7 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
   <nav>
     <a class="active" onclick="showTab('heroes')">英雄</a>
     <a onclick="showTab('items')">物品</a>
-    <a onclick="showTab('graph')">克制图谱</a>
+    <a onclick="showTab('graph')">图谱</a>
   </nav>
   <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
   <div class="search-wrap">
@@ -1777,14 +1814,15 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
 <div id="graphView" style="display:none">
   <div class="graph-toolbar">
     <div class="graph-search-wrap">
-      <input type="text" id="graphSearchInput" placeholder="搜索英雄或物品，点击节点展开关系..." oninput="onGraphSearch()" autocomplete="off">
+      <input type="text" id="graphSearchInput" placeholder="搜索英雄查看克制与配合图谱，或搜索物品..." oninput="onGraphSearch()" autocomplete="off">
       <span class="graph-search-icon">🔍</span>
       <div class="graph-search-dropdown" id="graphSearchDropdown"></div>
     </div>
-    <div class="graph-legend">
+    <div class="graph-legend" id="graphLegend">
       <span class="legend-dot" style="background:#4a9eff"></span><span>英雄</span>
       <span class="legend-dot" style="background:#f5a623"></span><span>物品</span>
       <span class="legend-arrow" style="color:#e05555">→</span><span>克制</span>
+      <span class="legend-arrow" style="color:#6ec86e">→</span><span>配合</span>
     </div>
     <div class="graph-controls">
       <button onclick="graphZoomIn()">＋</button>
@@ -1792,22 +1830,31 @@ main { padding: 24px 32px 48px; max-width: 1400px; margin: 0 auto; }
       <button onclick="graphReset()">重置</button>
     </div>
   </div>
-  <div class="graph-container" id="graphContainer">
-    <svg id="graphSvg"></svg>
-    <div class="graph-empty" id="graphEmpty">
-      搜索英雄或物品，点击节点展开其克制关系图谱
+
+  <!-- 英雄模式：左右分栏 -->
+  <div class="graph-split" id="graphSplit" style="display:none">
+    <div class="graph-split-pane" id="graphCounterPane">
+      <div class="graph-split-title">克制图谱</div>
+      <div class="graph-container graph-split-container" id="graphCounterContainer">
+        <svg id="graphCounterSvg"></svg>
+      </div>
+    </div>
+    <div class="graph-split-divider"></div>
+    <div class="graph-split-pane" id="graphSynergyPane">
+      <div class="graph-split-title">配合图谱</div>
+      <div class="graph-container graph-split-container" id="graphSynergyContainer">
+        <svg id="graphSynergySvg"></svg>
+      </div>
     </div>
   </div>
-  <div class="graph-node-info" id="graphNodeInfo" style="display:none">
-    <div class="graph-node-info-header">
-      <img id="graphNodeImg" src="" alt="">
-      <div>
-        <div class="graph-node-info-name" id="graphNodeName"></div>
-        <div class="graph-node-info-sub" id="graphNodeSub"></div>
-      </div>
-      <button onclick="document.getElementById('graphNodeInfo').style.display='none'">✕</button>
-    </div>
-    <div class="graph-node-info-body" id="graphNodeInfoBody"></div>
+
+  <!-- 物品/单图模式 -->
+  <div class="graph-container" id="graphContainer" style="display:none">
+    <svg id="graphSvg"></svg>
+  </div>
+
+  <div class="graph-empty" id="graphEmpty">
+    搜索英雄查看克制与配合图谱，或搜索物品查看克制关系
   </div>
 </div>
 
@@ -2926,409 +2973,359 @@ function formatDesc(text, attrib) {
 loadData();
 
 // ════════════════════════════════════════════════
-// 克制图谱 (D3 Force Graph)
+// 图谱 (D3 Force Graph)
 // ════════════════════════════════════════════════
 
 let graphInited = false;
-let graphSimulation = null;
-let graphSvgSel = null;
-let graphG = null;          // main group (zoomed)
-let graphZoomBehavior = null;
 let graphCountersData = {}; // hero counters (countered_by)
+let graphSynergiesData = {}; // hero synergies
 let graphAllNodes = {};     // id -> node object
-let graphAllEdges = [];     // full edge list
-let graphActiveNodeIds = new Set();  // nodes currently shown
-let graphLinkSel, graphNodeSel;
+let graphCounterEdges = []; // hero-hero counter edges
+let graphCounterItemEdges = []; // item->hero counter edges (for hero focus counter panel)
+let graphSynergyEdges = []; // hero-hero synergy edges
+let graphSynergyItemEdges = []; // item->hero fit edges (for hero focus synergy panel)
+let graphItemEdges = [];    // item edge list (for item focus mode)
+
+// Per-panel state: { svg, sim, zoom, g }
+let gPanelCounter = null;
+let gPanelSynergy = null;
+let gPanelSingle = null;   // item/single mode
 
 async function initGraph() {
   if (graphInited) return;
   graphInited = true;
-
-  // Load hero counters data
   try {
-    const r = await fetch('/api/graph_data');
-    graphCountersData = await r.json();
+    const [cr, sr] = await Promise.all([fetch('/api/graph_data'), fetch('/api/graph_synergies')]);
+    graphCountersData = await cr.json();
+    graphSynergiesData = await sr.json();
   } catch(e) {
     console.error('Failed to load graph data', e);
     return;
   }
-
   buildGraphIndex();
-  setupGraphSvg();
 }
 
 function buildGraphIndex() {
   graphAllNodes = {};
-  graphAllEdges = [];
+  graphCounterEdges = [];
+  graphCounterItemEdges = [];
+  graphSynergyEdges = [];
+  graphSynergyItemEdges = [];
+  graphItemEdges = [];
 
-  // Hero nodes
+  // All heroes
   for (const [fullKey, h] of Object.entries(heroesData)) {
-    const id = fullKey;
-    graphAllNodes[id] = {
-      id, type: 'hero',
+    graphAllNodes[fullKey] = {
+      id: fullKey, type: 'hero',
       name: h.name || h.name_en,
       img: h.icon || h.img || '',
-      attr: h.primary_attr,
-      data: h,
+      attr: h.primary_attr, data: h,
     };
   }
-
-  // Item nodes (only items that participate in counter relations)
+  // All named items (always register, edges will filter)
   for (const [key, item] of Object.entries(itemsData)) {
     if (!item.name) continue;
-    const hasRelations = (item.counters_of && item.counters_of.length) ||
-                         (item.counters && item.counters.length) ||
-                         (item.hero_counters && item.hero_counters.length);
-    if (!hasRelations) continue;
     graphAllNodes[key] = {
       id: key, type: 'item',
       name: item.name || item.name_en,
-      img: item.img || '',
-      cost: item.cost,
-      data: item,
+      img: item.img || '', cost: item.cost, data: item,
     };
   }
 
-  // Edges: hero -> hero (countered_by means "source counters target")
+  // Hero-hero counter edges: countered_by[source hero] → target hero
   for (const [shortKey, val] of Object.entries(graphCountersData)) {
     const targetId = `npc_dota_hero_${shortKey}`;
     for (const c of (val.countered_by || [])) {
       const sourceId = `npc_dota_hero_${c.key}`;
       if (graphAllNodes[sourceId] && graphAllNodes[targetId]) {
-        graphAllEdges.push({
-          source: sourceId, target: targetId,
-          type: 'hero-hero',
-          reason: (c.reasons || [])[0] || '',
+        graphCounterEdges.push({
+          source: sourceId, target: targetId, type: 'hero-hero',
+          reasons: c.reasons || [], reason: (c.reasons || [])[0] || '',
           strength: c.strength || 'moderate',
         });
       }
     }
   }
 
-  // Edges: item -> item (counters_of: items that counter this item)
-  for (const [itemKey, item] of Object.entries(itemsData)) {
-    for (const e of (item.counters_of || [])) {
-      const src = e.counter || e;
-      if (graphAllNodes[src] && graphAllNodes[itemKey]) {
-        graphAllEdges.push({
-          source: src, target: itemKey,
-          type: 'item-item',
-          reason: e.reason || '',
-        });
-      }
-    }
-    // item.counters: items that this item counters
-    for (const e of (item.counters || [])) {
-      const tgt = e.counter || e;
-      if (graphAllNodes[itemKey] && graphAllNodes[tgt]) {
-        graphAllEdges.push({
-          source: itemKey, target: tgt,
-          type: 'item-item',
-          reason: e.reason || '',
-        });
-      }
-    }
-    // item -> hero
-    for (const e of (item.hero_counters || [])) {
-      const tgt = `npc_dota_hero_${e.hero}`;
-      if (graphAllNodes[itemKey] && graphAllNodes[tgt]) {
-        graphAllEdges.push({
-          source: itemKey, target: tgt,
-          type: 'item-hero',
-          reason: e.reason || '',
-        });
+  // Hero-hero synergy edges (deduplicated)
+  for (const [shortKey, val] of Object.entries(graphSynergiesData)) {
+    const heroId = `npc_dota_hero_${shortKey}`;
+    for (const s of (val.synergies || [])) {
+      const otherId = `npc_dota_hero_${s.key}`;
+      if (graphAllNodes[heroId] && graphAllNodes[otherId]) {
+        const already = graphSynergyEdges.find(e =>
+          (e.source === heroId && e.target === otherId) ||
+          (e.source === otherId && e.target === heroId));
+        if (!already) {
+          graphSynergyEdges.push({
+            source: heroId, target: otherId, type: 'hero-synergy',
+            reasons: s.reasons || [], reason: (s.reasons || [])[0] || '',
+            strength: s.strength || 'moderate',
+          });
+        }
       }
     }
   }
 
-  document.getElementById('graphEmpty').style.display = '';
+  // Item → hero counter edges (item counters hero)
+  for (const [itemKey, item] of Object.entries(itemsData)) {
+    for (const e of (item.hero_counters || [])) {
+      const heroId = `npc_dota_hero_${e.hero}`;
+      if (graphAllNodes[itemKey] && graphAllNodes[heroId]) {
+        graphCounterItemEdges.push({
+          source: itemKey, target: heroId, type: 'item-hero',
+          reasons: [e.reason || ''], reason: e.reason || '',
+        });
+      }
+    }
+    // Item → hero fit edges (item fits hero, shown in synergy panel)
+    for (const e of (item.hero_fits || [])) {
+      const heroId = `npc_dota_hero_${e.hero}`;
+      if (graphAllNodes[itemKey] && graphAllNodes[heroId]) {
+        graphSynergyItemEdges.push({
+          source: itemKey, target: heroId, type: 'item-fit',
+          reasons: [e.reason || ''], reason: e.reason || '',
+        });
+      }
+    }
+    // Item-item edges for item focus mode
+    for (const e of (item.counters_of || [])) {
+      const src = e.counter || e;
+      if (graphAllNodes[src] && graphAllNodes[itemKey])
+        graphItemEdges.push({ source: src, target: itemKey, type: 'item-item', reason: e.reason || '' });
+    }
+    for (const e of (item.counters || [])) {
+      const tgt = e.counter || e;
+      if (graphAllNodes[itemKey] && graphAllNodes[tgt])
+        graphItemEdges.push({ source: itemKey, target: tgt, type: 'item-item', reason: e.reason || '' });
+    }
+    for (const e of (item.hero_counters || [])) {
+      const tgt = `npc_dota_hero_${e.hero}`;
+      if (graphAllNodes[itemKey] && graphAllNodes[tgt])
+        graphItemEdges.push({ source: itemKey, target: tgt, type: 'item-hero', reason: e.reason || '' });
+    }
+  }
 }
 
-function setupGraphSvg() {
-  const svg = d3.select('#graphSvg');
-  const width = document.getElementById('graphContainer').clientWidth;
-  const height = document.getElementById('graphContainer').clientHeight;
+// ── Panel creation ──────────────────────────────
 
+function createPanel(svgId, containerId) {
+  const svg = d3.select('#' + svgId);
   svg.selectAll('*').remove();
 
-  // Arrow markers
   const defs = svg.append('defs');
-  const mkArrow = (id, color) => {
-    defs.append('marker')
-      .attr('id', id)
-      .attr('viewBox', '0 -5 10 10')
-      .attr('refX', 22).attr('refY', 0)
-      .attr('markerWidth', 6).attr('markerHeight', 6)
-      .attr('orient', 'auto')
-      .append('path')
-      .attr('d', 'M0,-5L10,0L0,5')
-      .attr('fill', color);
-  };
+  const mkArrow = (id, color) => defs.append('marker')
+    .attr('id', id + '-' + svgId).attr('viewBox', '0 -5 10 10')
+    .attr('refX', 22).attr('refY', 0).attr('markerWidth', 6).attr('markerHeight', 6)
+    .attr('orient', 'auto').append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', color);
   mkArrow('arrow-hero-hero', '#e05555');
+  mkArrow('arrow-synergy', '#6ec86e');
   mkArrow('arrow-item-item', '#f5a623');
   mkArrow('arrow-item-hero', '#e05555');
+  mkArrow('arrow-item-fit', '#6ec86e');
 
-  graphZoomBehavior = d3.zoom()
-    .scaleExtent([0.1, 4])
-    .on('zoom', (event) => {
-      graphG.attr('transform', event.transform);
-    });
+  const zoom = d3.zoom().scaleExtent([0.1, 4]).on('zoom', ev => g.attr('transform', ev.transform));
+  svg.call(zoom);
+  const g = svg.append('g');
+  g.append('g').attr('class', 'links-layer');
+  g.append('g').attr('class', 'nodes-layer');
 
-  svg.call(graphZoomBehavior);
-  graphG = svg.append('g');
-  graphSvgSel = svg;
+  const container = document.getElementById(containerId);
+  const w = container.clientWidth, h = container.clientHeight;
 
-  // Simulation
-  graphSimulation = d3.forceSimulation()
-    .force('link', d3.forceLink().id(d => d.id).distance(d => {
-      if (d.type === 'hero-hero') return 140;
-      if (d.type === 'item-hero') return 120;
-      return 100;
-    }).strength(0.4))
-    .force('charge', d3.forceManyBody().strength(-300))
-    .force('center', d3.forceCenter(width / 2, height / 2))
+  const sim = d3.forceSimulation()
+    .force('link', d3.forceLink().id(d => d.id).distance(130).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-280))
+    .force('center', d3.forceCenter(w / 2, h / 2))
     .force('collision', d3.forceCollide(28));
 
-  // Empty containers
-  graphG.append('g').attr('class', 'links-layer');
-  graphG.append('g').attr('class', 'nodes-layer');
-
-  svg.on('click', (event) => {
-    if (event.target === svg.node()) {
-      document.getElementById('graphNodeInfo').style.display = 'none';
-    }
-  });
+  return { svg, g, zoom, sim, svgId };
 }
+
+// ── Draw a graph in a panel ─────────────────────
 
 function edgeId(e, side) {
   const v = e[side];
   return typeof v === 'object' && v !== null ? v.id : v;
 }
 
-function getNeighborIds(nodeId, depth = 1) {
-  const visited = new Set([nodeId]);
-  let frontier = [nodeId];
-  for (let d = 0; d < depth; d++) {
-    const next = [];
-    for (const eid of graphAllEdges) {
-      const src = edgeId(eid, 'source');
-      const tgt = edgeId(eid, 'target');
-      if (frontier.includes(src) && !visited.has(tgt)) {
-        visited.add(tgt); next.push(tgt);
-      }
-      if (frontier.includes(tgt) && !visited.has(src)) {
-        visited.add(src); next.push(src);
-      }
-    }
-    frontier = next;
+function drawPanel(panel, centerNodeId, edges) {
+  const { svg, g, zoom, sim, svgId } = panel;
+
+  // Collect relevant node IDs (center + direct neighbors via edges)
+  const nodeIds = new Set([centerNodeId]);
+  // Build a map: neighborId -> edge connecting it to center (for tooltip reasons)
+  const neighborEdgeMap = {};
+  for (const e of edges) {
+    const s = edgeId(e, 'source'), t = edgeId(e, 'target');
+    if (s === centerNodeId) { nodeIds.add(t); neighborEdgeMap[t] = e; }
+    if (t === centerNodeId) { nodeIds.add(s); neighborEdgeMap[s] = e; }
   }
-  return visited;
+
+  const nodes = [...nodeIds].filter(id => graphAllNodes[id]).map(id => ({ ...graphAllNodes[id] }));
+  const links = edges
+    .filter(e => {
+      const s = edgeId(e, 'source'), t = edgeId(e, 'target');
+      return s === centerNodeId || t === centerNodeId;
+    })
+    .map(e => ({ ...e, source: edgeId(e, 'source'), target: edgeId(e, 'target') }));
+
+  // Deduplicate same-pair edges
+  const seen = new Set();
+  const deduped = links.filter(e => {
+    const k = [e.source, e.target].sort().join('|') + '|' + e.type;
+    if (seen.has(k)) return false;
+    seen.add(k); return true;
+  });
+
+  sim.stop();
+  g.select('.links-layer').selectAll('*').remove();
+  g.select('.nodes-layer').selectAll('*').remove();
+  svg.select('defs').selectAll('clipPath').remove();
+
+  const linkSel = g.select('.links-layer').selectAll('.g-link')
+    .data(deduped).enter().append('path')
+    .attr('class', d => `g-link ${d.type}`)
+    .attr('marker-end', d => `url(#arrow-${d.type}-${svgId})`)
+    .attr('stroke', d => (d.type === 'hero-synergy' || d.type === 'item-fit') ? '#6ec86e' : d.type === 'item-item' ? '#f5a623' : '#e05555')
+    .attr('stroke-opacity', 0.6).attr('stroke-width', 1.5).attr('fill', 'none');
+
+  const ATTR_COLOR = { str: '#e05555', agi: '#6ec86e', int: '#6aacee', all: '#4fd6cc' };
+  const nodeSel = g.select('.nodes-layer').selectAll('.g-node')
+    .data(nodes).enter().append('g')
+    .attr('class', d => `g-node${d.id === centerNodeId ? ' pinned' : ''}`)
+    .call(d3.drag()
+      .on('start', (ev, d) => { if (!ev.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('drag',  (ev, d) => { d.fx=ev.x; d.fy=ev.y; })
+      .on('end',   (ev, d) => { if (!ev.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }))
+    .on('mouseenter', (ev, d) => {
+      if (d.id === centerNodeId) return;
+      showGraphTooltip(ev, d, neighborEdgeMap[d.id]);
+    })
+    .on('mousemove', (ev, d) => {
+      if (d.id === centerNodeId) return;
+      showGraphTooltip(ev, d, neighborEdgeMap[d.id]);
+    })
+    .on('mouseleave', () => hideGraphTooltip())
+    .on('click', (ev) => { ev.stopPropagation(); });
+
+  nodeSel.append('circle')
+    .attr('r', d => d.id === centerNodeId ? 20 : 14)
+    .attr('fill', d => d.type === 'hero' ? (ATTR_COLOR[d.attr] || '#4a9eff') : '#f5a623')
+    .attr('stroke', d => d.id === centerNodeId ? '#fff' : '#333')
+    .attr('stroke-width', d => d.id === centerNodeId ? 2.5 : 1.5);
+
+  const defs = svg.select('defs');
+  nodeSel.filter(d => d.img).each(function(d) {
+    const r = d.id === centerNodeId ? 20 : 14;
+    const cid = `clip-${svgId}-${d.id.replace(/[^a-z0-9]/gi,'_')}`;
+    defs.append('clipPath').attr('id', cid).append('circle').attr('r', r);
+    d3.select(this).append('image')
+      .attr('href', d.img)
+      .attr('x', d.type === 'hero' ? -r*1.5 : -r*1.2)
+      .attr('y', -r)
+      .attr('width',  d.type === 'hero' ? r*3 : r*2.4)
+      .attr('height', r * 2)
+      .attr('clip-path', `url(#${cid})`)
+      .attr('preserveAspectRatio', 'xMidYMid slice');
+  });
+
+  nodeSel.append('text')
+    .attr('class', 'g-node-label')
+    .attr('y', d => (d.id === centerNodeId ? 20 : 14) + 13)
+    .text(d => d.name);
+
+  sim.nodes(nodes).on('tick', () => {
+    linkSel.attr('d', d => {
+      const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
+      const dr = Math.sqrt(dx*dx + dy*dy);
+      return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+    });
+    nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+  sim.force('link').links(deduped);
+  sim.alpha(0.8).restart();
+  svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+}
+
+// ── Focus logic ─────────────────────────────────
+
+function showGraphTooltip(event, node, edgeToCenter) {
+  let tip = document.getElementById('graphTooltip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'graphTooltip';
+    tip.style.cssText = 'position:fixed;z-index:9999;background:#1a2030;border:1px solid #3a4a60;border-radius:8px;padding:10px 14px;max-width:280px;pointer-events:none;display:none;font-size:13px;color:#cdd6f4;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.5)';
+    document.body.appendChild(tip);
+  }
+  const reasons = edgeToCenter?.reasons || (edgeToCenter?.reason ? [edgeToCenter.reason] : []);
+  let html = `<div style="font-weight:600;margin-bottom:4px">${node.name}</div>`;
+  if (reasons.length) {
+    html += reasons.map(r => `<div style="color:#a0b0c8;font-size:12px">• ${r}</div>`).join('');
+  }
+  tip.innerHTML = html;
+  tip.style.display = 'block';
+  const x = event.clientX + 14, y = event.clientY - 10;
+  tip.style.left = Math.min(x, window.innerWidth - 300) + 'px';
+  tip.style.top = Math.max(y, 8) + 'px';
+}
+
+function hideGraphTooltip() {
+  const tip = document.getElementById('graphTooltip');
+  if (tip) tip.style.display = 'none';
+}
+
+function focusHero(heroId) {
+  document.getElementById('graphEmpty').style.display = 'none';
+  document.getElementById('graphSplit').style.display = '';
+  document.getElementById('graphContainer').style.display = 'none';
+
+  if (!gPanelCounter) gPanelCounter = createPanel('graphCounterSvg', 'graphCounterContainer');
+  if (!gPanelSynergy) gPanelSynergy = createPanel('graphSynergySvg', 'graphSynergyContainer');
+
+  // Counter panel: hero-hero counters + item counters
+  const counterEdges = [...graphCounterEdges, ...graphCounterItemEdges];
+  // Synergy panel: hero-hero synergies + item fits
+  const synergyEdges = [...graphSynergyEdges, ...graphSynergyItemEdges];
+
+  drawPanel(gPanelCounter, heroId, counterEdges);
+  drawPanel(gPanelSynergy, heroId, synergyEdges);
+}
+
+function focusItem(itemId) {
+  document.getElementById('graphEmpty').style.display = 'none';
+  document.getElementById('graphSplit').style.display = 'none';
+  document.getElementById('graphContainer').style.display = '';
+
+  if (!gPanelSingle) gPanelSingle = createPanel('graphSvg', 'graphContainer');
+  drawPanel(gPanelSingle, itemId, graphItemEdges);
 }
 
 function focusNode(nodeId) {
-  document.getElementById('graphEmpty').style.display = 'none';
-  const neighbors = getNeighborIds(nodeId, 1);
-  graphActiveNodeIds = neighbors;
-  redrawGraph(nodeId);
-  showNodeInfo(nodeId);
-}
-
-function redrawGraph(centerNodeId) {
-  const nodeIds = graphActiveNodeIds;
-  const nodes = [...nodeIds].map(id => ({ ...graphAllNodes[id] }));
-
-  const edgeMap = new Map(nodes.map(n => [n.id, true]));
-  const links = graphAllEdges
-    .filter(e => edgeMap.has(edgeId(e, 'source')) && edgeMap.has(edgeId(e, 'target')))
-    .map(e => ({ ...e, source: edgeId(e, 'source'), target: edgeId(e, 'target') }));
-
-  // Deduplicate links (keep only one direction for item-item to avoid loops)
-  const seenLinks = new Set();
-  const deduped = links.filter(e => {
-    const k1 = `${e.source}|${e.target}`;
-    const k2 = `${e.target}|${e.source}`;
-    if (e.type === 'item-item' && (seenLinks.has(k1) || seenLinks.has(k2))) return false;
-    seenLinks.add(k1);
-    return true;
-  });
-
-  graphSimulation.stop();
-
-  const linksLayer = graphG.select('.links-layer');
-  const nodesLayer = graphG.select('.nodes-layer');
-
-  linksLayer.selectAll('*').remove();
-  nodesLayer.selectAll('*').remove();
-
-  // Links
-  const link = linksLayer.selectAll('.g-link')
-    .data(deduped)
-    .enter().append('path')
-    .attr('class', d => `g-link ${d.type}`)
-    .attr('marker-end', d => `url(#arrow-${d.type})`);
-
-  // Nodes
-  const node = nodesLayer.selectAll('.g-node')
-    .data(nodes)
-    .enter().append('g')
-    .attr('class', d => `g-node${d.id === centerNodeId ? ' pinned' : ''}`)
-    .call(d3.drag()
-      .on('start', dragStarted)
-      .on('drag', dragged)
-      .on('end', dragEnded))
-    .on('click', (event, d) => {
-      event.stopPropagation();
-      focusNode(d.id);
-    });
-
-  const ATTR_COLOR = { str: '#e05555', agi: '#6ec86e', int: '#6aacee', all: '#4fd6cc' };
-
-  node.append('circle')
-    .attr('r', d => d.id === centerNodeId ? 18 : 14)
-    .attr('fill', d => {
-      if (d.type === 'hero') return ATTR_COLOR[d.attr] || '#4a9eff';
-      return '#f5a623';
-    })
-    .attr('stroke', d => d.id === centerNodeId ? '#fff' : (d.type === 'hero' ? '#2a5a99' : '#7a5010'));
-
-  // Hero: icon image clipped to circle
-  const heroNodes = node.filter(d => d.type === 'hero' && d.img);
-  const defs = graphSvgSel.select('defs');
-
-  heroNodes.each(function(d) {
-    const r = d.id === centerNodeId ? 18 : 14;
-    const clipId = `clip-${d.id.replace(/[^a-z0-9]/gi, '_')}`;
-    defs.append('clipPath').attr('id', clipId)
-      .append('circle').attr('r', r);
-    d3.select(this).append('image')
-      .attr('href', d.img)
-      .attr('x', -r * 1.5).attr('y', -r)
-      .attr('width', r * 3).attr('height', r * 2)
-      .attr('clip-path', `url(#${clipId})`)
-      .attr('preserveAspectRatio', 'xMidYMid slice');
-  });
-
-  // Item: icon image
-  const itemNodes = node.filter(d => d.type === 'item' && d.img);
-  itemNodes.each(function(d) {
-    const r = d.id === centerNodeId ? 18 : 14;
-    const clipId = `clip-${d.id.replace(/[^a-z0-9]/gi, '_')}`;
-    defs.append('clipPath').attr('id', clipId)
-      .append('circle').attr('r', r);
-    d3.select(this).append('image')
-      .attr('href', d.img)
-      .attr('x', -r * 1.2).attr('y', -r)
-      .attr('width', r * 2.4).attr('height', r * 2)
-      .attr('clip-path', `url(#${clipId})`)
-      .attr('preserveAspectRatio', 'xMidYMid slice');
-  });
-
-  node.append('text')
-    .attr('class', 'g-node-label')
-    .attr('y', d => (d.id === centerNodeId ? 18 : 14) + 13)
-    .text(d => d.name);
-
-  // Simulation
-  graphSimulation.nodes(nodes).on('tick', () => {
-    link.attr('d', linkArc);
-    node.attr('transform', d => `translate(${d.x},${d.y})`);
-  });
-
-  graphSimulation.force('link').links(deduped);
-  graphSimulation.alpha(0.8).restart();
-
-  // Reset zoom to identity — forceCenter handles centering nodes
-  graphSvgSel.transition().duration(300)
-    .call(graphZoomBehavior.transform, d3.zoomIdentity);
-}
-
-function linkArc(d) {
-  const dx = d.target.x - d.source.x;
-  const dy = d.target.y - d.source.y;
-  const dr = Math.sqrt(dx*dx + dy*dy);
-  return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
-}
-
-function dragStarted(event, d) {
-  if (!event.active) graphSimulation.alphaTarget(0.3).restart();
-  d.fx = d.x; d.fy = d.y;
-}
-function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
-function dragEnded(event, d) {
-  if (!event.active) graphSimulation.alphaTarget(0);
-  d.fx = null; d.fy = null;
-}
-
-function showNodeInfo(nodeId) {
   const node = graphAllNodes[nodeId];
   if (!node) return;
-
-  document.getElementById('graphNodeImg').src = node.img || '';
-  document.getElementById('graphNodeName').textContent = node.name;
-  document.getElementById('graphNodeSub').textContent =
-    node.type === 'hero'
-      ? `英雄 · ${node.attr ? ({str:'力量',agi:'敏捷',int:'智力',all:'全才'}[node.attr]||node.attr) : ''}`
-      : `物品 · ${node.cost ? node.cost + ' 金币' : ''}`;
-
-  // Build edge lists from/to this node
-  const outEdges = graphAllEdges.filter(e => e.source === nodeId || e.source.id === nodeId);
-  const inEdges = graphAllEdges.filter(e => e.target === nodeId || e.target.id === nodeId);
-
-  let html = '';
-
-  if (outEdges.length) {
-    html += `<div class="graph-info-section">
-      <div class="graph-info-section-title">被「${node.name}」克制</div>`;
-    for (const e of outEdges.slice(0, 12)) {
-      const tgtId = typeof e.target === 'object' ? e.target.id : e.target;
-      const tgt = graphAllNodes[tgtId];
-      if (!tgt) continue;
-      html += `<div class="graph-info-row">
-        <img src="${tgt.img}" onerror="this.style.opacity='.3'">
-        <span class="info-name" onclick="focusNode('${tgtId}')">${tgt.name}</span>
-        ${e.reason ? `<span class="info-reason">${e.reason.slice(0,30)}</span>` : ''}
-      </div>`;
-    }
-    html += '</div>';
-  }
-
-  if (inEdges.length) {
-    html += `<div class="graph-info-section">
-      <div class="graph-info-section-title">克制「${node.name}」的</div>`;
-    for (const e of inEdges.slice(0, 12)) {
-      const srcId = typeof e.source === 'object' ? e.source.id : e.source;
-      const src = graphAllNodes[srcId];
-      if (!src) continue;
-      html += `<div class="graph-info-row">
-        <img src="${src.img}" onerror="this.style.opacity='.3'">
-        <span class="info-name" onclick="focusNode('${srcId}')">${src.name}</span>
-        ${e.reason ? `<span class="info-reason">${e.reason.slice(0,30)}</span>` : ''}
-      </div>`;
-    }
-    html += '</div>';
-  }
-
-  if (!html) html = '<div style="color:#555;font-size:13px;padding:8px 0">暂无克制关系数据</div>';
-
-  document.getElementById('graphNodeInfoBody').innerHTML = html;
-  document.getElementById('graphNodeInfo').style.display = '';
+  if (node.type === 'hero') focusHero(nodeId);
+  else focusItem(nodeId);
 }
 
-// Search
+// ── Search ──────────────────────────────────────
+
 let graphSearchTimeout = null;
 function onGraphSearch() {
   clearTimeout(graphSearchTimeout);
   graphSearchTimeout = setTimeout(() => {
     const q = document.getElementById('graphSearchInput').value.trim().toLowerCase();
     const dd = document.getElementById('graphSearchDropdown');
-    if (!q) { dd.classList.remove('open'); return; }
+    if (!q || !graphInited) { dd.classList.remove('open'); return; }
 
-    const results = [];
+    // Heroes first, then items
+    const heroes = [], items = [];
     for (const [id, node] of Object.entries(graphAllNodes)) {
-      if (node.name && node.name.toLowerCase().includes(q)) results.push(node);
-      if (results.length >= 12) break;
+      if (!node.name || !node.name.toLowerCase().includes(q)) continue;
+      if (node.type === 'hero') heroes.push(node);
+      else items.push(node);
     }
-
+    const results = [...heroes, ...items].slice(0, 12);
     if (!results.length) { dd.classList.remove('open'); return; }
 
     dd.innerHTML = results.map(n => `
@@ -3352,23 +3349,27 @@ function selectGraphNode(nodeId) {
 }
 
 document.addEventListener('click', (e) => {
-  if (!e.target.closest('.graph-search-wrap')) {
+  if (!e.target.closest('.graph-search-wrap'))
     document.getElementById('graphSearchDropdown')?.classList.remove('open');
-  }
 });
 
+// ── Zoom controls ───────────────────────────────
+
 function graphZoomIn() {
-  if (!graphSvgSel) return;
-  graphSvgSel.transition().duration(250).call(graphZoomBehavior.scaleBy, 1.4);
+  const panels = [gPanelCounter, gPanelSynergy, gPanelSingle].filter(Boolean);
+  const visible = document.getElementById('graphSplit').style.display !== 'none'
+    ? [gPanelCounter, gPanelSynergy] : [gPanelSingle];
+  visible.filter(Boolean).forEach(p => p.svg.transition().duration(250).call(p.zoom.scaleBy, 1.4));
 }
 function graphZoomOut() {
-  if (!graphSvgSel) return;
-  graphSvgSel.transition().duration(250).call(graphZoomBehavior.scaleBy, 0.7);
+  const visible = document.getElementById('graphSplit').style.display !== 'none'
+    ? [gPanelCounter, gPanelSynergy] : [gPanelSingle];
+  visible.filter(Boolean).forEach(p => p.svg.transition().duration(250).call(p.zoom.scaleBy, 0.7));
 }
 function graphReset() {
-  if (!graphSvgSel) return;
-  graphSvgSel.transition().duration(300)
-    .call(graphZoomBehavior.transform, d3.zoomIdentity);
+  const visible = document.getElementById('graphSplit').style.display !== 'none'
+    ? [gPanelCounter, gPanelSynergy] : [gPanelSingle];
+  visible.filter(Boolean).forEach(p => p.svg.transition().duration(300).call(p.zoom.transform, d3.zoomIdentity));
 }
 
 loadData();

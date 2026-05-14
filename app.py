@@ -125,6 +125,23 @@ def api_item(key: str):
     return jsonify(item)
 
 
+@app.route("/api/graph_synergies")
+def api_graph_synergies():
+    if not SYNERGIES_FILE.exists():
+        return jsonify({})
+    data = json.loads(SYNERGIES_FILE.read_text(encoding="utf-8"))
+    result = {}
+    for short_key, val in data.items():
+        result[short_key] = {
+            "synergies": [
+                {"key": s["key"], "name": s.get("name", ""), "strength": s.get("strength", "moderate"),
+                 "reasons": s.get("reasons", [])}
+                for s in val.get("synergies", [])
+            ]
+        }
+    return jsonify(result)
+
+
 @app.route("/api/graph_data")
 def api_graph_data():
     if not COUNTERS_FILE.exists():

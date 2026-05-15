@@ -41,7 +41,22 @@ def _apply_nicknames(heroes: dict) -> dict:
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("home.html")
+
+
+@app.route("/heroes")
+def heroes_page():
+    return render_template("heroes.html")
+
+
+@app.route("/items")
+def items_page():
+    return render_template("items.html")
+
+
+@app.route("/graph")
+def graph_page():
+    return render_template("graph.html")
 
 
 # ---------------------------------------------------------------------------

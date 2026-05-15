@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOTA2 OldStack - 英雄与物品数据库</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: #1c1c1c;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+header {
+  background: #0e1015;
+  border-bottom: 1px solid #1e2230;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 32px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+header .logo .logo-dota { color: #fff; }
+header .logo .logo-brand { color: #e8471a; }
+header .logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
+
+header nav {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  margin: 0 auto;
+  gap: 0;
+}
+
+header nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 28px;
+  height: 100%;
+  color: #9aa3b5;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-bottom: 2px solid transparent;
+  transition: color .15s;
+  white-space: nowrap;
+}
+
+header nav a .nav-icon { width: 20px; height: 20px; opacity: 0.6; flex-shrink: 0; }
+header nav a .nav-cn { font-weight: 600; font-size: 15px; }
+header nav a .nav-en { font-size: 13px; color: #8892a4; }
+header nav a:hover { color: #e0e0e0; }
+header nav a:hover .nav-en { color: #9aa3b5; }
+header nav a:hover .nav-icon { opacity: 0.85; }
+
+header nav .nav-sep {
+  width: 1px;
+  background: #1e2230;
+  margin: 16px 0;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.version-badge {
+  font-size: 12px;
+  color: #8892a4;
+  flex-shrink: 0;
+}
+.version-badge span { color: #4fc3f7; }
+
+/* ── Hero Banner ── */
+.home-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0a0c14 0%, #0e1320 50%, #091018 100%);
+  overflow: hidden;
+  padding: 80px 40px 90px;
+  text-align: center;
+}
+
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,71,26,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 80%, rgba(74,158,255,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.home-hero-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+}
+
+.home-logo-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.home-logo-hex {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 0 20px rgba(232,71,26,0.5));
+}
+
+.home-title {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  position: relative;
+}
+
+.home-title .t-dota { color: #ffffff; }
+.home-title .t-brand { color: #e8471a; }
+
+.home-subtitle {
+  font-size: 16px;
+  color: #8892a4;
+  margin-top: 14px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.home-cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 36px;
+  position: relative;
+}
+
+.home-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .18s;
+}
+
+.home-cta-btn.primary {
+  background: #e8471a;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(232,71,26,0.35);
+}
+.home-cta-btn.primary:hover {
+  background: #f5521f;
+  box-shadow: 0 6px 28px rgba(232,71,26,0.5);
+  transform: translateY(-1px);
+}
+
+.home-cta-btn.secondary {
+  background: rgba(255,255,255,0.06);
+  color: #c8cede;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.home-cta-btn.secondary:hover {
+  background: rgba(255,255,255,0.10);
+  color: #fff;
+  border-color: rgba(255,255,255,0.22);
+  transform: translateY(-1px);
+}
+
+.home-stats-row {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 48px;
+  position: relative;
+}
+
+.home-stat {
+  text-align: center;
+}
+.home-stat-num {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+}
+.home-stat-label {
+  font-size: 12px;
+  color: #6b7590;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ── Feature Cards ── */
+.home-features {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 40px 80px;
+}
+
+.home-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #e8471a;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.home-section-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #e8eaf0;
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.home-section-sub {
+  font-size: 14px;
+  color: #6b7590;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.home-card {
+  background: #13161e;
+  border: 1px solid #1e2535;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+  position: relative;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+
+.home-card.card-heroes { border-top: 3px solid #e05555; }
+.home-card.card-heroes:hover { border-color: #e05555; box-shadow: 0 12px 40px rgba(224,85,85,0.15); }
+
+.home-card.card-items { border-top: 3px solid #c89b3c; }
+.home-card.card-items:hover { border-color: #c89b3c; box-shadow: 0 12px 40px rgba(200,155,60,0.15); }
+
+.home-card.card-graph { border-top: 3px solid #4a9eff; }
+.home-card.card-graph:hover { border-color: #4a9eff; box-shadow: 0 12px 40px rgba(74,158,255,0.15); }
+
+.home-card-art {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-card.card-heroes .home-card-art {
+  background: linear-gradient(135deg, #1a0e0e 0%, #0e1015 60%, #150e1a 100%);
+}
+.home-card.card-items .home-card-art {
+  background: linear-gradient(135deg, #1a1508 0%, #0e1015 60%, #1a1008 100%);
+}
+.home-card.card-graph .home-card-art {
+  background: linear-gradient(135deg, #0a1220 0%, #0e1015 60%, #0a1820 100%);
+}
+
+.card-art-icon {
+  font-size: 64px;
+  opacity: 0.18;
+  position: absolute;
+  right: 20px;
+  bottom: -10px;
+  user-select: none;
+}
+
+.card-art-badge {
+  position: relative;
+  z-index: 1;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.home-card.card-heroes .card-art-badge {
+  background: rgba(224,85,85,0.15);
+  border: 1px solid rgba(224,85,85,0.3);
+}
+.home-card.card-items .card-art-badge {
+  background: rgba(200,155,60,0.15);
+  border: 1px solid rgba(200,155,60,0.3);
+}
+.home-card.card-graph .card-art-badge {
+  background: rgba(74,158,255,0.15);
+  border: 1px solid rgba(74,158,255,0.3);
+}
+
+.home-card-body {
+  padding: 24px 26px 28px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #e8eaf0;
+  margin-bottom: 4px;
+}
+
+.home-card-en {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.card-heroes .home-card-en { color: #e05555; }
+.card-items  .home-card-en { color: #c89b3c; }
+.card-graph  .home-card-en { color: #4a9eff; }
+
+.home-card-desc {
+  font-size: 14px;
+  color: #8892a4;
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+.home-card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.home-card-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #b0b8cc;
+}
+
+.feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.card-heroes .feature-dot { background: #e05555; }
+.card-items  .feature-dot { background: #c89b3c; }
+.card-graph  .feature-dot { background: #4a9eff; }
+
+.home-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: all .15s;
+  align-self: flex-start;
+}
+
+.card-heroes .home-card-link { background: rgba(224,85,85,0.12); color: #e05555; border: 1px solid rgba(224,85,85,0.25); }
+.card-heroes .home-card-link:hover { background: rgba(224,85,85,0.22); border-color: rgba(224,85,85,0.5); }
+.card-items  .home-card-link { background: rgba(200,155,60,0.12); color: #c89b3c; border: 1px solid rgba(200,155,60,0.25); }
+.card-items  .home-card-link:hover { background: rgba(200,155,60,0.22); border-color: rgba(200,155,60,0.5); }
+.card-graph  .home-card-link { background: rgba(74,158,255,0.12); color: #4a9eff; border: 1px solid rgba(74,158,255,0.25); }
+.card-graph  .home-card-link:hover { background: rgba(74,158,255,0.22); border-color: rgba(74,158,255,0.5); }
+
+/* ── Footer ── */
+.home-footer {
+  border-top: 1px solid #1a1f2e;
+  padding: 28px 40px;
+  text-align: center;
+  font-size: 12px;
+  color: #4a5068;
+}
+.home-footer a { color: #6b7590; text-decoration: none; }
+.home-footer a:hover { color: #9aa3b5; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="logo">
+    <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="15" fill="#e8471a" opacity="0.15"/>
+      <path d="M16 4 L28 10 L28 22 L16 28 L4 22 L4 10 Z" fill="#e8471a" opacity="0.9"/>
+      <path d="M16 8 L24 12 L24 20 L16 24 L8 20 L8 12 Z" fill="#0e1015"/>
+      <circle cx="16" cy="16" r="4" fill="#e8471a"/>
+    </svg>
+    <span class="logo-dota">DOTA2</span>
+    <span class="logo-brand">OldStack</span>
+  </a>
+  <nav id="mainNav">
+    <a href="/heroes">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 10c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+      <span class="nav-cn">英雄</span>
+      <span class="nav-en">Heroes</span>
+    </a>
+    <div class="nav-sep"></div>
+    <a href="/items">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.51 15.49 1 13.36 1c-1.37 0-2.72.56-3.66 1.5L9 3.18 8.3 2.5C7.36 1.56 6.01 1 4.64 1 2.51 1 0 2.51 0 4.64c0 .48.11.92.18 1.36H0v2h2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6h-4zm-8 12H6V8h6v10zm8 0h-6V8h6v10z"/></svg>
+      <span class="nav-cn">物品</span>
+      <span class="nav-en">Items</span>
+    </a>
+    <div class="nav-sep"></div>
+    <a href="/graph">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      <span class="nav-cn">图谱</span>
+      <span class="nav-en">Graph</span>
+    </a>
+  </nav>
+  <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
+</header>
+
+<!-- Hero Banner -->
+<div class="home-hero">
+  <div class="home-hero-grid-bg"></div>
+
+  <div class="home-logo-mark">
+    <svg class="home-logo-hex" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="31" fill="#e8471a" opacity="0.12"/>
+      <path d="M32 4 L58 18 L58 46 L32 60 L6 46 L6 18 Z" fill="#e8471a" opacity="0.85"/>
+      <path d="M32 12 L50 22 L50 42 L32 52 L14 42 L14 22 Z" fill="#0e1015"/>
+      <circle cx="32" cy="32" r="8" fill="#e8471a"/>
+      <circle cx="32" cy="32" r="4" fill="#fff" opacity="0.9"/>
+    </svg>
+  </div>
+
+  <h1 class="home-title">
+    <span class="t-dota">DOTA2 </span><span class="t-brand">OldStack</span>
+  </h1>
+  <p class="home-subtitle">
+    DOTA2 英雄数据库 &amp; 战术分析工具<br>
+    查阅英雄技能、物品属性，探索克制与配合关系图谱
+  </p>
+
+  <div class="home-cta-row">
+    <a href="/heroes" class="home-cta-btn primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 10c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
+      浏览英雄
+    </a>
+    <a href="/graph" class="home-cta-btn secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      克制图谱
+    </a>
+  </div>
+
+  <div class="home-stats-row" id="statsRow">
+    <div class="home-stat">
+      <div class="home-stat-num" id="statHeroes">—</div>
+      <div class="home-stat-label">英雄</div>
+    </div>
+    <div class="home-stat">
+      <div class="home-stat-num" id="statItems">—</div>
+      <div class="home-stat-label">物品</div>
+    </div>
+    <div class="home-stat">
+      <div class="home-stat-num" id="statPatch">—</div>
+      <div class="home-stat-label">当前版本</div>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Cards -->
+<div class="home-features">
+  <div class="home-section-label">功能模块</div>
+  <h2 class="home-section-title">探索 DOTA2 数据库</h2>
+  <p class="home-section-sub">涵盖所有英雄、物品信息及 AI 分析的克制配合关系</p>
+
+  <div class="home-cards">
+
+    <!-- 英雄 -->
+    <a href="/heroes" class="home-card card-heroes">
+      <div class="home-card-art">
+        <div class="card-art-badge">⚔</div>
+        <div class="card-art-icon">🛡</div>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">英雄</div>
+        <div class="home-card-en">Heroes</div>
+        <p class="home-card-desc">
+          浏览全部英雄的详细数据，包括基础属性、技能说明、天赋树，以及克制与配合关系一览。
+        </p>
+        <div class="home-card-features">
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>技能与天赋树详情</span>
+          </div>
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>神杖 / 魔晶升级说明</span>
+          </div>
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>克制 &amp; 配合英雄推荐</span>
+          </div>
+        </div>
+        <span class="home-card-link">进入英雄库 →</span>
+      </div>
+    </a>
+
+    <!-- 物品 -->
+    <a href="/items" class="home-card card-items">
+      <div class="home-card-art">
+        <div class="card-art-badge">⚗</div>
+        <div class="card-art-icon">🧪</div>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">物品</div>
+        <div class="home-card-en">Items</div>
+        <p class="home-card-desc">
+          查阅全部购买物品与中立掉落物品，了解属性加成、主动技能、出装英雄及克制关系。
+        </p>
+        <div class="home-card-features">
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>详细属性加成与技能说明</span>
+          </div>
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>适合出装的英雄推荐</span>
+          </div>
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>物品克制关系 &amp; 中立物品分级</span>
+          </div>
+        </div>
+        <span class="home-card-link">进入物品库 →</span>
+      </div>
+    </a>
+
+    <!-- 图谱 -->
+    <a href="/graph" class="home-card card-graph">
+      <div class="home-card-art">
+        <div class="card-art-badge">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#4a9eff"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        </div>
+        <div class="card-art-icon">🔗</div>
+      </div>
+      <div class="home-card-body">
+        <div class="home-card-title">克制图谱</div>
+        <div class="home-card-en">Graph</div>
+        <p class="home-card-desc">
+          可交互的力导向图谱，直观展示英雄与物品之间的克制和配合关系网络，支持拖拽与缩放。
+        </p>
+        <div class="home-card-features">
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>英雄克制关系可视化</span>
+          </div>
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>配合关系网络图</span>
+          </div>
+          <div class="home-card-feature">
+            <div class="feature-dot"></div>
+            <span>物品与英雄交叉克制图</span>
+          </div>
+        </div>
+        <span class="home-card-link">打开图谱 →</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<div class="home-footer">
+  数据来源于 DOTA2 官方 &nbsp;·&nbsp; 仅供学习参考 &nbsp;·&nbsp;
+  <a href="https://github.com/hanyang030/dota2" target="_blank">GitHub</a>
+</div>
+
+<script>
+async function loadHomeStats() {
+  try {
+    const [hr, ir, mr] = await Promise.all([
+      fetch('/api/heroes'), fetch('/api/items'), fetch('/api/meta')
+    ]);
+    const heroes = await hr.json();
+    const items  = await ir.json();
+    const meta   = await mr.json();
+
+    document.getElementById('statHeroes').textContent = Object.keys(heroes).length;
+    document.getElementById('statItems').textContent  = Object.keys(items).length;
+    if (meta.patch) {
+      document.getElementById('statPatch').textContent = meta.patch;
+      const d = meta.patch_date ? new Date(meta.patch_date).toLocaleDateString('zh-CN') : '';
+      document.getElementById('versionBadge').innerHTML = `版本 <span>${meta.patch}</span>${d ? ' · ' + d : ''}`;
+    }
+  } catch(e) {
+    console.warn('Stats load failed', e);
+  }
+}
+loadHomeStats();
+</script>
+
+</body>
+</html>

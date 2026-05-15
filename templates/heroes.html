@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOTA2 OldStack</title>
+<title>英雄 - DOTA2 OldStack</title>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -2553,10 +2553,8 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
 </style>
 </head>
 <body>
-
 <header>
-  <!-- Logo -->
-  <div class="logo">
+  <a href="/" class="logo">
     <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="16" cy="16" r="15" fill="#e8471a" opacity="0.15"/>
       <path d="M16 4 L28 10 L28 22 L16 28 L4 22 L4 10 Z" fill="#e8471a" opacity="0.9"/>
@@ -2565,34 +2563,29 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
     </svg>
     <span class="logo-dota">DOTA2</span>
     <span class="logo-brand">OldStack</span>
-  </div>
-  <!-- Nav -->
+  </a>
   <nav id="mainNav">
-    <a class="active" onclick="showTab('heroes')">
+    <a href="/heroes" class="active">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 10c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
       <span class="nav-cn">英雄</span>
       <span class="nav-en">Heroes</span>
     </a>
     <div class="nav-sep"></div>
-    <a onclick="showTab('items')">
+    <a href="/items">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.51 15.49 1 13.36 1c-1.37 0-2.72.56-3.66 1.5L9 3.18 8.3 2.5C7.36 1.56 6.01 1 4.64 1 2.51 1 0 2.51 0 4.64c0 .48.11.92.18 1.36H0v2h2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6h-4zm-8 12H6V8h6v10zm8 0h-6V8h6v10z"/></svg>
       <span class="nav-cn">物品</span>
       <span class="nav-en">Items</span>
     </a>
     <div class="nav-sep"></div>
-    <a onclick="showTab('graph')">
+    <a href="/graph">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
       <span class="nav-cn">图谱</span>
       <span class="nav-en">Graph</span>
     </a>
   </nav>
   <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
-  <!-- 保留旧搜索框的DOM以避免JS报错，但隐藏 -->
-  <div class="search-wrap">
-    <input type="text" id="searchInput" oninput="onSearch()" style="display:none">
-  </div>
+  <input type="text" id="searchInput" style="display:none">
 </header>
-
 <!-- 英雄页 -->
 <div id="heroesView">
   <!-- 筛选栏 -->
@@ -2743,251 +2736,9 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
   </div>
 </div>
 
-<!-- 物品页 -->
-<div id="itemsView" style="display:none">
-  <!-- 搜索栏 -->
-  <div class="items-search-bar">
-    <div class="items-search-bar-inner">
-      <span class="items-search-icon">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </span>
-      <input type="text" id="itemSearchInput" placeholder="搜索物品名称..." oninput="onItemSearch()" autocomplete="off">
-      <button class="items-search-clear" id="itemSearchClear" onclick="clearItemSearch()" style="display:none">✕</button>
-    </div>
-  </div>
-  <!-- 分类 Tab -->
-  <div class="items-tab-bar" id="itemsTabBar">
-    <div class="items-tab-btn active" data-cat="all" onclick="selectItemTab('all')">
-      <span class="tab-icon">⚗</span>
-      <span class="tab-cn">全部</span>
-      <span class="tab-en">All</span>
-    </div>
-    <div class="items-tab-btn" data-cat="consumables" onclick="selectItemTab('consumables')">
-      <span class="tab-icon">🧪</span>
-      <span class="tab-cn">消耗品</span>
-      <span class="tab-en">Consumables</span>
-    </div>
-    <div class="items-tab-btn" data-cat="attributes" onclick="selectItemTab('attributes')">
-      <span class="tab-icon">⚡</span>
-      <span class="tab-cn">属性</span>
-      <span class="tab-en">Attributes</span>
-    </div>
-    <div class="items-tab-btn" data-cat="equipment" onclick="selectItemTab('equipment')">
-      <span class="tab-icon">🛡</span>
-      <span class="tab-cn">装备</span>
-      <span class="tab-en">Equipment</span>
-    </div>
-    <div class="items-tab-btn" data-cat="accessories" onclick="selectItemTab('accessories')">
-      <span class="tab-icon">👟</span>
-      <span class="tab-cn">配件</span>
-      <span class="tab-en">Accessories</span>
-    </div>
-    <div class="items-tab-btn" data-cat="arcane" onclick="selectItemTab('arcane')">
-      <span class="tab-icon">🔮</span>
-      <span class="tab-cn">法器</span>
-      <span class="tab-en">Arcane</span>
-    </div>
-    <div class="items-tab-btn" data-cat="weapons" onclick="selectItemTab('weapons')">
-      <span class="tab-icon">⚔</span>
-      <span class="tab-cn">武器</span>
-      <span class="tab-en">Weapons</span>
-    </div>
-    <div class="items-tab-btn" data-cat="armor" onclick="selectItemTab('armor')">
-      <span class="tab-icon">🪖</span>
-      <span class="tab-cn">防具</span>
-      <span class="tab-en">Armor</span>
-    </div>
-    <div class="items-tab-btn" data-cat="support" onclick="selectItemTab('support')">
-      <span class="tab-icon">💫</span>
-      <span class="tab-cn">辅助</span>
-      <span class="tab-en">Support</span>
-    </div>
-    <div class="items-tab-btn" data-cat="neutral" onclick="selectItemTab('neutral')">
-      <span class="tab-icon">🗡</span>
-      <span class="tab-cn">中立物品</span>
-      <span class="tab-en">Neutral</span>
-    </div>
-  </div>
-  <!-- 分类内容 -->
-  <div class="items-body" id="itemsBody"></div>
-  <div class="search-empty" id="itemEmpty" style="display:none">没有找到匹配的物品</div>
-</div>
-
-<!-- 物品详情全页面 -->
-<div id="itemDetailView">
-  <div class="item-detail-banner">
-    <div class="item-detail-banner-bg">
-      <img id="itemDetailBgImg" src="" alt="">
-    </div>
-    <button class="item-detail-back" onclick="backToItems()">← 返回物品列表</button>
-    <div class="item-banner-info">
-      <img class="item-banner-icon" id="itemDetailIcon" src="" alt="">
-      <div class="item-banner-title">
-        <h1 id="itemDetailName"></h1>
-        <div class="item-banner-en" id="itemDetailEn"></div>
-        <div class="item-banner-cost" id="itemDetailCost"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Tab 栏 -->
-  <div class="detail-tabs" id="itemDetailTabs">
-    <div class="detail-tab-btn active" data-panel="itemTabOverview" onclick="switchItemTab('itemTabOverview')">概览</div>
-    <div class="detail-tab-btn" data-panel="itemTabSkill" onclick="switchItemTab('itemTabSkill')" id="itemTabSkillBtn" style="display:none">技能</div>
-    <div class="detail-tab-btn" data-panel="itemTabHeroes" onclick="switchItemTab('itemTabHeroes')" id="itemTabHeroesBtn" style="display:none">英雄适配</div>
-    <div class="detail-tab-btn" data-panel="itemTabCounters" onclick="switchItemTab('itemTabCounters')" id="itemTabCountersBtn" style="display:none">克制关系</div>
-    <div class="detail-tab-btn" data-panel="itemTabLore" onclick="switchItemTab('itemTabLore')" id="itemTabLoreBtn" style="display:none">背景故事</div>
-  </div>
-  <div class="item-detail-body">
-    <!-- 概览 Tab -->
-    <div class="detail-tab-panel active" id="itemTabOverview">
-      <div id="itemInfoCard"></div>
-      <div class="d-card accent-gold" id="itemBonusesSection" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">✦</span>属性加成</div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-bonuses-grid" id="itemBonusesGrid"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 技能 Tab -->
-    <div class="detail-tab-panel" id="itemTabSkill">
-      <div class="d-card accent-teal" id="itemDescCardWrap" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">⚡</span><span id="itemDescTitle">技能描述</span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-desc-card" id="itemDescCard"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 英雄适配 Tab -->
-    <div class="detail-tab-panel" id="itemTabHeroes">
-      <div class="d-card accent-green" id="itemHeroFitsCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🤝</span><span id="itemHeroFitsTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-hero-fits-grid" id="itemHeroFitsGrid"></div>
-        </div>
-      </div>
-      <div class="d-card accent-red" id="itemHeroCountersCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">⚔</span><span id="itemHeroCountersTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-hero-counters-grid" id="itemHeroCountersGrid"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 克制关系 Tab -->
-    <div class="detail-tab-panel" id="itemTabCounters">
-      <div class="d-card accent-red" id="itemCounteredByCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🛡</span><span id="itemCounteredByTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-counters-grid" id="itemCounteredByGrid"></div>
-        </div>
-      </div>
-      <div class="d-card accent-blue" id="itemCountersCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🗡</span><span id="itemCountersTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-counters-grid" id="itemCountersGrid"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 背景故事 Tab -->
-    <div class="detail-tab-panel" id="itemTabLore">
-      <div class="d-card accent-teal" id="itemLoreCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">📖</span>背景故事</div>
-        </div>
-        <div class="d-card-body" id="itemLoreBody"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 克制图谱页 -->
-<div id="graphView" style="display:none">
-  <!-- 工具栏 -->
-  <div class="graph-toolbar">
-    <div class="graph-legend" id="graphLegend">
-      <span class="legend-dot" style="background:#4a9eff"></span><span>英雄</span>
-      <span class="legend-dot" style="background:#f5a623"></span><span>物品</span>
-      <span class="legend-arrow" style="color:#e05555">→</span><span>克制</span>
-      <span class="legend-arrow" style="color:#6ec86e">→</span><span>配合</span>
-    </div>
-    <div class="graph-search-wrap">
-      <span class="graph-search-icon">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </span>
-      <input type="text" id="graphSearchInput" placeholder="搜索英雄或物品查看图谱..." oninput="onGraphSearch()" autocomplete="off">
-      <div class="graph-search-dropdown" id="graphSearchDropdown"></div>
-    </div>
-    <div class="graph-controls">
-      <button onclick="graphZoomIn()">＋</button>
-      <button onclick="graphZoomOut()">－</button>
-      <button onclick="graphReset()">重置</button>
-    </div>
-  </div>
-
-  <!-- 英雄头像选择器 -->
-  <div class="graph-hero-picker" id="graphHeroPicker">
-    <div class="graph-hero-picker-grid" id="graphHeroPickerGrid"></div>
-  </div>
-
-  <!-- 空状态 -->
-  <div class="graph-empty" id="graphEmpty" style="display:none">
-    <div class="graph-empty-icon">⬡</div>
-    点击上方英雄头像查看克制与配合图谱
-  </div>
-
-  <!-- 英雄模式：左右分栏 -->
-  <div class="graph-split" id="graphSplit" style="display:none">
-    <!-- 对抗关系面板 -->
-    <div class="graph-split-pane" id="graphCounterPane">
-      <div class="graph-panel-header">
-        <div class="graph-panel-icon counter-icon">⚔</div>
-        <div class="graph-panel-titles">
-          <span class="graph-panel-cn" id="counterPanelCn">对抗关系</span>
-          <span class="graph-panel-en">Counter Relationships</span>
-        </div>
-      </div>
-      <div class="graph-split-container" id="graphCounterContainer">
-        <svg id="graphCounterSvg"></svg>
-      </div>
-    </div>
-    <!-- 配合关系面板 -->
-    <div class="graph-split-pane" id="graphSynergyPane">
-      <div class="graph-panel-header">
-        <div class="graph-panel-icon synergy-icon">✦</div>
-        <div class="graph-panel-titles">
-          <span class="graph-panel-cn" id="synergyPanelCn">配合关系</span>
-          <span class="graph-panel-en">Synergy Relationships</span>
-        </div>
-      </div>
-      <div class="graph-split-container" id="graphSynergyContainer">
-        <svg id="graphSynergySvg"></svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- 物品/单图模式 -->
-  <div class="graph-single-wrap" id="graphSingleWrap" style="display:none">
-    <div class="graph-single-header">
-      <span class="graph-single-title" id="graphSingleTitle">图谱</span>
-    </div>
-    <div class="graph-container" id="graphContainer">
-      <svg id="graphSvg"></svg>
-    </div>
-  </div>
-</div>
 
 <script>
+
 const CDN = 'https://cdn.cloudflare.steamstatic.com';
 let heroesData = {}, itemsData = {}, currentTab = 'heroes', searchQuery = '';
 
@@ -3019,19 +2770,11 @@ async function loadData() {
 }
 
 function showTab(tab) {
+  if (tab !== 'heroes') { window.location.href = '/' + tab; return; }
   currentTab = tab;
-  searchQuery = '';
-  document.getElementById('searchInput').value = '';
-  document.querySelectorAll('header nav a').forEach((a, i) =>
-    a.classList.toggle('active', (i === 0 && tab === 'heroes') || (i === 1 && tab === 'items') || (i === 2 && tab === 'graph')));
-  document.getElementById('heroesView').style.display = tab === 'heroes' ? '' : 'none';
+  document.getElementById('heroesView').style.display = '';
   document.getElementById('detailView').style.display = 'none';
-  document.getElementById('itemsView').style.display = tab === 'items' ? '' : 'none';
-  document.getElementById('itemDetailView').style.display = 'none';
-  document.getElementById('graphView').style.display = tab === 'graph' ? '' : 'none';
-  if (tab === 'heroes') renderHeroes();
-  else if (tab === 'items') renderItems();
-  else if (tab === 'graph') initGraph();
+  renderHeroes();
 }
 
 function onSearch() {
@@ -3234,8 +2977,8 @@ function showHeroDetail(key) {
   if (!h) return;
 
   document.getElementById('heroesView').style.display = 'none';
-  document.getElementById('itemsView').style.display = 'none';
-  document.getElementById('itemDetailView').style.display = 'none';
+  { const _e = document.getElementById('itemsView'); if(_e) _e.style.display = 'none'; }
+  { const _e = document.getElementById('itemDetailView'); if(_e) _e.style.display = 'none'; }
   document.getElementById('detailView').style.display = 'block';
   currentTab = 'heroes';
   switchHeroTab('heroTabOverview');
@@ -3612,7 +3355,178 @@ function showHeroDetail(key) {
 
 function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
-// 详情页图谱：复用图谱页的 createPanel / drawPanel
+// 详情页图谱所需的图谱辅助变量和函数
+let graphAllNodes = {};
+let graphInited = false;
+
+function createPanel(svgId, containerId) {
+  const svg = d3.select('#' + svgId);
+  svg.selectAll('*').remove();
+
+  const defs = svg.append('defs');
+  const mkArrow = (id, color) => defs.append('marker')
+    .attr('id', id + '-' + svgId).attr('viewBox', '0 -5 10 10')
+    .attr('refX', 22).attr('refY', 0).attr('markerWidth', 6).attr('markerHeight', 6)
+    .attr('orient', 'auto').append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', color);
+  mkArrow('arrow-hero-hero', '#e05555');
+  mkArrow('arrow-synergy', '#6ec86e');
+  mkArrow('arrow-item-item', '#f5a623');
+  mkArrow('arrow-item-hero', '#e05555');
+  mkArrow('arrow-item-fit', '#6ec86e');
+
+  const zoom = d3.zoom().scaleExtent([0.1, 4]).on('zoom', ev => g.attr('transform', ev.transform));
+  svg.call(zoom);
+  const g = svg.append('g');
+  g.append('g').attr('class', 'links-layer');
+  g.append('g').attr('class', 'nodes-layer');
+
+  const container = document.getElementById(containerId);
+  const w = container.clientWidth || 600, h = container.clientHeight || 460;
+
+  const sim = d3.forceSimulation()
+    .force('link', d3.forceLink().id(d => d.id).distance(130).strength(0.4))
+    .force('charge', d3.forceManyBody().strength(-280))
+    .force('center', d3.forceCenter(w / 2, h / 2))
+    .force('collision', d3.forceCollide(28));
+
+  return { svg, g, zoom, sim, svgId };
+}
+
+function edgeId(e, side) {
+  const v = e[side];
+  return typeof v === 'object' && v !== null ? v.id : v;
+}
+
+function drawPanel(panel, centerNodeId, edges, direction = 'both') {
+  const { svg, g, zoom, sim, svgId } = panel;
+
+  const nodeIds = new Set([centerNodeId]);
+  const neighborEdgeMap = {};
+  for (const e of edges) {
+    const s = edgeId(e, 'source'), t = edgeId(e, 'target');
+    const isInbound  = t === centerNodeId;
+    const isOutbound = s === centerNodeId;
+    if (direction === 'inbound'  && isInbound)  { nodeIds.add(s); neighborEdgeMap[s] = e; }
+    if (direction === 'outbound' && isOutbound)  { nodeIds.add(t); neighborEdgeMap[t] = e; }
+    if (direction === 'both') {
+      if (isInbound)  { nodeIds.add(s); neighborEdgeMap[s] = e; }
+      if (isOutbound) { nodeIds.add(t); neighborEdgeMap[t] = e; }
+    }
+  }
+
+  const nodes = [...nodeIds].filter(id => graphAllNodes[id]).map(id => ({ ...graphAllNodes[id] }));
+  const links = edges
+    .filter(e => {
+      const s = edgeId(e, 'source'), t = edgeId(e, 'target');
+      if (direction === 'inbound')  return t === centerNodeId;
+      if (direction === 'outbound') return s === centerNodeId;
+      return s === centerNodeId || t === centerNodeId;
+    })
+    .map(e => ({ ...e, source: edgeId(e, 'source'), target: edgeId(e, 'target') }));
+
+  const seen = new Set();
+  const deduped = links.filter(e => {
+    const k = [e.source, e.target].sort().join('|') + '|' + e.type;
+    if (seen.has(k)) return false;
+    seen.add(k); return true;
+  });
+
+  sim.stop();
+  g.select('.links-layer').selectAll('*').remove();
+  g.select('.nodes-layer').selectAll('*').remove();
+  svg.select('defs').selectAll('clipPath').remove();
+
+  const linkSel = g.select('.links-layer').selectAll('.g-link')
+    .data(deduped).enter().append('path')
+    .attr('class', d => `g-link ${d.type}`)
+    .attr('marker-end', d => `url(#arrow-${d.type}-${svgId})`)
+    .attr('stroke', d => (d.type === 'hero-synergy' || d.type === 'item-fit') ? '#6ec86e' : d.type === 'item-item' ? '#f5a623' : '#e05555')
+    .attr('stroke-opacity', 0.6).attr('stroke-width', 1.5).attr('fill', 'none');
+
+  const ATTR_COLOR = { str: '#e05555', agi: '#6ec86e', int: '#6aacee', all: '#4fd6cc' };
+  const nodeSel = g.select('.nodes-layer').selectAll('.g-node')
+    .data(nodes).enter().append('g')
+    .attr('class', d => `g-node${d.id === centerNodeId ? ' pinned' : ''}`)
+    .call(d3.drag()
+      .on('start', (ev, d) => { if (!ev.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('drag',  (ev, d) => { d.fx=ev.x; d.fy=ev.y; })
+      .on('end',   (ev, d) => { if (!ev.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }))
+    .on('mouseenter', (ev, d) => {
+      if (d.id === centerNodeId) return;
+      showGraphTooltip(ev, d, neighborEdgeMap[d.id]);
+    })
+    .on('mousemove', (ev, d) => {
+      if (d.id === centerNodeId) return;
+      showGraphTooltip(ev, d, neighborEdgeMap[d.id]);
+    })
+    .on('mouseleave', () => hideGraphTooltip())
+    .on('click', (ev) => { ev.stopPropagation(); });
+
+  nodeSel.append('circle')
+    .attr('r', d => d.id === centerNodeId ? 20 : 14)
+    .attr('fill', d => d.type === 'hero' ? (ATTR_COLOR[d.attr] || '#4a9eff') : '#f5a623')
+    .attr('stroke', d => d.id === centerNodeId ? '#fff' : '#333')
+    .attr('stroke-width', d => d.id === centerNodeId ? 2.5 : 1.5);
+
+  const defs2 = svg.select('defs');
+  nodeSel.filter(d => d.img).each(function(d) {
+    const r = d.id === centerNodeId ? 20 : 14;
+    const cid = `clip-${svgId}-${d.id.replace(/[^a-z0-9]/gi,'_')}`;
+    defs2.append('clipPath').attr('id', cid).append('circle').attr('r', r);
+    d3.select(this).append('image')
+      .attr('href', d.img)
+      .attr('x', d.type === 'hero' ? -r*1.5 : -r*1.2)
+      .attr('y', -r)
+      .attr('width',  d.type === 'hero' ? r*3 : r*2.4)
+      .attr('height', r * 2)
+      .attr('clip-path', `url(#${cid})`)
+      .attr('preserveAspectRatio', 'xMidYMid slice');
+  });
+
+  nodeSel.append('text')
+    .attr('class', 'g-node-label')
+    .attr('y', d => (d.id === centerNodeId ? 20 : 14) + 13)
+    .text(d => d.name);
+
+  sim.nodes(nodes).on('tick', () => {
+    linkSel.attr('d', d => {
+      const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
+      const dr = Math.sqrt(dx*dx + dy*dy);
+      return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
+    });
+    nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
+  });
+  sim.force('link').links(deduped);
+  sim.alpha(0.8).restart();
+  svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+}
+
+function showGraphTooltip(event, node, edgeToCenter) {
+  let tip = document.getElementById('graphTooltip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'graphTooltip';
+    tip.style.cssText = 'position:fixed;z-index:9999;background:#1a2030;border:1px solid #3a4a60;border-radius:8px;padding:10px 14px;max-width:280px;pointer-events:none;display:none;font-size:13px;color:#cdd6f4;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.5)';
+    document.body.appendChild(tip);
+  }
+  const reasons = edgeToCenter?.reasons || (edgeToCenter?.reason ? [edgeToCenter.reason] : []);
+  let html = `<div style="font-weight:600;margin-bottom:4px">${node.name}</div>`;
+  if (reasons.length) {
+    html += reasons.map(r => `<div style="color:#a0b0c8;font-size:12px">• ${r}</div>`).join('');
+  }
+  tip.innerHTML = html;
+  tip.style.display = 'block';
+  const x = event.clientX + 14, y = event.clientY - 10;
+  tip.style.left = Math.min(x, window.innerWidth - 300) + 'px';
+  tip.style.top = Math.max(y, 8) + 'px';
+}
+
+function hideGraphTooltip() {
+  const tip = document.getElementById('graphTooltip');
+  if (tip) tip.style.display = 'none';
+}
+
+// 详情页图谱：复用上方的 createPanel / drawPanel
 let detailPanelCounter = null;
 let detailPanelSynergy = null;
 
@@ -4141,8 +4055,8 @@ function showItemPanel(key) {
     document.getElementById('itemLoreCard').style.display = 'none';
   }
 
-  document.getElementById('itemsView').style.display = 'none';
-  document.getElementById('itemDetailView').style.display = 'block';
+  { const _e = document.getElementById('itemsView'); if(_e) _e.style.display = 'none'; }
+  { const _e = document.getElementById('itemDetailView'); if(_e) _e.style.display = 'block'; }
 
   // Show/hide dynamic tabs based on available content, then reset to overview
   const hasSkill = !!(item.description);
@@ -4159,8 +4073,8 @@ function showItemPanel(key) {
 }
 
 function backToItems() {
-  document.getElementById('itemDetailView').style.display = 'none';
-  document.getElementById('itemsView').style.display = '';
+  { const _e = document.getElementById('itemDetailView'); if(_e) _e.style.display = 'none'; }
+  { const _e = document.getElementById('itemsView'); if(_e) _e.style.display = ''; }
   activeItemKey = null;
 }
 
@@ -4179,483 +4093,6 @@ function formatDesc(text, attrib) {
 
 loadData();
 
-// ════════════════════════════════════════════════
-// 图谱 (D3 Force Graph)
-// ════════════════════════════════════════════════
-
-let graphInited = false;
-let graphCountersData = {}; // hero counters (countered_by)
-let graphSynergiesData = {}; // hero synergies
-let graphAllNodes = {};     // id -> node object
-let graphCounterEdges = []; // hero-hero counter edges
-let graphCounterItemEdges = []; // item->hero counter edges (for hero focus counter panel)
-let graphSynergyEdges = []; // hero-hero synergy edges
-let graphSynergyItemEdges = []; // item->hero fit edges (for hero focus synergy panel)
-let graphItemEdges = [];    // item edge list (for item focus mode)
-
-// Per-panel state: { svg, sim, zoom, g }
-let gPanelCounter = null;
-let gPanelSynergy = null;
-let gPanelSingle = null;   // item/single mode
-
-async function initGraph() {
-  if (graphInited) return;
-  graphInited = true;
-  try {
-    const [cr, sr] = await Promise.all([fetch('/api/graph_data'), fetch('/api/graph_synergies')]);
-    graphCountersData = await cr.json();
-    graphSynergiesData = await sr.json();
-  } catch(e) {
-    console.error('Failed to load graph data', e);
-    return;
-  }
-  buildGraphIndex();
-}
-
-function buildGraphIndex() {
-  graphAllNodes = {};
-  graphCounterEdges = [];
-  graphCounterItemEdges = [];
-  graphSynergyEdges = [];
-  graphSynergyItemEdges = [];
-  graphItemEdges = [];
-  const DEFAULT_HERO = 'npc_dota_hero_antimage';
-
-  // All heroes
-  for (const [fullKey, h] of Object.entries(heroesData)) {
-    graphAllNodes[fullKey] = {
-      id: fullKey, type: 'hero',
-      name: h.name || h.name_en,
-      nickname: h.nickname || [],
-      img: h.icon || h.img || '',
-      attr: h.primary_attr, data: h,
-    };
-  }
-  // All named items (always register, edges will filter)
-  for (const [key, item] of Object.entries(itemsData)) {
-    if (!item.name) continue;
-    graphAllNodes[key] = {
-      id: key, type: 'item',
-      name: item.name || item.name_en,
-      img: item.img || '', cost: item.cost, data: item,
-    };
-  }
-
-  // Hero-hero counter edges: countered_by[source hero] → target hero
-  for (const [shortKey, val] of Object.entries(graphCountersData)) {
-    const targetId = `npc_dota_hero_${shortKey}`;
-    for (const c of (val.countered_by || [])) {
-      const sourceId = `npc_dota_hero_${c.key}`;
-      if (graphAllNodes[sourceId] && graphAllNodes[targetId]) {
-        graphCounterEdges.push({
-          source: sourceId, target: targetId, type: 'hero-hero',
-          reasons: c.reasons || [], reason: (c.reasons || [])[0] || '',
-          strength: c.strength || 'moderate',
-        });
-      }
-    }
-  }
-
-  // Hero-hero synergy edges (deduplicated)
-  for (const [shortKey, val] of Object.entries(graphSynergiesData)) {
-    const heroId = `npc_dota_hero_${shortKey}`;
-    for (const s of (val.synergies || [])) {
-      const otherId = `npc_dota_hero_${s.key}`;
-      if (graphAllNodes[heroId] && graphAllNodes[otherId]) {
-        const already = graphSynergyEdges.find(e =>
-          (e.source === heroId && e.target === otherId) ||
-          (e.source === otherId && e.target === heroId));
-        if (!already) {
-          graphSynergyEdges.push({
-            source: heroId, target: otherId, type: 'hero-synergy',
-            reasons: s.reasons || [], reason: (s.reasons || [])[0] || '',
-            strength: s.strength || 'moderate',
-          });
-        }
-      }
-    }
-  }
-
-  // Item → hero counter edges (item counters hero)
-  for (const [itemKey, item] of Object.entries(itemsData)) {
-    for (const e of (item.hero_counters || [])) {
-      const heroId = `npc_dota_hero_${e.hero}`;
-      if (graphAllNodes[itemKey] && graphAllNodes[heroId]) {
-        graphCounterItemEdges.push({
-          source: itemKey, target: heroId, type: 'item-hero',
-          reasons: [e.reason || ''], reason: e.reason || '',
-        });
-      }
-    }
-    // Item → hero fit edges (item fits hero, shown in synergy panel)
-    for (const e of (item.hero_fits || [])) {
-      const heroId = `npc_dota_hero_${e.hero}`;
-      if (graphAllNodes[itemKey] && graphAllNodes[heroId]) {
-        graphSynergyItemEdges.push({
-          source: itemKey, target: heroId, type: 'item-fit',
-          reasons: [e.reason || ''], reason: e.reason || '',
-        });
-      }
-    }
-    // Item-item edges for item focus mode
-    for (const e of (item.counters_of || [])) {
-      const src = e.counter || e;
-      if (graphAllNodes[src] && graphAllNodes[itemKey])
-        graphItemEdges.push({ source: src, target: itemKey, type: 'item-item', reason: e.reason || '' });
-    }
-    for (const e of (item.counters || [])) {
-      const tgt = e.counter || e;
-      if (graphAllNodes[itemKey] && graphAllNodes[tgt])
-        graphItemEdges.push({ source: itemKey, target: tgt, type: 'item-item', reason: e.reason || '' });
-    }
-    for (const e of (item.hero_counters || [])) {
-      const tgt = `npc_dota_hero_${e.hero}`;
-      if (graphAllNodes[itemKey] && graphAllNodes[tgt])
-        graphItemEdges.push({ source: itemKey, target: tgt, type: 'item-hero', reason: e.reason || '' });
-    }
-  }
-
-  // Build hero avatar picker
-  renderGraphHeroPicker();
-
-  // Auto-select default hero after index is built
-  if (graphAllNodes[DEFAULT_HERO]) {
-    const node = graphAllNodes[DEFAULT_HERO];
-    document.getElementById('graphSearchInput').value = node.name;
-    selectGraphHero(DEFAULT_HERO);
-  }
-}
-
-function renderGraphHeroPicker() {
-  const grid = document.getElementById('graphHeroPickerGrid');
-  if (!grid) return;
-  const heroes = Object.values(graphAllNodes)
-    .filter(n => n.type === 'hero')
-    .sort((a, b) => (a.name || '').localeCompare(b.name || '', 'zh'));
-  grid.innerHTML = heroes.map(h =>
-    `<div class="graph-hero-avatar" id="gha-${h.id}" title="${h.name}" onclick="selectGraphHero('${h.id}')">`
-    + `<img src="${h.img}" onerror="this.src=''" alt="${h.name}">`
-    + `</div>`
-  ).join('');
-}
-
-let graphSelectedHero = null;
-function selectGraphHero(heroId) {
-  // Deselect previous
-  if (graphSelectedHero) {
-    const prev = document.getElementById('gha-' + graphSelectedHero);
-    if (prev) prev.classList.remove('selected');
-  }
-  graphSelectedHero = heroId;
-  const el = document.getElementById('gha-' + heroId);
-  if (el) {
-    el.classList.add('selected');
-    el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-  }
-  const node = graphAllNodes[heroId];
-  if (node) document.getElementById('graphSearchInput').value = node.name;
-  focusNode(heroId);
-}
-
-// ── Panel creation ──────────────────────────────
-
-function createPanel(svgId, containerId) {
-  const svg = d3.select('#' + svgId);
-  svg.selectAll('*').remove();
-
-  const defs = svg.append('defs');
-  const mkArrow = (id, color) => defs.append('marker')
-    .attr('id', id + '-' + svgId).attr('viewBox', '0 -5 10 10')
-    .attr('refX', 22).attr('refY', 0).attr('markerWidth', 6).attr('markerHeight', 6)
-    .attr('orient', 'auto').append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', color);
-  mkArrow('arrow-hero-hero', '#e05555');
-  mkArrow('arrow-synergy', '#6ec86e');
-  mkArrow('arrow-item-item', '#f5a623');
-  mkArrow('arrow-item-hero', '#e05555');
-  mkArrow('arrow-item-fit', '#6ec86e');
-
-  const zoom = d3.zoom().scaleExtent([0.1, 4]).on('zoom', ev => g.attr('transform', ev.transform));
-  svg.call(zoom);
-  const g = svg.append('g');
-  g.append('g').attr('class', 'links-layer');
-  g.append('g').attr('class', 'nodes-layer');
-
-  const container = document.getElementById(containerId);
-  const w = container.clientWidth || 600, h = container.clientHeight || 460;
-
-  const sim = d3.forceSimulation()
-    .force('link', d3.forceLink().id(d => d.id).distance(130).strength(0.4))
-    .force('charge', d3.forceManyBody().strength(-280))
-    .force('center', d3.forceCenter(w / 2, h / 2))
-    .force('collision', d3.forceCollide(28));
-
-  return { svg, g, zoom, sim, svgId };
-}
-
-// ── Draw a graph in a panel ─────────────────────
-
-function edgeId(e, side) {
-  const v = e[side];
-  return typeof v === 'object' && v !== null ? v.id : v;
-}
-
-// direction: 'inbound'  = only edges where target===center (who counters/synergizes center)
-//            'outbound' = only edges where source===center (who center counters/synergizes)
-//            'both'     = undirected (default, used for synergy)
-function drawPanel(panel, centerNodeId, edges, direction = 'both') {
-  const { svg, g, zoom, sim, svgId } = panel;
-
-  // Collect relevant node IDs (center + direct neighbors via edges)
-  const nodeIds = new Set([centerNodeId]);
-  // Build a map: neighborId -> edge connecting it to center (for tooltip reasons)
-  const neighborEdgeMap = {};
-  for (const e of edges) {
-    const s = edgeId(e, 'source'), t = edgeId(e, 'target');
-    const isInbound  = t === centerNodeId;
-    const isOutbound = s === centerNodeId;
-    if (direction === 'inbound'  && isInbound)  { nodeIds.add(s); neighborEdgeMap[s] = e; }
-    if (direction === 'outbound' && isOutbound)  { nodeIds.add(t); neighborEdgeMap[t] = e; }
-    if (direction === 'both') {
-      if (isInbound)  { nodeIds.add(s); neighborEdgeMap[s] = e; }
-      if (isOutbound) { nodeIds.add(t); neighborEdgeMap[t] = e; }
-    }
-  }
-
-  const nodes = [...nodeIds].filter(id => graphAllNodes[id]).map(id => ({ ...graphAllNodes[id] }));
-  const links = edges
-    .filter(e => {
-      const s = edgeId(e, 'source'), t = edgeId(e, 'target');
-      if (direction === 'inbound')  return t === centerNodeId;
-      if (direction === 'outbound') return s === centerNodeId;
-      return s === centerNodeId || t === centerNodeId;
-    })
-    .map(e => ({ ...e, source: edgeId(e, 'source'), target: edgeId(e, 'target') }));
-
-  // Deduplicate same-pair edges
-  const seen = new Set();
-  const deduped = links.filter(e => {
-    const k = [e.source, e.target].sort().join('|') + '|' + e.type;
-    if (seen.has(k)) return false;
-    seen.add(k); return true;
-  });
-
-  sim.stop();
-  g.select('.links-layer').selectAll('*').remove();
-  g.select('.nodes-layer').selectAll('*').remove();
-  svg.select('defs').selectAll('clipPath').remove();
-
-  const linkSel = g.select('.links-layer').selectAll('.g-link')
-    .data(deduped).enter().append('path')
-    .attr('class', d => `g-link ${d.type}`)
-    .attr('marker-end', d => `url(#arrow-${d.type}-${svgId})`)
-    .attr('stroke', d => (d.type === 'hero-synergy' || d.type === 'item-fit') ? '#6ec86e' : d.type === 'item-item' ? '#f5a623' : '#e05555')
-    .attr('stroke-opacity', 0.6).attr('stroke-width', 1.5).attr('fill', 'none');
-
-  const ATTR_COLOR = { str: '#e05555', agi: '#6ec86e', int: '#6aacee', all: '#4fd6cc' };
-  const nodeSel = g.select('.nodes-layer').selectAll('.g-node')
-    .data(nodes).enter().append('g')
-    .attr('class', d => `g-node${d.id === centerNodeId ? ' pinned' : ''}`)
-    .call(d3.drag()
-      .on('start', (ev, d) => { if (!ev.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
-      .on('drag',  (ev, d) => { d.fx=ev.x; d.fy=ev.y; })
-      .on('end',   (ev, d) => { if (!ev.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }))
-    .on('mouseenter', (ev, d) => {
-      if (d.id === centerNodeId) return;
-      showGraphTooltip(ev, d, neighborEdgeMap[d.id]);
-    })
-    .on('mousemove', (ev, d) => {
-      if (d.id === centerNodeId) return;
-      showGraphTooltip(ev, d, neighborEdgeMap[d.id]);
-    })
-    .on('mouseleave', () => hideGraphTooltip())
-    .on('click', (ev) => { ev.stopPropagation(); });
-
-  nodeSel.append('circle')
-    .attr('r', d => d.id === centerNodeId ? 20 : 14)
-    .attr('fill', d => d.type === 'hero' ? (ATTR_COLOR[d.attr] || '#4a9eff') : '#f5a623')
-    .attr('stroke', d => d.id === centerNodeId ? '#fff' : '#333')
-    .attr('stroke-width', d => d.id === centerNodeId ? 2.5 : 1.5);
-
-  const defs = svg.select('defs');
-  nodeSel.filter(d => d.img).each(function(d) {
-    const r = d.id === centerNodeId ? 20 : 14;
-    const cid = `clip-${svgId}-${d.id.replace(/[^a-z0-9]/gi,'_')}`;
-    defs.append('clipPath').attr('id', cid).append('circle').attr('r', r);
-    d3.select(this).append('image')
-      .attr('href', d.img)
-      .attr('x', d.type === 'hero' ? -r*1.5 : -r*1.2)
-      .attr('y', -r)
-      .attr('width',  d.type === 'hero' ? r*3 : r*2.4)
-      .attr('height', r * 2)
-      .attr('clip-path', `url(#${cid})`)
-      .attr('preserveAspectRatio', 'xMidYMid slice');
-  });
-
-  nodeSel.append('text')
-    .attr('class', 'g-node-label')
-    .attr('y', d => (d.id === centerNodeId ? 20 : 14) + 13)
-    .text(d => d.name);
-
-  sim.nodes(nodes).on('tick', () => {
-    linkSel.attr('d', d => {
-      const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
-      const dr = Math.sqrt(dx*dx + dy*dy);
-      return `M${d.source.x},${d.source.y}A${dr},${dr} 0 0,1 ${d.target.x},${d.target.y}`;
-    });
-    nodeSel.attr('transform', d => `translate(${d.x},${d.y})`);
-  });
-  sim.force('link').links(deduped);
-  sim.alpha(0.8).restart();
-  svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
-}
-
-// ── Focus logic ─────────────────────────────────
-
-function showGraphTooltip(event, node, edgeToCenter) {
-  let tip = document.getElementById('graphTooltip');
-  if (!tip) {
-    tip = document.createElement('div');
-    tip.id = 'graphTooltip';
-    tip.style.cssText = 'position:fixed;z-index:9999;background:#1a2030;border:1px solid #3a4a60;border-radius:8px;padding:10px 14px;max-width:280px;pointer-events:none;display:none;font-size:13px;color:#cdd6f4;line-height:1.5;box-shadow:0 4px 16px rgba(0,0,0,.5)';
-    document.body.appendChild(tip);
-  }
-  const reasons = edgeToCenter?.reasons || (edgeToCenter?.reason ? [edgeToCenter.reason] : []);
-  let html = `<div style="font-weight:600;margin-bottom:4px">${node.name}</div>`;
-  if (reasons.length) {
-    html += reasons.map(r => `<div style="color:#a0b0c8;font-size:12px">• ${r}</div>`).join('');
-  }
-  tip.innerHTML = html;
-  tip.style.display = 'block';
-  const x = event.clientX + 14, y = event.clientY - 10;
-  tip.style.left = Math.min(x, window.innerWidth - 300) + 'px';
-  tip.style.top = Math.max(y, 8) + 'px';
-}
-
-function hideGraphTooltip() {
-  const tip = document.getElementById('graphTooltip');
-  if (tip) tip.style.display = 'none';
-}
-
-// ── 面板 Tab 切换（视觉只更新 Tab 高亮，图谱数据不变）──
-function switchCounterTab(mode) {
-  document.querySelectorAll('#counterTabs .graph-panel-tab').forEach((t, i) =>
-    t.classList.toggle('active', (i === 0 && mode === 'countered_by') || (i === 1 && mode === 'counters')));
-}
-function switchSynergyTab(mode) {
-  document.querySelectorAll('#synergyTabs .graph-panel-tab').forEach((t, i) =>
-    t.classList.toggle('active', (i === 0 && mode === 'synergizes_with') || (i === 1 && mode === 'synergized_by')));
-}
-
-function focusHero(heroId) {
-  document.getElementById('graphEmpty').style.display = 'none';
-  document.getElementById('graphSplit').style.display = '';
-  document.getElementById('graphSingleWrap').style.display = 'none';
-
-  const heroNode = graphAllNodes[heroId];
-  const heroName = heroNode ? (heroNode.name || heroId) : heroId;
-  document.getElementById('counterPanelCn').textContent = `克制${heroName}的英雄与物品`;
-  document.getElementById('synergyPanelCn').textContent = `可以和${heroName}配合的英雄与物品`;
-
-  if (!gPanelCounter) gPanelCounter = createPanel('graphCounterSvg', 'graphCounterContainer');
-  if (!gPanelSynergy) gPanelSynergy = createPanel('graphSynergySvg', 'graphSynergyContainer');
-
-  const counterEdges = [...graphCounterEdges, ...graphCounterItemEdges];
-  const synergyEdges = [...graphSynergyEdges, ...graphSynergyItemEdges];
-
-  drawPanel(gPanelCounter, heroId, counterEdges, 'inbound');
-  drawPanel(gPanelSynergy, heroId, synergyEdges, 'both');
-}
-
-function focusItem(itemId) {
-  document.getElementById('graphEmpty').style.display = 'none';
-  document.getElementById('graphSplit').style.display = 'none';
-  document.getElementById('graphSingleWrap').style.display = '';
-
-  const node = graphAllNodes[itemId];
-  if (node) document.getElementById('graphSingleTitle').textContent = node.name + ' 克制关系图谱';
-
-  if (!gPanelSingle) gPanelSingle = createPanel('graphSvg', 'graphContainer');
-  drawPanel(gPanelSingle, itemId, graphItemEdges);
-}
-
-function focusNode(nodeId) {
-  const node = graphAllNodes[nodeId];
-  if (!node) return;
-  if (node.type === 'hero') focusHero(nodeId);
-  else focusItem(nodeId);
-}
-
-// ── Search ──────────────────────────────────────
-
-let graphSearchTimeout = null;
-function onGraphSearch() {
-  clearTimeout(graphSearchTimeout);
-  graphSearchTimeout = setTimeout(() => {
-    const q = document.getElementById('graphSearchInput').value.trim().toLowerCase();
-    const dd = document.getElementById('graphSearchDropdown');
-    if (!q || !graphInited) { dd.classList.remove('open'); return; }
-
-    // Heroes first, then items
-    const heroes = [], items = [];
-    for (const [id, node] of Object.entries(graphAllNodes)) {
-      const nameMatch = node.name && node.name.toLowerCase().includes(q);
-      const nickMatch = node.nickname && node.nickname.some(n => n.toLowerCase().includes(q));
-      if (!nameMatch && !nickMatch) continue;
-      if (node.type === 'hero') heroes.push(node);
-      else items.push(node);
-    }
-    const results = [...heroes, ...items].slice(0, 12);
-    if (!results.length) { dd.classList.remove('open'); return; }
-
-    dd.innerHTML = results.map(n => `
-      <div class="graph-dropdown-item" onclick="selectGraphNode('${n.id}')">
-        <img src="${n.img}" onerror="this.style.opacity='.3'" alt="">
-        <div>
-          <div class="dd-name">${n.name}</div>
-          <div class="dd-type">${n.type === 'hero' ? '英雄' : '物品'}</div>
-        </div>
-      </div>`).join('');
-    dd.classList.add('open');
-  }, 150);
-}
-
-function selectGraphNode(nodeId) {
-  const node = graphAllNodes[nodeId];
-  if (!node) return;
-  document.getElementById('graphSearchDropdown').classList.remove('open');
-  if (node.type === 'hero') {
-    selectGraphHero(nodeId);
-  } else {
-    document.getElementById('graphSearchInput').value = node.name;
-    focusNode(nodeId);
-  }
-}
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.graph-search-wrap'))
-    document.getElementById('graphSearchDropdown')?.classList.remove('open');
-});
-
-// ── Zoom controls ───────────────────────────────
-
-function graphZoomIn() {
-  const panels = [gPanelCounter, gPanelSynergy, gPanelSingle].filter(Boolean);
-  const visible = document.getElementById('graphSplit').style.display !== 'none'
-    ? [gPanelCounter, gPanelSynergy] : [gPanelSingle];
-  visible.filter(Boolean).forEach(p => p.svg.transition().duration(250).call(p.zoom.scaleBy, 1.4));
-}
-function graphZoomOut() {
-  const visible = document.getElementById('graphSplit').style.display !== 'none'
-    ? [gPanelCounter, gPanelSynergy] : [gPanelSingle];
-  visible.filter(Boolean).forEach(p => p.svg.transition().duration(250).call(p.zoom.scaleBy, 0.7));
-}
-function graphReset() {
-  const visible = document.getElementById('graphSplit').style.display !== 'none'
-    ? [gPanelCounter, gPanelSynergy] : [gPanelSingle];
-  visible.filter(Boolean).forEach(p => p.svg.transition().duration(300).call(p.zoom.transform, d3.zoomIdentity));
-}
-
-loadData();
 </script>
 <div class="counter-tooltip" id="counterTooltip"></div>
 <div class="synergy-tooltip" id="synergyTooltip"></div>

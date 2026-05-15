@@ -1,0 +1,1666 @@
+{
+  "abyssal_blade": {
+    "name": "深渊之刃",
+    "nicknames": ["大晕锤"]
+  },
+  "aegis": {
+    "name": "不朽之守护",
+    "nicknames": ["肉山盾","盾"]
+  },
+  "aeon_disk": {
+    "name": "永恒之盘",
+    "nicknames": ["盘子"]
+  },
+  "aether_lens": {
+    "name": "以太透镜",
+    "nicknames": ["以太"]
+  },
+  "aghanims_shard": {
+    "name": "阿哈利姆魔晶",
+    "nicknames": ["魔晶"]
+  },
+  "aghanims_shard_roshan": {
+    "name": "阿哈利姆魔晶 - 消耗品",
+    "nicknames": ["魔晶"]
+  },
+  "ancient_guardian": {
+    "name": "遗迹守护者",
+    "nicknames": []
+  },
+  "ancient_janggo": {
+    "name": "韧鼓",
+    "nicknames": ["战鼓"]
+  },
+  "angels_demise": {
+    "name": "绝刃",
+    "nicknames": []
+  },
+  "apex": {
+    "name": "极",
+    "nicknames": []
+  },
+  "arcane_blink": {
+    "name": "秘奥闪光",
+    "nicknames": []
+  },
+  "arcane_boots": {
+    "name": "奥术鞋",
+    "nicknames": ["秘法鞋"]
+  },
+  "arcane_ring": {
+    "name": "奥术指环",
+    "nicknames": []
+  },
+  "armlet": {
+    "name": "莫尔迪基安的臂章",
+    "nicknames": ["臂章"]
+  },
+  "ascetic_cap": {
+    "name": "简朴短帽",
+    "nicknames": []
+  },
+  "ash_legion_shield": {
+    "name": "余烬军团战盾",
+    "nicknames": []
+  },
+  "assault": {
+    "name": "强袭胸甲",
+    "nicknames": ["强袭"]
+  },
+  "avianas_feather": {
+    "name": "艾维娜之羽",
+    "nicknames": []
+  },
+  "ballista": {
+    "name": "弩炮",
+    "nicknames": []
+  },
+  "basher": {
+    "name": "碎颅锤",
+    "nicknames": ["小晕锤","晕锤"]
+  },
+  "belt_of_strength": {
+    "name": "力量腰带",
+    "nicknames": []
+  },
+  "bfury": {
+    "name": "狂战斧",
+    "nicknames": ["狂战"]
+  },
+  "black_grimoire": {
+    "name": "Black Grimoire\\n(Warlock)",
+    "nicknames": []
+  },
+  "black_king_bar": {
+    "name": "黑皇杖",
+    "nicknames": ["BKB","bkb"]
+  },
+  "black_powder_bag": {
+    "name": "雷火弹",
+    "nicknames": []
+  },
+  "blade_mail": {
+    "name": "刃甲",
+    "nicknames": []
+  },
+  "blade_of_alacrity": {
+    "name": "欢欣之刃",
+    "nicknames": []
+  },
+  "blades_of_attack": {
+    "name": "攻击之爪",
+    "nicknames": []
+  },
+  "blight_stone": {
+    "name": "枯萎之珠",
+    "nicknames": []
+  },
+  "blink": {
+    "name": "闪烁匕首",
+    "nicknames": ["跳刀"]
+  },
+  "blitz_knuckles": {
+    "name": "闪电指套",
+    "nicknames": []
+  },
+  "blood_grenade": {
+    "name": "血腥榴弹",
+    "nicknames": ["榴弹"]
+  },
+  "bloodstone": {
+    "name": "血精石",
+    "nicknames": ["血精"]
+  },
+  "bloodthorn": {
+    "name": "血棘",
+    "nicknames": ["血辣"]
+  },
+  "book_of_shadows": {
+    "name": "暗影邪典",
+    "nicknames": []
+  },
+  "boots": {
+    "name": "速度之靴",
+    "nicknames": ["鞋","鞋子"]
+  },
+  "boots_of_bearing": {
+    "name": "宽容之靴",
+    "nicknames": ["大绿鞋"]
+  },
+  "boots_of_elves": {
+    "name": "精灵布带",
+    "nicknames": []
+  },
+  "bottle": {
+    "name": "魔瓶",
+    "nicknames": ["瓶子"]
+  },
+  "bottomless_chalice": {
+    "name": "bottomless_chalice",
+    "nicknames": []
+  },
+  "bracer": {
+    "name": "护腕",
+    "nicknames": []
+  },
+  "branches": {
+    "name": "铁树枝干",
+    "nicknames": ["树枝"]
+  },
+  "broadsword": {
+    "name": "阔剑",
+    "nicknames": []
+  },
+  "broom_handle": {
+    "name": "扫帚柄",
+    "nicknames": []
+  },
+  "buckler": {
+    "name": "玄冥盾牌",
+    "nicknames": []
+  },
+  "bullwhip": {
+    "name": "凌厉长鞭",
+    "nicknames": []
+  },
+  "butterfly": {
+    "name": "蝴蝶",
+    "nicknames": []
+  },
+  "caster_rapier": {
+    "name": "caster_rapier",
+    "nicknames": []
+  },
+  "ceremonial_robe": {
+    "name": "祭礼长袍",
+    "nicknames": []
+  },
+  "chainmail": {
+    "name": "锁子甲",
+    "nicknames": []
+  },
+  "chasm_stone": {
+    "name": "裂隙之石",
+    "nicknames": []
+  },
+  "cheese": {
+    "name": "奶酪",
+    "nicknames": []
+  },
+  "chipped_vest": {
+    "name": "碎裂背心",
+    "nicknames": []
+  },
+  "circlet": {
+    "name": "圆环",
+    "nicknames": []
+  },
+  "clarity": {
+    "name": "净化药水",
+    "nicknames": ["小蓝","蓝瓶"]
+  },
+  "claymore": {
+    "name": "大剑",
+    "nicknames": []
+  },
+  "cloak": {
+    "name": "抗魔斗篷",
+    "nicknames": []
+  },
+  "cloak_of_flames": {
+    "name": "火焰斗篷",
+    "nicknames": []
+  },
+  "clumsy_net": {
+    "name": "笨拙渔网",
+    "nicknames": []
+  },
+  "conjurers_catalyst": {
+    "name": "咒术师触媒",
+    "nicknames": []
+  },
+  "consecrated_wraps": {
+    "name": "圣化护服",
+    "nicknames": []
+  },
+  "cornucopia": {
+    "name": "丰饶之环",
+    "nicknames": []
+  },
+  "courier": {
+    "name": "动物信使",
+    "nicknames": ["鸡"]
+  },
+  "craggy_coat": {
+    "name": "崎岖外衣",
+    "nicknames": []
+  },
+  "crellas_crozier": {
+    "name": "克莱拉牧杖",
+    "nicknames": []
+  },
+  "crimson_guard": {
+    "name": "赤红甲",
+    "nicknames": []
+  },
+  "crippling_crossbow": {
+    "name": "致残之弩",
+    "nicknames": []
+  },
+  "crown": {
+    "name": "王冠",
+    "nicknames": []
+  },
+  "cyclone": {
+    "name": "Eul的神圣法杖",
+    "nicknames": ["风杖"]
+  },
+  "dagger_of_ristul": {
+    "name": "瑞斯图尔尖匕",
+    "nicknames": []
+  },
+  "dagon": {
+    "name": "达贡之神力",
+    "nicknames": ["红杖"]
+  },
+  "dagon_2": {
+    "name": "达贡之神力",
+    "nicknames": ["大红杖"]
+  },
+  "dagon_3": {
+    "name": "达贡之神力",
+    "nicknames": ["三红杖"]
+  },
+  "dagon_4": {
+    "name": "达贡之神力",
+    "nicknames": ["四红杖"]
+  },
+  "dagon_5": {
+    "name": "达贡之神力",
+    "nicknames": ["五红杖"]
+  },
+  "dandelion_amulet": {
+    "name": "蒲公英护符",
+    "nicknames": []
+  },
+  "defiant_shell": {
+    "name": "不羁甲壳",
+    "nicknames": []
+  },
+  "demon_edge": {
+    "name": "恶魔刀锋",
+    "nicknames": []
+  },
+  "demonicon": {
+    "name": "冥灵书",
+    "nicknames": []
+  },
+  "desolator": {
+    "name": "黯灭",
+    "nicknames": []
+  },
+  "desolator_2": {
+    "name": "寂灭",
+    "nicknames": []
+  },
+  "devastator": {
+    "name": "圣斧",
+    "nicknames": []
+  },
+  "dezun_bloodrite": {
+    "name": "德尊血式",
+    "nicknames": []
+  },
+  "diadem": {
+    "name": "宝冕",
+    "nicknames": []
+  },
+  "diffusal_blade": {
+    "name": "净魂之刃",
+    "nicknames": ["净化刀"]
+  },
+  "diffusal_blade_2": {
+    "name": "Diffusal Blade",
+    "nicknames": []
+  },
+  "disperser": {
+    "name": "散魂剑",
+    "nicknames": []
+  },
+  "divine_regalia": {
+    "name": "天赐华冠",
+    "nicknames": []
+  },
+  "divine_regalia_broken": {
+    "name": "失节华冠",
+    "nicknames": []
+  },
+  "dormant_curio": {
+    "name": "休眠珍品",
+    "nicknames": []
+  },
+  "doubloon": {
+    "name": "双面币",
+    "nicknames": []
+  },
+  "dragon_lance": {
+    "name": "魔龙枪",
+    "nicknames": []
+  },
+  "dragon_scale": {
+    "name": "炎龙之鳞",
+    "nicknames": []
+  },
+  "duelist_gloves": {
+    "name": "决斗家手套",
+    "nicknames": []
+  },
+  "dust": {
+    "name": "显影之尘",
+    "nicknames": ["粉"]
+  },
+  "eagle": {
+    "name": "鹰歌弓",
+    "nicknames": []
+  },
+  "echo_sabre": {
+    "name": "回音战刃",
+    "nicknames": ["连击刀"]
+  },
+  "eldwurms_edda": {
+    "name": "古龙诗集",
+    "nicknames": []
+  },
+  "elixer": {
+    "name": "万灵药水",
+    "nicknames": []
+  },
+  "elven_tunic": {
+    "name": "精灵外衣",
+    "nicknames": []
+  },
+  "enchanted_mango": {
+    "name": "魔法芒果",
+    "nicknames": ["芒果"]
+  },
+  "enchanted_quiver": {
+    "name": "魔力箭袋",
+    "nicknames": []
+  },
+  "enchanters_bauble": {
+    "name": "附魔师之椟",
+    "nicknames": []
+  },
+  "energy_booster": {
+    "name": "能量之球",
+    "nicknames": []
+  },
+  "enhancement_alert": {
+    "name": "警觉",
+    "nicknames": []
+  },
+  "enhancement_audacious": {
+    "name": "冒险",
+    "nicknames": []
+  },
+  "enhancement_boundless": {
+    "name": "无边",
+    "nicknames": []
+  },
+  "enhancement_brawny": {
+    "name": "壮实",
+    "nicknames": []
+  },
+  "enhancement_crude": {
+    "name": "粗暴",
+    "nicknames": []
+  },
+  "enhancement_curious": {
+    "name": "觉醒",
+    "nicknames": []
+  },
+  "enhancement_dominant": {
+    "name": "专横",
+    "nicknames": []
+  },
+  "enhancement_evolved": {
+    "name": "进化",
+    "nicknames": []
+  },
+  "enhancement_feverish": {
+    "name": "狂热",
+    "nicknames": []
+  },
+  "enhancement_fierce": {
+    "name": "凶猛",
+    "nicknames": []
+  },
+  "enhancement_fleetfooted": {
+    "name": "捷足",
+    "nicknames": []
+  },
+  "enhancement_greedy": {
+    "name": "贪婪",
+    "nicknames": []
+  },
+  "enhancement_hulking": {
+    "name": "笨重",
+    "nicknames": []
+  },
+  "enhancement_keen_eyed": {
+    "name": "犀利",
+    "nicknames": []
+  },
+  "enhancement_manic": {
+    "name": "癫狂",
+    "nicknames": []
+  },
+  "enhancement_mystical": {
+    "name": "神秘",
+    "nicknames": []
+  },
+  "enhancement_nimble": {
+    "name": "轻快",
+    "nicknames": []
+  },
+  "enhancement_quickened": {
+    "name": "迅速",
+    "nicknames": []
+  },
+  "enhancement_restorative": {
+    "name": "滋补",
+    "nicknames": []
+  },
+  "enhancement_thick": {
+    "name": "厚重",
+    "nicknames": []
+  },
+  "enhancement_timeless": {
+    "name": "永恒",
+    "nicknames": []
+  },
+  "enhancement_titanic": {
+    "name": "巨神",
+    "nicknames": []
+  },
+  "enhancement_tough": {
+    "name": "坚强",
+    "nicknames": []
+  },
+  "enhancement_vampiric": {
+    "name": "吸血鬼",
+    "nicknames": []
+  },
+  "enhancement_vast": {
+    "name": "高远",
+    "nicknames": []
+  },
+  "enhancement_vital": {
+    "name": "活力",
+    "nicknames": []
+  },
+  "enhancement_wise": {
+    "name": "睿智",
+    "nicknames": []
+  },
+  "essence_distiller": {
+    "name": "精之灵器",
+    "nicknames": []
+  },
+  "essence_ring": {
+    "name": "精华指环",
+    "nicknames": []
+  },
+  "eternal_shroud": {
+    "name": "永世法衣",
+    "nicknames": []
+  },
+  "ethereal_blade": {
+    "name": "虚灵之刃",
+    "nicknames": []
+  },
+  "ex_machina": {
+    "name": "机械之心",
+    "nicknames": []
+  },
+  "eye_of_the_vizier": {
+    "name": "维齐尔之眼",
+    "nicknames": []
+  },
+  "faded_broach": {
+    "name": "暗淡胸针",
+    "nicknames": []
+  },
+  "faerie_fire": {
+    "name": "仙灵之火",
+    "nicknames": []
+  },
+  "falcon_blade": {
+    "name": "猎鹰战刃",
+    "nicknames": []
+  },
+  "fallen_sky": {
+    "name": "天崩",
+    "nicknames": []
+  },
+  "famango": {
+    "name": "疗伤莲花",
+    "nicknames": ["莲花"]
+  },
+  "flask": {
+    "name": "治疗药膏",
+    "nicknames": ["大膏药"]
+  },
+  "flayers_bota": {
+    "name": "剥皮血囊",
+    "nicknames": []
+  },
+  "flicker": {
+    "name": "闪灵",
+    "nicknames": []
+  },
+  "fluffy_hat": {
+    "name": "毛毛帽",
+    "nicknames": []
+  },
+  "flying_courier": {
+    "name": "飞行信使",
+    "nicknames": []
+  },
+  "foragers_health": {
+    "name": "活力伞菌",
+    "nicknames": []
+  },
+  "foragers_kit": {
+    "name": "采菌套具",
+    "nicknames": []
+  },
+  "foragers_mana": {
+    "name": "托莫干伞盖",
+    "nicknames": []
+  },
+  "foragers_stats": {
+    "name": "铁树坚果",
+    "nicknames": []
+  },
+  "force_boots": {
+    "name": "原力鞋",
+    "nicknames": []
+  },
+  "force_field": {
+    "name": "秘术师铠甲",
+    "nicknames": []
+  },
+  "force_staff": {
+    "name": "原力法杖",
+    "nicknames": ["推推"]
+  },
+  "furion_gold_bag": {
+    "name": "金袋",
+    "nicknames": []
+  },
+  "fusion_rune": {
+    "name": "聚合神符",
+    "nicknames": []
+  },
+  "gale_guard": {
+    "name": "烈风护体",
+    "nicknames": []
+  },
+  "gauntlets": {
+    "name": "力量手套",
+    "nicknames": []
+  },
+  "gem": {
+    "name": "真视宝石",
+    "nicknames": ["宝石"]
+  },
+  "ghost": {
+    "name": "幽魂权杖",
+    "nicknames": ["绿杖"]
+  },
+  "giant_maul": {
+    "name": "巨人之槌",
+    "nicknames": []
+  },
+  "giants_ring": {
+    "name": "巨人之戒",
+    "nicknames": []
+  },
+  "glimmer_cape": {
+    "name": "微光披风",
+    "nicknames": ["微光"]
+  },
+  "gloves": {
+    "name": "加速手套",
+    "nicknames": []
+  },
+  "gossamer_cape": {
+    "name": "蛛丝斗篷",
+    "nicknames": []
+  },
+  "great_famango": {
+    "name": "大疗伤莲花",
+    "nicknames": ["大莲花"]
+  },
+  "greater_crit": {
+    "name": "代达罗斯之殇",
+    "nicknames": ["大炮"]
+  },
+  "greater_faerie_fire": {
+    "name": "高级仙灵之火",
+    "nicknames": []
+  },
+  "greater_famango": {
+    "name": "巨大疗伤莲花",
+    "nicknames": []
+  },
+  "greater_mango": {
+    "name": "greater_mango",
+    "nicknames": []
+  },
+  "grisgris": {
+    "name": "驱邪护符",
+    "nicknames": []
+  },
+  "grove_bow": {
+    "name": "林野长弓",
+    "nicknames": []
+  },
+  "guardian_greaves": {
+    "name": "卫士胫甲",
+    "nicknames": ["大鞋"]
+  },
+  "gungir": {
+    "name": "缚灵索",
+    "nicknames": []
+  },
+  "gunpowder_gauntlets": {
+    "name": "火药手套",
+    "nicknames": []
+  },
+  "hand_of_midas": {
+    "name": "迈达斯之手",
+    "nicknames": ["点金","点金手"]
+  },
+  "harmonizer": {
+    "name": "协和",
+    "nicknames": []
+  },
+  "harpoon": {
+    "name": "鱼叉",
+    "nicknames": []
+  },
+  "havoc_hammer": {
+    "name": "浩劫巨锤",
+    "nicknames": []
+  },
+  "headdress": {
+    "name": "恢复头巾",
+    "nicknames": []
+  },
+  "heart": {
+    "name": "恐鳌之心",
+    "nicknames": ["龙心"]
+  },
+  "heavens_halberd": {
+    "name": "天堂之戟",
+    "nicknames": []
+  },
+  "heavy_blade": {
+    "name": "行巫之祸",
+    "nicknames": []
+  },
+  "helm_of_iron_will": {
+    "name": "铁意头盔",
+    "nicknames": []
+  },
+  "helm_of_the_dominator": {
+    "name": "支配头盔",
+    "nicknames": ["支配"]
+  },
+  "helm_of_the_overlord": {
+    "name": "统御头盔",
+    "nicknames": []
+  },
+  "helm_of_the_undying": {
+    "name": "不朽尸王的头盔",
+    "nicknames": []
+  },
+  "holy_locket": {
+    "name": "圣洁吊坠",
+    "nicknames": []
+  },
+  "hood_of_defiance": {
+    "name": "挑战头巾",
+    "nicknames": []
+  },
+  "horizon": {
+    "name": "horizon",
+    "nicknames": []
+  },
+  "hurricane_pike": {
+    "name": "飓风长戟",
+    "nicknames": []
+  },
+  "hydras_breath": {
+    "name": "怪蛇之息",
+    "nicknames": []
+  },
+  "hyperstone": {
+    "name": "振奋宝石",
+    "nicknames": []
+  },
+  "idol_of_screeauk": {
+    "name": "丝奎奥克神像",
+    "nicknames": []
+  },
+  "illusionsts_cape": {
+    "name": "幻术师披风",
+    "nicknames": []
+  },
+  "imp_claw": {
+    "name": "魔童之爪",
+    "nicknames": []
+  },
+  "infused_raindrop": {
+    "name": "凝魂之露",
+    "nicknames": []
+  },
+  "invis_sword": {
+    "name": "影刃",
+    "nicknames": []
+  },
+  "iron_talon": {
+    "name": "寒铁钢爪",
+    "nicknames": []
+  },
+  "ironwood_tree": {
+    "name": "铁树之木",
+    "nicknames": []
+  },
+  "javelin": {
+    "name": "标枪",
+    "nicknames": []
+  },
+  "jidi_pollen_bag": {
+    "name": "基迪花粉袋",
+    "nicknames": []
+  },
+  "kaya": {
+    "name": "慧光",
+    "nicknames": []
+  },
+  "kaya_and_sange": {
+    "name": "散慧对剑",
+    "nicknames": ["双刀"]
+  },
+  "keen_optic": {
+    "name": "基恩镜片",
+    "nicknames": []
+  },
+  "kobold_cup": {
+    "name": "狗头人酒杯",
+    "nicknames": []
+  },
+  "lance_of_pursuit": {
+    "name": "追击之矛",
+    "nicknames": []
+  },
+  "lesser_crit": {
+    "name": "水晶剑",
+    "nicknames": []
+  },
+  "lifesteal": {
+    "name": "吸血面具",
+    "nicknames": []
+  },
+  "light_collector": {
+    "name": "集光器",
+    "nicknames": []
+  },
+  "lotus_orb": {
+    "name": "清莲宝珠",
+    "nicknames": ["莲花"]
+  },
+  "madstone_bundle": {
+    "name": "狂石包",
+    "nicknames": []
+  },
+  "maelstrom": {
+    "name": "漩涡",
+    "nicknames": ["电锤","小电锤"]
+  },
+  "mage_slayer": {
+    "name": "法师克星",
+    "nicknames": []
+  },
+  "magic_stick": {
+    "name": "魔棒",
+    "nicknames": ["小魔棒"]
+  },
+  "magic_wand": {
+    "name": "魔杖",
+    "nicknames": ["大魔棒"]
+  },
+  "magnifying_monocle": {
+    "name": "放大单片镜",
+    "nicknames": []
+  },
+  "mana_draught": {
+    "name": "魔力药水",
+    "nicknames": []
+  },
+  "mango_tree": {
+    "name": "芒果树",
+    "nicknames": []
+  },
+  "manta": {
+    "name": "幻影斧",
+    "nicknames": ["分身","分身斧"]
+  },
+  "mantle": {
+    "name": "智力斗篷",
+    "nicknames": []
+  },
+  "martyrs_plate": {
+    "name": "烈士鳞甲",
+    "nicknames": []
+  },
+  "mask_of_madness": {
+    "name": "疯狂面具",
+    "nicknames": ["疯狂"]
+  },
+  "mechanical_arm": {
+    "name": "mechanical_arm",
+    "nicknames": []
+  },
+  "medallion_of_courage": {
+    "name": "勇气勋章",
+    "nicknames": []
+  },
+  "mekansm": {
+    "name": "梅肯斯姆",
+    "nicknames": ["梅肯"]
+  },
+  "metamorphic_mandible": {
+    "name": "变态上颚",
+    "nicknames": []
+  },
+  "meteor_hammer": {
+    "name": "陨星锤",
+    "nicknames": []
+  },
+  "mind_breaker": {
+    "name": "智灭",
+    "nicknames": []
+  },
+  "miniboss_minion_summoner": {
+    "name": "miniboss_minion_summoner",
+    "nicknames": []
+  },
+  "minotaur_horn": {
+    "name": "恶牛角",
+    "nicknames": []
+  },
+  "mirror_shield": {
+    "name": "神镜盾",
+    "nicknames": []
+  },
+  "misericorde": {
+    "name": "飞贼之刃",
+    "nicknames": []
+  },
+  "mithril_hammer": {
+    "name": "秘银锤",
+    "nicknames": []
+  },
+  "mjollnir": {
+    "name": "雷神之锤",
+    "nicknames": ["大电锤"]
+  },
+  "monkey_king_bar": {
+    "name": "金箍棒",
+    "nicknames": []
+  },
+  "moon_shard": {
+    "name": "银月之晶",
+    "nicknames": ["银月"]
+  },
+  "muertas_gun": {
+    "name": "仁慈与恩泽",
+    "nicknames": []
+  },
+  "mutation_tombstone": {
+    "name": "墓碑",
+    "nicknames": []
+  },
+  "mysterious_hat": {
+    "name": "仙灵饰品",
+    "nicknames": []
+  },
+  "mystic_staff": {
+    "name": "神秘法杖",
+    "nicknames": []
+  },
+  "necronomicon": {
+    "name": "死灵书",
+    "nicknames": []
+  },
+  "necronomicon_2": {
+    "name": "死灵书",
+    "nicknames": []
+  },
+  "necronomicon_3": {
+    "name": "死灵书",
+    "nicknames": []
+  },
+  "nemesis_curse": {
+    "name": "天诛之咒",
+    "nicknames": []
+  },
+  "nether_shawl": {
+    "name": "幽冥披巾",
+    "nicknames": []
+  },
+  "ninja_gear": {
+    "name": "忍者用具",
+    "nicknames": []
+  },
+  "null_talisman": {
+    "name": "空灵挂件",
+    "nicknames": []
+  },
+  "nullifier": {
+    "name": "否决坠饰",
+    "nicknames": ["否决"]
+  },
+  "oblivion_staff": {
+    "name": "空明杖",
+    "nicknames": []
+  },
+  "occult_bracelet": {
+    "name": "玄奥手镯",
+    "nicknames": []
+  },
+  "ocean_heart": {
+    "name": "海洋之心",
+    "nicknames": []
+  },
+  "octarine_core": {
+    "name": "玲珑心",
+    "nicknames": []
+  },
+  "ofrenda": {
+    "name": "挚爱回忆",
+    "nicknames": []
+  },
+  "ofrenda_pledge": {
+    "name": "先祖的财富",
+    "nicknames": []
+  },
+  "ofrenda_shovel": {
+    "name": "占卜之铲",
+    "nicknames": []
+  },
+  "ogre_axe": {
+    "name": "食人魔之斧",
+    "nicknames": []
+  },
+  "ogre_seal_totem": {
+    "name": "食人魔海豹图腾",
+    "nicknames": []
+  },
+  "orb_of_corrosion": {
+    "name": "腐蚀之珠",
+    "nicknames": []
+  },
+  "orb_of_destruction": {
+    "name": "毁灭灵球",
+    "nicknames": []
+  },
+  "orb_of_frost": {
+    "name": "冰霜之珠",
+    "nicknames": []
+  },
+  "orb_of_venom": {
+    "name": "淬毒之珠",
+    "nicknames": []
+  },
+  "orchid": {
+    "name": "紫怨",
+    "nicknames": []
+  },
+  "outworld_staff": {
+    "name": "殁境法杖",
+    "nicknames": []
+  },
+  "overwhelming_blink": {
+    "name": "盛势闪光",
+    "nicknames": []
+  },
+  "paintball": {
+    "name": "仙灵榴弹",
+    "nicknames": []
+  },
+  "paladin_sword": {
+    "name": "骑士剑",
+    "nicknames": []
+  },
+  "panic_button": {
+    "name": "神妙明灯",
+    "nicknames": []
+  },
+  "partisans_brand": {
+    "name": "天游烙印",
+    "nicknames": []
+  },
+  "pavise": {
+    "name": "长盾",
+    "nicknames": []
+  },
+  "penta_edged_sword": {
+    "name": "五锋长剑",
+    "nicknames": []
+  },
+  "pers": {
+    "name": "坚韧球",
+    "nicknames": []
+  },
+  "phase_boots": {
+    "name": "相位鞋",
+    "nicknames": []
+  },
+  "philosophers_stone": {
+    "name": "贤者石",
+    "nicknames": []
+  },
+  "phoenix_ash": {
+    "name": "凤凰余烬",
+    "nicknames": []
+  },
+  "phylactery": {
+    "name": "灵匣",
+    "nicknames": []
+  },
+  "pipe": {
+    "name": "洞察烟斗",
+    "nicknames": ["笛子"]
+  },
+  "pirate_hat": {
+    "name": "海盗帽",
+    "nicknames": []
+  },
+  "platemail": {
+    "name": "板甲",
+    "nicknames": []
+  },
+  "pocket_roshan": {
+    "name": "袖珍肉山",
+    "nicknames": []
+  },
+  "pocket_tower": {
+    "name": "袖珍高塔",
+    "nicknames": []
+  },
+  "pogo_stick": {
+    "name": "杂技玩具",
+    "nicknames": []
+  },
+  "point_booster": {
+    "name": "精气之球",
+    "nicknames": []
+  },
+  "polliwog_charm": {
+    "name": "蝌蚪护符",
+    "nicknames": []
+  },
+  "poor_mans_shield": {
+    "name": "穷鬼盾",
+    "nicknames": []
+  },
+  "possessed_mask": {
+    "name": "附魂面具",
+    "nicknames": []
+  },
+  "power_treads": {
+    "name": "动力鞋",
+    "nicknames": ["假腿"]
+  },
+  "princes_knife": {
+    "name": "亲王短刀",
+    "nicknames": []
+  },
+  "prophets_pendulum": {
+    "name": "先知灵摆",
+    "nicknames": []
+  },
+  "psychic_headband": {
+    "name": "通灵头带",
+    "nicknames": []
+  },
+  "pupils_gift": {
+    "name": "学徒之礼",
+    "nicknames": []
+  },
+  "pyrrhic_cloak": {
+    "name": "皮洛士斗篷",
+    "nicknames": []
+  },
+  "quarterstaff": {
+    "name": "短棍",
+    "nicknames": []
+  },
+  "quelling_blade": {
+    "name": "压制之刃",
+    "nicknames": ["补刀斧"]
+  },
+  "quickening_charm": {
+    "name": "加速护符",
+    "nicknames": []
+  },
+  "quicksilver_amulet": {
+    "name": "银闪护符",
+    "nicknames": []
+  },
+  "radiance": {
+    "name": "辉耀",
+    "nicknames": []
+  },
+  "rapier": {
+    "name": "圣剑",
+    "nicknames": []
+  },
+  "rattlecage": {
+    "name": "回响之笼",
+    "nicknames": []
+  },
+  "reaver": {
+    "name": "掠夺者之斧",
+    "nicknames": []
+  },
+  "refresher": {
+    "name": "刷新球",
+    "nicknames": []
+  },
+  "refresher_shard": {
+    "name": "刷新球碎片",
+    "nicknames": []
+  },
+  "relic": {
+    "name": "圣者遗物",
+    "nicknames": []
+  },
+  "repair_kit": {
+    "name": "维修器具",
+    "nicknames": []
+  },
+  "revenants_brooch": {
+    "name": "英灵胸针",
+    "nicknames": []
+  },
+  "riftshadow_prism": {
+    "name": "影墟棱晶",
+    "nicknames": []
+  },
+  "ring_of_aquila": {
+    "name": "天鹰之戒",
+    "nicknames": []
+  },
+  "ring_of_basilius": {
+    "name": "王者之戒",
+    "nicknames": []
+  },
+  "ring_of_health": {
+    "name": "治疗指环",
+    "nicknames": []
+  },
+  "ring_of_protection": {
+    "name": "守护指环",
+    "nicknames": []
+  },
+  "ring_of_regen": {
+    "name": "回复戒指",
+    "nicknames": []
+  },
+  "ring_of_tarrasque": {
+    "name": "恐鳌之戒",
+    "nicknames": []
+  },
+  "rippers_lash": {
+    "name": "撕裂之鞭",
+    "nicknames": []
+  },
+  "river_painter": {
+    "name": "河水药瓶：液铬",
+    "nicknames": []
+  },
+  "river_painter2": {
+    "name": "河水药瓶：干涸",
+    "nicknames": []
+  },
+  "river_painter3": {
+    "name": "河水药瓶：烂泥",
+    "nicknames": []
+  },
+  "river_painter4": {
+    "name": "河水药瓶：油污",
+    "nicknames": []
+  },
+  "river_painter5": {
+    "name": "河水药瓶：导电",
+    "nicknames": []
+  },
+  "river_painter6": {
+    "name": "河水药瓶：魔水",
+    "nicknames": []
+  },
+  "river_painter7": {
+    "name": "河水药瓶：血红",
+    "nicknames": []
+  },
+  "robe": {
+    "name": "法师长袍",
+    "nicknames": []
+  },
+  "rod_of_atos": {
+    "name": "阿托斯之棍",
+    "nicknames": ["阿托斯"]
+  },
+  "roshans_banner": {
+    "name": "肉山的战旗",
+    "nicknames": []
+  },
+  "royal_jelly": {
+    "name": "蜂王浆",
+    "nicknames": []
+  },
+  "royale_with_cheese": {
+    "name": "奶酪块",
+    "nicknames": []
+  },
+  "safety_bubble": {
+    "name": "安全泡泡",
+    "nicknames": []
+  },
+  "sange": {
+    "name": "散华",
+    "nicknames": []
+  },
+  "sange_and_yasha": {
+    "name": "散夜对剑",
+    "nicknames": []
+  },
+  "satanic": {
+    "name": "撒旦之邪力",
+    "nicknames": ["撒旦"]
+  },
+  "searing_signet": {
+    "name": "炽热纹章",
+    "nicknames": []
+  },
+  "seeds_of_serenity": {
+    "name": "宁静种籽",
+    "nicknames": []
+  },
+  "seer_stone": {
+    "name": "先哲之石",
+    "nicknames": []
+  },
+  "serrated_shiv": {
+    "name": "锯齿短刀",
+    "nicknames": []
+  },
+  "shadow_amulet": {
+    "name": "暗影护符",
+    "nicknames": []
+  },
+  "shawl": {
+    "name": "披巾",
+    "nicknames": []
+  },
+  "sheepstick": {
+    "name": "邪恶镰刀",
+    "nicknames": []
+  },
+  "shivas_guard": {
+    "name": "希瓦的守护",
+    "nicknames": ["希瓦"]
+  },
+  "silver_edge": {
+    "name": "白银之锋",
+    "nicknames": []
+  },
+  "sisters_shroud": {
+    "name": "魅影之衣",
+    "nicknames": []
+  },
+  "skadi": {
+    "name": "斯嘉蒂之眼",
+    "nicknames": ["冰眼"]
+  },
+  "slippers": {
+    "name": "敏捷便鞋",
+    "nicknames": ["假腿"]
+  },
+  "smoke_of_deceit": {
+    "name": "诡计之雾",
+    "nicknames": ["雾"]
+  },
+  "sobi_mask": {
+    "name": "贤者面罩",
+    "nicknames": []
+  },
+  "solar_crest": {
+    "name": "炎阳纹章",
+    "nicknames": ["大勋章"]
+  },
+  "soul_booster": {
+    "name": "振魂石",
+    "nicknames": []
+  },
+  "soul_ring": {
+    "name": "灵魂之戒",
+    "nicknames": ["魂戒"]
+  },
+  "spark_of_courage": {
+    "name": "勇气之光",
+    "nicknames": []
+  },
+  "specialists_array": {
+    "name": "行家阵列",
+    "nicknames": []
+  },
+  "spell_prism": {
+    "name": "法术棱镜",
+    "nicknames": []
+  },
+  "spellslinger": {
+    "name": "咏咒之坠",
+    "nicknames": []
+  },
+  "sphere": {
+    "name": "林肯法球",
+    "nicknames": ["林肯"]
+  },
+  "spider_legs": {
+    "name": "网虫腿",
+    "nicknames": []
+  },
+  "spirit_vessel": {
+    "name": "魂之灵瓮",
+    "nicknames": ["大骨灰"]
+  },
+  "splintmail": {
+    "name": "片甲",
+    "nicknames": []
+  },
+  "spy_gadget": {
+    "name": "望远镜",
+    "nicknames": []
+  },
+  "staff_of_wizardry": {
+    "name": "魔力法杖",
+    "nicknames": []
+  },
+  "stonefeather_satchel": {
+    "name": "石羽小包",
+    "nicknames": []
+  },
+  "stormcrafter": {
+    "name": "风暴宝器",
+    "nicknames": []
+  },
+  "stout_shield": {
+    "name": "圆盾",
+    "nicknames": []
+  },
+  "super_blink": {
+    "name": "super_blink",
+    "nicknames": []
+  },
+  "swift_blink": {
+    "name": "迅疾闪光",
+    "nicknames": []
+  },
+  "talisman_of_evasion": {
+    "name": "闪避护符",
+    "nicknames": []
+  },
+  "tango": {
+    "name": "树之祭祀",
+    "nicknames": []
+  },
+  "tango_single": {
+    "name": "树之祭祀（共享）",
+    "nicknames": []
+  },
+  "the_leveller": {
+    "name": "平世剑",
+    "nicknames": []
+  },
+  "third_eye": {
+    "name": "第三只眼",
+    "nicknames": []
+  },
+  "tiara_of_selemene": {
+    "name": "赛莉蒙妮之冠",
+    "nicknames": []
+  },
+  "tidehunter_fish": {
+    "name": "利维坦的鱼",
+    "nicknames": []
+  },
+  "tier1_token": {
+    "name": "第1级代币",
+    "nicknames": []
+  },
+  "tier2_token": {
+    "name": "第2级代币",
+    "nicknames": []
+  },
+  "tier3_token": {
+    "name": "第3级代币",
+    "nicknames": []
+  },
+  "tier4_token": {
+    "name": "第4级代币",
+    "nicknames": []
+  },
+  "tier5_token": {
+    "name": "第5级代币",
+    "nicknames": []
+  },
+  "timeless_relic": {
+    "name": "永恒遗物",
+    "nicknames": []
+  },
+  "titan_sliver": {
+    "name": "巨神残铁",
+    "nicknames": []
+  },
+  "tome_of_aghanim": {
+    "name": "阿哈利姆之书",
+    "nicknames": []
+  },
+  "tome_of_knowledge": {
+    "name": "知识之书",
+    "nicknames": []
+  },
+  "tpscroll": {
+    "name": "回城卷轴",
+    "nicknames": ["回城"]
+  },
+  "tranquil_boots": {
+    "name": "静谧之鞋",
+    "nicknames": ["绿鞋"]
+  },
+  "travel_boots": {
+    "name": "远行鞋",
+    "nicknames": ["飞鞋"]
+  },
+  "travel_boots_2": {
+    "name": "远行鞋",
+    "nicknames": ["大飞鞋"]
+  },
+  "trickster_cloak": {
+    "name": "欺诈师斗篷",
+    "nicknames": []
+  },
+  "trident": {
+    "name": "三元重戟",
+    "nicknames": []
+  },
+  "trusty_shovel": {
+    "name": "可靠铁铲",
+    "nicknames": []
+  },
+  "ultimate_orb": {
+    "name": "极限法球",
+    "nicknames": []
+  },
+  "ultimate_scepter": {
+    "name": "阿哈利姆神杖",
+    "nicknames": ["蓝杖","A杖"]
+  },
+  "ultimate_scepter_2": {
+    "name": "阿哈利姆福佑",
+    "nicknames": []
+  },
+  "ultimate_scepter_roshan": {
+    "name": "阿哈利姆福佑 - 肉山",
+    "nicknames": []
+  },
+  "unrelenting_eye": {
+    "name": "不屈之眼",
+    "nicknames": []
+  },
+  "unstable_wand": {
+    "name": "豚杆",
+    "nicknames": []
+  },
+  "unwavering_condition": {
+    "name": "坚毅之件",
+    "nicknames": []
+  },
+  "urn_of_shadows": {
+    "name": "影之灵龛",
+    "nicknames": ["骨灰"]
+  },
+  "vambrace": {
+    "name": "臂甲",
+    "nicknames": []
+  },
+  "vampire_fangs": {
+    "name": "吸血鬼獠牙",
+    "nicknames": []
+  },
+  "vanguard": {
+    "name": "先锋盾",
+    "nicknames": []
+  },
+  "veil_of_discord": {
+    "name": "纷争面纱",
+    "nicknames": []
+  },
+  "vindicators_axe": {
+    "name": "正义之斧",
+    "nicknames": []
+  },
+  "vitality_booster": {
+    "name": "活力之球",
+    "nicknames": []
+  },
+  "vladmir": {
+    "name": "弗拉迪米尔的祭品",
+    "nicknames": ["祭品"]
+  },
+  "void_stone": {
+    "name": "虚无宝石",
+    "nicknames": []
+  },
+  "voodoo_mask": {
+    "name": "巫毒面具",
+    "nicknames": []
+  },
+  "ward_dispenser": {
+    "name": "侦察·岗哨守卫",
+    "nicknames": []
+  },
+  "ward_observer": {
+    "name": "侦察守卫",
+    "nicknames": ["假眼"]
+  },
+  "ward_sentry": {
+    "name": "岗哨守卫",
+    "nicknames": ["真眼"]
+  },
+  "weighted_dice": {
+    "name": "加重骰子",
+    "nicknames": []
+  },
+  "whisper_of_the_dread": {
+    "name": "邪道私语",
+    "nicknames": []
+  },
+  "wind_lace": {
+    "name": "风灵之纹",
+    "nicknames": []
+  },
+  "wind_waker": {
+    "name": "风之杖",
+    "nicknames": ["大吹风"]
+  },
+  "witch_blade": {
+    "name": "巫师之刃",
+    "nicknames": []
+  },
+  "witless_shako": {
+    "name": "无知小帽",
+    "nicknames": []
+  },
+  "wizard_hat": {
+    "name": "巫师帽",
+    "nicknames": []
+  },
+  "woodland_striders": {
+    "name": "林地神行靴",
+    "nicknames": []
+  },
+  "wraith_band": {
+    "name": "怨灵系带",
+    "nicknames": []
+  },
+  "wraith_pact": {
+    "name": "怨灵之契",
+    "nicknames": []
+  },
+  "yasha": {
+    "name": "夜叉",
+    "nicknames": []
+  },
+  "yasha_and_kaya": {
+    "name": "慧夜对剑",
+    "nicknames": []
+  }
+}

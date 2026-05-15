@@ -22,6 +22,7 @@ NPC_ABILITIES_URL = "https://raw.githubusercontent.com/spirit-bear-productions/d
 # Hero nicknames (manually maintained, keyed by short hero name without npc_dota_hero_ prefix)
 # Hero nicknames are loaded from data/nicknames.json (manually maintained, not auto-generated)
 HERO_NICKNAMES: dict = json.loads((_ROOT / "data/nicknames.json").read_text(encoding="utf-8"))
+ITEM_NICKNAMES: dict = json.loads((_ROOT / "data/item_nicknames.json").read_text(encoding="utf-8"))
 
 _SUB_ABILITY_SUFFIXES = (
     "_end", "_release", "_cancel", "_stop", "_throw", "_channel",
@@ -280,6 +281,12 @@ def merge_heroes() -> dict:
     hero_abilities_raw = json.loads((RAW / "hero_abilities.json").read_text())
     abilities_raw = json.loads((RAW / "abilities.json").read_text())
 
+    counters_file = _ROOT / "data/counters.json"
+    counters_data: dict = json.loads(counters_file.read_text(encoding="utf-8")) if counters_file.exists() else {}
+
+    synergies_file = _ROOT / "data/synergies.json"
+    synergies_data: dict = json.loads(synergies_file.read_text(encoding="utf-8")) if synergies_file.exists() else {}
+
     # abilities_schinese.txt carries BOTH hero names and ability names
     loc = _load_kv_tokens(RAW / "abilities_schinese.txt")
     # dota_schinese.txt carries hype/bio texts
@@ -466,6 +473,8 @@ def merge_heroes() -> dict:
             "icon": icon,
             "abilities": abilities,
             "talents": talents,
+            "countered_by": counters_data.get(short_name, {}).get("countered_by", []),
+            "synergies": synergies_data.get(short_name, {}).get("synergies", []),
         }
 
     return result
@@ -594,6 +603,11 @@ def merge_items() -> dict:
     neutral_tiers_file = RAW / "neutral_tiers.json"
     neutral_tiers: dict = json.loads(neutral_tiers_file.read_text(encoding="utf-8")) if neutral_tiers_file.exists() else {}
 
+    cdn = "https://cdn.cloudflare.steamstatic.com"
+
+    def loc_get(key: str) -> str:
+        return loc.get(f"DOTA_Tooltip_Ability_{key}") or loc.get(f"DOTA_Tooltip_ability_{key}") or ""
+
     result: dict = {}
 
     for raw_key, item in items_raw.items():
@@ -602,17 +616,14 @@ def merge_items() -> dict:
 
         item_key = f"item_{raw_key}"
 
-        # Chinese name: key may carry a ":n" suffix for neutral items
+        # Neutral items may carry a ":n" suffix in the localization key
         cn_name = (
-            loc.get(f"DOTA_Tooltip_Ability_{item_key}:n")
-            or loc.get(f"DOTA_Tooltip_ability_{item_key}:n")
-            or loc.get(f"DOTA_Tooltip_Ability_{item_key}")
-            or loc.get(f"DOTA_Tooltip_ability_{item_key}")
+            loc_get(f"{item_key}:n")
+            or loc_get(item_key)
             or item.get("dname", raw_key)
         )
         en_name = item.get("dname", raw_key)
 
-        # Description (lowercase 'ability' variant used for most items)
         description = (
             loc.get(f"DOTA_Tooltip_ability_{item_key}_Description")
             or loc.get(f"DOTA_Tooltip_Ability_{item_key}_Description")
@@ -624,7 +635,6 @@ def merge_items() -> dict:
         lore_zh = lore_cn.get(item_key, "") if lore_en else ""
 
         img_path = item.get("img", "")
-        cdn = "https://cdn.cloudflare.steamstatic.com"
         img = (cdn + img_path.split("?")[0]) if img_path else ""
 
         # Build attrib lookup: {key: value_string}
@@ -665,10 +675,11 @@ def merge_items() -> dict:
             "id": item.get("id"),
             "name": cn_name,
             "name_en": en_name,
+            "nickname": ITEM_NICKNAMES.get(raw_key, {}).get("nicknames", []),
             "cost": cost,
             "qual": qual,
             "is_neutral": is_neutral,
-            "neutral_tier": neutral_tier if is_neutral else None,  # 0=游荡, 1-4=梯队
+            "neutral_tier": neutral_tier if is_neutral else None,  # 0–4 = 一级–五级
             "description": description,
             "lore_en": lore_en,
             "lore_zh": lore_zh,

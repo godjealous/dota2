@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DOTA2 OldStack</title>
+<title>克制图谱 - DOTA2 OldStack</title>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -2553,10 +2553,8 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
 </style>
 </head>
 <body>
-
 <header>
-  <!-- Logo -->
-  <div class="logo">
+  <a href="/" class="logo">
     <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="16" cy="16" r="15" fill="#e8471a" opacity="0.15"/>
       <path d="M16 4 L28 10 L28 22 L16 28 L4 22 L4 10 Z" fill="#e8471a" opacity="0.9"/>
@@ -2565,354 +2563,31 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
     </svg>
     <span class="logo-dota">DOTA2</span>
     <span class="logo-brand">OldStack</span>
-  </div>
-  <!-- Nav -->
+  </a>
   <nav id="mainNav">
-    <a class="active" onclick="showTab('heroes')">
+    <a href="/heroes">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 10c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
       <span class="nav-cn">英雄</span>
       <span class="nav-en">Heroes</span>
     </a>
     <div class="nav-sep"></div>
-    <a onclick="showTab('items')">
+    <a href="/items">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.51 15.49 1 13.36 1c-1.37 0-2.72.56-3.66 1.5L9 3.18 8.3 2.5C7.36 1.56 6.01 1 4.64 1 2.51 1 0 2.51 0 4.64c0 .48.11.92.18 1.36H0v2h2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6h-4zm-8 12H6V8h6v10zm8 0h-6V8h6v10z"/></svg>
       <span class="nav-cn">物品</span>
       <span class="nav-en">Items</span>
     </a>
     <div class="nav-sep"></div>
-    <a onclick="showTab('graph')">
+    <a href="/graph" class="active">
       <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
       <span class="nav-cn">图谱</span>
       <span class="nav-en">Graph</span>
     </a>
   </nav>
   <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
-  <!-- 保留旧搜索框的DOM以避免JS报错，但隐藏 -->
-  <div class="search-wrap">
-    <input type="text" id="searchInput" oninput="onSearch()" style="display:none">
-  </div>
+  <input type="text" id="searchInput" style="display:none">
 </header>
-
-<!-- 英雄页 -->
-<div id="heroesView">
-  <!-- 筛选栏 -->
-  <div class="hero-filter-bar">
-    <div class="hero-filter-search">
-      <span class="hero-filter-search-icon">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </span>
-      <input type="text" id="heroSearchInput" placeholder="搜索英雄名称" oninput="onHeroSearch()" autocomplete="off">
-      <button class="hero-filter-search-clear" id="heroSearchClear" onclick="clearHeroSearch()" style="display:none">✕</button>
-    </div>
-    <!-- 属性下拉 -->
-    <div class="hf-dropdown" id="attrDropdown">
-      <div class="hf-dropdown-btn" onclick="toggleDropdown('attrDropdown')">
-        <span class="hf-dropdown-label">属性</span>
-        <span class="hf-dropdown-value" id="attrDropdownValue">全部属性</span>
-        <span class="hf-dropdown-arrow">▼</span>
-      </div>
-      <div class="hf-dropdown-menu">
-        <div class="hf-dropdown-item selected" data-value="" onclick="selectDropdown('attrDropdown','','全部属性')">全部属性</div>
-        <div class="hf-dropdown-item" data-value="str" onclick="selectDropdown('attrDropdown','str','力量')">力量</div>
-        <div class="hf-dropdown-item" data-value="agi" onclick="selectDropdown('attrDropdown','agi','敏捷')">敏捷</div>
-        <div class="hf-dropdown-item" data-value="int" onclick="selectDropdown('attrDropdown','int','智力')">智力</div>
-        <div class="hf-dropdown-item" data-value="all" onclick="selectDropdown('attrDropdown','all','全才')">全才</div>
-      </div>
-    </div>
-    <!-- 定位下拉 -->
-    <div class="hf-dropdown" id="roleDropdown">
-      <div class="hf-dropdown-btn" onclick="toggleDropdown('roleDropdown')">
-        <span class="hf-dropdown-label">定位</span>
-        <span class="hf-dropdown-value" id="roleDropdownValue">全部定位</span>
-        <span class="hf-dropdown-arrow">▼</span>
-      </div>
-      <div class="hf-dropdown-menu">
-        <div class="hf-dropdown-item selected" data-value="" onclick="selectDropdown('roleDropdown','','全部定位')">全部定位</div>
-        <div class="hf-dropdown-item" data-value="Carry"     onclick="selectDropdown('roleDropdown','Carry','核心')">核心</div>
-        <div class="hf-dropdown-item" data-value="Support"   onclick="selectDropdown('roleDropdown','Support','辅助')">辅助</div>
-        <div class="hf-dropdown-item" data-value="Disabler"  onclick="selectDropdown('roleDropdown','Disabler','控制')">控制</div>
-        <div class="hf-dropdown-item" data-value="Initiator" onclick="selectDropdown('roleDropdown','Initiator','先手')">先手</div>
-        <div class="hf-dropdown-item" data-value="Nuker"     onclick="selectDropdown('roleDropdown','Nuker','爆发')">爆发</div>
-        <div class="hf-dropdown-item" data-value="Durable"   onclick="selectDropdown('roleDropdown','Durable','耐久')">耐久</div>
-        <div class="hf-dropdown-item" data-value="Escape"    onclick="selectDropdown('roleDropdown','Escape','逃跑')">逃跑</div>
-        <div class="hf-dropdown-item" data-value="Pusher"    onclick="selectDropdown('roleDropdown','Pusher','推进')">推进</div>
-      </div>
-    </div>
-  </div>
-  <main id="heroesMain"></main>
-</div>
-
-<!-- 英雄详情页 -->
-<div id="detailView">
-  <div class="detail-hero-banner">
-    <img id="detailBanner" class="banner-bg" src="" alt="">
-    <button class="detail-back" onclick="backToList()">← 返回英雄列表</button>
-    <!-- 右上角：版本信息 -->
-    <div id="detailVersionBadge" style="position:absolute;top:18px;right:24px;z-index:10;font-size:12px;color:#9aa3b5;"></div>
-    <!-- 右侧：3个属性卡 -->
-    <div class="banner-stat-cards" id="bannerStatCards"></div>
-    <!-- 左下：英雄名称信息 -->
-    <div class="banner-title-block">
-      <img class="banner-hero-icon" id="detailIcon" src="" alt="">
-      <div class="banner-en-label" id="detailAttrLabel"></div>
-      <div class="banner-cn-name" id="detailName"></div>
-      <div class="banner-sub-line" id="detailSubLine"></div>
-    </div>
-  </div>
-  <!-- Tab 栏 -->
-  <div class="detail-tabs" id="heroDetailTabs">
-    <div class="detail-tab-btn active" data-panel="heroTabOverview" onclick="switchHeroTab('heroTabOverview')">概览</div>
-    <div class="detail-tab-btn" data-panel="heroTabSkills" onclick="switchHeroTab('heroTabSkills')">技能</div>
-    <div class="detail-tab-btn" data-panel="heroTabCounter" onclick="switchHeroTab('heroTabCounter')">克制</div>
-    <div class="detail-tab-btn" data-panel="heroTabSynergy" onclick="switchHeroTab('heroTabSynergy')">配合</div>
-  </div>
-  <div class="detail-body">
-    <!-- 概览 Tab -->
-    <div class="detail-tab-panel active" id="heroTabOverview">
-      <div id="heroOverviewPanel"></div>
-    </div>
-    <!-- 技能 Tab -->
-    <div class="detail-tab-panel" id="heroTabSkills">
-      <div class="d-card accent-gold" id="talentCardWrap" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🌟</span>天赋树</div>
-        </div>
-        <div class="d-card-body" style="padding:16px 20px 20px">
-          <div class="talent-tree-wrap" id="talentTreeWrap">
-            <div class="talent-tree" id="talentTree"></div>
-          </div>
-        </div>
-      </div>
-      <div class="d-card accent-blue">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">⚡</span>技能列表</div>
-        </div>
-        <div class="d-card-body">
-          <div class="ability-list" id="abilityList"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 克制 Tab -->
-    <div class="detail-tab-panel" id="heroTabCounter">
-      <div class="detail-graph-pane" id="counterGraphCard" style="display:none">
-        <div class="graph-panel-header">
-          <div class="graph-panel-icon counter-icon">⚔</div>
-          <div class="graph-panel-titles">
-            <span class="graph-panel-cn" id="detailCounterTitle">克制该英雄的阵容</span>
-            <span class="graph-panel-en">Counter Relationships</span>
-          </div>
-          <span class="d-card-badge" style="margin-left:auto">可拖动节点</span>
-        </div>
-        <div class="graph-split-container" id="detailCounterContainer">
-          <svg id="detailCounterSvg" style="width:100%;height:100%;display:block"></svg>
-        </div>
-      </div>
-      <div class="d-card accent-red" id="counterSectionCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🛡</span>克制阵容</div>
-        </div>
-        <div class="d-card-body">
-          <div id="counterSection"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 配合 Tab -->
-    <div class="detail-tab-panel" id="heroTabSynergy">
-      <div class="detail-graph-pane" id="synergyGraphCard" style="display:none">
-        <div class="graph-panel-header">
-          <div class="graph-panel-icon synergy-icon">✦</div>
-          <div class="graph-panel-titles">
-            <span class="graph-panel-cn" id="detailSynergyTitle">与该英雄配合的阵容</span>
-            <span class="graph-panel-en">Synergy Relationships</span>
-          </div>
-          <span class="d-card-badge" style="margin-left:auto">可拖动节点</span>
-        </div>
-        <div class="graph-split-container" id="detailSynergyContainer">
-          <svg id="detailSynergySvg" style="width:100%;height:100%;display:block"></svg>
-        </div>
-      </div>
-      <div class="d-card accent-green" id="synergySectionCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">⚔</span>配合阵容</div>
-        </div>
-        <div class="d-card-body">
-          <div id="synergySection"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 物品页 -->
-<div id="itemsView" style="display:none">
-  <!-- 搜索栏 -->
-  <div class="items-search-bar">
-    <div class="items-search-bar-inner">
-      <span class="items-search-icon">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </span>
-      <input type="text" id="itemSearchInput" placeholder="搜索物品名称..." oninput="onItemSearch()" autocomplete="off">
-      <button class="items-search-clear" id="itemSearchClear" onclick="clearItemSearch()" style="display:none">✕</button>
-    </div>
-  </div>
-  <!-- 分类 Tab -->
-  <div class="items-tab-bar" id="itemsTabBar">
-    <div class="items-tab-btn active" data-cat="all" onclick="selectItemTab('all')">
-      <span class="tab-icon">⚗</span>
-      <span class="tab-cn">全部</span>
-      <span class="tab-en">All</span>
-    </div>
-    <div class="items-tab-btn" data-cat="consumables" onclick="selectItemTab('consumables')">
-      <span class="tab-icon">🧪</span>
-      <span class="tab-cn">消耗品</span>
-      <span class="tab-en">Consumables</span>
-    </div>
-    <div class="items-tab-btn" data-cat="attributes" onclick="selectItemTab('attributes')">
-      <span class="tab-icon">⚡</span>
-      <span class="tab-cn">属性</span>
-      <span class="tab-en">Attributes</span>
-    </div>
-    <div class="items-tab-btn" data-cat="equipment" onclick="selectItemTab('equipment')">
-      <span class="tab-icon">🛡</span>
-      <span class="tab-cn">装备</span>
-      <span class="tab-en">Equipment</span>
-    </div>
-    <div class="items-tab-btn" data-cat="accessories" onclick="selectItemTab('accessories')">
-      <span class="tab-icon">👟</span>
-      <span class="tab-cn">配件</span>
-      <span class="tab-en">Accessories</span>
-    </div>
-    <div class="items-tab-btn" data-cat="arcane" onclick="selectItemTab('arcane')">
-      <span class="tab-icon">🔮</span>
-      <span class="tab-cn">法器</span>
-      <span class="tab-en">Arcane</span>
-    </div>
-    <div class="items-tab-btn" data-cat="weapons" onclick="selectItemTab('weapons')">
-      <span class="tab-icon">⚔</span>
-      <span class="tab-cn">武器</span>
-      <span class="tab-en">Weapons</span>
-    </div>
-    <div class="items-tab-btn" data-cat="armor" onclick="selectItemTab('armor')">
-      <span class="tab-icon">🪖</span>
-      <span class="tab-cn">防具</span>
-      <span class="tab-en">Armor</span>
-    </div>
-    <div class="items-tab-btn" data-cat="support" onclick="selectItemTab('support')">
-      <span class="tab-icon">💫</span>
-      <span class="tab-cn">辅助</span>
-      <span class="tab-en">Support</span>
-    </div>
-    <div class="items-tab-btn" data-cat="neutral" onclick="selectItemTab('neutral')">
-      <span class="tab-icon">🗡</span>
-      <span class="tab-cn">中立物品</span>
-      <span class="tab-en">Neutral</span>
-    </div>
-  </div>
-  <!-- 分类内容 -->
-  <div class="items-body" id="itemsBody"></div>
-  <div class="search-empty" id="itemEmpty" style="display:none">没有找到匹配的物品</div>
-</div>
-
-<!-- 物品详情全页面 -->
-<div id="itemDetailView">
-  <div class="item-detail-banner">
-    <div class="item-detail-banner-bg">
-      <img id="itemDetailBgImg" src="" alt="">
-    </div>
-    <button class="item-detail-back" onclick="backToItems()">← 返回物品列表</button>
-    <div class="item-banner-info">
-      <img class="item-banner-icon" id="itemDetailIcon" src="" alt="">
-      <div class="item-banner-title">
-        <h1 id="itemDetailName"></h1>
-        <div class="item-banner-en" id="itemDetailEn"></div>
-        <div class="item-banner-cost" id="itemDetailCost"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Tab 栏 -->
-  <div class="detail-tabs" id="itemDetailTabs">
-    <div class="detail-tab-btn active" data-panel="itemTabOverview" onclick="switchItemTab('itemTabOverview')">概览</div>
-    <div class="detail-tab-btn" data-panel="itemTabSkill" onclick="switchItemTab('itemTabSkill')" id="itemTabSkillBtn" style="display:none">技能</div>
-    <div class="detail-tab-btn" data-panel="itemTabHeroes" onclick="switchItemTab('itemTabHeroes')" id="itemTabHeroesBtn" style="display:none">英雄适配</div>
-    <div class="detail-tab-btn" data-panel="itemTabCounters" onclick="switchItemTab('itemTabCounters')" id="itemTabCountersBtn" style="display:none">克制关系</div>
-    <div class="detail-tab-btn" data-panel="itemTabLore" onclick="switchItemTab('itemTabLore')" id="itemTabLoreBtn" style="display:none">背景故事</div>
-  </div>
-  <div class="item-detail-body">
-    <!-- 概览 Tab -->
-    <div class="detail-tab-panel active" id="itemTabOverview">
-      <div id="itemInfoCard"></div>
-      <div class="d-card accent-gold" id="itemBonusesSection" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">✦</span>属性加成</div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-bonuses-grid" id="itemBonusesGrid"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 技能 Tab -->
-    <div class="detail-tab-panel" id="itemTabSkill">
-      <div class="d-card accent-teal" id="itemDescCardWrap" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">⚡</span><span id="itemDescTitle">技能描述</span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-desc-card" id="itemDescCard"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 英雄适配 Tab -->
-    <div class="detail-tab-panel" id="itemTabHeroes">
-      <div class="d-card accent-green" id="itemHeroFitsCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🤝</span><span id="itemHeroFitsTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-hero-fits-grid" id="itemHeroFitsGrid"></div>
-        </div>
-      </div>
-      <div class="d-card accent-red" id="itemHeroCountersCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">⚔</span><span id="itemHeroCountersTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-hero-counters-grid" id="itemHeroCountersGrid"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 克制关系 Tab -->
-    <div class="detail-tab-panel" id="itemTabCounters">
-      <div class="d-card accent-red" id="itemCounteredByCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🛡</span><span id="itemCounteredByTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-counters-grid" id="itemCounteredByGrid"></div>
-        </div>
-      </div>
-      <div class="d-card accent-blue" id="itemCountersCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">🗡</span><span id="itemCountersTitle"></span></div>
-        </div>
-        <div class="d-card-body">
-          <div class="item-counters-grid" id="itemCountersGrid"></div>
-        </div>
-      </div>
-    </div>
-    <!-- 背景故事 Tab -->
-    <div class="detail-tab-panel" id="itemTabLore">
-      <div class="d-card accent-teal" id="itemLoreCard" style="display:none">
-        <div class="d-card-header">
-          <div class="d-card-title"><span class="d-card-icon">📖</span>背景故事</div>
-        </div>
-        <div class="d-card-body" id="itemLoreBody"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- 克制图谱页 -->
-<div id="graphView" style="display:none">
+<div id="graphView">
   <!-- 工具栏 -->
   <div class="graph-toolbar">
     <div class="graph-legend" id="graphLegend">
@@ -2987,7 +2662,9 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
   </div>
 </div>
 
+
 <script>
+
 const CDN = 'https://cdn.cloudflare.steamstatic.com';
 let heroesData = {}, itemsData = {}, currentTab = 'heroes', searchQuery = '';
 
@@ -3012,9 +2689,9 @@ async function loadData() {
       const d = meta.patch_date ? new Date(meta.patch_date).toLocaleDateString('zh-CN') : '';
       document.getElementById('versionBadge').innerHTML = `版本 <span>${meta.patch}</span>${d ? ' · ' + d : ''}`;
     }
-    renderHeroes();
+    initGraph();
   } catch(e) {
-    document.getElementById('heroesMain').innerHTML = '<div class="empty-state">数据加载失败，请确认 Flask 已启动</div>';
+    console.error('graph loadData failed', e);
   }
 }
 
@@ -4177,8 +3854,6 @@ function formatDesc(text, attrib) {
     });
 }
 
-loadData();
-
 // ════════════════════════════════════════════════
 // 图谱 (D3 Force Graph)
 // ════════════════════════════════════════════════
@@ -4656,6 +4331,7 @@ function graphReset() {
 }
 
 loadData();
+
 </script>
 <div class="counter-tooltip" id="counterTooltip"></div>
 <div class="synergy-tooltip" id="synergyTooltip"></div>

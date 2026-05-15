@@ -2610,8 +2610,9 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
   .graph-picker-bar { flex-direction: column; align-items: stretch; padding: 12px; gap: 10px; }
   .graph-hero-picker { flex-wrap: wrap; }
   .graph-split { flex-direction: column !important; }
-  .graph-panel { height: 50vh !important; }
+  .graph-split-pane { height: 50vh; min-height: 300px; flex: none; }
   .graph-controls { flex-wrap: wrap; gap: 6px; }
+  #graphView { height: auto; overflow: visible; }
 }
 </style>
 </head>
@@ -4227,14 +4228,17 @@ function drawPanel(panel, centerNodeId, edges, direction = 'both') {
   nodeSel.filter(d => d.img).each(function(d) {
     const r = d.id === centerNodeId ? 20 : 14;
     const cid = `clip-${svgId}-${d.id.replace(/[^a-z0-9]/gi,'_')}`;
-    defs.append('clipPath').attr('id', cid).append('circle').attr('r', r);
-    d3.select(this).append('image')
+    defs.append('clipPath').attr('id', cid)
+      .append('circle').attr('cx', 0).attr('cy', 0).attr('r', r);
+    // Wrap in <g clip-path> for iOS Safari compatibility (clip-path on <image> is broken on iOS)
+    d3.select(this).append('g')
+      .attr('clip-path', `url(#${cid})`)
+      .append('image')
       .attr('href', d.img)
       .attr('x', d.type === 'hero' ? -r*1.5 : -r*1.2)
       .attr('y', -r)
       .attr('width',  d.type === 'hero' ? r*3 : r*2.4)
       .attr('height', r * 2)
-      .attr('clip-path', `url(#${cid})`)
       .attr('preserveAspectRatio', 'xMidYMid slice');
   });
 
@@ -4311,6 +4315,18 @@ function focusHero(heroId) {
 
   drawPanel(gPanelCounter, heroId, counterEdges, 'inbound');
   drawPanel(gPanelSynergy, heroId, synergyEdges, 'both');
+
+  requestAnimationFrame(() => {
+    ['graphCounterContainer', 'graphSynergyContainer'].forEach((cid, i) => {
+      const panel = i === 0 ? gPanelCounter : gPanelSynergy;
+      const container = document.getElementById(cid);
+      const w = container.clientWidth, h = container.clientHeight;
+      if (w && h) {
+        panel.sim.force('center', d3.forceCenter(w / 2, h / 2));
+        panel.sim.alpha(0.3).restart();
+      }
+    });
+  });
 }
 
 function focusItem(itemId) {
@@ -4323,6 +4339,15 @@ function focusItem(itemId) {
 
   if (!gPanelSingle) gPanelSingle = createPanel('graphSvg', 'graphContainer');
   drawPanel(gPanelSingle, itemId, graphItemEdges);
+
+  requestAnimationFrame(() => {
+    const container = document.getElementById('graphContainer');
+    const w = container.clientWidth, h = container.clientHeight;
+    if (w && h) {
+      gPanelSingle.sim.force('center', d3.forceCenter(w / 2, h / 2));
+      gPanelSingle.sim.alpha(0.3).restart();
+    }
+  });
 }
 
 function focusNode(nodeId) {

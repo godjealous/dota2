@@ -190,27 +190,40 @@ header nav .nav-sep {
 }
 
 .home-cta-btn.secondary {
-  background: rgba(255,255,255,0.06);
-  color: #c8cede;
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(200,155,60,0.12);
+  color: #c89b3c;
+  border: 1px solid rgba(200,155,60,0.35);
 }
 .home-cta-btn.secondary:hover {
-  background: rgba(255,255,255,0.10);
-  color: #fff;
-  border-color: rgba(255,255,255,0.22);
+  background: rgba(200,155,60,0.22);
+  color: #d9ae50;
+  border-color: rgba(200,155,60,0.6);
+  transform: translateY(-1px);
+}
+
+.home-cta-btn.tertiary {
+  background: rgba(74,158,255,0.1);
+  color: #4a9eff;
+  border: 1px solid rgba(74,158,255,0.3);
+}
+.home-cta-btn.tertiary:hover {
+  background: rgba(74,158,255,0.2);
+  color: #6fb3ff;
+  border-color: rgba(74,158,255,0.55);
   transform: translateY(-1px);
 }
 
 .home-stats-row {
   display: flex;
-  gap: 40px;
+  gap: 14px;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: 20px;
   position: relative;
 }
 
 .home-stat {
   text-align: center;
+  min-width: 120px;
 }
 .home-stat-num {
   font-size: 32px;
@@ -234,22 +247,22 @@ header nav .nav-sep {
 }
 
 .home-section-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0;
   color: #e8471a;
-  text-transform: uppercase;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .home-section-title {
-  font-size: 28px;
-  font-weight: 800;
+  font-size: 42px;
+  font-weight: 900;
   color: #e8eaf0;
   text-align: center;
   margin-bottom: 8px;
-  letter-spacing: -0.5px;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
 }
 
 .home-section-sub {
@@ -293,42 +306,39 @@ header nav .nav-sep {
 
 .home-card-art {
   height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
+  background: #0a0c14;
 }
 
-.home-card.card-heroes .home-card-art {
-  background: linear-gradient(135deg, #1a0e0e 0%, #0e1015 60%, #150e1a 100%);
-}
-.home-card.card-items .home-card-art {
-  background: linear-gradient(135deg, #1a1508 0%, #0e1015 60%, #1a1008 100%);
-}
-.home-card.card-graph .home-card-art {
-  background: linear-gradient(135deg, #0a1220 0%, #0e1015 60%, #0a1820 100%);
+.home-card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform .35s ease;
 }
 
-.card-art-icon {
-  font-size: 64px;
-  opacity: 0.18;
+.home-card:hover .home-card-art img {
+  transform: scale(1.06);
+}
+
+.home-card-art::after {
+  content: '';
   position: absolute;
-  right: 20px;
-  bottom: -10px;
-  user-select: none;
+  inset: 0;
+  pointer-events: none;
 }
 
-.card-art-badge {
-  position: relative;
-  z-index: 1;
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
+.home-card.card-heroes .home-card-art::after {
+  background: linear-gradient(to bottom, rgba(10,8,8,0.15) 0%, rgba(10,8,8,0.55) 100%);
+}
+.home-card.card-items .home-card-art::after {
+  background: linear-gradient(to bottom, rgba(8,8,6,0.15) 0%, rgba(8,8,6,0.55) 100%);
+}
+.home-card.card-graph .home-card-art::after {
+  background: linear-gradient(to bottom, rgba(6,8,14,0.15) 0%, rgba(6,8,14,0.55) 100%);
 }
 
 .home-card.card-heroes .card-art-badge {
@@ -421,6 +431,59 @@ header nav .nav-sep {
 .card-graph  .home-card-link { background: rgba(74,158,255,0.12); color: #4a9eff; border: 1px solid rgba(74,158,255,0.25); }
 .card-graph  .home-card-link:hover { background: rgba(74,158,255,0.22); border-color: rgba(74,158,255,0.5); }
 
+/* ── Donate ── */
+.home-donate {
+  border-top: 1px solid #1a1f2e;
+  padding: 56px 40px;
+  background: #0e1015;
+}
+
+.home-donate-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 56px;
+}
+
+.home-donate-text {
+  flex: 1;
+}
+
+.home-donate-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #e8eaf0;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.home-donate-desc {
+  font-size: 15px;
+  color: #8892a4;
+  line-height: 1.8;
+}
+
+.home-donate-qr {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.home-donate-qr img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid #2a3040;
+  display: block;
+}
+
+.home-donate-qr-label {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #6b7590;
+}
+
 /* ── Footer ── */
 .home-footer {
   border-top: 1px solid #1a1f2e;
@@ -486,7 +549,7 @@ header nav .nav-sep {
     <span class="t-dota">DOTA2 </span><span class="t-brand">OldStack</span>
   </h1>
   <p class="home-subtitle">
-    DOTA2 英雄数据库 &amp; 战术分析工具<br>
+    DOTA2 英雄数据与战术分析工具<br>
     查阅英雄技能、物品属性，探索克制与配合关系图谱
   </p>
 
@@ -495,7 +558,11 @@ header nav .nav-sep {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C9.24 2 7 4.24 7 7s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 10c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"/></svg>
       浏览英雄
     </a>
-    <a href="/graph" class="home-cta-btn secondary">
+    <a href="/items" class="home-cta-btn secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.51 15.49 1 13.36 1c-1.37 0-2.72.56-3.66 1.5L9 3.18 8.3 2.5C7.36 1.56 6.01 1 4.64 1 2.51 1 0 2.51 0 4.64c0 .48.11.92.18 1.36H0v2h2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6h-4zm-8 12H6V8h6v10zm8 0h-6V8h6v10z"/></svg>
+      分析物品
+    </a>
+    <a href="/graph" class="home-cta-btn tertiary">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
       克制图谱
     </a>
@@ -520,16 +587,15 @@ header nav .nav-sep {
 <!-- Feature Cards -->
 <div class="home-features">
   <div class="home-section-label">功能模块</div>
-  <h2 class="home-section-title">探索 DOTA2 数据库</h2>
-  <p class="home-section-sub">涵盖所有英雄、物品信息及 AI 分析的克制配合关系</p>
+  <h2 class="home-section-title">探索 DOTA2 数据</h2>
+  <p class="home-section-sub">涵盖所有英雄、物品信息及克制配合关系</p>
 
   <div class="home-cards">
 
     <!-- 英雄 -->
     <a href="/heroes" class="home-card card-heroes">
       <div class="home-card-art">
-        <div class="card-art-badge">⚔</div>
-        <div class="card-art-icon">🛡</div>
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/lich.png" alt="巫妖王">
       </div>
       <div class="home-card-body">
         <div class="home-card-title">英雄</div>
@@ -558,8 +624,7 @@ header nav .nav-sep {
     <!-- 物品 -->
     <a href="/items" class="home-card card-items">
       <div class="home-card-art">
-        <div class="card-art-badge">⚗</div>
-        <div class="card-art-icon">🧪</div>
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png" alt="骷髅王">
       </div>
       <div class="home-card-body">
         <div class="home-card-title">物品</div>
@@ -588,10 +653,7 @@ header nav .nav-sep {
     <!-- 图谱 -->
     <a href="/graph" class="home-card card-graph">
       <div class="home-card-art">
-        <div class="card-art-badge">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="#4a9eff"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
-        </div>
-        <div class="card-art-icon">🔗</div>
+        <img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/slardar.png" alt="斯拉达">
       </div>
       <div class="home-card-body">
         <div class="home-card-title">克制图谱</div>
@@ -620,9 +682,25 @@ header nav .nav-sep {
   </div>
 </div>
 
+<!-- 打赏区域 -->
+<div class="home-donate">
+  <div class="home-donate-inner">
+    <div class="home-donate-text">
+      <div class="home-donate-title">喜欢这个网站？</div>
+      <p class="home-donate-desc">
+        如果这个网站对你有帮助，欢迎扫码请我喝杯咖啡 ☕<br>
+        你的支持是我持续更新数据、优化功能的动力！
+      </p>
+    </div>
+    <div class="home-donate-qr">
+      <img src="/static/money.jpg" alt="打赏二维码">
+      <div class="home-donate-qr-label">微信扫码打赏</div>
+    </div>
+  </div>
+</div>
+
 <div class="home-footer">
-  数据来源于 DOTA2 官方 &nbsp;·&nbsp; 仅供学习参考 &nbsp;·&nbsp;
-  <a href="https://github.com/hanyang030/dota2" target="_blank">GitHub</a>
+  数据来源于 DOTA2 官方 &nbsp;·&nbsp; 仅供学习参考 &nbsp;
 </div>
 
 <script>

@@ -2550,6 +2550,69 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
   display: none;
   box-shadow: 0 4px 20px rgba(0,0,0,.6);
 }
+
+/* ── 汉堡菜单 ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  margin-left: auto;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: #9aa3b5;
+  border-radius: 2px;
+  transition: all .2s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 移动端响应式 ── */
+@media (max-width: 768px) {
+  header { padding: 0 16px; }
+  header .logo { margin-right: 0; font-size: 15px; }
+  header .logo-icon { width: 26px; height: 26px; }
+  .nav-toggle { display: flex; }
+  .version-badge { display: none; }
+
+  header nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #0e1015;
+    border-bottom: 1px solid #1e2230;
+    flex-direction: column;
+    height: auto;
+    z-index: 200;
+  }
+  header nav.open { display: flex; }
+  header nav .nav-sep { display: none; }
+  header nav a {
+    padding: 14px 20px;
+    height: auto;
+    border-bottom: 1px solid #1a1f2c;
+    border-left: 3px solid transparent;
+  }
+  header nav a.active { border-left-color: #e8471a; border-bottom-color: #1a1f2c; }
+
+  .graph-picker-bar { flex-direction: column; align-items: stretch; padding: 12px; gap: 10px; }
+  .graph-hero-picker { flex-wrap: wrap; }
+  .graph-split { flex-direction: column !important; }
+  .graph-panel { height: 50vh !important; }
+  .graph-controls { flex-wrap: wrap; gap: 6px; }
+}
 </style>
 </head>
 <body>
@@ -2591,6 +2654,9 @@ main { padding: 0 32px 48px; max-width: 1400px; margin: 0 auto; }
   </nav>
   <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
   <input type="text" id="searchInput" style="display:none">
+  <button class="nav-toggle" id="navToggle" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 <!-- 克制图谱页 -->
 <div id="graphView">
@@ -4338,6 +4404,18 @@ function graphReset() {
 
 loadData();
 
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  mainNav.classList.toggle('open');
+});
+document.addEventListener('click', e => {
+  if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+    navToggle.classList.remove('open');
+    mainNav.classList.remove('open');
+  }
+});
 </script>
 <div class="counter-tooltip" id="counterTooltip"></div>
 <div class="synergy-tooltip" id="synergyTooltip"></div>

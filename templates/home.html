@@ -494,6 +494,85 @@ header nav .nav-sep {
 }
 .home-footer a { color: #6b7590; text-decoration: none; }
 .home-footer a:hover { color: #9aa3b5; }
+
+/* ── 汉堡菜单 ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: #9aa3b5;
+  border-radius: 2px;
+  transition: all .2s;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── 移动端响应式 ── */
+@media (max-width: 768px) {
+  /* 导航 */
+  header { padding: 0 16px; }
+  header .logo { margin-right: 0; font-size: 15px; }
+  header .logo-icon { width: 26px; height: 26px; }
+  .nav-toggle { display: flex; }
+  .version-badge { display: none; }
+
+  header nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #0e1015;
+    border-bottom: 1px solid #1e2230;
+    flex-direction: column;
+    height: auto;
+    z-index: 200;
+  }
+  header nav.open { display: flex; }
+  header nav .nav-sep { display: none; }
+  header nav a {
+    padding: 14px 20px;
+    height: auto;
+    border-bottom: 1px solid #1a1f2c;
+    border-left: 3px solid transparent;
+  }
+  header nav a.active { border-left-color: #e8471a; border-bottom-color: #1a1f2c; }
+
+  /* Banner */
+  .home-hero { padding: 48px 20px 56px; }
+  .home-title { font-size: 36px; letter-spacing: -1px; }
+  .home-subtitle { font-size: 14px; }
+  .home-cta-row { flex-direction: column; align-items: center; gap: 10px; }
+  .home-cta-btn { width: 100%; max-width: 280px; justify-content: center; }
+  .home-stats-row { gap: 8px; }
+  .home-stat { min-width: 80px; }
+  .home-stat-num { font-size: 24px; }
+
+  /* Feature Cards */
+  .home-features { padding: 40px 16px 56px; }
+  .home-section-title { font-size: 28px; letter-spacing: -0.5px; }
+  .home-cards { grid-template-columns: 1fr; gap: 16px; }
+
+  /* 打赏 */
+  .home-donate { padding: 40px 16px; }
+  .home-donate-inner { flex-direction: column; align-items: center; gap: 28px; }
+  .home-donate-text { text-align: center; }
+  .home-donate-qr img { width: 220px; height: 220px; }
+
+  /* Footer */
+  .home-footer { padding: 20px 16px; }
+}
 </style>
 </head>
 <body>
@@ -529,6 +608,9 @@ header nav .nav-sep {
     </a>
   </nav>
   <div class="version-badge" id="versionBadge">版本 <span>...</span></div>
+  <button class="nav-toggle" id="navToggle" aria-label="菜单">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
 <!-- Hero Banner -->
@@ -725,6 +807,19 @@ async function loadHomeStats() {
   }
 }
 loadHomeStats();
+
+const navToggle = document.getElementById('navToggle');
+const mainNav = document.getElementById('mainNav');
+navToggle.addEventListener('click', () => {
+  navToggle.classList.toggle('open');
+  mainNav.classList.toggle('open');
+});
+document.addEventListener('click', e => {
+  if (!navToggle.contains(e.target) && !mainNav.contains(e.target)) {
+    navToggle.classList.remove('open');
+    mainNav.classList.remove('open');
+  }
+});
 </script>
 
 </body>
